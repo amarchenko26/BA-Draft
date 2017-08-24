@@ -1,0 +1,54 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{longtable}{l*{1}{c}}
+\caption{Robustness check with controls from Edelman \& Luca (2014), data from NYC}\\
+\hline\hline\endfirsthead\hline\endhead\hline\endfoot\endlastfoot
+                    &\multicolumn{1}{c}{(1)}\\
+                    &\multicolumn{1}{c}{Price per night}\\
+\hline
+Black               &      -18.11\sym{***}\\
+                    &     (1.813)         \\
+[1em]
+Accommodates        &       12.84\sym{***}\\
+                    &     (0.488)         \\
+[1em]
+Bedrooms            &       33.60\sym{***}\\
+                    &     (1.227)         \\
+[1em]
+Review Scores Location&      -74.66\sym{***}\\
+                    &     (7.363)         \\
+[1em]
+Review Scores Location Squared           &       5.407\sym{***}\\
+                    &     (0.421)         \\
+[1em]
+Review Scores Checkin&      -1.268         \\
+                    &     (1.157)         \\
+[1em]
+Review Scores Communication&      -1.226         \\
+                    &     (1.218)         \\
+[1em]
+Review Scores Cleanliness&       3.454\sym{***}\\
+                    &     (0.706)         \\
+[1em]
+Review Scores Accuracy&      -1.479         \\
+                    &     (0.973)         \\
+[1em]
+Host verified &       1.945         \\
+                    &     (1.357)         \\
+[1em]
+Private room        &      -71.14\sym{***}\\
+                    &     (1.400)         \\
+[1em]
+Shared room         &      -102.8\sym{***}\\
+                    &     (3.109)         \\
+\hline
+Observations        &       11999         \\
+Adjusted \(R^{2}\)  &       0.526         \\
+\hline\hline
+\multicolumn{2}{l}{\footnotesize Standard errors in parentheses}\\
+\multicolumn{2}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
+\caption*{\footnotesize Notes: This table presents the effect on price of controlling for Edelman \& Luca's (2014) full specification using my NYC data. My results are nearly identical to theirs (their coefficient on Black hosts was -17.8) when controlling for similar covariates in the same city. The omitted category for race is White hosts. The omitted category for room type is Entire Apartment. I could not control for host social media accounts as a proxy for host reliability like Edelman \& Luca did, because Airbnb no longer provides this information. Instead, I controlled for ``host verified", a boolean for whether Airbnb has the host's phone number and email. I was not able to control for ``picture quality" either, but picture quality did not significantly influence price in Edelman \& Luca's regression.}\\
+\end{longtable}
+}
+
+

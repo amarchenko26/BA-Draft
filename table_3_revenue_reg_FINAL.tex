@@ -1,0 +1,89 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{longtable}{l*{4}{c}}
+\caption{Estimates of effect of host's demographics on host revenue}\\
+\hline\hline\endfirsthead\hline\endhead\hline\endfoot\endlastfoot
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
+                    &\multicolumn{1}{c}{Model 1}&\multicolumn{1}{c}{Model 2}&\multicolumn{1}{c}{Model 3}&\multicolumn{1}{c}{Model 4}\\
+\hline
+
+White Female        &      -252.9\sym{*}  &      -205.9\sym{*}  &      -293.0\sym{***}&      -253.7\sym{***}\\
+                    &     (102.4)         &     (86.89)         &     (67.43)         &     (66.73)         \\
+[1em]
+White, 2 people    &       297.1         &       279.0\sym{**} &       62.77         &      -28.19         \\
+                    &     (156.6)         &     (101.0)         &     (81.52)         &     (78.02)         \\
+[1em]
+Black Male          &      -335.5         &      -239.3         &      -286.7\sym{***}&      -189.3\sym{*}  \\
+                    &     (257.7)         &     (129.1)         &     (83.96)         &     (83.74)         \\
+[1em]
+Black Female        &      -363.6         &      -156.5         &      -324.3\sym{***}&      -275.2\sym{***}\\
+                    &     (230.7)         &     (135.3)         &     (86.46)         &     (83.05)         \\
+[1em]
+Black, 2 people    &       347.8         &       427.8\sym{*}  &       43.97         &      -65.77         \\
+                    &     (421.0)         &     (200.6)         &     (126.2)         &     (110.8)         \\
+[1em]
+Hispanic Male       &      -951.0\sym{***}&      -534.5\sym{***}&      -255.1\sym{*}  &      -174.5         \\
+                    &     (165.6)         &     (157.6)         &     (119.6)         &     (115.8)         \\
+[1em]
+Hispanic Female     &      -920.1\sym{***}&      -438.4\sym{**} &      -227.5         &      -154.8         \\
+                    &     (159.3)         &     (138.0)         &     (121.6)         &     (117.4)         \\
+[1em]
+Hispanic, 2 people &     -1007.4\sym{***}&      -485.1\sym{*}  &      -156.9         &      -222.5         \\
+                    &     (244.4)         &     (220.6)         &     (169.9)         &     (170.3)         \\
+[1em]
+Asian Male          &      -486.6\sym{*}  &      -293.6         &      -205.7         &      -145.5         \\
+                    &     (202.5)         &     (151.6)         &     (110.3)         &     (106.8)         \\
+[1em]
+Asian Female        &      -488.1\sym{*}  &      -246.4         &      -352.1\sym{**} &      -230.7\sym{*}  \\
+                    &     (197.9)         &     (135.0)         &     (109.0)         &     (105.3)         \\
+[1em]
+Asian, 2 people    &      -340.9         &       63.30         &      -140.6         &      -133.1         \\
+                    &     (220.5)         &     (200.4)         &     (157.2)         &     (161.0)         \\
+[1em]
+Unknown             &      -464.3\sym{**} &       93.43         &      -40.66         &      -43.66         \\
+                    &     (168.1)         &     (128.7)         &     (97.26)         &     (97.20)         \\
+[1em]
+Age: Middle-aged         &       595.4\sym{***}&       752.6\sym{***}&      -26.49         &      -131.8\sym{**} \\
+                    &     (85.63)         &     (72.91)         &     (42.33)         &     (40.33)         \\
+[1em]
+Age: Old           &      1641.8\sym{***}&      1839.1\sym{***}&       160.6         &      -95.96         \\
+                    &     (241.6)         &     (225.4)         &     (155.0)         &     (142.8)         \\
+[1em]
+Neighborhood FE        &           No          &           Yes         &           Yes         &           Yes         \\
+[1em]
+City FE       &          No           &       Yes         &       Yes &     Yes \\
+[1em]
+Property type FE           &            No         &         No            &           Yes         &           Yes         \\
+[1em]
+Bath/bedrooms/beds/amenities        &        No             &            No         &       Yes&       Yes\\
+[1em]
+Additional fees        &           No          &           No          &      Yes &      Yes\\
+[1em]
+Time of first review &           No          &         No            &           Yes         &           Yes         \\
+[1em]
+Cancellation policy &          No           &         No            &      Yes &      Yes  \\
+[1em]
+Guest verifications required &           No          &          No           &      Yes &      Yes\\
+[1em]
+Minimum Nights      &           No          &            No         &      Yes &      Yes\\
+[1em]
+Availability     &          No           &          No           &      Yes &      Yes\\
+[1em]
+Measures of host effort &           No          &            No         &           No          &      Yes         \\
+[1em]
+Host response time/rate&           No          &          No           &          No           &       Yes         \\
+[1em]
+Superhost, T/F&           No          &          No           &         No            &      Yes\\
+[1em]
+Constant            &      2220.6\sym{***}&      4162.0\sym{***}&     15755.4\sym{***}&     15519.3\sym{***}\\
+                    &     (155.8)         &     (84.03)         &    (1552.7)         &    (1704.9)         \\
+\hline
+Observations        &       64599         &       64596         &       64596         &       64596         \\
+Adjusted \(R^{2}\)  &       0.010         &       0.071         &       0.379         &       0.416         \\
+\hline\hline
+\multicolumn{5}{l}{\footnotesize Standard errors in parentheses}\\
+\multicolumn{5}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
+\multicolumn{5}{l}{\footnotesize Omitted category for host's race and sex is White Males. Omitted category for Age is Young ($<$ 30)}\\
+\end{longtable}
+
+

@@ -1,0 +1,45 @@
+\begin{sidewaystable}
+
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{longtable}{l*{8}{c}}
+\caption{Estimates of effect of host demographics on review sentiment, by reviewer demographics}\\
+\hline\hline\endfirsthead\hline\endhead\hline\endfoot\endlastfoot
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}&\multicolumn{1}{c}{(7)}&\multicolumn{1}{c}{(8)}\\
+                    &\multicolumn{1}{c}{White M Rev.}&\multicolumn{1}{c}{White F Rev.}&\multicolumn{1}{c}{Black M Rev.}&\multicolumn{1}{c}{Black F Rev.}&\multicolumn{1}{c}{Hisp. M Rev.}&\multicolumn{1}{c}{Hisp. F Rev.}&\multicolumn{1}{c}{Asian M Rev.}&\multicolumn{1}{c}{Asian F Rev.}\\
+\hline
+White Male          &           0         &           0         &           0         &           0         &           0         &           0         &           0         &           0         \\
+                    &         (.)         &         (.)         &         (.)         &         (.)         &         (.)         &         (.)         &         (.)         &         (.)         \\
+[1em]
+White Female        &     -0.0280         &      0.0871         &       1.034\sym{*}  &      -0.277         &       0.189         &      0.0536         &       0.132         &      0.0961         \\
+                    &    (0.0716)         &    (0.0484)         &     (0.454)         &     (0.283)         &     (0.326)         &     (0.202)         &     (0.126)         &     (0.111)         \\
+[1em]
+Black Male          &      0.0490         &      0.0513         &       2.389         &     -0.0865         &       1.267         &      -3.605\sym{**} &       0.323         &      -1.272\sym{***}\\
+                    &     (0.228)         &     (0.329)         &     (1.409)         &     (1.079)         &     (0.819)         &     (1.136)         &     (0.365)         &     (0.267)         \\
+[1em]
+Black Female        &      -0.118         &      0.0165         &      -2.719\sym{**} &     -0.0154         &       0.232         &     -0.0402         &       0.968\sym{***}&      -0.370         \\
+                    &     (0.160)         &     (0.103)         &     (0.916)         &     (0.666)         &     (0.548)         &     (0.743)         &     (0.249)         &     (0.205)         \\
+[1em]
+Hispanic Male       &     0.00202         &       0.109         &      -0.345         &       0.852         &      -0.459         &      -0.521         &     -0.0522         &      0.0696         \\
+                    &    (0.0956)         &     (0.126)         &     (0.905)         &     (0.616)         &     (0.573)         &     (0.906)         &     (0.198)         &     (0.287)         \\
+[1em]
+Hispanic Female     &      0.0442         &     -0.0668         &       4.569\sym{*}  &      -0.867         &      -1.141         &       1.364\sym{**} &      0.0841         &      -0.146         \\
+                    &     (0.325)         &    (0.0823)         &     (1.819)         &     (2.900)         &     (0.823)         &     (0.485)         &     (0.192)         &     (0.464)         \\
+[1em]
+Asian Male          &      -0.270         &      -0.185         &       3.609\sym{***}&       0.373         &     -0.0566         &      -1.121         &       0.741\sym{**} &       0.229         \\
+                    &     (0.235)         &     (0.167)         &     (0.546)         &     (0.819)         &     (1.064)         &     (1.815)         &     (0.251)         &     (0.273)         \\
+[1em]
+Asian Female        &      -0.163         &      -0.135         &       7.498\sym{***}&       0.946         &      -0.633         &      -0.573         &      0.0775         &      -0.397         \\
+                    &     (0.159)         &     (0.127)         &     (1.754)         &     (0.603)         &     (0.958)         &     (0.523)         &     (0.227)         &     (0.310)         \\
+\hline
+Observations        &        2690         &        2557         &         124         &         171         &         201         &         145         &         487         &         537         \\
+Adjusted \(R^{2}\)  &       0.007         &       0.001         &       0.271         &       0.194         &       0.102         &       0.136         &       0.021         &      -0.006         \\
+\hline\hline
+\multicolumn{9}{l}{\footnotesize Standard errors in parentheses}\\
+\multicolumn{9}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
+\caption*{Notes: This table measures the quality of a review that reviewers (each column represents a type of reviewer) leave for hosts (each row is a different type of host) in Chicago. The outcome variable is the sentiment of the review. Each coefficient is the standardized sentiment of a review (standardized with a mean 0 and a standard deviation of 1). Review sentiment was coded by an R script, SentimentR, and measures how positive or negative the review is. Reviews that are numerically positive are of positive sentiment and numerically negative are negative sentiment, relative to the mean sentiment score for each host type. The demographics of the reviewers are the columns (Male is ``M", Female is ``F"), and the demographics of the host are the rows. The unit of observation is a single review. The data is a subsample of the Chicago hosts and their reviewers. I control for my preferred specification throughout (referred to as Model 4 in Table 3) that includes host demographics, listing location, listing characteristics, and host characteristics. See Section 3.1 for a full discussion of the covariates included.}
+\end{longtable}
+}
+
+\end{sidewaystable}
+

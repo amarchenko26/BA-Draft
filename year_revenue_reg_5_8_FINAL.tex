@@ -1,0 +1,52 @@
+%  8 May 2017 23:05:33
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{longtable}{l*{4}{c}}
+\caption{Estimates of effect of host's race and gender on yearly revenue}\\
+\hline\hline\endfirsthead\hline\endhead\hline\endfoot\endlastfoot
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
+                    &\multicolumn{1}{c}{Model 1}&\multicolumn{1}{c}{Model 2}&\multicolumn{1}{c}{Model 3}&\multicolumn{1}{c}{Model 4}\\
+\hline
+White Male          &           0         &           0         &           0         &           0         \\
+                    &         (.)         &         (.)         &         (.)         &         (.)         \\
+[1em]
+White Female        &      -199.0\sym{***}&      -156.4\sym{***}&      -151.9\sym{***}&      -144.1\sym{***}\\
+                    &     (48.54)         &     (46.80)         &     (39.72)         &     (40.63)         \\
+[1em]
+Black Male          &      -655.0\sym{***}&      -329.5\sym{***}&      -261.8\sym{***}&      -182.9\sym{**} \\
+                    &     (98.27)         &     (96.16)         &     (59.77)         &     (59.93)         \\
+[1em]
+Black Female        &      -814.7\sym{***}&      -365.0\sym{***}&      -319.5\sym{***}&      -298.3\sym{***}\\
+                    &     (96.68)         &     (78.69)         &     (51.94)         &     (46.80)         \\
+[1em]
+Hispanic Male       &      -209.0         &      -44.58         &      -25.42         &      -6.391         \\
+                    &     (112.5)         &     (97.48)         &     (88.24)         &     (83.84)         \\
+[1em]
+Hispanic Female     &      -280.8\sym{*}  &      -79.78         &      -119.0         &      -68.88         \\
+                    &     (140.1)         &     (120.7)         &     (108.2)         &     (104.6)         \\
+[1em]
+Asian Male          &      -360.5\sym{**} &      -95.77         &      -15.85         &      -22.78         \\
+                    &     (129.4)         &     (115.4)         &     (88.42)         &     (84.11)         \\
+[1em]
+Asian Female        &      -676.6\sym{***}&      -329.2\sym{***}&      -183.6\sym{**} &      -162.6\sym{**} \\
+                    &     (98.12)         &     (74.93)         &     (62.31)         &     (60.08)         \\
+[1em]
+Middle-aged         &       18.31         &       98.64\sym{*}  &      -33.37         &      -121.1\sym{***}\\
+                    &     (55.99)         &     (44.60)         &     (36.71)         &     (36.42)         \\
+[1em]
+Old ($>$ 65)                 &       222.9         &       249.5         &      -73.13         &      -266.0\sym{*}  \\
+                    &     (158.6)         &     (135.3)         &     (113.0)         &     (112.5)         \\
+[1em]
+Constant            &      2301.2\sym{***}&      2384.3\sym{***}&      2009.5\sym{***}&       758.0\sym{**} \\
+                    &     (109.2)         &     (42.90)         &     (187.8)         &     (235.3)         \\
+\hline
+Observations        &       45072         &       45072         &       45072         &       45072         \\
+Adjusted \(R^{2}\)  &       0.006         &       0.082         &       0.350         &       0.401         \\
+\hline\hline
+\multicolumn{5}{l}{\footnotesize Standard errors in parentheses}\\
+\multicolumn{5}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
+\caption*{Notes: The dependent variable is a constructed measure of yearly host revenue, as measured by (price * number of reviews per month * 12) for each listing. The omitted category for race is White Males, so all coefficients are relative to that group. The omitted category for age is ``Young ($<$ 30)". The unit of observation is an Airbnb listing, so hosts who have multiple listings are treated separately each time. The sample is the full sample of listings across 7 US cities. The specification is the same as Table 4. See Section 3.1 for a discussion of my covariates. }
+\end{longtable}
+}
+
+

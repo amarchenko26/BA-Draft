@@ -1,0 +1,35 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{longtable}{l*{8}{c}}
+\caption{Robustness checks by listing characteristics}\\
+\hline\hline\endfirsthead\hline\endhead\hline\endfoot\endlastfoot
+
+ 
+                    &\multicolumn{1}{c}{Price}&\multicolumn{1}{c}{}&\multicolumn{1}{c}{}&\multicolumn{1}{c}{Time on market}&\multicolumn{1}{c}{}&\multicolumn{1}{c}{Property type}&\multicolumn{1}{c}{}&\multicolumn{1}{c}{}\\
+\hline                    
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}&\multicolumn{1}{c}{(7)}&\multicolumn{1}{c}{(8)}\\
+                    &\multicolumn{1}{c}{Low \$}&\multicolumn{1}{c}{Middle \$}&\multicolumn{1}{c}{High \$}&\multicolumn{1}{c}{Newer}&\multicolumn{1}{c}{Older}&\multicolumn{1}{c}{Apt}&\multicolumn{1}{c}{Condo}&\multicolumn{1}{c}{House}\\
+\hline
+White               &           0         &           0         &           0         &           0         &           0         &           0         &           0         &           0         \\
+                    &         (.)         &         (.)         &         (.)         &         (.)         &         (.)         &         (.)         &         (.)         &         (.)         \\
+[1em]
+Black               &      -1.331\sym{*}  &      -7.864\sym{*}  &      -157.7         &      -2.970         &      -9.166\sym{***}&      -3.230         &      -3.464         &      -17.94         \\
+                    &     (0.532)         &     (3.474)         &     (714.0)         &     (7.845)         &     (2.086)         &     (2.841)         &     (12.26)         &     (13.83)         \\
+[1em]
+Hispanic            &      -1.575\sym{**} &      -4.438         &      -348.0\sym{*}  &       5.705         &       3.479         &      -4.974\sym{*}  &      -21.89         &       7.462         \\
+                    &     (0.524)         &     (3.162)         &     (175.3)         &     (7.999)         &     (3.622)         &     (1.956)         &     (12.21)         &     (12.97)         \\
+[1em]
+Asian               &      -2.364\sym{***}&      -12.02\sym{***}&       35.57         &      -9.516\sym{**} &      -3.210         &      -5.064         &      -28.26\sym{*}  &      -23.42\sym{***}\\
+                    &     (0.538)         &     (2.835)         &     (361.3)         &     (3.365)         &     (4.201)         &     (3.654)         &     (11.99)         &     (6.823)         \\
+\hline
+Observations        &       29662         &       15315         &         703         &        9959         &       26101         &       28545         &        1868         &       14016         \\
+Adjusted \(R^{2}\)  &       0.530         &       0.460         &       0.187         &       0.536         &       0.484         &       0.296         &       0.418         &       0.432         \\
+\hline\hline
+\multicolumn{9}{l}{\footnotesize Standard errors in parentheses}\\
+\multicolumn{9}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
+\caption {I break down my combined data by price, time on market, and property type. The categories, from left to right, are: listings whose price is below vs. above the mean price of \$147 and whose prices are above \$800, the price originally dropped, listings who have have been on the market for no more than 2 years vs. no more than 8 years, and listings of different property types, including apartments (includes apartments and lofts), condos (includes condos and townhouse), and houses. I control for my preferred specification throughout. The outcome variable is price of the listing.}
+
+\end{longtable}
+}
+
+

@@ -1,0 +1,16 @@
+*.dta
+*.log
+*.pdf
+*.aux
+*.synctex.gz
+*.lot
+*.gz
+*.aux*.pdf
+*.log
+*.Rout
+*.Rdata
+*.png
+# .lof is a list of figures
+*.lof
+*.docx
+*.doc

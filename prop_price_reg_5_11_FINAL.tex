@@ -1,0 +1,34 @@
+% 11 May 2017 11:17:36
+\begin{sidewaystable}
+
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{longtable}{l*{9}{c}}
+\caption{Robustness checks by listing characteristics}\\
+\hline\hline\endfirsthead\hline\endhead\hline\endfoot\endlastfoot
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}&\multicolumn{1}{c}{(7)}&\multicolumn{1}{c}{(8)}&\multicolumn{1}{c}{(9)}\\
+                    &\multicolumn{1}{c}{Low \$ LA}&\multicolumn{1}{c}{High \$ LA}&\multicolumn{1}{c}{Low \$ NYC}&\multicolumn{1}{c}{High \$ NYC}&\multicolumn{1}{c}{Older listings}&\multicolumn{1}{c}{Newer listings}&\multicolumn{1}{c}{Apartment}&\multicolumn{1}{c}{Condo}&\multicolumn{1}{c}{House}\\
+\hline
+White               &           0         &           0         &           0         &           0         &           0         &           0         &           0         &           0         &           0         \\
+                    &         (.)         &         (.)         &         (.)         &         (.)         &         (.)         &         (.)         &         (.)         &         (.)         &         (.)         \\
+[1em]
+Black               &      -2.241         &      -12.05         &       0.499         &      -10.27\sym{**} &      -8.925\sym{***}&      -7.256\sym{***}&      -4.875\sym{***}&      -7.660         &      -11.74\sym{**} \\
+                    &     (1.834)         &     (6.999)         &     (1.110)         &     (3.753)         &     (2.156)         &     (1.363)         &     (1.438)         &     (7.996)         &     (3.693)         \\
+[1em]
+Hispanic            &      -3.345\sym{**} &      -14.91\sym{*}  &      -1.307         &       0.286         &      -3.783         &      -3.089         &      -2.881         &      -8.052         &      -6.157         \\
+                    &     (1.140)         &     (6.929)         &     (1.792)         &     (4.032)         &     (3.207)         &     (1.725)         &     (1.528)         &     (9.087)         &     (3.866)         \\
+[1em]
+Asian               &      -3.019\sym{**} &      -17.77\sym{**} &      -3.749\sym{*}  &      -8.495\sym{*}  &      -6.602\sym{**} &      -6.214\sym{***}&      -6.884\sym{***}&      -18.25\sym{*}  &      -6.895\sym{*}  \\
+                    &     (1.077)         &     (6.005)         &     (1.578)         &     (3.487)         &     (2.124)         &     (1.743)         &     (1.501)         &     (7.687)         &     (2.803)         \\
+\hline
+Observations        &       12357         &        4468         &        8383         &        6382         &        9847         &       25883         &       28410         &        1854         &       13510         \\
+Adjusted \(R^{2}\)  &       0.376         &       0.554         &       0.320         &       0.489         &       0.667         &       0.667         &       0.557         &       0.605         &       0.689         \\
+\hline\hline
+\multicolumn{10}{l}{\footnotesize Standard errors in parentheses}\\
+\multicolumn{10}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
+\caption*{Notes: I break down my combined data by price, time on market, and property type. The categories, from left to right, are: listings in Los Angeles and New York whose price is below vs. above the mean predicted price in those cities; listings in the entire data set which have been on the market for more than 2 years vs. less than 2 years; and listings of different property types, including apartments (includes apartments and lofts), condos (includes condos and townhouse), and houses. I do not break up data by high/low prices for the other cities in my data because smaller sample sizes lead to skewed and less informative coefficients in those cities. I control for my preferred specification throughout. The outcome variable is price of the listing.}\\
+\end{longtable}
+}
+
+\end{sidewaystable}
+

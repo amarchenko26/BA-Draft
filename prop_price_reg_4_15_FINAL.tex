@@ -1,0 +1,31 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{longtable}{l*{7}{c}}
+\caption{Robustness checks by listing characteristics}\\
+\hline\hline\endfirsthead\hline\endhead\hline\endfoot\endlastfoot
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}&\multicolumn{1}{c}{(7)}\\
+                    &\multicolumn{1}{c}{Low \$}&\multicolumn{1}{c}{High \$}&\multicolumn{1}{c}{Older}&\multicolumn{1}{c}{Newer}&\multicolumn{1}{c}{Apt}&\multicolumn{1}{c}{Condo}&\multicolumn{1}{c}{House}\\
+\hline
+White               &           0         &           0         &           0         &           0         &           0         &           0         &           0         \\
+                    &         (.)         &         (.)         &         (.)         &         (.)         &         (.)         &         (.)         &         (.)         \\
+[1em]
+Black               &      -1.331\sym{*}  &      -9.408\sym{**} &      -8.925\sym{***}&      -7.256\sym{***}&      -4.875\sym{***}&      -7.660         &      -11.74\sym{**} \\
+                    &     (0.532)         &     (3.450)         &     (2.156)         &     (1.363)         &     (1.438)         &     (7.996)         &     (3.693)         \\
+[1em]
+Hispanic            &      -1.575\sym{**} &      -4.217         &      -3.783         &      -3.089         &      -2.881         &      -8.052         &      -6.157         \\
+                    &     (0.524)         &     (3.467)         &     (3.207)         &     (1.725)         &     (1.528)         &     (9.087)         &     (3.866)         \\
+[1em]
+Asian               &      -2.364\sym{***}&      -12.95\sym{***}&      -6.602\sym{**} &      -6.214\sym{***}&      -6.884\sym{***}&      -18.25\sym{*}  &      -6.895\sym{*}  \\
+                    &     (0.538)         &     (2.976)         &     (2.124)         &     (1.743)         &     (1.501)         &     (7.687)         &     (2.803)         \\
+\hline
+Observations        &       29662         &       15393         &        9847         &       25883         &       28410         &        1854         &       13510         \\
+Adjusted \(R^{2}\)  &       0.530         &       0.463         &       0.667         &       0.667         &       0.557         &       0.605         &       0.689         \\
+\hline\hline
+\multicolumn{8}{l}{\footnotesize Standard errors in parentheses}\\
+\multicolumn{8}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
+\caption*{Notes:  The dependent variable is the price of a listing. This table breaks down the combined effects shown in the last column of Table 3 by various property characteristics such as price (columns 1 \& 2), time on market (columns 3 \& 4), and property type (columns 5, 6, \& 7). Specifically, the categories are: listings whose price is below the mean price (col. 1), listings above the mean price (col. 2), listings which have been on the market for 3-8 years (col. 3)., listings who have have been on the market for less than 2 years (col. 4), listings which are apartments and lofts (col. 5), condos and townhouses (col. 6), and houses (col. 7). The omitted category for race is White hosts, so all coefficients are relative to that group. For ease of reading, I did not include the gender of the host. I control for my preferred specification throughout (referred to as Model 4 in Table 3) that includes host demographics, listing location, listing characteristics, and host characteristics. See Section 3.1 for a full discussion of the covariates included. }
+
+\end{longtable}
+}
+
+

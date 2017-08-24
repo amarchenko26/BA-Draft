@@ -1,0 +1,30 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{longtable}{l*{7}{c}}
+\caption{Robustness checks by city}\\
+\hline\hline\endfirsthead\hline\endhead\hline\endfoot\endlastfoot
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}&\multicolumn{1}{c}{(7)}\\
+                    &\multicolumn{1}{c}{LA}&\multicolumn{1}{c}{NYC}&\multicolumn{1}{c}{Austin}&\multicolumn{1}{c}{Chicago}&\multicolumn{1}{c}{New Orleans}&\multicolumn{1}{c}{DC}&\multicolumn{1}{c}{Nashville}\\
+\hline
+White               &           0         &           0         &           0         &           0         &           0         &           0         &           0         \\
+                    &         (.)         &         (.)         &         (.)         &         (.)         &         (.)         &         (.)         &         (.)         \\
+[1em]
+Black               &      -5.156\sym{*}  &      -3.977\sym{*}  &      -6.284         &      -2.942         &      -18.45\sym{*}  &      -7.426         &      -4.754         \\
+                    &     (2.144)         &     (1.692)         &     (10.75)         &     (3.181)         &     (8.203)         &     (4.872)         &     (8.193)         \\
+[1em]
+Hispanic            &      -5.621\sym{*}  &      -1.246         &       0.877         &      -0.807         &       4.109         &       3.264         &      -38.58\sym{***}\\
+                    &     (2.197)         &     (1.937)         &     (5.212)         &     (5.180)         &     (10.77)         &     (4.739)         &     (9.458)         \\
+[1em]
+Asian               &      -5.585\sym{**} &      -5.975\sym{**} &      -27.66\sym{***}&      -17.64\sym{***}&       3.805         &      -5.880         &       10.50         \\
+                    &     (1.785)         &     (2.043)         &     (7.763)         &     (4.353)         &     (13.36)         &     (3.131)         &     (21.29)         \\
+\hline
+Observations        &       16825         &       14765         &        3636         &        3255         &        2563         &        2285         &        1747         \\
+Adjusted \(R^{2}\)  &       0.684         &       0.616         &       0.611         &       0.613         &       0.568         &       0.586         &       0.670         \\
+\hline\hline
+\multicolumn{8}{l}{\footnotesize Standard errors in parentheses}\\
+\multicolumn{8}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
+\caption*{Notes: The dependent variable is the price of a listing. This table breaks down the combined effects shown in the last column of Table 3 by city. The omitted category for race is White hosts, so all coefficients are relative to that group. For ease of reading, I did not include the gender of the host. I control for my preferred specification (referred to as Model 4 in Table 3) that includes host demographics, listing location, listing characteristics, and host characteristics. See Section 3.1 for a full discussion of the covariates included. Low number of observations for Black, Hispanic, and Asian hosts contribute to imprecise estimates in cities with less than 5,000 Airbnb hosts (New Orleans and Nashville have less than 100 Hispanic and Asian hosts, DC and Austin have less than 200 Hispanic and Asian hosts).}
+\end{longtable}
+}
+
+

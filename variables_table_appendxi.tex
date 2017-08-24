@@ -1,0 +1,91 @@
+\documentclass[11pt, oneside]{article}   	
+\usepackage[margin = 1 in]{geometry}                		
+\geometry{letterpaper}                   		
+%\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}				
+\usepackage{setspace}								
+\usepackage{amssymb}
+\doublespacing
+%\geometry{footnotesep=2\baselineskip}
+\usepackage{longtable}
+\usepackage{caption} %Put caption* in a table to remove the enumeration
+\usepackage{rotating} % To rotate the reviewer table
+\usepackage[numbers]{natbib}   %activates bibliography
+\usepackage [english]{babel} %something for bibliography
+\usepackage{verbatim} %to be able to use \begin{comment}
+
+\usepackage{float} %fuck does this do
+\begin{document}
+
+
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{longtable}{l*{1}{c}}
+\caption{testing}\\
+\hline\hline\endfirsthead\hline\endhead\hline\endfoot\endlastfoot
+
+\hline
+
+Price (including per day \& per month price) \\
+[1em]
+Location (Includes the city, the neighborhood, and also as a latitude/longitude) \\
+[1em]
+Text of host-written summary of listing \\
+\hline\hline
+Host-specific characteristics \\
+[1em]
+Host picture\\ 
+[1em]
+Host name\\
+[1em]
+Host availability out of 30 and 60 days\\
+[1em]
+Number of listings owned by host\\
+[1em]
+Response rate\\
+[1em]
+Acceptance rate\\
+[1em]
+Whether the host is a Superhost \\
+[1em]
+Host cancellation policy\\
+[1em]
+Whether host identity is verified \\
+
+\hline\hline
+Listing-specific characteristics \\
+\hline
+Number of bedrooms and bathrooms \\
+[1em]
+Square-feet \\
+[1em]
+Type of property (apartment, house, igloo)\\
+[1em]
+Bed type (couch, full bed)\\
+[1em]
+List of amenities (shampoo, TV, etc)\\
+[1em]
+Extra fees (Cleaning fees, fees for extra people) \\
+
+\hline\hline
+Review Information \\
+\hline
+Text of all reviews \\
+[1em]
+Numerical review score \\
+[1em]
+Total number of reviews \\
+[1em]
+Picture of each reviewer \\
+[1em]
+Date of first review and last review \\
+
+\hline\hline
+\caption*{crap}
+
+
+
+\end{longtable}
+}
+
+\end{document}

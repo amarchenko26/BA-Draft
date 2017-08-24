@@ -1,0 +1,64 @@
+\documentclass[11pt, oneside]{article}   	
+\usepackage[margin = 1 in]{geometry}                		
+\geometry{letterpaper}                   		
+%\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}				
+\usepackage{setspace}								
+\usepackage{amssymb}
+\doublespacing
+\geometry{footnotesep=2\baselineskip}
+\usepackage{longtable}
+\usepackage{caption} %Put caption* in a table to remove the enumeration
+\usepackage{rotating} % To rotate the reviewer table
+
+\usepackage{float}
+\begin{document}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%% Tables
+\singlespacing
+
+% Table 1: Coding keys                            DONE
+% Table 2: host demographics by city??
+% Table 3: Summary table                        ???
+
+% Table 4: **MAIN table** effect on price  DONE
+% Table 5: Effect on number of reviews    DONE
+% Table 6: effect on revenue                     DONE
+
+% Table 7: Effect on reviewer sentiment
+
+% Table 7: Robustness by city                   DONE
+% Table 8: Robustness by property chars. DONE
+% Table 9: Robustness by host characteristics 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\listoftables
+%% Table 1
+\include{table_1_coding_keys}
+%% Table 2
+\include{summary_table_FINAL}
+
+%% Table 4
+\include{price_reg_4_14_FINAL}
+
+%% Table 5
+\include{numrev_reg_4_14_FINAL}
+
+%% Table 6 
+\include{revenue_reg_4_14_FINAL}
+
+% Table 3
+\include{reviewer_mean_reg_FINAL}
+
+%% Table 7
+\include{city_price_reg_4_15_FINAL}
+
+% Table 8
+\include{prop_price_reg_4_15_FINAL}
+
+
+
+\end{document}  

@@ -1,0 +1,42 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{longtable}{l*{1}{c}}
+\caption{Effect of host's race on listing availability out of 30 days}\\
+\hline\hline\endfirsthead\hline\endhead\hline\endfoot\endlastfoot
+                    &\multicolumn{1}{c}{(1)}\\
+                    &\multicolumn{1}{c}{Number of vacant days out of 30}\\
+\hline
+White Male          &           0         \\
+                    &         (.)         \\
+[1em]
+White Female        &      -0.861\sym{***}\\
+                    &     (0.114)         \\
+[1em]
+Black Male          &       2.317\sym{***}\\
+                    &     (0.308)         \\
+[1em]
+Black Female        &       1.785\sym{***}\\
+                    &     (0.277)         \\
+[1em]
+Hispanic Male       &      -0.154         \\
+                    &     (0.331)         \\
+[1em]
+Hispanic Female     &     -0.0906         \\
+                    &     (0.341)         \\
+[1em]
+Asian Male          &      -0.195         \\
+                    &     (0.299)         \\
+[1em]
+Asian Female        &      -1.191\sym{***}\\
+                    &     (0.259)         \\
+\hline
+Observations        &       45779         \\
+Adjusted \(R^{2}\)  &       0.215         \\
+\hline\hline
+\multicolumn{2}{l}{\footnotesize Standard errors in parentheses}\\
+\multicolumn{2}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
+\caption*{Notes: This table presents the effect of host race on listing availability out of 30 days, controlling for my preferred specification in Table 3, Model 4. When a listing is booked, this availability metric is updated on the Airbnb website to reflect that booking. Therefore, this measure actually represents the number of days out of the total available days that listings were vacant, relative to a White male host.}\\
+\end{longtable}
+}
+
+

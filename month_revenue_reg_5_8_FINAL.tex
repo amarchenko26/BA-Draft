@@ -1,0 +1,50 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{longtable}{l*{4}{c}}
+\caption{Estimates of effect of host's race and gender on monthly revenue}\\
+\hline\hline\endfirsthead\hline\endhead\hline\endfoot\endlastfoot
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
+                    &\multicolumn{1}{c}{Model 1}&\multicolumn{1}{c}{Model 2}&\multicolumn{1}{c}{Model 3}&\multicolumn{1}{c}{Model 4}\\
+\hline
+White Male          &           0         &           0         &           0         &           0         \\
+                    &         (.)         &         (.)         &         (.)         &         (.)         \\
+[1em]
+White Female        &      -16.58\sym{***}&      -13.03\sym{***}&      -12.66\sym{***}&      -12.01\sym{***}\\
+                    &     (4.045)         &     (3.900)         &     (3.310)         &     (3.385)         \\
+[1em]
+Black Male          &      -54.58\sym{***}&      -27.45\sym{***}&      -21.82\sym{***}&      -15.24\sym{**} \\
+                    &     (8.189)         &     (8.013)         &     (4.981)         &     (4.994)         \\
+[1em]
+Black Female        &      -67.89\sym{***}&      -30.42\sym{***}&      -26.62\sym{***}&      -24.86\sym{***}\\
+                    &     (8.057)         &     (6.558)         &     (4.329)         &     (3.900)         \\
+[1em]
+Hispanic Male       &      -17.42         &      -3.715         &      -2.119         &      -0.533         \\
+                    &     (9.375)         &     (8.124)         &     (7.353)         &     (6.987)         \\
+[1em]
+Hispanic Female     &      -23.40\sym{*}  &      -6.649         &      -9.913         &      -5.740         \\
+                    &     (11.67)         &     (10.06)         &     (9.013)         &     (8.719)         \\
+[1em]
+Asian Male          &      -30.04\sym{**} &      -7.981         &      -1.321         &      -1.899         \\
+                    &     (10.78)         &     (9.620)         &     (7.369)         &     (7.009)         \\
+[1em]
+Asian Female        &      -56.39\sym{***}&      -27.43\sym{***}&      -15.30\sym{**} &      -13.55\sym{**} \\
+                    &     (8.176)         &     (6.244)         &     (5.193)         &     (5.007)         \\
+[1em]
+Middle-aged         &       1.526         &       8.220\sym{*}  &      -2.781         &      -10.09\sym{***}\\
+                    &     (4.666)         &     (3.717)         &     (3.059)         &     (3.035)         \\
+[1em]
+Old ($>$ 65)                 &       18.57         &       20.79         &      -6.094         &      -22.17\sym{*}  \\
+                    &     (13.22)         &     (11.28)         &     (9.415)         &     (9.379)         \\
+[1em]
+Constant            &       191.8\sym{***}&       198.7\sym{***}&       167.5\sym{***}&       63.17\sym{**} \\
+                    &     (9.102)         &     (3.575)         &     (15.65)         &     (19.61)         \\
+\hline
+Observations        &       45072         &       45072         &       45072         &       45072         \\
+Adjusted \(R^{2}\)  &       0.006         &       0.082         &       0.350         &       0.401         \\
+\hline\hline
+\multicolumn{5}{l}{\footnotesize Standard errors in parentheses}\\
+\multicolumn{5}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
+\caption*{Notes: The dependent variable is a constructed measure of monthly host revenue, as measured by price * number of reviews per month for each listing. The omitted category for race is White Males, so all coefficients are relative to that group. The omitted category for age is ``Young ($<$ 30)". The unit of observation is an Airbnb listing, so hosts who have multiple listings are treated separately each time. The sample is the full sample of listings across 7 US cities. The specification is the same as Table 4. See Section 3.1 for a discussion of my covariates. A full list of covariates that are included in Models 2, 3, and 4 are included in Table X in the Appendix.}
+\end{longtable}
+}
+
