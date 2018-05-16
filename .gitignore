@@ -9,7 +9,7 @@
 *.log
 *.Rout
 *.Rdata
-*.png
+# *.png
 # .lof is a list of figures
 *.lof
 *.docx
