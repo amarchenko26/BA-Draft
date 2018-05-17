@@ -1,6 +1,6 @@
 *.dta
 *.log
-# *.pdf
+*.pdf
 *.aux
 *.synctex.gz
 *.lot
