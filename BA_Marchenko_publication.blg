@@ -1,0 +1,95 @@
+This is BibTeX, Version 0.99d (TeX Live 2016)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: BA_Marchenko_publication.aux
+White space in argument---line 3 of file BA_Marchenko_publication.aux
+ : \citation{Yinger,John.
+ :                        "Measuring racial discrimination with fair housing audits: Caught in the act." The American Economic Review (1986): 881-893.}
+I'm skipping whatever remains of this command
+White space in argument---line 5 of file BA_Marchenko_publication.aux
+ : \citation{Hanson,Andrew,and
+ :                             Zackary Hawley. "Do landlords discriminate in the rental housing market? Evidence from an internet field experiment in US cities." Journal of Urban Economics 70.2 (2011): 99-114.}
+I'm skipping whatever remains of this command
+White space in argument---line 6 of file BA_Marchenko_publication.aux
+ : \citation{Ondrich,Jan,Alex
+ :                            Stricker,and John Yinger. "Do landlords discriminate? The incidence and causes of racial discrimination in rental housing markets." Journal of Housing Economics 8.3 (1999): 185-204.}
+I'm skipping whatever remains of this command
+White space in argument---line 14 of file BA_Marchenko_publication.aux
+ : \citation{Economic
+ :                    Policy Institute,State of Working America Data Library,?Wages by education,? 2016.}
+I'm skipping whatever remains of this command
+The style file: elsarticle-harv.bst
+A level-1 auxiliary file: tables/table_2_summary_table_FINAL.aux
+A level-1 auxiliary file: tables/table_3_price_reg_4_14_FINAL.aux
+A level-1 auxiliary file: tables/table_4_edelman_price_reg_5_8_FINAL.aux
+A level-1 auxiliary file: tables/table_5_year_revenue_reg_5_8_FINAL.aux
+A level-1 auxiliary file: tables/table_6_city_price_reg_4_15_FINAL.aux
+A level-1 auxiliary file: tables/table_7_prop_price_reg_5_11_FINAL.aux
+A level-1 auxiliary file: tables/table_8_numrev_reg_4_14_FINAL.aux
+A level-1 auxiliary file: tables/table_9_availability_reg_5_1_FINAL.aux
+A level-1 auxiliary file: tables/table_10_reviewer_mean_reg_5_10_stan_FINAL.aux
+A level-1 auxiliary file: tables/table_1_coding_keys.aux
+Database file #1: bibliography2.bib
+Warning--I didn't find a database entry for "krysan"
+Warning--I didn't find a database entry for "Yinger"
+Warning--I didn't find a database entry for "pope"
+Warning--I didn't find a database entry for "Hanson"
+Warning--I didn't find a database entry for "Andrew"
+Warning--I didn't find a database entry for "Ondrich"
+Warning--I didn't find a database entry for "Jan"
+Warning--I didn't find a database entry for "oliver"
+Warning--I didn't find a database entry for "reardon"
+Warning--I didn't find a database entry for "aboutus"
+Warning--I didn't find a database entry for "edelman"
+Warning--I didn't find a database entry for "becker"
+Warning--I didn't find a database entry for "bertrand"
+Warning--I didn't find a database entry for "doleac"
+Warning--I didn't find a database entry for "knittel"
+Warning--I didn't find a database entry for "edelman2"
+Warning--I didn't find a database entry for "insideairbnb"
+Warning--I didn't find a database entry for "census"
+Warning--I didn't find a database entry for "firebaugh"
+Warning--I didn't find a database entry for "logan"
+Warning--I didn't find a database entry for "hu"
+Warning--I didn't find a database entry for "fradkin"
+You've used 1 entry,
+            2821 wiz_defined-function locations,
+            676 strings with 5521 characters,
+and the built_in function-call counts, 367 in all, are:
+= -- 37
+> -- 10
+< -- 1
++ -- 4
+- -- 3
+* -- 25
+:= -- 75
+add.period$ -- 3
+call.type$ -- 1
+change.case$ -- 6
+chr.to.int$ -- 1
+cite$ -- 1
+duplicate$ -- 15
+empty$ -- 27
+format.name$ -- 4
+if$ -- 70
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 1
+newline$ -- 11
+num.names$ -- 4
+pop$ -- 3
+preamble$ -- 1
+purify$ -- 5
+quote$ -- 0
+skip$ -- 15
+stack$ -- 0
+substring$ -- 11
+swap$ -- 1
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 9
+warning$ -- 0
+while$ -- 3
+width$ -- 0
+write$ -- 18
+(There were 4 error messages)

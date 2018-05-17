@@ -1,0 +1,13 @@
+\begin{thebibliography}{1}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+
+\bibitem[{Frenken(2017)}]{sharing}
+Frenken, K., 2017. Political economies and environmental futures for the
+  sharing economy. Philosophical Transactions of the Royal Society of London A:
+  Mathematical, Physical and Engineering Sciences 375~(2095).
+\newline\urlprefix\url{http://rsta.royalsocietypublishing.org/content/375/2095/20160367}
+
+\end{thebibliography}
