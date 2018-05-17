@@ -13,29 +13,31 @@
 \usepackage[numbers]{natbib}   %activates bibliography
 \usepackage [english]{babel} %something for bibliography
 \usepackage{verbatim} %to be able to use \begin{comment}
+
 \usepackage{float} 
 \begin{document}
 
 
 \begin{comment}
 Options for first sentence of abstract:
+\begin{enumerate}
 \item The extent of discrimination on Airbnb, especially against hosts, remains poorly researched. 
 \item Despite well-publicized efforts by Airbnb to address discrimination on its platform, the discrimination against hosts remains poorly measured by economists. 
 \item Even though discrimination against hosts on Airbnb carries serious economic consequences for agents, the issue has remained poorly researched. 
 \item Measuring discrimination is challenging because in the absence of an experiment, it requires controlling for an extensive set of covariates. 
 \item Little research has been done on the extent of discrimination against hosts on Airbnb because of data restrictions, and difficulty of setting up an experiment. 
-Racial bias faced by Airbnb hosts is a topic largely underrepresented in economic literature. 
+\end{enumerate}
 \end{comment}
 
 
-\title{Measuring Discrimination: The Impact of Host Race and Gender on Earnings from Airbnb%
-	\footnote{I thank Steven D. Levitt for valuable advice. Kirthi Bellamkonda, Jacob Dorn, Michal Dzitko, Sonia Jaffe, Ezra Karger, Sylvia Klosin, Victor Lima, and Kotaro Yoshida provided excellent feedback and comments. Mahathi Ayyagari, Fong Chai, Joseph Day, Melody Jih, Spencer Kang, Cristian Raygoza, Tony Song, Lydia Sum, Putter Thepkanjana, and Leah Umanskiy provided research assistance. All remaining errors are my own. Data was provided by InsideAirbnb.com, founded and maintained by Murray Cox. Airbnb was not consulted in this research. Sentiment analysis would not be possible without Sentimentr and coding by Ben Chaimberg.}}
+\title{Measuring Discrimination: The Impact of Host Race and Gender on Earnings from Airbnb\footnote
+	{I thank Steven D. Levitt for valuable advice. Kirthi Bellamkonda, Jacob Dorn, Michal Dzitko, Sonia Jaffe, Ezra Karger, Sylvia Klosin, Victor Lima, and Kotaro Yoshida provided excellent feedback and comments. Mahathi Ayyagari, Fong Chai, Joseph Day, Melody Jih, Spencer Kang, Cristian Raygoza, Tony Song, Lydia Sum, Putter Thepkanjana, Leah Umanskiy and provided research assistance. All remaining errors are my own. Data was provided by InsideAirbnb.com, founded and maintained by Murray Cox. Airbnb was not consulted in this research. Sentiment analysis would not be possible without Sentimentr and coding by Ben Chaimberg.}}
 \author{Anya Marchenko}
 \maketitle
 
 
 \begin{abstract}
-Measuring discrimination is challenging because of the difficulty of disentagling true discrimination from the worse observable characteristics of a discriminated group. This paper leverages the rise of sharing economies such as Airbnb to credibly measure discrimination against minority hosts on the platform. Earlier research has attempted to measure discrimination against New York City hosts, but was limited by a small sample size and narrow set of controls. I address this issue by using a previously unexploited dataset from a large webscrape of the Airbnb website to measure discrimination. Controlling for a large set of covariates, I estimate that black hosts earn \$5 - 7 less per night, and Asian hosts \$6 - 9 less per night (depending on the sex of the host) than white hosts who post a similar type of listing. CHANGE STARTING HERE.I then explore various hypotheses for this effect. There is little evidence that these price disparities are due to minority hosts choosing to price their listings lower because of differences in their marginal cost, or offering their listing up for rent for shorter periods of time, than white hosts. I also find little evidence that this effect is due to minority hosts owning listings of worse quality. Overall, among the hypotheses I test, discrimination is the most convincing explanation for this persistent price disparity. 
+Racial bias faced by Airbnb hosts is a topic largely underrepresented in economic literature. Earlier research has attempted to measure discrimination against New York City hosts, but was limited by a small sample size and narrow set of controls. I address this issue by using a previously unexploited dataset from a large webscrape of the Airbnb website to measure discrimination. Controlling for a large set of covariates, I estimate that black hosts earn \$5 - 7 less per night, and Asian hosts \$6 - 9 less per night (depending on the sex of the host) than white hosts who post a similar type of listing. I then explore various hypotheses for this effect. There is little evidence that these price disparities are due to minority hosts choosing to price their listings lower because of differences in their marginal cost, or offering their listing up for rent for shorter periods of time, than white hosts. I also find little evidence that this effect is due to minority hosts owning listings of worse quality. Overall, among the hypotheses I test, discrimination is the most convincing explanation for this persistent price disparity. 
 \end{abstract}
 
 
@@ -64,12 +66,9 @@ Measuring discrimination is challenging because of the difficulty of disentaglin
 
 \input{full_tables.tex}
 
-\newpage
 \section{Appendix}
 \subsection{Data Appendix}
-\input{6_data_appendix.tex}
 
-\newpage
 \subsection{Figures}
 \input{full_figures.tex}
 
