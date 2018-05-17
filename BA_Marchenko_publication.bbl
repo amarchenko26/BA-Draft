@@ -1,13 +1,44 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{9}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname url\endcsname\relax
   \def\url#1{\texttt{#1}}\fi
 \expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
 
+\bibitem[{Airbnb(2015)}]{elderly}
+Airbnb, 2015. Airbnb's {G}rowing {C}ommunity of 60+ {W}omen {H}osts. Web.
+
+\bibitem[{Airbnb(2017)}]{rural}
+Airbnb, 2017. Beyond cities: {H}ow {A}irbnb {S}upports {R}ural {A}merica's
+  {R}evitalization. Web.
+
+\bibitem[{Benner(2016)}]{nyt3}
+Benner, K., September 2016. Airbnb {A}dopts {R}ules to {F}ight {D}iscrimination
+  by {I}ts {H}osts. The New York Times.
+
+\bibitem[{Edelman and Luca(2014)}]{edelman}
+Edelman, B.~G., Luca, M., 2014. Digital discrimination: {T}he case of
+  {A}irbnb.com.
+
 \bibitem[{Frenken(2017)}]{sharing}
 Frenken, K., 2017. Political economies and environmental futures for the
   sharing economy. Philosophical Transactions of the Royal Society of London A:
   Mathematical, Physical and Engineering Sciences 375~(2095).
-\newline\urlprefix\url{http://rsta.royalsocietypublishing.org/content/375/2095/20160367}
+
+\bibitem[{Krysan et~al.(2014)Krysan, Crowder, and Bader}]{krysan}
+Krysan, M., Crowder, K., Bader, M.~D., 2014. Pathways to residential
+  segregation. In: Choosing Homes, Choosing Schools. pp. 27--63.
+
+\bibitem[{Oliver and Shapiro(2006)}]{oliver}
+Oliver, M.~L., Shapiro, T.~M., 2006. Black wealth, white wealth: {A} new
+  perspective on racial inequality. Taylor \& Francis.
+
+\bibitem[{Reardon et~al.(2015)Reardon, Fox, and Townsend}]{reardon}
+Reardon, S.~F., Fox, L., Townsend, J., 2015. Neighborhood {I}ncome
+  {C}omposition by {H}ousehold {R}ace and {I}ncome, 1990--2009. The Annals of
+  the American Academy of Political and Social Science 660~(1), 78--97.
+
+\bibitem[{Zipkin(2016)}]{nyt2}
+Zipkin, A., June 2016. Renting {R}ooms to {T}ravelers {C}an {B}e a {S}ource of
+  {I}ncome {L}ater in {L}ife. The New York Times.
 
 \end{thebibliography}
