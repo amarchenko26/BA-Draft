@@ -4,12 +4,9 @@
 \begin{longtable}{l*{4}{c}}
 \caption{Estimates of effect of host's race and gender on yearly revenue}\\
 \hline\hline\endfirsthead\hline\endhead\hline\endfoot\endlastfoot
-                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
                     &\multicolumn{1}{c}{Model 1}&\multicolumn{1}{c}{Model 2}&\multicolumn{1}{c}{Model 3}&\multicolumn{1}{c}{Model 4}\\
 \hline
-White Male          &           0         &           0         &           0         &           0         \\
-                    &         (.)         &         (.)         &         (.)         &         (.)         \\
-[1em]
+\textit{White Male - omitted} \\
 White Female        &      -199.0\sym{***}&      -156.4\sym{***}&      -151.9\sym{***}&      -144.1\sym{***}\\
                     &     (48.54)         &     (46.80)         &     (39.72)         &     (40.63)         \\
 [1em]
@@ -39,6 +36,11 @@ Old ($>$ 65)                 &       222.9         &       249.5         &      
 [1em]
 Constant            &      2301.2\sym{***}&      2384.3\sym{***}&      2009.5\sym{***}&       758.0\sym{**} \\
                     &     (109.2)         &     (42.90)         &     (187.8)         &     (235.3)         \\
+\hline
+Controls:        \\
+\hspace{3mm} Location  &                &       X         &       X         &       X         \\
+\hspace{3mm} Property Characteristics  &                &                &       X         &       X         \\
+\hspace{3mm} Listing Characteristics  &                &                &                &       X         \\
 \hline
 Observations        &       45072         &       45072         &       45072         &       45072         \\
 Adjusted \(R^{2}\)  &       0.006         &       0.082         &       0.350         &       0.401         \\
