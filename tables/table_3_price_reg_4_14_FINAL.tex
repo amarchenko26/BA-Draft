@@ -3,12 +3,10 @@
 \begin{longtable}{l*{4}{c}}
 \caption{Main result: Estimates of effect of host's race and gender on price}\\
 \hline\hline\endfirsthead\hline\endhead\hline\endfoot\endlastfoot
-                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
-                    &\multicolumn{1}{c}{Model 1}&\multicolumn{1}{c}{Model 2}&\multicolumn{1}{c}{Model 3}&\multicolumn{1}{c}{Model 4}\\
+                    &\multicolumn{1}{c}{1}&\multicolumn{1}{c}{2}&\multicolumn{1}{c}{3}&\multicolumn{1}{c}{4}\\
 \hline
-White Male          &           0         &           0         &           0         &           0         \\
-                    &         (.)         &         (.)         &         (.)         &         (.)         \\
-[1em]
+\textit{White Male (omitted)}  \\
+
 White Female        &      -3.727\sym{*}  &      -3.714\sym{*}  &      -0.827         &      -0.243         \\
                     &     (1.770)         &     (1.562)         &     (1.049)         &     (1.053)         \\
 [1em]
@@ -39,12 +37,17 @@ Old ($>$ 65)           &       8.145         &       3.664         &      -1.752
 Constant            &       147.4\sym{***}&       54.75\sym{***}&      -33.93\sym{***}&      -0.742         \\
                     &     (5.015)         &     (1.506)         &     (5.507)         &     (6.764)         \\
 \hline
+Controls:        \\
+\hspace{3mm} Location  &                &       X         &       X         &       X         \\
+\hspace{3mm} Property Characteristics  &                &                &       X         &       X         \\
+\hspace{3mm} Listing Characteristics  &                &                &                &       X         \\
+\hline
 Observations        &       45072         &       45072         &       45072         &       45072         \\
 Adjusted \(R^{2}\)  &       0.019         &       0.166         &       0.621         &       0.627         \\
 \hline\hline
 \multicolumn{5}{l}{\footnotesize Standard errors in parentheses}\\
 \multicolumn{5}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
-\caption*{Notes: The dependent variable is the price of the listing. All race coefficients are relative to White Males. The omitted category for age is ``Young ($<$ 30)". The unit of observation is a listing. The sample is the full sample of listings across 7 US cities. Model 1 controls for host demographics. Model 2 controls for listing location to the neighborhood level. Model 3 adds listing characteristics such as property type, time on market, number of bedrooms, availability, etc. Model 4 adds host characteristics such as response and acceptance rates, measures of host effort, Superhost status, etc. See Section 3.1 for a discussion of my covariates. }
+\caption*{Notes: The dependent variable is the price of the listing. All race coefficients are relative to White Males. The omitted category for age is ``Young ($<$ 30)". The unit of observation is a listing. The sample is the full sample of listings across 7 US cities. Model 1 is the baseline effect of host demographics on price. Model 2 controls for listing location to the neighborhood level. Model 3 adds listing characteristics such as property type, time on market, number of bedrooms, availability, etc. Model 4 adds host characteristics such as response and acceptance rates, measures of host effort, Superhost status, etc. See Section 3.1 for a discussion of my covariates. }
 \label{Table 4}
 
 
