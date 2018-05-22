@@ -14,3 +14,10 @@
 *.lof
 *.docx
 *.doc
+*.DS_Store #Mac folder file
+*.bbl #BibTeX aux file
+*.blg #BibTeX aux file
+*.dvi 
+*.blg
+*.blg
+*.pdf

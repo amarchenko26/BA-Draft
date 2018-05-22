@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+This is BibTeX, Version 0.99d (TeX Live 2016)
+=======
 This is BibTeX, Version 0.99d (TeX Live 2015)
+>>>>>>> 1bded0961dc038727d32fa77e3c92ad5a6894015
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: BA_Marchenko_publication.aux
 White space in argument---line 3 of file BA_Marchenko_publication.aux
@@ -17,11 +21,15 @@ White space in argument---line 14 of file BA_Marchenko_publication.aux
  : \citation{Economic
  :                    Policy Institute,State of Working America Data Library,?Wages by education,? 2016.}
 I'm skipping whatever remains of this command
+<<<<<<< HEAD
+The style file: elsarticle-harv.bst
+=======
 I couldn't open style file elsarticle-harv.bst
 ---line 39 of file BA_Marchenko_publication.aux
  : \bibstyle{elsarticle-harv
  :                          }
 I'm skipping whatever remains of this command
+>>>>>>> 1bded0961dc038727d32fa77e3c92ad5a6894015
 A level-1 auxiliary file: tables/table_2_summary_table_FINAL.aux
 A level-1 auxiliary file: tables/table_3_price_reg_4_14_FINAL.aux
 A level-1 auxiliary file: tables/table_4_edelman_price_reg_5_8_FINAL.aux
@@ -32,6 +40,56 @@ A level-1 auxiliary file: tables/table_8_numrev_reg_4_14_FINAL.aux
 A level-1 auxiliary file: tables/table_9_availability_reg_5_1_FINAL.aux
 A level-1 auxiliary file: tables/table_10_reviewer_mean_reg_5_10_stan_FINAL.aux
 A level-1 auxiliary file: tables/table_1_coding_keys.aux
+<<<<<<< HEAD
+Database file #1: bibliography2.bib
+Warning--I didn't find a database entry for "Yinger"
+Warning--I didn't find a database entry for "Hanson"
+Warning--I didn't find a database entry for "Andrew"
+Warning--I didn't find a database entry for "Ondrich"
+Warning--I didn't find a database entry for "Jan"
+You've used 24 entries,
+            2821 wiz_defined-function locations,
+            773 strings with 8328 characters,
+and the built_in function-call counts, 9435 in all, are:
+= -- 1016
+> -- 376
+< -- 19
++ -- 149
+- -- 120
+* -- 716
+:= -- 1727
+add.period$ -- 69
+call.type$ -- 24
+change.case$ -- 163
+chr.to.int$ -- 23
+cite$ -- 24
+duplicate$ -- 401
+empty$ -- 670
+format.name$ -- 180
+if$ -- 1906
+int.to.chr$ -- 2
+int.to.str$ -- 1
+missing$ -- 16
+newline$ -- 79
+num.names$ -- 88
+pop$ -- 145
+preamble$ -- 1
+purify$ -- 138
+quote$ -- 0
+skip$ -- 326
+stack$ -- 0
+substring$ -- 446
+swap$ -- 63
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 210
+warning$ -- 0
+while$ -- 83
+width$ -- 0
+write$ -- 252
+(There were 4 error messages)
+=======
 I found no style file---while reading file BA_Marchenko_publication.aux
 You've used 22 entries,
             0 wiz_defined-function locations,
@@ -75,3 +133,4 @@ while$ -- 0
 width$ -- 0
 write$ -- 0
 (There were 6 error messages)
+>>>>>>> 1bded0961dc038727d32fa77e3c92ad5a6894015
