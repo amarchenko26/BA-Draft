@@ -1,4 +1,4 @@
-\begin{thebibliography}{22}
+\begin{thebibliography}{24}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname url\endcsname\relax
   \def\url#1{\texttt{#1}}\fi
@@ -7,9 +7,12 @@
 \bibitem[{Airbnb(2015)}]{elderly}
 Airbnb, 2015. Airbnb's {G}rowing {C}ommunity of 60+ {W}omen {H}osts. Web.
 
-\bibitem[{Airbnb(2017)}]{rural}
-Airbnb, 2017. Beyond cities: {H}ow {A}irbnb {S}upports {R}ural {A}merica's
-  {R}evitalization. Web.
+\bibitem[{Airbnb(2017{\natexlab{a}})}]{aboutus}
+Airbnb, 2017{\natexlab{a}}. About {U}s. Web.
+
+\bibitem[{Airbnb(2017{\natexlab{b}})}]{rural}
+Airbnb, 2017{\natexlab{b}}. Beyond cities: {H}ow {A}irbnb {S}upports {R}ural
+  {A}merica's {R}evitalization. Web.
 
 \bibitem[{Becker(1957)}]{becker}
 Becker, G.~S., 1957. The {E}conomics of {D}iscrimination. University of
@@ -23,9 +26,6 @@ Benner, K., September 2016. Airbnb {A}dopts {R}ules to {F}ight {D}iscrimination
 Bertrand, M., Mullainathan, S., 2004. Are {E}mily and {G}reg more employable
   than {L}akisha and {J}amal? {A} field experiment on labor market
   discrimination. The American Economic Review 94.4, 991--1013.
-
-\bibitem[{Bureau(2010)}]{census}
-Bureau, U.~C., 2010. U.{S}. {C}ensus {B}ureau {D}ata. Retrieved 2017-04-22.
 
 \bibitem[{Cox(2017)}]{insideairbnb}
 Cox, M., April 2017. Inside {A}irbnb. {A}dding {D}ata to the {D}ebate. Inside
@@ -46,7 +46,7 @@ Edelman, B.~G., Luca, M., 2014. Digital discrimination: {T}he case of
 \bibitem[{Firebaugh and Farrell(2016)}]{firebaugh}
 Firebaugh, G., Farrell, C.~R., February 2016. Still {L}arge, but {N}arrowing:
   {T}he {S}izable {D}ecline in {R}acial {N}eighborhood {I}nequality in
-  {M}etropolitcan {A}merica, 1980-2010. Demography 53~(1), 139--164.
+  {M}etropolitan {A}merica, 1980-2010. Demography 53~(1), 139--164.
 
 \bibitem[{Fradkin et~al.(2017)Fradkin, Grewal, and Holtz}]{fradkin}
 Fradkin, A., Grewal, E., Holtz, D., 2017. The {D}eterminants of {O}nline
@@ -92,6 +92,13 @@ Pope, D.~G., Sydnor, J.~R., 2011. What's in a {P}icture? {E}vidence of
 Reardon, S.~F., Fox, L., Townsend, J., 2015. Neighborhood {I}ncome
   {C}omposition by {H}ousehold {R}ace and {I}ncome, 1990--2009. The Annals of
   the American Academy of Political and Social Science 660~(1), 78--97.
+
+\bibitem[{Sentimentr(n.d.)}]{sentimentr}
+Sentimentr, n.d. https://github.com/trinker/sentimentr.
+
+\bibitem[{U.S. Census Bureau(2010)}]{census}
+U.S. Census Bureau, 2010. U.{S}. {C}ensus {B}ureau {D}ata. Retrieved
+  2017-04-22.
 
 \bibitem[{Zipkin(2016)}]{nyt2}
 Zipkin, A., June 2016. Renting {R}ooms to {T}ravelers {C}an {B}e a {S}ource of

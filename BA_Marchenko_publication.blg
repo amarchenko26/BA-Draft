@@ -30,65 +30,49 @@ A level-1 auxiliary file: tables/table_10_reviewer_mean_reg_5_10_stan_FINAL.aux
 A level-1 auxiliary file: tables/table_1_coding_keys.aux
 Database file #1: bibliography2.bib
 Warning--I didn't find a database entry for "Yinger"
-Warning--I didn't find a database entry for "pope"
 Warning--I didn't find a database entry for "Hanson"
 Warning--I didn't find a database entry for "Andrew"
 Warning--I didn't find a database entry for "Ondrich"
 Warning--I didn't find a database entry for "Jan"
-Warning--I didn't find a database entry for "aboutus"
-Warning--I didn't find a database entry for "becker"
-Warning--I didn't find a database entry for "bertrand"
-Warning--I didn't find a database entry for "doleac"
-Warning--I didn't find a database entry for "knittel"
-Warning--I didn't find a database entry for "edelman2"
-Warning--I didn't find a database entry for "sentimentr"
-Warning--I didn't find a database entry for "insideairbnb"
-Warning--I didn't find a database entry for "census"
-Warning--I didn't find a database entry for "firebaugh"
-Warning--I didn't find a database entry for "logan"
-Warning--I didn't find a database entry for "hu"
-Warning--I didn't find a database entry for "fradkin"
-Warning--empty journal in edelman
-Warning--empty publisher in krysan
-You've used 9 entries,
+You've used 24 entries,
             2821 wiz_defined-function locations,
-            709 strings with 6398 characters,
-and the built_in function-call counts, 3562 in all, are:
-= -- 372
-> -- 142
-< -- 8
-+ -- 54
-- -- 45
-* -- 255
-:= -- 664
-add.period$ -- 27
-call.type$ -- 9
-change.case$ -- 61
-chr.to.int$ -- 9
-cite$ -- 11
-duplicate$ -- 156
-empty$ -- 258
-format.name$ -- 66
-if$ -- 721
-int.to.chr$ -- 1
+            773 strings with 8328 characters,
+and the built_in function-call counts, 9435 in all, are:
+= -- 1016
+> -- 376
+< -- 19
++ -- 149
+- -- 120
+* -- 716
+:= -- 1727
+add.period$ -- 69
+call.type$ -- 24
+change.case$ -- 163
+chr.to.int$ -- 23
+cite$ -- 24
+duplicate$ -- 401
+empty$ -- 670
+format.name$ -- 180
+if$ -- 1906
+int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 8
-newline$ -- 34
-num.names$ -- 36
-pop$ -- 59
+missing$ -- 16
+newline$ -- 79
+num.names$ -- 88
+pop$ -- 145
 preamble$ -- 1
-purify$ -- 51
+purify$ -- 138
 quote$ -- 0
-skip$ -- 136
+skip$ -- 326
 stack$ -- 0
-substring$ -- 142
-swap$ -- 24
-text.length$ -- 1
+substring$ -- 446
+swap$ -- 63
+text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 78
-warning$ -- 2
-while$ -- 32
+type$ -- 210
+warning$ -- 0
+while$ -- 83
 width$ -- 0
-write$ -- 98
+write$ -- 252
 (There were 4 error messages)
