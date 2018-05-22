@@ -18,3 +18,4 @@
 *.bbl #BibTeX aux file
 *.blg #BibTeX aux file
 *.dvi 
+*.bak~
