@@ -19,5 +19,6 @@
 *.blg #BibTeX aux file
 *.dvi 
 *.blg
-*.blg
+*.bbl
 *.pdf
+*.bak~
