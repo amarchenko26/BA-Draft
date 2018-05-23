@@ -1,0 +1,126 @@
+\begin{thebibliography}{28}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+
+\bibitem[{Airbnb(2015)}]{elderly}
+Airbnb, 2015. Airbnb's {G}rowing {C}ommunity of 60+ {W}omen {H}osts. Web.
+
+\bibitem[{Airbnb(2017{\natexlab{a}})}]{aboutus}
+Airbnb, 2017{\natexlab{a}}. About {U}s. Web.
+
+\bibitem[{Airbnb(2017{\natexlab{b}})}]{rural}
+Airbnb, 2017{\natexlab{b}}. Beyond cities: {H}ow {A}irbnb {S}upports {R}ural
+  {A}merica's {R}evitalization. Web.
+
+\bibitem[{Becker(1957)}]{becker}
+Becker, G.~S., 1957. The {E}conomics of {D}iscrimination. University of
+  Chicago.
+
+\bibitem[{Benner(2016)}]{nyt3}
+Benner, K., September 2016. Airbnb {A}dopts {R}ules to {F}ight {D}iscrimination
+  by {I}ts {H}osts. The New York Times.
+
+\bibitem[{Bertrand and Mullainathan(2004)}]{bertrand}
+Bertrand, M., Mullainathan, S., 2004. Are {E}mily and {G}reg more employable
+  than {L}akisha and {J}amal? {A} field experiment on labor market
+  discrimination. The American Economic Review 94.4, 991--1013.
+
+\bibitem[{Cox(2017)}]{insideairbnb}
+Cox, M., April 2017. Inside {A}irbnb. {A}dding {D}ata to the {D}ebate. Inside
+  Airbnb.
+
+\bibitem[{Doleac and Stein(2010)}]{doleac}
+Doleac, J., Stein, L., 2010. Race has a hand in determining market outcomes.
+
+\bibitem[{Economic Policy Institute(2016)}]{wages}
+Economic Policy Institute, 2016. Wages by education. State of Working American
+  Data Library.
+
+\bibitem[{Edelman et~al.(2017)Edelman, Luca, and Svirsky}]{edelman2}
+Edelman, B., Luca, M., Svirsky, D., April 2017. Racial {D}iscrimination in the
+  {S}haring {E}conomy: {E}vidence from a {F}ield {E}xperiment. American
+  Economic Journal: Applied Economics 9~(2), 1--22.
+
+\bibitem[{Edelman and Luca(2014)}]{edelman}
+Edelman, B.~G., Luca, M., 2014. Digital discrimination: {T}he case of
+  {A}irbnb.com. Harvard Business School NOM Unit Working PaperNo. 14-054.
+
+\bibitem[{Firebaugh and Farrell(2016)}]{firebaugh}
+Firebaugh, G., Farrell, C.~R., February 2016. Still {L}arge, but {N}arrowing:
+  {T}he {S}izable {D}ecline in {R}acial {N}eighborhood {I}nequality in
+  {M}etropolitan {A}merica, 1980-2010. Demography 53~(1), 139--164.
+
+\bibitem[{Fradkin et~al.(2017)Fradkin, Grewal, and Holtz}]{fradkin}
+Fradkin, A., Grewal, E., Holtz, D., 2017. The {D}eterminants of {O}nline
+  {R}eview {I}nformativeness: {E}vidence from {F}ield {E}xperiments on
+  {A}irbnb.
+
+\bibitem[{Frenken(2017)}]{sharing}
+Frenken, K., 2017. Political economies and environmental futures for the
+  sharing economy. Philosophical Transactions of the Royal Society of London A:
+  Mathematical, Physical and Engineering Sciences 375~(2095).
+
+\bibitem[{Ge et~al.(2016)Ge, Knittel, MacKenzie, and Zoepf}]{knittel}
+Ge, Y., Knittel, C.~R., MacKenzie, D., Zoepf, S., October 2016. Racial and
+  {G}ender {D}iscrimination in {T}ransportation {N}etwork {C}ompanies. Working
+  Paper 22776, National Bureau of Economic Research.
+
+\bibitem[{Hanson and Hawley(2011)}]{hanson}
+Hanson, A., Hawley, Z., 2011. Do landlords discriminate in the rental housing
+  market? evidence from an internet field experiment in {U}{S} cities. Journal
+  of Urban Economics 70~(2), 99--114.
+
+\bibitem[{Hu and Liu(2004)}]{hu}
+Hu, M., Liu, B., 2004. Mining and summarizing customer reviews. In: Proceedings
+  of the tenth ACM SIGKDD international conference on Knowledge discovery and
+  data mining. ACM, pp. 168--177.
+
+\bibitem[{Krysan et~al.(2014)Krysan, Crowder, and Bader}]{krysan}
+Krysan, M., Crowder, K., Bader, M.~D., 2014. Pathways to residential
+  segregation. Choosing Homes, Choosing Schools, 27--63.
+
+\bibitem[{Logan(2011)}]{logan}
+Logan, J.~R., July 2011. Separate and unequal: {T}he neighborhood gap for
+  blacks, {H}ispanics and {A}sians in {M}etropolitan {A}merica. US2010 Project,
+  1--22.
+
+\bibitem[{OECD(2012)}]{swedenwage}
+OECD, September 2012. Closing the {G}ender {G}ap: {A}ct {N}ow.
+
+\bibitem[{Oliver and Shapiro(2006)}]{oliver}
+Oliver, M.~L., Shapiro, T.~M., 2006. Black wealth, white wealth: {A} new
+  perspective on racial inequality. Taylor \& Francis.
+
+\bibitem[{Ondrich et~al.(1999)Ondrich, Stricker, and Yinger}]{ondrich}
+Ondrich, J., Stricker, A., Yinger, J., 1999. Do landlords discriminate? {T}he
+  incidence and causes of racial discrimination in rental housing markets.
+  Journal of Housing Economics 8~(3), 185--204.
+
+\bibitem[{Pope and Sydnor(2011)}]{pope}
+Pope, D.~G., Sydnor, J.~R., 2011. What's in a {P}icture? {E}vidence of
+  {D}iscrimination from {P}rosper.com. Journal of Human Resources 46.1, 53--92.
+
+\bibitem[{Reardon et~al.(2015)Reardon, Fox, and Townsend}]{reardon}
+Reardon, S.~F., Fox, L., Townsend, J., 2015. Neighborhood {I}ncome
+  {C}omposition by {H}ousehold {R}ace and {I}ncome, 1990--2009. The Annals of
+  the American Academy of Political and Social Science 660~(1), 78--97.
+
+\bibitem[{Sentimentr(n.d.)}]{sentimentr}
+Sentimentr, n.d. https://github.com/trinker/sentimentr.
+
+\bibitem[{U.S. Census Bureau(2010)}]{census}
+U.S. Census Bureau, 2010. U.{S}. {C}ensus {B}ureau {D}ata. Retrieved
+  2017-04-22.
+
+\bibitem[{Yinger(1986)}]{yinger1}
+Yinger, J., 1986. Measuring {R}acial {D}iscrimination with {F}air {H}ousing
+  {A}udits: {C}aught in the {A}ct. The American Economic Review 76~(5),
+  881--893.
+
+\bibitem[{Zipkin(2016)}]{nyt2}
+Zipkin, A., June 2016. Renting {R}ooms to {T}ravelers {C}an {B}e a {S}ource of
+  {I}ncome {L}ater in {L}ife. The New York Times.
+
+\end{thebibliography}
