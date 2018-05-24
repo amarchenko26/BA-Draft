@@ -1,0 +1,76 @@
+%Host-level summary table
+{
+	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+	\begin{longtable}{l*{6}{c}}
+		\caption{Summary Statistics by Race: Host Characteristics}\\
+		
+		\hline
+		&\multicolumn{1}{c}{}&\multicolumn{1}{c}{}&\multicolumn{1}{c}{}&\multicolumn{1}{c}{Regression}&\multicolumn{1}{c}{}&\multicolumn{1}{c}{}\\
+		\cline{3-7}\\
+			&\multicolumn{1}{c}{Full data}&\multicolumn{1}{c}{Full Sample}&\multicolumn{1}{c}{White}&\multicolumn{1}{c}{Black}&\multicolumn{1}{c}{Hispanic}&\multicolumn{1}{c}{Asian}\\
+		
+		\hline\hline\endfirsthead\hline\endhead\hline\endfoot\endlastfoot
+		&\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}\\
+		&\multicolumn{1}{c}{Full data}&\multicolumn{1}{c}{Regression sample}&\multicolumn{1}{c}{White}&\multicolumn{1}{c}{Black}&\multicolumn{1}{c}{Hispanic}&\multicolumn{1}{c}{Asian}\\
+		\hline
+		\endhead             
+		     
+		\textit{Outcome variables} \\
+		Host listings count         & &      5.53&      5.50 &      10.5&    3.16 & 2.68\\
+		&	&     (33.0)         &     (31.2)         &     (60.3)         &     (17.8) & 	(3.62)         \\
+		[1em]
+		\textit{Selected covariates} \\
+		\hline\hline
+		\textit{Host demographics} \\
+		\hline
+		\textit{Race} \\
+		White     & &      .637         &       1.00         &      0         &      0 	& 		0         \\
+		Black     &  &    .073       &       0         &      1.00         &      0 	& 		0         \\
+		Hispanic     & &      .051         &       0         &      0         &      1.00 	& 		0         \\
+		Asian     &   &   .085      &       0         &      0         &      0 	& 		1.00         \\
+		Unknown/Multiracial     & &      .152         &       0         &      0         &      0 	& 		0         \\
+		[1em]
+		\textit{Sex} \\
+		Male     & &      .309         &       .356         &      .354         &      .417 	& 		.367        \\
+		Female     & &      .378         &       .427        &      .541         &      .426 	& 		.476         \\
+		Unknown/Two people   &  &      .312         &       .216         &      .104         &      .156 	& 		.157         \\
+		[1em]
+		\textit{Age} \\
+		Young ($<$ 30)     & &      .427         &       .469         &      .514        &      .481 	& 		.587         \\
+		Middle-aged     & &      .421         &       .491        &      .470         &      .490 		& 		.379         \\
+		Old ($>$ 65)     & &      .018         &       .026         &      .004         &      .009	& 		.009         \\
+		Unknown    &  &      .133         &       .013         &      .011         &      .018 	& 		.024         \\
+		[1em]
+	
+		\textit{Host characteristics} \\
+		\hline
+		Review value      &   &      93.61	&      94.08	 	&      91.89		&    92.81	 & 		92.24\\
+		(out of 100)              &      &     (8.00)         &     (7.49)         &     (9.42)         &     (8.72) 	&	 (9.27)         \\
+		[1em]
+		Host is a superhost    &    &      .124		&      .134&      .084 &      .108  	& 	.097\\
+		& & (.329)     &     (.341)         &     (.277)         &     (.310)         &     (.296)         \\
+		[1em]
+		Response rate      &   &       .756		&       .756		&      .771         &      .756  	& 	.744\\
+		& &     (.391)         &     (.393)         &     (.368)         &     (.386)         &		(.399)\\
+		[1em]
+		Acceptance rate      &     &      .453&      .463&       .357         &      .494    &	.446     \\
+		& &     (.463)         &     (.463)         &     (.451)         &     (.466)         &		(.467)\\
+		[1em]
+		Total ``good" words       &    &      .655&      .656&       .686         &      .677    &	.604     \\
+		& &     (.857)         &     (.843)         &     (.882)         &     (.867)         &		(.826)\\
+		[1em]
+		Length of ``Summary"      &     &      208.67 	&      210.20	&       203.25         &      206.74    &	205.81     \\
+		& &       (64.99)  &    (64.08)         &     (70.59)         &     (65.62)         &     (65.87) \\
+		[1em]
+		Short words in ``Summary"          &  &      .182		&      .185		&       .187         &      .175    &	.175     \\
+		& &     (1.19)         &     (1.15)         &     (1.24)         &     (1.26)         &		(1.32)\\                    
+		
+		
+		\hline
+		Observations (full sample)    &  & 68,983   &       43,988         &       5,023         &       3,524         &       5,893         \\
+		\hline\hline
+		\caption*{Notes: The values in the table are means and standard deviations of host-level data in my full sample. Summary statistics for selected covariates are listed in the table. Categorical variables such as race, sex, and age do not have standard deviations. White refers only to Non-Hispanic Whites. Length of ``Summary" and proportion of short words in the ``Summary'' refer to my constructed measures of host quality. These two measures were also calculated for the description, space, neighborhood overview, notes, and transit fields, but were not included in the table for the sake of clarity and because they follow a similar pattern as the ``Summary" field.}
+		
+	\end{longtable}
+}
+
