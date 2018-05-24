@@ -24,3 +24,9 @@
 *.bak~
 *.pdf
 BA_Marchenko_publication.pdf
+.DS_Store
+code/.DS_Store
+
+#Ignore data folder
+/data
+/archive
