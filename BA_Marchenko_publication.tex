@@ -1,7 +1,7 @@
 \documentclass[11pt, oneside]{article}   	
 \usepackage[margin = 1 in]{geometry}                		
 \geometry{letterpaper}                   		
-%\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+%\usepackage[parfill]{parskip}    %Begin paragraphs with an empty line rather than an indent
 \usepackage{graphicx}				
 \usepackage{setspace}								
 \usepackage{amssymb}
@@ -13,8 +13,11 @@
 \usepackage{natbib}   %activates bibliography
 \usepackage [english]{babel} %something for bibliography
 \usepackage{verbatim} %to be able to use \begin{comment}
-
+\usepackage{booktabs}
+\usepackage{array}
 \usepackage{float} 
+
+
 \begin{document}
 
 
@@ -37,7 +40,7 @@ Options for first sentence of abstract:
 
 
 \begin{abstract}
-Measuring discrimination is challenging because XXX. HI VICTORIA. Racial bias faced by Airbnb hosts is a topic largely underrepresented in economic literature. Earlier research has attempted to measure discrimination against New York City hosts, but was limited by a small sample size and narrow set of controls. I address this issue by using a previously unexploited dataset from a large webscrape of the Airbnb website to measure discrimination. Controlling for a large set of covariates, I estimate that black hosts earn \$5 - 7 less per night, and Asian hosts \$6 - 9 less per night (depending on the sex of the host) than white hosts who post a similar type of listing. In addiiton to price data, I also have data on quantity demanded of hosts' listings. I measure that quantity demanded is also lower for minority hosts, suggesting a demand shift, rather than a supply shift. There is little evidence that these price disparities are due to minority hosts choosing to price their listings lower because of differences in their marginal cost, or offering their listing up for rent for shorter periods of time, than white hosts. I also find little evidence that this effect is due to minority hosts owning listings of worse quality. Overall, among the hypotheses I test, discrimination is the most convincing explanation for this persistent price disparity. 
+Measuring discrimination is challenging because XXX. Racial bias faced by Airbnb hosts is a topic largely underrepresented in economic literature. Earlier research has attempted to measure discrimination against New York City hosts, but was limited by a small sample size and narrow set of controls. I address this issue by using a previously unexploited dataset from a large webscrape of the Airbnb website to measure discrimination. Controlling for a large set of covariates, I estimate that black hosts earn \$5 - 7 less per night, and Asian hosts \$6 - 9 less per night (depending on the sex of the host) than white hosts who post a similar type of listing. In addiiton to price data, I also have data on quantity demanded of hosts' listings. I measure that quantity demanded is also lower for minority hosts, suggesting a demand shift, rather than a supply shift. There is little evidence that these price disparities are due to minority hosts choosing to price their listings lower because of differences in their marginal cost, or offering their listing up for rent for shorter periods of time, than white hosts. I also find little evidence that this effect is due to minority hosts owning listings of worse quality. Overall, among the hypotheses I test, discrimination is the most convincing explanation for this persistent price disparity. 
 \end{abstract}
 
 
@@ -76,73 +79,7 @@ Measuring discrimination is challenging because XXX. HI VICTORIA. Racial bias fa
 \newpage
 
 
-<<<<<<< HEAD
-\begin{comment}
-\begin{thebibliography}{16} 
-\bibitem{sharing} 
-Frenken, Koen. ``Political Economies and Environmental Futures for the Sharing Economy." Philosophical transactions. Series A, Mathematical, physical, and engineering sciences 375.2095 (2017): 20160367. PMC. Web. 22 July 2017.
-\bibitem{rural}
-Beyond cities: How Airbnb Supports Rural America?s Revitalization. Rep. Airbnb, 2017. Web. 22 July 2017. Available at: $https://press.atairbnb.com/app/uploads/2017/06/Beyond-Cities_United-States-National-Report.pdf.$ 
-\bibitem{elderly}
-Airbnb?s Growing Community of 60+ Women Hosts. Rep. Airbnb, 2015. Web. 22 July 2017. Available at: $https://www.airbnbaction.com/wp-content/uploads/2016/03/Airbnb_60_Plus_Women_Report.pdf.$ 
-%\bibitem{nyt2}
-Zipkin, Amy. ``Renting Rooms to Travelers Can Be a Source of Income Later in Life." The New York Times. The New York Times, 17 June 2016. Web. 22 July 2017.
-\bibitem{nyt3}
-Benner, Katie. ``Airbnb Adopts Rules to Fight Discrimination by Its Hosts." The New York Times. The New York Times, 08 Sept. 2016. Web. 23 Apr. 2017.
-\bibitem{oliver}
-Oliver, Melvin L., and Thomas M. Shapiro. Black wealth, white wealth: A new perspective on racial inequality. Taylor \& Francis, 2006.
-\bibitem{reardon}
-Reardon, Sean F., Lindsay Fox, and Joseph Townsend. ``Neighborhood income composition by household race and income, 1990?2009." The Annals of the American Academy of Political and Social Science 660.1 (2015): 78-97.
-\bibitem{krysan}
-Krysan, Maria, Kyle Crowder, and Michael DM Bader. ``Pathways to residential segregation." Choosing homes, choosing schools (2014): 27-63.
-\bibitem{edelman}
-Edelman, Benjamin G., and Michael Luca. ``Digital discrimination: The case of Airbnb.com." (2014).
-\bibitem{sentimentr}
-https://github.com/trinker/sentimentr
-\bibitem{aboutus}
-``About Us." Airbnb. N.p., n.d. Web. 23 Apr. 2017.
-\bibitem{swedenwage}
-``Closing the Gender Gap: Act Now." (n.d.): 296. OECD, 17 Dec. 2012. Web. 30 Nov. 2015.
-\bibitem{becker}
-Becker, Gary S. The Economics of Discrimination. Chicago: U of Chicago, 1957. Print.
-\bibitem{bertrand}
-Bertrand, Marianne, and Sendhil Mullainathan. ``Are Emily and Greg more employable than Lakisha and Jamal? A field experiment on labor market discrimination." The American Economic Review 94.4 (2004): 991-1013.
-\bibitem{doleac}
-Doleac, Jennifer, and Luke Stein. ``Race has a hand in determining market outcomes." (2010).
-\bibitem{pope}
-Pope, Devin G., and Justin R. Sydnor. ``What?s in a Picture? Evidence of Discrimination from Prosper. com." Journal of Human Resources 46.1 (2011): 53-92.
-\bibitem{knittel}
-Ge, Yanbo, et al. Racial and gender discrimination in transportation network companies. No. w22776. National Bureau of Economic Research, 2016.
-\bibitem{edelman2}
-Edelman, Benjamin G. and Luca, Michael and Svirsky, Dan, Racial Discrimination in the Sharing Economy: Evidence from a Field Experiment (September 16, 2016). Forthcoming, American Economic Journal: Applied Economics. Available at SSRN: https://ssrn.com/abstract=2701902 or http://dx.doi.org/10.2139/ssrn.2701902
-\bibitem{insideairbnb}
-Cox, Murray. ``Inside Airbnb. Adding Data to the Debate." Inside Airbnb. N.p., n.d. Web. 23 Apr. 2017.
-\bibitem{firebaugh}
-Firebaugh, Glenn, and Chad R. Farrell. ``Still large, but narrowing: The sizable decline in racial neighborhood inequality in metropolitan America, 1980?2010." Demography 53.1 (2016): 139-164.
-\bibitem{logan}
-Logan, John R. ``Separate and unequal: The neighborhood gap for blacks, Hispanics and Asians in Metropolitan America." Project US2010 Report (2011): 1-22.
-\bibitem{census}
-``U.S. Census Bureau Data". U.S. Census Bureau. 2010. Retrieved 2017-04-22.
-\bibitem{hu}
-Hu, Minqing, and Bing Liu. ``Mining and summarizing customer reviews." Proceedings of the tenth ACM SIGKDD international conference on Knowledge discovery and data mining. ACM, 2004.
-\bibitem{fradkin}
-Fradkin, Andrey, Elena Grewal, and David Holtz. The Determinants of Online Review Informativeness: Evidence from Field Experiments on Airbnb. Mimeo, 2017.
-\end{thebibliography}
-
-%%Add Fradkin citation
-
-%\bibitem{nyt1}
-%Dobbins, James. ``Making a Living With Airbnb." The New York Times. The New York Times, 07 Apr. 2017. Web. 22 July 2017.
-\end{comment}
-=======
-
->>>>>>> c6e14d69c67eeb8f69ec3f97a7e75701e4c0f8ee
-
-
-
 \begin{comment} 
-\section{GARBAGE SECTION: Alternative Hypotheses}
-
 In this section, I consider alternative explanations for the price differences I found between minority and white hosts. In particular, I examine three relevant mechanisms that are not discrimination that could explain my results. I will then argue that these mechanisms would be insufficient in doing so. 
 
 \textbf{2. Price observed during the scrape is not the price normally set by hosts or observed by guests}
@@ -156,8 +93,6 @@ TO-DO - Check price time series data to prove that prices don't move around that
 During my analysis, I left out hosts that had no profile picture. If hosts are aware of the potential effects of discrimination, minority hosts might be less likely to include a profile picture. If minority hosts who own higher-priced listings dropped out of the data set in this way, my coefficients might be biased downward because the sample doesn't include the higher-priced listings owned by minority hosts. A similar thing could have happened when I restricted my data set to listings with a price per night of less than \$800, and to listings owned by hosts who owned fewer than 20 listings total. If those hosts who owned a lot of listings or charged wildly high prices per night were disproportionately black, Hispanic, or Asian, I'd see a similar downward bias on my coefficients.
 
 TO-DO - Examine who I am dropping when I do data-clean up. 
-
-
 
 ************Garbage
 After controlling for listing characteristics, host characteristics, and the neighborhood location of the Airbnb, and time on the market, I find that all host categories, but especially black male hosts, white female hosts, black female hosts, and Asian female hosts, for whom the result is statistically significant at at least the p < .01 level, earn approximately \$200 less during the course of their listing than white male hosts.  will earn \$190 - \$284 less revenue from their Airbnb over the course of the posting relative to their white male peers. The effect is statistically significant at the p < .001 level for white female and black female hosts, and significant at the p < .01 level for black male hosts and Asian female hosts. While there is a large downward effect on revenue for Hispanic male, Hispanic female, and Asian male hosts, it does not persist after controlling for listing and host characteristics. Contrary to what one would expect from discrimination literature, out of the groups for whom I could measure discrimination, black male fared the least poorly, earning \$190 less than white male hosts over the course of their listing?s lifetime. Women as a whole, regardless of race, do worse than black men. Asian women earn \$232.6 less in revenue and white women earn \$272 less in revenue than white male peers. Black women hosts fare the worst out of any of the groups considered, earning \$283.6 less than white men over the course of their Airbnb listing. 

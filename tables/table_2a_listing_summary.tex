@@ -1,0 +1,72 @@
+%listing-level summary table
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{longtable}{l*{6}{c}}
+\caption{Summary Statistics by Race: Listing Characteristics}\\
+\hline
+                  &\multicolumn{1}{c}{}&\multicolumn{1}{c}{}&\multicolumn{1}{c}{}&\multicolumn{1}{c}{Regression}&\multicolumn{1}{c}{}&\multicolumn{1}{c}{}\\
+                  		\cline{3-7}\\
+                  &\multicolumn{1}{c}{Full data}&\multicolumn{1}{c}{Full Sample}&\multicolumn{1}{c}{White}&\multicolumn{1}{c}{Black}&\multicolumn{1}{c}{Hispanic}&\multicolumn{1}{c}{Asian}\\
+                  
+                  \hline\hline\endfirsthead\hline\endhead\hline\endfoot\endlastfoot
+                  &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}\\
+                  &\multicolumn{1}{c}{Full data}&\multicolumn{1}{c}{Regression sample}&\multicolumn{1}{c}{White}&\multicolumn{1}{c}{Black}&\multicolumn{1}{c}{Hispanic}&\multicolumn{1}{c}{Asian}\\
+\hline
+\endhead                  
+\textit{Outcome variables} \\
+\hline
+Price         &  &           167.37         &           178.62         &           125.95         &           160.39       &   131.06\\
+(\$)                  &  &         (277.7)         &         (289.4)         &         (208.1)         &         (275.0)     & (242.1)    \\
+[1em]
+Number of reviews     &   &      16.57  &      17.14         &      15.06&      16.46 & 	14.08\\
+                 &   &     (30.8)         &     (31.9)         &     (27.2)         &     (29.7)        & (27.6) \\
+[1em]
+\textit{Selected covariates} \\
+\hline\hline
+\textit{Listing characteristics} \\
+\hline
+\textit{Property Type} \\
+Apartments/Lofts     		&	&      .598         &       .590         &      .654        &      .625 			& 	.601         \\
+Townhouses/Condominiums   &  &      .042         &      .039         &      .041        &      .041 	& 		.055         \\
+Houses    				&	&      .321         &       .336        &      .279        &      .289				& 		.311         \\
+Other    				&	&      .039      &       .035        &      .026        &      .045	& 		.033        \\
+[1em]
+
+\textit{Room Type} \\
+Entire home/apt   &   & .577   	&      .607	&      .449  &      .510		&    .418\\
+Private room       &  & 	.384		&      .363	&      .483  &      .434		&    .530\\
+Shared room      &  &	.04	 	&      .029	&      .067  &      .056		&    .052\\
+[1em]
+Num. Guests Accommodated    &    &      3.26	&      3.36  &      2.90		&    3.17 		&	 2.89\\
+               &     &     (2.3)         &     (2.3)         &     (2.1)         &     (2.4)         & (2.1)\\
+[1em]
+Bedrooms    &   &      1.30 &      1.33         &      1.20         &      1.25   & 1.20      \\
+              &      &     (.88)         &     (.92)         &     (.72)         &     (.90)       & (.76)  \\
+[1em]
+Bathrooms  &   &      1.27         &       1.29         &      1.20         &      1.26 & 1.21         \\
+                &    &     (.66)         &     (.68)         &     (.52)         &     (.69)         & (.58)\\
+[1em]
+Beds       &   &      1.73 &      1.76         &      1.63         &      1.74         & 1.59\\
+               &     &     (1.32)         &     (1.31)         &     (1.22)         &     (1.60)   & (1.21)      \\
+[1em]
+Availability    &    &      11.30&      10.9&      14.4 &      11.46  	& 	10.88\\
+(out of 30 days)         &      & (10.99)     &     (10.85)         &     (11.54)         &     (11.03)         &     (11.05)         \\
+[1em]
+Number of Amenities   &     &      .80		&      .81&      .77 &      .80  	& 	.75\\
+           &    & (1.10)     &     (1.11)         &     (1.05)         &     (1.10)         &     (1.13)         \\
+
+
+\hline
+Observations (full sample)  &   & 68,983   &       43,988         &       5,023         &       3,524         &       5,893         \\
+\hline\hline
+\caption*{Notes: The values in the table are means and standard deviations of listing-level data in my full sample. Summary statistics for selected covariates are listed in the table. Categorical variables such as room type do not have standard deviations. Property types are explicitly listed if more than 1.5\% of listings are that type.}
+
+\end{longtable}
+}
+
+
+
+
+
+
+

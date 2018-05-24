@@ -1,0 +1,35 @@
+% reviewer summary table
+
+{
+	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+	\begin{longtable}{l*{5}{c}}
+		\caption{Summary Statistics by Race: Reviewer Characteristics}\\
+		\hline
+		&\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}\\
+		&\multicolumn{1}{c}{Full sample}&\multicolumn{1}{c}{White}&\multicolumn{1}{c}{Black}&\multicolumn{1}{c}{Hispanic}&\multicolumn{1}{c}{Asian}\\
+		\hline\hline\endfirsthead\hline\endhead\hline\endfoot\endlastfoot
+		&\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}\\
+		&\multicolumn{1}{c}{Full sample}&\multicolumn{1}{c}{White}&\multicolumn{1}{c}{Black}&\multicolumn{1}{c}{Hispanic}&\multicolumn{1}{c}{Asian}\\
+		\hline
+		\endhead                  
+
+		\textit{Reviewer characteristics (Chicago data only) } \\
+		\hline
+		Host race            &      1.00 &      .738&       .099         &      .079    &	.083     \\
+		[1em]
+		Reviewer race            &      1.00		&      .759	&       .041         &      .047    &	.153     \\
+		[1em]
+		Review sentiment            &      .510	&      .512&       .503         &      .509    &	.506     \\
+		&     (.261)         &     (.254)         &     (.258)         &     (.276)         &		(.287)\\
+		[1em]
+		Listing sentiment            &      .507&      .509&       .502         &      .499    &	.506     \\
+		&     (.072)         &     (.067)         &     (.089)         &     (.096)         &		(.094)\\
+		
+		\hline
+		Observations (full sample)     & 68,983   &       43,988         &       5,023         &       3,524         &       5,893         \\
+		\hline\hline
+		\caption*{Notes: The values in the table are means and standard deviations of reviewer-level data of a randomly chosen set of hosts in Chicago. Categorical variables do not have standard deviations. White refers only to Non-Hispanic Whites. The host race and the reviewer race in that panel is the proportion of each race that are included in the Reviewer data. The review sentiment is the sentiment of each review, the listing sentiment is the average sentiment per listing.}
+		
+	\end{longtable}
+}
+
