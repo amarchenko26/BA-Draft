@@ -16,12 +16,21 @@
 \usepackage{booktabs}
 \usepackage{array}
 \usepackage{float} 
+\usepackage{lscape} %allows for one page to be landscape
 
 
 \begin{document}
 
 
 \begin{comment}
+5/28 TO-DO:
+Check to see if matches: 
+	Table references to tables
+	Section references to sections
+Make sure Figures 1,2 come before table 1 in text. if not, change order in "full_tables.tex"
+put in more appropriate stats in data section for in-city comparison
+rewrite conclusion
+
 Options for first sentence of abstract:
 \begin{enumerate}
 \item The extent of discrimination on Airbnb, especially against hosts, remains poorly researched. 
@@ -29,6 +38,8 @@ Options for first sentence of abstract:
 \item Even though discrimination against hosts on Airbnb carries serious economic consequences for agents, the issue has remained poorly researched. 
 \item Measuring discrimination is challenging because in the absence of an experiment, it requires controlling for an extensive set of covariates. 
 \item Little research has been done on the extent of discrimination against hosts on Airbnb because of data restrictions, and difficulty of setting up an experiment. 
+\item This paper leverages the recent rise of sharing economies and the data and standardization their platforms provide to credibly measure discrimination against minority landlords
+\item There is little evidence that these price disparities are due to minority hosts choosing to price their listings lower because of differences in their marginal cost, or offering their listing up for rent for shorter periods of time, than white hosts. I also find little evidence that this effect is due to minority hosts owning listings of worse quality.(LAST SENTENCE OF FORMER ABSTRACT)  
 \end{enumerate}
 \end{comment}
 
@@ -40,7 +51,7 @@ Options for first sentence of abstract:
 
 
 \begin{abstract}
-Measuring discrimination is challenging because XXX. Racial bias faced by Airbnb hosts is a topic largely underrepresented in economic literature. Earlier research has attempted to measure discrimination against New York City hosts, but was limited by a small sample size and narrow set of controls. I address this issue by using a previously unexploited dataset from a large webscrape of the Airbnb website to measure discrimination. Controlling for a large set of covariates, I estimate that black hosts earn \$5 - 7 less per night, and Asian hosts \$6 - 9 less per night (depending on the sex of the host) than white hosts who post a similar type of listing. In addiiton to price data, I also have data on quantity demanded of hosts' listings. I measure that quantity demanded is also lower for minority hosts, suggesting a demand shift, rather than a supply shift. There is little evidence that these price disparities are due to minority hosts choosing to price their listings lower because of differences in their marginal cost, or offering their listing up for rent for shorter periods of time, than white hosts. I also find little evidence that this effect is due to minority hosts owning listings of worse quality. Overall, among the hypotheses I test, discrimination is the most convincing explanation for this persistent price disparity. 
+Measuring discrimination is challenging because in the absence of an experiment, the presence of unobservables confounds estimates of discrimination. This paper leverages the recent rise of sharing economies and the data and standardization their platforms provide to credibly measure discrimination against minority landlords on Airbnb. Earlier research has attempted to measure discrimination against New York City hosts, but was limited by a small sample size and no credible way to tease out the effects of discrimination. I address this issue by using a previously unexploited dataset from a large webscrape of the Airbnb website. Controlling for a large set of covariates, I estimate that black hosts earn \$5 - 7 less per night, and Asian hosts \$6 - 9 less per night (depending on the sex of the host) than white hosts who post a similar type of listing. Crucially, I have a measure of quantity demanded of hosts' listings, which allows me estimate whether a demand or supply shift is responsible for the price disparity. I estimate that quantity demanded is lower for minority hosts, consistent with discrimination. 
 \end{abstract}
 
 
@@ -54,8 +65,8 @@ Measuring discrimination is challenging because XXX. Racial bias faced by Airbnb
 \section{Results}
 \input{3_results}
 
-\section{Testing Alternative Hypotheses}
-\input{4_hypotheses}
+\section{Robustness Checks}
+\input{4_robustness}
 
 \section{Conclusion \& Further Work}
 \input{5_conclusion}

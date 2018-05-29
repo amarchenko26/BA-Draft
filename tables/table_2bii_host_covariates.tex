@@ -1,27 +1,19 @@
 %Host-level summary table
 {
-	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
 	\begin{longtable}{l*{6}{c}}
-		\caption{Summary Statistics by Race: Host Characteristics}\\
+		\caption{Summary Statistics by Host Race: Host Characteristics}\\
 		
 		\hline
-		&\multicolumn{1}{c}{}&\multicolumn{1}{c}{}&\multicolumn{1}{c}{}&\multicolumn{1}{c}{Regression}&\multicolumn{1}{c}{}&\multicolumn{1}{c}{}\\
+		&\multicolumn{1}{c}{}&\multicolumn{1}{c}{}&\multicolumn{1}{c}{}&\multicolumn{1}{c}{Regression Sample}&\multicolumn{1}{c}{}&\multicolumn{1}{c}{}\\
 		\cline{3-7}\\
-			&\multicolumn{1}{c}{Full data}&\multicolumn{1}{c}{Full Sample}&\multicolumn{1}{c}{White}&\multicolumn{1}{c}{Black}&\multicolumn{1}{c}{Hispanic}&\multicolumn{1}{c}{Asian}\\
-		
-		\hline\hline\endfirsthead\hline\endhead\hline\endfoot\endlastfoot
-		&\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}\\
-		&\multicolumn{1}{c}{Full data}&\multicolumn{1}{c}{Regression sample}&\multicolumn{1}{c}{White}&\multicolumn{1}{c}{Black}&\multicolumn{1}{c}{Hispanic}&\multicolumn{1}{c}{Asian}\\
-		\hline
-		\endhead             
+			&\multicolumn{1}{c}{Full data}&\multicolumn{1}{c}{All}&\multicolumn{1}{c}{White}&\multicolumn{1}{c}{Black}&\multicolumn{1}{c}{Hispanic}&\multicolumn{1}{c}{Asian}\\
+		\hline\hline           
 		     
 		\textit{Outcome variables} \\
 		Host listings count         & &      5.53&      5.50 &      10.5&    3.16 & 2.68\\
 		&	&     (33.0)         &     (31.2)         &     (60.3)         &     (17.8) & 	(3.62)         \\
-		[1em]
-		\textit{Selected covariates} \\
-		\hline\hline
-		\textit{Host characteristics} \\
+		
+		\textit{Covariates} \\
 		\hline
 		Review value      &   &      93.61	&      94.08	 	&      91.89		&    92.81	 & 		92.24\\
 		(out of 100)              &      &     (8.00)         &     (7.49)         &     (9.42)         &     (8.72) 	&	 (9.27)         \\
@@ -30,6 +22,9 @@
 		& & (.329)     &     (.341)         &     (.277)         &     (.310)         &     (.296)         \\
 		[1em]
 		Response rate      &   &       .756		&       .756		&      .771         &      .756  	& 	.744\\
+		& &     (.391)         &     (.393)         &     (.368)         &     (.386)         &		(.399)\\
+		[1em]
+		Response time      &   &       .756		&       .756		&      .771         &      .756  	& 	.744\\
 		& &     (.391)         &     (.393)         &     (.368)         &     (.386)         &		(.399)\\
 		[1em]
 		Acceptance rate      &     &      .453&      .463&       .357         &      .494    &	.446     \\
@@ -43,6 +38,14 @@
 		[1em]
 		Short words in ``Summary"          &  &      .182		&      .185		&       .187         &      .175    &	.175     \\
 		& &     (1.19)         &     (1.15)         &     (1.24)         &     (1.26)         &		(1.32)\\                    
+		[1em]
+		Host's Identity Verified?          &  &      FIX		&      .185		&       .187         &      .175    &	.175     \\
+		& &     (FIX)         &     (1.15)         &     (1.24)         &     (1.26)         &		(1.32)\\                    
+		[1em]
+		Guest Pic Required?   &   FIX  &      .80		&      .81&      .77 &      .80  	& 	.75\\
+		&  (FIX)  & (1.10)     &     (1.11)         &     (1.05)         &     (1.10)         &     (1.13)         \\
+		Guest Phone Required?   &   FIX  &      .80		&      .81&      .77 &      .80  	& 	.75\\
+		&  (FIX)  & (1.10)     &     (1.11)         &     (1.05)         &     (1.10)         &     (1.13)         \\
 		
 		
 		\hline
