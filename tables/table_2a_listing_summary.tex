@@ -10,7 +10,7 @@
      \hline\hline
              
 \textit{Outcome variables} \\
-Price (\$/day)        & 175.72  &           167.37         &           178.62         &           125.95         &           160.39       &   131.06\\
+Price (\$/day)        & 175.72  &     167.37         &      178.62      &     125.95      &     160.39       &   131.06\\
                   & (294.14) &         (277.7)         &         (289.4)         &         (208.1)         &         (275.0)     & (242.1)    \\
 Number of reviews     & 17.51  &      16.57  &      17.14         &      15.06&      16.46 & 	14.08\\
                  & (31.86)  &     (30.8)         &     (31.9)         &     (27.2)         &     (29.7)        & (27.6) \\
@@ -36,30 +36,27 @@ Bathrooms  & 1.30  &      1.27         &       1.29         &      1.20         
                 &  (.69)  &     (.66)         &     (.68)         &     (.52)         &     (.69)         & (.58)\\
 Beds       & 1.82  &      1.73 &      1.76         &      1.63         &      1.74         & 1.59\\
                &   (1.41)  &     (1.32)         &     (1.31)         &     (1.22)         &     (1.60)   & (1.21)      \\
-Availability    & 11.53   &      11.30&      10.9&      14.4 &      11.46  	& 	10.88\\
-(out of 30 days)         &  (10.93)    & (10.99)     &     (10.85)         &     (11.54)         &     (11.03)         &     (11.05)         \\
+Availability (out of 30 days)    & 11.53   &      11.30&      10.9&      14.4 &      11.46  	& 	10.88\\
+         &  (10.93)    & (10.99)     &     (10.85)  &     (11.54)  &     (11.03)         &     (11.05)         \\
 Number of Amenities   &   .81  &      .80		&      .81&      .77 &      .80  	& 	.75\\
-           &  (1.10)  & (1.10)     &     (1.11)         &     (1.05)         &     (1.10)         &     (1.13)         \\
-Cleaning Fee   &  FIX &      .80		&      .81&      .77 &      .80  	& 	.75\\
-&  (FIX)  & (1.10)     &     (1.11)         &     (1.05)         &     (1.10)         &     (1.13)         \\
-Extra Guests Charge   &   FIX  &      .80		&      .81&      .77 &      .80  	& 	.75\\
-&  (FIX)  & (1.10)     &     (1.11)         &     (1.05)         &     (1.10)         &     (1.13)         \\
-Instantly Bookable?   &   FIX  &      .80		&      .81&      .77 &      .80  	& 	.75\\
-&  (FIX)  & (1.10)     &     (1.11)         &     (1.05)         &     (1.10)         &     (1.13)         \\
-Minimum Nights   &   FIX  &      .80		&      .81&      .77 &      .80  	& 	.75\\
-&  (FIX)  & (1.10)     &     (1.11)         &     (1.05)         &     (1.10)         &     (1.13)         \\
-Cancellation Policy   &   FIX  &      .80		&      .81&      .77 &      .80  	& 	.75\\
-&  (FIX)  & (1.10)     &     (1.11)         &     (1.05)         &     (1.10)         &     (1.13)         \\
-
-Year first review    & FIX   &      3.26	&      3.36  &      2.90		&    3.17 		&	 2.89\\
-& (FIX)    &     (2.3)         &     (2.3)         &     (2.1)         &     (2.4)         & (2.1)\\
-Month first review    & FIX   &      3.26	&      3.36  &      2.90		&    3.17 		&	 2.89\\
-& (FIX)    &     (2.3)         &     (2.3)         &     (2.1)         &     (2.4)         & (2.1)\\
+         						  &  (1.10)  & (1.10)     &     (1.11)    &     (1.05)         &     (1.10)         &     (1.13)         \\
+Cleaning Fee   &  67.94 &      FIX	&      .81&      .77 &      .80  	& 	.75\\
+						&  (60.36)  & (FIX)     &     (1.11)         &     (1.05)         &     (1.10)     &     (1.13)         \\
+Extra Guests Charge   &   13.74  &  FIX      &    .81  &      .77           &   .80  	& 	.75\\
+									&  (23.65)  & (1.10)  &     (1.11) &     (1.05)     &     (1.10) &     (1.13)  \\
+Instantly Bookable?   &   .15  &      FIX		&      .81&      .77 &      .80  	& 	.75\\
+									&  (.361)  & (1.10)     &     (1.11)  &     (1.05)   &     (1.10)   &     (1.13)         \\
+Minimum Nights   &   3.01  &      FIX		&      .81&      .77 &      .80  	& 	.75\\
+							&  (9.21)  & (1.10)     &     (1.11)         &     (1.05)         &     (1.10)         &     (1.13)         \\
+Strict Cancellation Policy   &   .43  &      FIX		&      .81&      .77 &      .80  	& 	.75\\
+[1em]
+Year of first review    & 14.86   &      FIX	&      3.36  &      2.90		&    3.17 		&	 2.89\\
+							& (1.22)    &     (FIX)         &     (2.3)         &     (2.1)         &     (2.4)         & (2.1)\\
 
 \hline
 Observations  & 69,007  & 68,983   &       43,988         &       5,023         &       3,524   & 5,893      \\
 \hline\hline
-\caption*{Notes: The values in the table are means and standard deviations of listing-level data in my full sample. Summary statistics for selected covariates are listed in the table. Categorical variables such as room type do not have standard deviations. Property types are explicitly listed if more than 1.5\% of listings are that type.}
+\caption*{Notes: The values in the table are means and standard deviations of listing-level data in my full sample. Summary statistics for selected covariates are listed in the table. Categorical variables such as room type do not have standard deviations. Property types are explicitly listed if more than 1.5\% of listings are that type. Only the most popular cancellation policy type is listed - in the full sample, 99\% of listings have strict (43\%), flexible (31\%) or moderate (25\%) cancellation policies. Year of first review is a proxy for the time on the market - 14.86 indicates that the first review of the mean listing in the full sample occured in October of 2014.}
 
 \end{longtable}
 }

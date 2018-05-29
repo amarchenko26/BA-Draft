@@ -10,48 +10,47 @@
 		\hline\hline           
 		     
 		\textit{Outcome variables} \\
-		Host listings count         & &      5.53&      5.50 &      10.5&    3.16 & 2.68\\
-		&	&     (33.0)         &     (31.2)         &     (60.3)         &     (17.8) & 	(3.62)         \\
+		Host listings count         & 6.38 &      5.53&      5.50 &      10.5&    3.16 & 2.68\\
+		& (36.54)	&     (33.0)         &     (31.2)         &     (60.3)         &     (17.8) & 	(3.62)         \\
 		
 		\textit{Covariates} \\
 		\hline
-		Review value      &   &      93.61	&      94.08	 	&      91.89		&    92.81	 & 		92.24\\
-		(out of 100)              &      &     (8.00)         &     (7.49)         &     (9.42)         &     (8.72) 	&	 (9.27)         \\
-		[1em]
-		Host is a superhost    &    &      .124		&      .134&      .084 &      .108  	& 	.097\\
-		& & (.329)     &     (.341)         &     (.277)         &     (.310)         &     (.296)         \\
-		[1em]
-		Response rate      &   &       .756		&       .756		&      .771         &      .756  	& 	.744\\
-		& &     (.391)         &     (.393)         &     (.368)         &     (.386)         &		(.399)\\
-		[1em]
-		Response time      &   &       .756		&       .756		&      .771         &      .756  	& 	.744\\
-		& &     (.391)         &     (.393)         &     (.368)         &     (.386)         &		(.399)\\
-		[1em]
-		Acceptance rate      &     &      .453&      .463&       .357         &      .494    &	.446     \\
-		& &     (.463)         &     (.463)         &     (.451)         &     (.466)         &		(.467)\\
-		[1em]
-		Total ``good" words       &    &      .655&      .656&       .686         &      .677    &	.604     \\
-		& &     (.857)         &     (.843)         &     (.882)         &     (.867)         &		(.826)\\
-		[1em]
-		Length of ``Summary"      &     &      208.67 	&      210.20	&       203.25         &      206.74    &	205.81     \\
-		& &       (64.99)  &    (64.08)         &     (70.59)         &     (65.62)         &     (65.87) \\
-		[1em]
-		Short words in ``Summary"          &  &      .182		&      .185		&       .187         &      .175    &	.175     \\
-		& &     (1.19)         &     (1.15)         &     (1.24)         &     (1.26)         &		(1.32)\\                    
-		[1em]
-		Host's Identity Verified?          &  &      FIX		&      .185		&       .187         &      .175    &	.175     \\
-		& &     (FIX)         &     (1.15)         &     (1.24)         &     (1.26)         &		(1.32)\\                    
-		[1em]
-		Guest Pic Required?   &   FIX  &      .80		&      .81&      .77 &      .80  	& 	.75\\
-		&  (FIX)  & (1.10)     &     (1.11)         &     (1.05)         &     (1.10)         &     (1.13)         \\
-		Guest Phone Required?   &   FIX  &      .80		&      .81&      .77 &      .80  	& 	.75\\
-		&  (FIX)  & (1.10)     &     (1.11)         &     (1.05)         &     (1.10)         &     (1.13)         \\
+		Review value out of 100      & 93.56  &      93.61	&      94.08	 	&      91.89		&    92.81	 & 		92.24\\
+		              &   (8.13)   &     (8.00)         &     (7.49)         &     (9.42)         &     (8.72) 	&	 (9.27)         \\
+		
+		Host is a superhost    & .135   &      .124		&      .134&      .084 &      .108  	& 	.097\\
+		&(.341) & (.329)     &     (.341)         &     (.277)         &     (.310)         &     (.296)         \\
+
+		Response rate      & .933  &       .756		&       .756		&      .771         &      .756  	& 	.744\\
+		& (.160) &     (.391)         &     (.393)         &     (.368)         &     (.386)         &		(.399)\\
+
+		Response time $<$ 1 hour      & .411  &       .756		&       .756		&      .771         &      .756  	& 	.744\\
+
+		Acceptance rate      & .882    &      .453&      .463&       .357         &      .494    &	.446     \\
+		&.204 &     (.463)         &     (.463)         &     (.451)         &     (.466)         &		(.467)\\
+
+		Total ``good" words       & .640   &      .655&      .656&       .686         &      .677    &	.604     \\
+		& (.839) &     (.857)         &     (.843)         &     (.882)         &     (.867)         &		(.826)\\
+
+		Length of ``Summary"      &   208.661  &      208.67 	&      210.20	&       203.25         &      206.74    &	205.81     \\
+		&(65.00) &       (64.99)  &    (64.08)         &     (70.59)         &     (65.62)         &     (65.87) \\
+
+		Short words in ``Summary"          & .158 &      .182		&      .185		&       .187         &      .175    &	.175     \\
+		&(.041) &     (1.19)         &     (1.15)         &     (1.24)         &     (1.26)         &		(1.32)\\                    
+
+		Host's Identity Verified?          & .705 &      FIX		&      .185		&       .187         &      .175    &	.175     \\
+		&(.456) &     (FIX)         &     (1.15)         &     (1.24)         &     (1.26)         &		(1.32)\\                    
+
+		Guest Pic Required?   &   .039  &      .80		&      .81&      .77 &      .80  	& 	.75\\
+		&  (.194)  & (1.10)     &     (1.11)         &     (1.05)         &     (1.10)         &     (1.13)         \\
+		Guest Phone Required?   &   .050  &      .80		&      .81&      .77 &      .80  	& 	.75\\
+		&  (.218)  & (1.10)     &     (1.11)         &     (1.05)         &     (1.10)         &     (1.13)         \\
 		
 		
 		\hline
-		Observations (full sample)    &  & 68,983   &       43,988         &       5,023         &       3,524         &       5,893         \\
+		Observations (full sample)    & 69,007  & 68,983   &       43,988         &       5,023         &       3,524         &       5,893         \\
 		\hline\hline
-		\caption*{Notes: The values in the table are means and standard deviations of host-level data in my full sample. Summary statistics for selected covariates are listed in the table. Categorical variables such as race, sex, and age do not have standard deviations. White refers only to Non-Hispanic Whites. Length of ``Summary" and proportion of short words in the ``Summary'' refer to my constructed measures of host quality. These two measures were also calculated for the description, space, neighborhood overview, notes, and transit fields, but were not included in the table for the sake of clarity and because they follow a similar pattern as the ``Summary" field.}
+		\caption*{Notes: The values in the table are means and standard deviations of host-level data in my full sample. Summary statistics for selected covariates are listed in the table. Categorical variables such as race, sex, and age do not have standard deviations. White refers only to Non-Hispanic Whites. Length of ``Summary" and proportion of short words in the ``Summary'' refer to my constructed measures of host quality. These two measures were also calculated for the description, space, neighborhood overview, notes, and transit fields, but were not included in the table for the sake of clarity and because they follow a similar pattern as the ``Summary" field. Statistics for only the most frequent response time (``within an hour") were included.}
 		
 	\end{longtable}
 }
