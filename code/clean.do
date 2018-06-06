@@ -1,12 +1,9 @@
 ** Cleaning up variables for all cities
-* To-do 
-* Fix labels for Chicago people 
-
-//Run regression for LA, Chi, NYC separately, say "this result is consistent with these cities run separately"
 
 set more off
 
 ** Creating quality of listing controls
+
 // Description
 gen len_desc = length(description) // length of description 
 la var len_desc "Length of Description"
@@ -172,7 +169,6 @@ destring review_scores_rating, replace force
 // Replace missing data with zeros
 destring reviews_per_month, replace force
 replace reviews_per_month = 0 if reviews_per_month ==  . 
-replace price = 0 if price == . 
 replace host_acceptance_rate = 0 if host_acceptance_rate == .
 replace host_response_rate = 0 if host_response_rate == .
 replace cleaning_fee = 0 if cleaning_fee == . 
@@ -180,11 +176,10 @@ replace bedrooms = 0 if bedrooms == .
 replace beds = 0 if beds == .
 replace bathrooms = 0 if bathrooms == .
 
-// Create indicator variables for missing variables 
+** Create indicator variables for missing variables 
 quietly misstable summarize, generate(miss_) //creating miss_X indicator variable, 1 if X missing
 
-
-** Creating labels tables
+** Creating labels
 la var race "Race"
 la var sex "Sex"
 la var age "Age"

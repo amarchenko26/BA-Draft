@@ -1,3 +1,4 @@
+\subsection*{Data}
 
 Inside Airbnb also provides some time-series information on prices, but since the each listing's price was not scraped daily, there are often week-long or month-long gaps in the time-series price data. A cursory glance at the time-series prices reveals that hosts do not change prices often, and if they do, they often reflect predictable weekend or holiday seasonality. There is therefore reason to believe that the prices posted at the time of the scrape are representative of a listing's price throughout the year. Because of the incompleteness of the time-series data set, I focus on the cross-sectional data for the main analysis.  
 
@@ -5,13 +6,35 @@ The data set does not include Airbnb's original neighborhood designations ``due 
 	\footnote{Location information for listings is anonymized by Airbnb, and no exact address is provided for any listing. The location for a listing could be 0-150 meters from the actual address.} 
 Figure 6 presents a map of Chicago's neighborhoods to give the reader a sense of the granularity of the neighborhood controls. 
 
-Airbnb does not provide the demographic information of their users, so research assistants manually coded the hosts' demographic information. Research assistants were provided a link to the host profile picture and host name, and coded each picture according to the host's sex, race, and age. Only hosts with single-person pictures who were identifiably white, black, Asian, or Hispanic were included in the main analysis.%
-	\footnote{All other types of profile pictures, including couples, groups of more than two people, children, pictures without a human face, or hosts of ambiguous race were dropped from the main analysis.}
-Importantly, listings that no longer existed at the time of coding were also excluded.%
+\subsection*{Demographic Coding}
+
+Airbnb does not provide the demographic information of their users, so research assistants manually coded the hosts' demographic information. Research assistants were provided a link to the host profile picture and host name, and coded each picture according to the host's sex, race, and age. Table 13 presents the coding categories RAs were instructed to use. Only hosts with single-person pictures who were identifiably white, black, Asian, or Hispanic were included in the main analysis. All other types of profile pictures, including couples, groups of more than two people, children, pictures without a human face, or hosts of ambiguous race were dropped from the main analysis. Importantly, listings that no longer existed at the time of coding were also excluded.%
 	\footnote{If certain groups of hosts systematically exited the Airbnb market between the time of the scrape and the time of the coding, dropping those listings could bias the results. Unfortunately, there is no way to verify the demographics of the hosts who dropped out, since Airbnb takes down their profile picture.}
 
 Each RA was compensated based on the quantity of the listings they coded. This could create the incentive to code for speed rather than accuracy, so a simple double-checking process was put in place to check codings. For hosts whose picture was ambiguous on any of the dimensions of race, sex, or age, RAs were instructed to flag the listing. I subsequently coded each flagged picture and checked RA work. Due to manpower constraints, one RA coded each picture.%
 	\footnote{It is important to note that the coding need not reflect the actual demographics of the host. Rather, it is sufficient that they are coded with the race, sex, and age that the average user on Airbnb would assume after looking at the profile picture. However, one limitation of this method is that the average University of Chicago undergraduate might not be representative of the average guest on Airbnb. With more resources, a more rigorous coding process could have been conducted. In future research, it would be preferable for two people to code each picture, and a third person to mediate any disagreement.}
 
+
+\subsection*{Listing Controls}
+Listing characteristics include fixed effects for the property type and room type, the listing's duration on the market, the number of guests the listing accommodates, the number of bathrooms, bedrooms, and beds, the bed type, the number of amenities, the number of minimum nights, any extra fees, whether the listing is instantly bookable, and the cancellation policy. The listing's duration on the market is proxied by fixed effects for the month and year of the listing's first review.
+
+\subsection*{Sentiment Analysis}
+
+The race, sex, and age of 16,000 reviewers who left reviews for a subset of the Chicago hosts was coded.%
+	\footnote{16,000 is 23\% of the total amount of Chicago reviewers in the data set} 
+I use sentiment analysis to measure the valence of reviews given to hosts in Chicago. 
+
+The algorithm Sentimentr uses a dictionary of positive and negative words to assign each sentence a sentiment score from -1 to 1, where 1 is a positive sentence, -1 is a negative sentence, and 0 is a neutral sentence carrying no emotion. Unlike other sentiment analysis programs, Sentimentr doesn't merely count the number of good or bad words in a sentence. It also takes into account valence shifters, or words that affect the sentiment-carrying word in the sentence. For example, the algorithm assigns ``I like the listing", ``I \textit{really} like the listing", and ``I like the listing, \textit{but}..." different valence scores because of the presence of valence-shifting words like ``really" and ``but". The algorithm's sentiment matches a human grader's 60-70\% of the time. One limitation of conducting sentiment analysis in this way, however, is that not every review that a human would consider bad or good carries a sentiment word that the algorithm would pick up. For example, ``The apartment had cockroaches" is certainly a horrible review, but would be given a score of 0 by Sentimentr because it contains no emotion-laden words. 
+
+
+\subsection*{Host quality controls}
+Host controls include the host response time and the host response rate, whether the host is a Superhost, whether the host identity was verified by Airbnb, and if the host requires a guest's profile picture or phone to book. 
+
+I also construct my own host effort measures by analyzing the descriptions hosts write of their listings. There are several host-written fields on each listing page, the ``Summary," ``Description," ``Space," ``Neighborhood Overview," ``Transit," and ``Notes". By filling out these fields, hosts not only describe their listing, but also have the opportunity to provide guests with helpful tips and information about the surrounding area. How well a host writes these descriptions is an indication of how much effort they are willing to put into hosting. To this end, I construct three variables to measure host effort. My first variable simply measures the length of each of these fields. My second variable measures whether these fields had mostly long words or short words, so that a description that uses shorter words, such as ``My house is nice", would be counted as lower quality than ``My house is gorgeous". My third measure of host effort is a rudimentary sentiment analysis of the ``Description" field.
+
+Hu and Liu (2004) create a list of 2,006 positive words that commonly appear in customer reviews to aid in sentiment categorization \citep{hu}. I only include words that have substantial variation in the description, meaning that more than 5\% of descriptions had these words. This narrowed the list of viable words significantly. I take 7 positive words from that list that would be most relevant for Airbnb listings: ``spacious," ``beautiful," ``clean," ``comfort," ``great," ``love," and ``quiet". I then added a covariate for the number of these ``good words" in the host's ``Description" field.
+
+
 \newpage	
 \include{tables/table_1_coding_keys}
+

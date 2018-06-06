@@ -27,12 +27,6 @@ Asian Male          &      -360.5\sym{**} &      -95.77         &      -15.85   
 Asian Female        &      -676.6\sym{***}&      -329.2\sym{***}&      -183.6\sym{**} &      -162.6\sym{**} \\
                     &     (98.12)         &     (74.93)         &     (62.31)         &     (60.08)         \\
 [1em]
-Middle-aged         &       18.31         &       98.64\sym{*}  &      -33.37         &      -121.1\sym{***}\\
-                    &     (55.99)         &     (44.60)         &     (36.71)         &     (36.42)         \\
-[1em]
-Old ($>$ 65)                 &       222.9         &       249.5         &      -73.13         &      -266.0\sym{*}  \\
-                    &     (158.6)         &     (135.3)         &     (113.0)         &     (112.5)         \\
-[1em]
 Constant            &      2301.2\sym{***}&      2384.3\sym{***}&      2009.5\sym{***}&       758.0\sym{**} \\
                     &     (109.2)         &     (42.90)         &     (187.8)         &     (235.3)         \\
 \hline
@@ -46,8 +40,15 @@ Adjusted \(R^{2}\)  &       0.006         &       0.082         &       0.350   
 \hline\hline
 \multicolumn{5}{l}{\footnotesize Standard errors in parentheses}\\
 \multicolumn{5}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
-\caption*{Notes: The dependent variable is a constructed measure of yearly host revenue, as measured by (price * number of reviews per month * 12) for each listing. The omitted category for race is White Males, so all coefficients are relative to that group. The omitted category for age is ``Young ($<$ 30)". The unit of observation is an Airbnb listing, so hosts who have multiple listings are treated separately each time. The sample is the full sample of listings across 7 US cities. The specification is the same as Table 4. See Section 3.1 for a discussion of my covariates. }
+\caption*{Notes: The dependent variable is a constructed measure of yearly host revenue, as measured by (price * number of reviews per month * 12) for each listing. The omitted category for race is white males, so all coefficients are relative to that group. The unit of observation is an Airbnb listing, so hosts who have multiple listings are treated separately each time. The sample is the sample of listings across 7 US cities. The specification is the same as Table 5. See Data Appendix for a full discussion of my covariates. }
 \end{longtable}
 }
 
-
+\begin{comment}
+[1em]
+Middle-aged         &       18.31         &       98.64\sym{*}  &      -33.37         &      -121.1\sym{***}\\
+&     (55.99)         &     (44.60)         &     (36.71)         &     (36.42)         \\
+[1em]
+Old ($>$ 65)                 &       222.9         &       249.5         &      -73.13         &      -266.0\sym{*}  \\
+&     (158.6)         &     (135.3)         &     (113.0)         &     (112.5)         \\
+\end{comment}
