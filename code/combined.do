@@ -1,6 +1,6 @@
 clear all
 set more off
-set maxvar 32000
+*set maxvar 2048
 
 * Full data w/ race 
 global repository `c(pwd)' 
@@ -8,6 +8,7 @@ insheet using "$repository/data/done_combined_full_listings.csv", clear
 sort id
 
 do "$repository/code/clean.do"
+
 
 ** Clean-up that's combined data-specific
 
