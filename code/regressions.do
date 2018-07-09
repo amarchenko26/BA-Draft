@@ -167,15 +167,15 @@ esttab est9 est10 est11 est12 using numrev_reg_4_14_2.tex, se ar2 replace label 
 
 ****** Number of reviews
 
-eststo, title("Model 1"): quietly reg scaled_num_reviews i.race_sex_res i.age, /// 
+eststo, title("Model 1"): quietly reg reviews_per_year i.race_sex_res i.age, /// 
 vce(cluster group_neighbourhood_cleansed)
 
-eststo, title("Model 2"): quietly reg scaled_num_reviews i.race_sex_res i.age ///
+eststo, title("Model 2"): quietly reg reviews_per_year i.race_sex_res i.age ///
 i.group_neighbourhood_cleansed i.cleaned_city, ///
 vce(cluster group_neighbourhood_cleansed)
 
 // Add listing specification
-eststo, title("Model 3"): quietly reg scaled_num_reviews i.race_sex_res i.age ///
+eststo, title("Model 3"): quietly reg reviews_per_year i.race_sex_res i.age ///
 	i.group_neighbourhood_cleansed i.cleaned_city /// // Location
 	i.group_property_type i.group_room_type /// //Listing-type
 	accommodates bathrooms bedrooms beds i.group_bed_type /// //Airbnb charac.
@@ -187,12 +187,12 @@ eststo, title("Model 3"): quietly reg scaled_num_reviews i.race_sex_res i.age //
 	vce(cluster group_neighbourhood_cleansed)
 				
 // Add host specification
-eststo, title("Model 4"): quietly reg scaled_num_reviews i.race_sex_res i.age ///
+eststo, title("Model 4"): quietly reg reviews_per_year i.race_sex_res i.age ///
 	i.group_neighbourhood_cleansed i.cleaned_city /// 
 	i.group_property_type i.group_room_type /// 
 	accommodates bathrooms bedrooms beds i.group_bed_type /// 
 	cleaning_fee extra_people num_amenities /// 
-	i.first_review_month i.first_review_year  /// 
+	i.first_review_month  /// 
 	i.group_cancellation_policy instant_bookable require_guest_profile_picture ///
 	require_guest_phone_verification minimum_nights /// 
 	availability_30 availability_60 ///
@@ -202,7 +202,7 @@ eststo, title("Model 4"): quietly reg scaled_num_reviews i.race_sex_res i.age //
 	host_identity_verified host_is_superhost, ///  //Host-specific charac.
 	vce(cluster group_neighbourhood_cleansed)
 		
-*esttab est9 est10 est11 est12 using numrev_reg_4_14_2.tex, se ar2 replace label mtitles title("Estimates of effect of host's race and gender on number of reviews") longtable page(longtable)
+esttab est6 est7 est8 est9 using time_market_reviews_reg.tex, se ar2 replace label mtitles title("Estimates of effect of host's race and gender on number of reviews per year on market") longtable page(longtable)
 
 
 

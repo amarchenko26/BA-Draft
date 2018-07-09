@@ -107,41 +107,33 @@ replace first_review_month = 99 if first_review_month == . //create fake month f
 replace first_review_year = 99 if first_review_year == .  //create fake year for people w/ no reviews to boost observations
 
 
+** Creating last scraped times
+// month is first
+split last_scraped, p("/") //splits variable by /
+rename last_scraped1 last_scraped_month
+rename last_scraped2 last_scraped_day
+rename last_scraped3 last_scraped_year
+
+destring last_scraped_year, replace force
+replace last_scraped_year = 15 if last_scraped_year == 2015
+
+** Creating time on market and reviews per years active metric
+gen time_on_market = last_scraped_year - first_review_year if first_review_year
+gen reviews_per_year = number_of_reviews / time_on_market
 
 
 
 
-/*
-******* Summary Stats **********************************************************
-set graphics off
 
-preserve
-** See how price distributed
-histogram price 
-replace price = 800 if price >800
-histogram price if price <= 800  
-sort host_id
-by host_id:  gen dup_host = cond(_N==1,0,_n)
-histogram price if price < 800 & dup_host>1
-restore
 
-preserve
-replace host_listings_count = 20 if host_listings_count > 20
-histogram host_listings_count if host_listings_count < 10
-tab host_listings_count
-restore
 
-tabout sex using sex_table.tex, replace // Want: Table of # of observartions in each category of variable, and their percentage of total
-tabout race using race_table.tex, replace
-tabout age using age_table.tex, replace
 
-preserve
-sum price if race==1
-sum price if race==2
-twoway histogram price if price <800, by(race)
-restore
 
-preserve
-twoway histogram price if price<800, by(sex)
-mean(price) if sex<2
-restore
+
+
+
+
+
+
+
+
