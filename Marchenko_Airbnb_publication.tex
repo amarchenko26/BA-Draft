@@ -7,6 +7,7 @@
 \usepackage{amssymb}
 \doublespacing
 %\geometry{footnotesep=2\baselineskip}
+\interfootnotelinepenalty=10000 %prevents long footnotes from overflowing to new page
 \usepackage{longtable}
 \usepackage{caption} %Put caption* in a table to remove the enumeration
 \usepackage{rotating} % To rotate the reviewer table
@@ -40,18 +41,23 @@ This paper leverages the recent rise of sharing economies and the standardizatio
 \doublespacing
 \section{Introduction}
 \input{1_intro_lit}
-
+	\label{lit}
+	
 \section{Data}
 \input{2_data}
+	\label{data}
 
 \section{Results}
 \input{3_results}
+	\label{results}
 
 \section{Robustness Checks}
 \input{4_robustness}
+	\label{robustness}
 
 \section{Conclusion \& Further Work}
 \input{5_conclusion}
+	\label{conclusion}
 \newpage
 
 \bibliographystyle{elsarticle-harv}
@@ -63,9 +69,11 @@ This paper leverages the recent rise of sharing economies and the standardizatio
 \newpage
 \section*{Data Appendix}
 \input{6_data_appendix}
+	\label{appendix}
 
 \section*{Figures}
 \input{full_figures.tex}
+	\label{figures}
 
 \newpage
 
