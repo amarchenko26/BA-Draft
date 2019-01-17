@@ -19,9 +19,6 @@ global os `c(os)'
 
 //Run code in main analysis
 cd "$repository/main/"
-do "combined".do
-do "clean".do
-do "regressions".do
 foreach file in main analysis{
 	do "`file".do
 }
