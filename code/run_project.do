@@ -19,19 +19,19 @@ global os `c(os)'
 
 //Run code in main analysis
 cd "$repository/main/"
-foreach file in main analysis{
+foreach file in clean combined regressions{
 	do "`file".do
 }
 
 //Run code in reviewers analysis
 cd "$repository/reviewers/"
-foreach file in reviewers analysis{
+foreach file in reviewers{
 	do "`file".do
 }
 
 //Run code in robustness analysis
 cd "$repository/robustness/"
-foreach file in robustness analysis{
+foreach file in robustness_property_chars robustness_state robustness_host edelman_price{
 	do "`file".do
 }
 
