@@ -6,7 +6,7 @@ Table \ref{table:price} presents OLS estimates of the effect of host race and ge
 
 \[ Price_{i,j} = \beta_1 Race_{i}\,X \,Sex_i + \beta_2 Age_i + \beta_3 x_{i,j}\]
 
-The $Price_{i,j}$ is host $i$'s price from their Airbnb listing $j$. For hosts with multiple listings, each listing is treated separately. The $Race_{j}\,X \,Sex_j$ is the interaction of the race and sex of the host. White males are the omitted category. $Age_i$ is the age of the host (young, middle-aged, or senior). $x_{i,j}$ is vector of other covariates that grows from left to right in the columns of Table \ref{table:price}. The columns are additive in their covariates, so each column controls for everything in the previous columns, plus a new set of covariates. Standard errors are clustered by neighborhood throughout.
+The $Price_{i,j}$ is host $i$'s price from their Airbnb listing $j$. For hosts with multiple listings, each listing is treated separately. The $Race_{j}\,X \,Sex_j$ is the interaction of the race and sex of the host. White males are the omitted category. $Age_i$ is the age of the host (young, middle-aged, or senior). $x_{i,j}$ is the vector of other covariates that grows from left to right in the columns of Table \ref{table:price}. The columns are additive in their covariates, so each column controls for everything in the previous columns, plus a new set of covariates. Standard errors are clustered by neighborhood throughout.
 
 The first column, Model 1, in Table \ref{table:price} presents the raw effect of host race and sex on the price of a listing. These are consistent with the mean listing prices by race presented in Table \ref{table:listing}, except the coefficients are now also broken down by male and female hosts within each racial category.
 
