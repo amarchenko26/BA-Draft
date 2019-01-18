@@ -1,5 +1,4 @@
 
-cd "~/Desktop/Combined Data/Robustness"
 
 ** State robustness checks do-file
 set more off

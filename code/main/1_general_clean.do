@@ -1,6 +1,7 @@
 ** Cleaning up variables for all cities
 
-set more off
+insheet using "$repository/data/done_combined_full_listings.csv", clear
+sort id
 
 ** Creating quality of listing controls
 
