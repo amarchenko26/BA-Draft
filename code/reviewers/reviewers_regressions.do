@@ -1,3 +1,6 @@
+*********************************************************
+*					  Reviewers Regression 			    *
+*********************************************************
 
 
 ** Regressions
@@ -103,7 +106,6 @@ eststo, title("Hispanic Female Reviewers"): quietly reg sentiment_mean_stan i.ra
 	vce(cluster group_neighbourhood_cleansed) 
 
 	
-	
 // Asian Male reviewers	
 eststo, title("Asian Male Reviewers"): quietly reg sentiment_mean_stan i.race_sex_res ///
 	i.group_neighbourhood_cleansed /// 
@@ -137,7 +139,10 @@ eststo, title("Asian Female Reviewers"): quietly reg sentiment_mean_stan i.race_
 	vce(cluster group_neighbourhood_cleansed) 
 
 
-
-esttab est9 est10 est11 est12 est13 est14 est15 est16 using reviewer_mean_reg_5_10.tex, se ar2 replace label mtitles title("Estimates of effect of host demographics on review sentiment, by reviewer demographics") longtable page(longtable)
-
+delimit ;
+esttab est9 est10 est11 est12 est13 est14 est15 est16 using 
+	"$repository/code/output/reviewer_mean_reg.tex", se ar2 replace label mtitles 
+	title("Estimates of effect of host demographics on review sentiment, by reviewer demographics") 
+	longtable page(longtable)
+;
 
