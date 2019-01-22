@@ -74,14 +74,73 @@
 %6
 \include{tables/table_4_edelman_price_reg_5_8_FINAL}
 
+\begin{table}[htbp]\centering
+	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+	\caption{New title here}
+	\label{table:edelman_new}
+	\begin{tabular}{c|c}
+		\toprule
+		
+		\input{code/tables/output/edelman_price.tex}
+		
+		\bottomrule
+	\end{tabular}
+	
+	\begin{tablenotes}
+		\item \footnotesize Standard errors in parentheses
+		\item \footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)
+		
+		\item Notes: This table presents the effect on price of controlling for Edelman \& Luca's (2014) full specification using my NYC data. My results are nearly identical to theirs (their coefficient on Black *hosts was -17.8) when controlling for similar covariates in the same city. The omitted category for race is White hosts. The omitted category for room type is Entire Apartment. I could not control for host social media accounts as a proxy for host reliability like Edelman \& Luca did, because Airbnb no longer provides this information. Instead, I controlled for ``host verified", a boolean for whether Airbnb has the host's phone number and email. I was not able to control for ``picture quality" either, but picture quality did not significantly influence price in Edelman \& Luca's regression.
+	\end{tablenotes}
+\end{table}
+
+
 %7
 \include{tables/table_8_numrev_reg_4_14_FINAL}
+
+\begin{table}[htbp]\centering
+	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+	\caption{New title here}
+	\label{table:numreviews_new}
+	\begin{tabular}{c|ccccc}
+		\toprule
+		
+		\input{code/tables/output/number_reviews.tex}
+		
+		\bottomrule
+	\end{tabular}
+	
+	\begin{tablenotes}
+		\item \footnotesize Standard errors in parentheses
+		\item \footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)
+		
+		\item Notes: The dependent variable is the number of reviews of the listing. The omitted category for race is white males, so all coefficients are relative to that group. The unit of observation is an Airbnb listing, so hosts who have multiple listings are treated separately each time. The sample is the sample of listings across 7 US cities. The specification is the same as Table 5. See Data Appendix for a discussion of my covariates.	\end{tablenotes}
+\end{table}
 
 %8
 \include{tables/table_9_availability_reg_5_1_FINAL}
 
 %9
 \include{tables/table_6_city_price_reg_4_15_FINAL}
+
+\begin{table}[htbp]\centering
+	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+	\caption{New title here}
+	\label{table:robustcity_new}
+	\begin{tabular}{c|ccccccc}
+		\toprule
+		
+		\input{code/tables/output/robustness_city.tex}
+		
+		\bottomrule
+	\end{tabular}
+	
+	\begin{tablenotes}
+		\item \footnotesize Standard errors in parentheses
+		\item \footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)
+		
+		\item Notes: The effects for the combined data from Table 3 are now broken down across all 7 cities. The cities decrease in number of observations from left to right. Each set of coefficients represents the coefficient on host race, with price as the outcome variable. I control for my preferred specification that includes listing location, listing characteristics, and host characteristics. Low number of observations for Black, Hispanic, and Asian hosts contribute to imprecise estimates in smaller cities. New Orleans and Nashville have less than 100 Hispanic and Asian hosts. DC and Austin have less than 200 Hispanic and Asian hosts. \end{tablenotes}
+\end{table}
 
 %10
 \include{tables/table_7_prop_price_reg_5_11_FINAL}
