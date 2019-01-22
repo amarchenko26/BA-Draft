@@ -1,5 +1,5 @@
 *********************************************************
-*						 Regression 					*
+*					  Regression 					    *
 *********************************************************
 
 
@@ -122,9 +122,12 @@ eststo, title("Model 4"): quietly reg p_year_reviews i.race_sex_res i.age ///
 	i.group_host_response_time miss_group_host_response_time host_response_rate /// //Host-specific charac.
 	host_identity_verified host_is_superhost, ///  //Host-specific charac.
 	vce(cluster group_neighbourhood_cleansed)
-		
-esttab est8 est9 est10 est11 using "$repository/code/output/yearly_revenue.tex", se ar2 replace label mtitles title("Estimates of effect of host's race and gender on yearly revenue") longtable page(longtable)
 
+delimit ;		
+esttab est8 est9 est10 est11 using "$repository/code/output/yearly_revenue.tex", se ar2 replace 
+	label mtitles title("Estimates of effect of host's race and gender on yearly revenue") 
+	longtable page(longtable)
+;
 
 ****** Number of reviews
 
@@ -162,8 +165,12 @@ eststo, title("Model 4"): quietly reg number_of_reviews i.race_sex_res i.age ///
 	i.group_host_response_time miss_group_host_response_time host_response_rate /// //Host-specific charac.
 	host_identity_verified host_is_superhost, ///  //Host-specific charac.
 	vce(cluster group_neighbourhood_cleansed)
-		
-esttab est9 est10 est11 est12 using "$repository/code/output/number_reviews.tex", se ar2 replace label mtitles title("Estimates of effect of host's race and gender on number of reviews") longtable page(longtable)
+
+delimit ;		
+esttab est9 est10 est11 est12 using "$repository/code/output/number_reviews.tex", se ar2 replace 
+	label mtitles title("Estimates of effect of host's race and gender on number of reviews") 
+	longtable page(longtable)
+;
 
 
 ****** Testing
@@ -204,9 +211,13 @@ eststo, title("Model 4"): quietly reg reviews_per_year i.race_sex_res i.age ///
 	i.group_host_response_time miss_group_host_response_time host_response_rate /// //Host-specific charac.
 	host_identity_verified host_is_superhost, ///  //Host-specific charac.
 	vce(cluster group_neighbourhood_cleansed)
-		
-esttab est6 est7 est8 est9 using "$repository/code/output/reviews_per_year.tex", se ar2 replace label mtitles title("Estimates of effect of host's race and gender on number of reviews per year on market") longtable page(longtable)
 
+delimit ; 		
+esttab est6 est7 est8 est9 using "$repository/code/output/reviews_per_year.tex", 
+	se ar2 replace label mtitles 
+	title("Estimates of effect of host's race and gender on number of reviews per year on market") 
+	alongtable page(longtable)
+;
 
 
 

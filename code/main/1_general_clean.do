@@ -1,3 +1,8 @@
+*********************************************************
+*					  General Clean 					*
+*********************************************************
+
+
 ** Cleaning up variables for all cities
 
 insheet using "$repository/data/done_combined_full_listings.csv", clear

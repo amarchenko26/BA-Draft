@@ -1,3 +1,6 @@
+*********************************************************
+*		  Property Characteristics Robustness 		    *
+*********************************************************
 
 
 ** State robustness checks do-file
