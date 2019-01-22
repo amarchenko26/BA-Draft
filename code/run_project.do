@@ -24,10 +24,10 @@ global os `c(os)'
 //Remove output folder if exists. Do NOT remove "code" folder.
 foreach folder in output {
 	capture {
-		cd "$repository/code/`folder'/"
+		cd "$repository/code/tables/`folder'/"
 	}
 	if _rc == 0 { //0 is return code if nothing wrong
-		cd "$repository/code/"
+		cd "$repository/code/tables/"
  		if "$os" == "Windows" {
 			!rmdir `folder' /s /q //remove directory you're in to refresh on every re-run
 		}
@@ -36,7 +36,7 @@ foreach folder in output {
 		}
 	}
 
-	cd "$repository/code/"
+	cd "$repository/code/tables/"
 	mkdir `folder'
 }
 
@@ -46,22 +46,22 @@ foreach folder in output {
 
 //Run code in main analysis
 cd "$repository/code/main/"
-foreach file in 1_general_clean 2_city_specific_clean 3_regressions{
+foreach file in 1_general_clean 2_city_specific_clean{
 	do "`file'".do
 }
 
 //Run code in robustness analysis
-cd "$repository/code/robustness/"
-foreach file in robustness_property_chars robustness_state robustness_host edelman_price{
+cd "$repository/code/tables/"
+foreach file in 1_price{
 	do "`file'".do
 }
-
+/*
 //Run code in reviewers analysis
 cd "$repository/code/reviewers/"
 foreach file in reviewers reviewers_regressions{
 	do "`file'".do
 }
-
+*/
 
 di "Good job!"
 

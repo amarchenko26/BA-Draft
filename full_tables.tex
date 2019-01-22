@@ -49,6 +49,28 @@
 %5 - Main
 \include{tables/table_3_price_reg_4_14_FINAL}
 
+\begin{table}[htbp]\centering
+	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+	\caption{New title here}
+	\label{table:price_new}
+	\begin{tabular}{c|ccccc}
+		\toprule
+		
+		\input{code/output/price.tex}
+		
+		\bottomrule
+	\end{tabular}
+	
+	\begin{tablenotes}
+		\item \footnotesize Standard errors in parentheses
+		\item \footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)
+		
+		\item Notes: The dependent variable is the price of the listing. All race coefficients are relative to white males. The unit of observation is a listing. The sample is the sample of listings across 7 US cities. Model 1 is the baseline effect of host demographics on price. Model 2 controls for listing location to the neighborhood level. Model 3 adds listing characteristics such as property type, time on market, number of bedrooms, availability, etc. Model 4 adds host characteristics such as response and acceptance rates, measures of host effort, Superhost status, etc. See Data Appendix for full description of covariates.  
+	\end{tablenotes}
+\end{table}
+
+
+
 %6
 \include{tables/table_4_edelman_price_reg_5_8_FINAL}
 
