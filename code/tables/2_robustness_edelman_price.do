@@ -76,7 +76,7 @@ estadd local controlgroup3 "Yes" : edelman medium_avail high_avail
 esttab edelman medium_avail high_avail using "$repository/code/tables/output/edelman_price.tex",
 		se ar2 replace label 
 		mtitles("Edelman" "Medium Avail." "High Availibility")
-		stats(controlgroup 1 controlgroup2 controlgroup3 linehere N r2,
+		stats(controlgroup1 controlgroup2 controlgroup3 linehere N r2,
 		labels("Location Fixed Effects" "Property Fixed Effects" "Host Fixed Effects" "\hline \vspace{-1.25em}" "Observations" "Adjusted R2"))
 		fragment
 ;
