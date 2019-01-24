@@ -120,6 +120,27 @@
 %8
 \include{tables/table_9_availability_reg_5_1_FINAL}
 
+\begin{table}[htbp]\centering
+	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+	\caption{Table 8: Effect of host’s race on listing availability out of 30 days}
+	\label{table: 30 Day Availibilitu}
+	\begin{tabular}{c|c}
+		\toprule
+		
+		\input{code/tables/output/availibility_30_days.tex}
+		
+		\bottomrule
+	\end{tabular}
+	
+	\begin{tablenotes}
+		\item \footnotesize Standard errors in parentheses
+		\item \footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)
+		\tem This table presents the effect of host race on listing availability out of 30 days, controlling for my preferred specification in Table 5, Model 4. When a listing is booked, this availability metric is updated on the Airbnb website to reflect that booking. Therefore, this measure actually represents the number of days out of the total available days that listings were vacant, relative to a white male host.
+
+
+repository/
+
+
 %9
 \include{tables/table_6_city_price_reg_4_15_FINAL}
 
@@ -145,9 +166,50 @@
 %10
 \include{tables/table_7_prop_price_reg_5_11_FINAL}
 
+
+
+\begin{table}[htbp]\centering
+	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+	\caption{Robustness checks by listing characteristics}
+	\label{table:Robustness by listing characteristics}
+	\begin{tabular}{c|ccccccccc}
+		\toprule
+		
+		\input{code/tables/output/robustness_listing_chars.tex}
+		
+		\bottomrule
+	\end{tabular}
+
+\begin{tablenotes}
+	\item \footnotesize Standard errors in parentheses
+	\item \footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)
+\tem Notes: I break down my combined data by price, time on market, and property type. The categories, from left to right, are: listings whose price is below vs. above the mean price of \$147 and whose prices are above \$800, the price originally dropped, listings who have have been on the market for no more than 2 years vs. no more than 8 years, and listings of different property types, including apartments (includes apartments and lofts), condos (includes condos and townhouse), and houses. I control for my preferred specification throughout. The outcome variable is price of the listing.
+
+
 %11
 \include{tables/table_10_reviewer_mean_reg_5_10_stan_FINAL}
 
 %12
 \include{tables/table_5_year_revenue_reg_5_8_FINAL}
+
+\begin{table}[htbp]\centering
+	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+	\caption{Estimates of effect of host's race and gender on yearly revenue}
+	\label{table: Yearly Revenue Estimates}
+	\begin{tabular}{c|cccc}
+		\toprule
+		
+		\input{code/output/yearly_revenue.tex}
+		
+		\bottomrule
+	\end{tabular}
+	
+	\begin{tablenotes}
+		\item \footnotesize Standard errors in parentheses
+		\item \footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)
+		\tem Notes: The dependent variable is a constructed measure of yearly host revenue, as measured by (price * number of reviews per month * 12) for each listing. The omitted category for race is white males, so all coefficients are relative to that group. The unit of observation is an Airbnb listing, so hosts who have multiple listings are treated separately each time. The sample is the sample of listings across 7 US cities. The specification is the same as Table 5. See Data Appendix for a full discussion of my covariates.
+
+
+
+"$repository/code/tables/output/yearly_revenue.tex"
 

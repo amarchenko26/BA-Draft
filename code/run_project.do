@@ -3,7 +3,7 @@ clear mata
 set more off
 set emptycells drop // If the interaction term is empty, don't report it in the table, reduces memory and variable necessity 
 
-set matsize 11000 
+set matsize 11000
 set maxvar 32000
 
 
@@ -50,11 +50,17 @@ foreach file in 1_general_clean 2_city_specific_clean{
 	do "`file'".do
 }
 
+
 //Run code in robustness analysis
 cd "$repository/code/tables/"
-foreach file in 1_price{
+#delimit ;
+foreach file in 1_price 2_robustness_edelman_price 3_number_reviews
+				4_availibility_30 5_robustness_city 6_robustness_listing_chars 
+				8_revenue{
 	do "`file'".do
 }
+;
+#delimit cr
 /*
 //Run code in reviewers analysis
 cd "$repository/code/reviewers/"
