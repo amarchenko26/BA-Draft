@@ -72,9 +72,10 @@ estadd local controlgroup2 "Yes" : edelman medium_avail high_avail
 estadd local controlgroup3 "Yes" : edelman medium_avail high_avail
 
 #delimit ;
-esttab edelman medium_avail high_avail using
+esttab edelman using
 	"$repository/code/tables/output/edelman_price.tex",
 		se ar2 replace label 
+		keep(*.race_res)
 		mtitles("Edelman" "Medium Avail." "High Availibility")
 		stats(controlgroup1 controlgroup2 controlgroup3 linehere N r2,
 		labels("Location Fixed Effects" "Property Fixed Effects" 
