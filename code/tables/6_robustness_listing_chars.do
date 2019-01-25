@@ -7,6 +7,7 @@
 set more off
 set emptycells drop 
 
+drop predict_price_LA predict_price_NY predict_price_chi
 
 ** Predicted price in LA
 #delimit ; 
@@ -372,7 +373,7 @@ esttab model1 model2 model3 model4 model7 model8 model9 model10 model11
 	se ar2 replace label 
 	keep(*.race_res) drop(1.race_res)
 	mtitles("Low $ LA" 
-			"High $ LA" "Low $ NY" "High $ NY" "Older Listings" 
+			"High \$ LA" "Low \$ NY" "High \$ NY" "Older Listings" 
 			"Newer Listings" "Apartments" "Condos" "Houses") //Did not inlude m5 and m6
 	stats(controlgroup1 controlgroup2 controlgroup3 linehere N r2,
 	labels("Location Fixed Effects" "Property Fixed Effects" 
@@ -390,8 +391,7 @@ esttab model1 model2 model3 model4 model7 model8 model9 model10 model11
 	se ar2 replace label 
 	keep(*.race_res) drop(1.race_res)
 	title("Robustness Listing Characteristics")
-	mtitles("Low $ LA" 
-			"High $ LA" "Low $ NY" "High $ NY" "Older Listings" 
+	mtitles("Low \$ LA" "High \$ LA" "Low \$ NY" "High \$ NY" "Older Listings" 
 			"Newer Listings" "Apartments" "Condos" "Houses") //Did not inlude m5 and m6
 	stats(controlgroup1 controlgroup2 controlgroup3 linehere N r2,
 	labels("Location Fixed Effects" "Property Fixed Effects" 
