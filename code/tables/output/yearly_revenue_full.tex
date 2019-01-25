@@ -1,0 +1,41 @@
+\begin{table}[htbp]\centering
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\caption{Revenues}
+\begin{tabular}{l*{4}{c}}
+\hline\hline
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
+                    &\multicolumn{1}{c}{Model 1}&\multicolumn{1}{c}{Model 2}&\multicolumn{1}{c}{Model 3}&\multicolumn{1}{c}{Model 4}\\
+\hline
+White Female        &      -199.0\sym{***}&      -156.4\sym{***}&      -151.9\sym{***}&      -144.3\sym{***}\\
+                    &     (48.54)         &     (46.80)         &     (39.72)         &     (40.12)         \\
+[1em]
+Black Male          &      -655.0\sym{***}&      -329.5\sym{***}&      -261.8\sym{***}&      -168.7\sym{**} \\
+                    &     (98.27)         &     (96.16)         &     (59.77)         &     (59.90)         \\
+[1em]
+Black Female        &      -814.7\sym{***}&      -365.0\sym{***}&      -319.5\sym{***}&      -290.0\sym{***}\\
+                    &     (96.68)         &     (78.69)         &     (51.94)         &     (46.56)         \\
+[1em]
+Hispanic Male       &      -209.0         &      -44.58         &      -25.42         &      -2.148         \\
+                    &     (112.5)         &     (97.48)         &     (88.24)         &     (84.18)         \\
+[1em]
+Hispanic Female     &      -280.8\sym{*}  &      -79.78         &      -119.0         &      -57.80         \\
+                    &     (140.1)         &     (120.7)         &     (108.2)         &     (106.6)         \\
+[1em]
+Asian Male          &      -360.5\sym{**} &      -95.77         &      -15.85         &      -16.36         \\
+                    &     (129.4)         &     (115.4)         &     (88.42)         &     (84.27)         \\
+[1em]
+Asian Female        &      -676.6\sym{***}&      -329.2\sym{***}&      -183.6\sym{**} &      -162.6\sym{**} \\
+                    &     (98.12)         &     (74.93)         &     (62.31)         &     (60.16)         \\
+\hline
+Location Fixed Effects&                     &         Yes         &         Yes         &         Yes         \\
+Property Fixed Effects&                     &                     &         Yes         &         Yes         \\
+Host Fixed Effects  &                     &                     &                     &         Yes         \\
+\hline \vspace{-1.25em}&                     &                     &                     &                     \\
+Observations        &       45072         &       45072         &       45072         &       45072         \\
+Adjusted R2         &     0.00628         &      0.0959         &       0.361         &       0.413         \\
+\hline\hline
+\multicolumn{5}{l}{\footnotesize Standard errors in parentheses}\\
+\multicolumn{5}{l}{\footnotesize ...}\\
+\multicolumn{5}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
+\end{tabular}
+\end{table}

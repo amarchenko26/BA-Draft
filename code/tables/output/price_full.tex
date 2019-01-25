@@ -1,0 +1,41 @@
+\begin{table}[htbp]\centering
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\caption{...}
+\begin{tabular}{l*{5}{c}}
+\hline\hline
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}\\
+                    &\multicolumn{1}{c}{Model 1}&\multicolumn{1}{c}{Model 2}&\multicolumn{1}{c}{Model 3}&\multicolumn{1}{c}{Model 4}&\multicolumn{1}{c}{Model 5}\\
+\hline
+White Female        &      -3.727\sym{*}  &      -3.714\sym{*}  &      -0.827         &      -0.207         &      -0.233         \\
+                    &     (1.770)         &     (1.562)         &     (1.049)         &     (1.056)         &     (1.040)         \\
+[1em]
+Black Male          &      -39.43\sym{***}&      -14.24\sym{***}&      -6.891\sym{***}&      -7.071\sym{***}&      -7.137\sym{***}\\
+                    &     (4.058)         &     (3.483)         &     (1.994)         &     (1.968)         &     (1.973)         \\
+[1em]
+Black Female        &      -41.69\sym{***}&      -11.20\sym{***}&      -6.271\sym{***}&      -5.845\sym{***}&      -5.737\sym{***}\\
+                    &     (4.315)         &     (2.793)         &     (1.577)         &     (1.584)         &     (1.581)         \\
+[1em]
+Hispanic Male       &      -20.59\sym{***}&      -7.247\sym{**} &      -2.537         &      -2.189         &      -2.152         \\
+                    &     (3.727)         &     (2.759)         &     (2.051)         &     (2.065)         &     (2.063)         \\
+[1em]
+Hispanic Female     &      -23.05\sym{***}&      -11.38\sym{***}&      -5.284\sym{*}  &      -5.038\sym{*}  &      -5.349\sym{**} \\
+                    &     (4.426)         &     (3.219)         &     (2.110)         &     (2.082)         &     (2.069)         \\
+[1em]
+Asian Male          &      -27.42\sym{***}&      -12.08\sym{***}&      -5.834\sym{**} &      -6.310\sym{**} &      -6.498\sym{**} \\
+                    &     (4.954)         &     (3.553)         &     (2.206)         &     (2.195)         &     (2.217)         \\
+[1em]
+Asian Female        &      -39.18\sym{***}&      -21.20\sym{***}&      -8.611\sym{***}&      -8.608\sym{***}&      -8.772\sym{***}\\
+                    &     (4.463)         &     (2.592)         &     (1.586)         &     (1.596)         &     (1.616)         \\
+\hline
+Location Fixed Effects&                     &         Yes         &         Yes         &         Yes         &         Yes         \\
+Property Fixed Effects&                     &                     &         Yes         &         Yes         &         Yes         \\
+Host Fixed Effects  &                     &                     &                     &         Yes         &         Yes         \\
+\hline \vspace{-1.25em}&                     &                     &                     &                     &                     \\
+Observations        &       45072         &       45072         &       45072         &       45072         &       45072         \\
+Adjusted R2         &      0.0197         &       0.178         &       0.627         &       0.633         &       0.633         \\
+\hline\hline
+\multicolumn{6}{l}{\footnotesize Standard errors in parentheses}\\
+\multicolumn{6}{l}{\footnotesize ...}\\
+\multicolumn{6}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
+\end{tabular}
+\end{table}

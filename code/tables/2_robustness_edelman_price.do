@@ -85,5 +85,22 @@ esttab edelman using
 ;
 #delimit cr
 	
+///WILL BE DELETED
+
+#delimit ;
+esttab edelman using
+	"$repository/code/tables/output/edelman_price_full.tex",
+		se ar2 replace label 
+		keep(*.race_res)
+		title("Edelman")
+		mtitles("Edelman" "Medium Avail." "High Availibility")
+		stats(controlgroup1 controlgroup2 controlgroup3 linehere N r2,
+		labels("Location Fixed Effects" "Property Fixed Effects" 
+				"Host Fixed Effects" "\hline \vspace{-1.25em}" "Observations" 
+				"Adjusted R2"))
+		addnotes("...")
+;
+#delimit cr
+	
 	
 
