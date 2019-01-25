@@ -87,3 +87,19 @@ esttab model1 model2 model3 model4 using
 ;
 #delimit cr
 
+///DELETE LATER
+
+#delimit ; 		
+esttab model1 model2 model3 model4 using 
+	"$repository/code/tables/output/yearly_revenue_full.tex",
+		se ar2 replace label
+		keep(*.race_sex_res) drop(1.race_sex_res)
+		title("Revenues")
+		mtitles("Model 1" "Model 2" "Model 3" "Model 4")
+			stats(controlgroup1 controlgroup2 controlgroup3 linehere N r2,
+		labels("Location Fixed Effects" "Property Fixed Effects" 
+			   "Host Fixed Effects" "\hline \vspace{-1.25em}"
+			   "Observations" "Adjusted R2"))
+		addnotes("...") 
+;
+#delimit cr

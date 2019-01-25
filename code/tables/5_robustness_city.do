@@ -172,12 +172,24 @@ quietly reg price i.race_res
 eststo Nashville
 
 
+
 // hi pick back up here
 #delimit ;
 esttab LA NYC Austin Chicago New_Orleans DC Nashville
-using "$repository/code/tables/output/robustness_city.tex",
+	using "$repository/code/tables/output/robustness_city.tex",
+	se ar2 replace label 
+	mtitles("LA" "NYC" "Austin" "Chicago" "New Orleans" "DC" "Nashville")
+	fragment
+;
+#delimit cr
+
+
+///DELETE LATER
+#delimit ;
+esttab LA NYC Austin Chicago New_Orleans DC Nashville using "$repository/code/tables/output/robustness_city_full.tex",
 	se ar2 replace label 
 	mtitles()
-	fragment
+	title("Robustness City")
+	addnotes("...")
 ;
 #delimit cr
