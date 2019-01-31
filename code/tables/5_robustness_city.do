@@ -178,7 +178,7 @@ eststo Nashville
 esttab LA NYC Austin Chicago New_Orleans DC Nashville
 	using "$repository/code/tables/output/robustness_city.tex",
 	se ar2 replace label 
-	keep(cleaned_city)
+	keep(*.cleaned_city)
 	mtitles("LA" "NYC" "Austin" "Chicago" "New Orleans" "DC" "Nashville")
 	fragment
 ;
