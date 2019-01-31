@@ -28,7 +28,6 @@ import delimited using done_combined_full_listings.csv
 
 * --- start of table here --- *
 
-// Question: what does this do?
 preserve
 // keep if sample == 1
 
@@ -48,10 +47,10 @@ file write f "\\" _n ///
 "\hline\hline\noalign{\smallskip} " _n
 
 // write in stats
-local ncat price number_of_reviews accommodates bedrooms bathrooms beds amenities cleaning_fee extra_people minimum_nights first_review
-local cat property_type room_type instant_bookable cancellation_policy
+local ncat price number_of_reviews accommodates bedrooms bathrooms beds amenities cleaning_fee extra_people minimum_nights 
+local cat property_type room_type instant_bookable cancellation_policy first_review
 
-	foreach i in `ncat'{ //loops over noncategorical variables
+	foreach i in ncat{ //loops over noncategorical variables
 			levelsof race
 			foreach f in `r(levels)' {
 				sum `i' if race == "`f'"
@@ -59,13 +58,12 @@ local cat property_type room_type instant_bookable cancellation_policy
 			}
 			//write means
 			//write label
-			file write f " `: var label `i'' & " %4.3f (`NO_mean_`i'') " & " %4.3f (`YES_mean_`i'') " "
+			file write f " `: var label `i'' & " %4.3f (`White_mean_`i'') " & " %4.3f (`Black_mean_`i'') " & " %4.3f (`Hispanic_mean_`i'') " & " %4.3f (`Asian_mean_`i'') " "
 			file write f "\\" _n
-	
 	}
 
 
-	foreach i in `cat'{ //loops over categorical variables
+	foreach i in cat{ //loops over categorical variables
 			local var_label : variable label `i'
 			file write f "/textbf{`var_label'} \\" _n _n
 			
@@ -80,7 +78,7 @@ local cat property_type room_type instant_bookable cancellation_policy
 					loc `f'_prop_`c'_`i' = `numerator'/`denominator'
 				}
 				local row_label : label `i' `c'
-				file write f " `row_label' & " %4.3f (`NO_prop_`c'_`i'') " & " %4.3f (`YES_prop_`c'_`i'') " "
+				file write f " `row_label' & " %4.3f (`White_prop_`c'_`i'') " & " %4.3f (`Black_prop_`c'_`i'') " & " %4.3f (`Hispanic_prop_`c'_`i'') " & " %4.3f (`Asian_prop_`c'_`i'') " "
 				file write f "\\" _n
 			}
 	}
