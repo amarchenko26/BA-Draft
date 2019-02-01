@@ -18,17 +18,27 @@
 \usepackage{array}
 \usepackage{float} 
 \usepackage{pdflscape} %allows for one page to be landscape (lscape makes word landscape, pdflscape makes page landscape)
+\usepackage{lscape}
 \usepackage{threeparttable} %allows tablenotes
 
 \begin{document}
+\input{../output/price_full}
+\input{../output/edelman_price_full}
+\input{../output/availability_30_days_full}
+\input{../output/number_reviews_full}
+\newpage
+\begin{landscape}
+\input{../output/robustness_city_full}
+\end{landscape}
+\newpage
+\input{../output/yearly_revenue_full}
+
+\newpage
+\begin{landscape}
+	\input{../output/robustness_listing_char_full}
+\end{landscape}
+\newpage
 
 
-\input{../price_full}
-\input{../edelman_price_full}
-\input{../availability_30_days_full}
-\input{../number_reviews_full}
-\input{../robustness_city_full}
-\input{../yearly_revenue_full}
-\input{../robustness_listing_char_full}
 
 \end{document}

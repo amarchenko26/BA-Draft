@@ -1,0 +1,203 @@
+\documentclass[11pt, oneside]{article}   	
+\usepackage[margin = 1 in]{geometry}                		
+\geometry{letterpaper}                   		
+%\usepackage[parfill]{parskip}    %Begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}				
+\usepackage{setspace}								
+\usepackage{amssymb}
+\doublespacing
+%\geometry{footnotesep=2\baselineskip}
+\interfootnotelinepenalty=10000 %prevents long footnotes from overflowing to new page
+\usepackage{longtable}
+\usepackage{caption} %Put caption* in a table to remove the enumeration
+\usepackage{rotating} % To rotate the reviewer table
+\usepackage{natbib}   %activates bibliography
+\usepackage [english]{babel} %something for bibliography
+\usepackage{verbatim} %to be able to use \begin{comment}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{float} 
+\usepackage{pdflscape} %allows for one page to be landscape (lscape makes word landscape, pdflscape makes page landscape)
+\usepackage{lscape}
+\usepackage{threeparttable} %allows tablenotes
+
+\begin{document}
+
+
+\begin{table}[htbp]\centering
+	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+	\caption{}
+\end{table}
+
+\begin{table}[htbp]\centering
+	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+	\caption{}
+\end{table}
+
+\begin{table}[htbp]\centering
+	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+	\caption{}
+\end{table}
+
+\begin{table}[htbp]\centering
+	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+	\caption{}
+\end{table}
+
+\begin{table}[htbp]\centering
+	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+	\caption{Main result: Estimates of effect of host’s race and gender on price}
+	\begin{tabular}{l*{5}{c}}
+		\hline\hline
+\input{../output/price}
+	\hline\hline
+	\multicolumn{6}{l}{\footnotesize Standard errors in parentheses}\\
+	\multicolumn{6}{l}{\footnotesize ...}\\
+	\multicolumn{6}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
+	\end{tabular}
+
+	\begin{tablenotes}
+	\item \footnotesize Standard errors in parentheses
+	\item \footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)
+	
+	\item Notes: The dependent variable is the price of the listing. All race coefficients are relative to white males. The unit of observation is a listing. The sample is the sample of listings across 7 US cities. Model 1 is the baseline effect of host demographics on price. Model 2 controls for listing location to the neighborhood level. Model 3 adds listing characteristics such as property type, time on market, number of bedrooms, availability, etc. Model 4 adds host characteristics such as response and acceptance rates, measures of host effort, Superhost status, etc. See Data Appendix for full description of covariates.  
+\end{tablenotes}
+\end{table}
+
+
+
+
+\begin{table}[htbp]\centering
+	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+	\caption{Robustness check with controls from Edelman \& Luca (2014), NYC data}
+	\begin{tabular}{l*{1}{c}}
+		\hline\hline
+		\input{../output/edelman_price}
+		\hline\hline
+		\multicolumn{2}{l}{\footnotesize Standard errors in parentheses}\\
+		\multicolumn{2}{l}{\footnotesize ...}\\
+		\multicolumn{2}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
+	\end{tabular}
+	\begin{tablenotes}
+		\item \footnotesize Standard errors in parentheses
+		\item \footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)
+		
+		\item Notes: This table presents the effect on price of controlling for Edelman \& Luca's (2014) full specification using my NYC data. My results are nearly identical to theirs (their coefficient on Black *hosts was -17.8) when controlling for similar covariates in the same city. The omitted category for race is White hosts. The omitted category for room type is Entire Apartment. I could not control for host social media accounts as a proxy for host reliability like Edelman \& Luca did, because Airbnb no longer provides this information. Instead, I controlled for ``host verified", a boolean for whether Airbnb has the host's phone number and email. I was not able to control for ``picture quality" either, but picture quality did not significantly influence price in Edelman \& Luca's regression.
+	\end{tablenotes}
+\end{table}
+
+
+\begin{table}[htbp]\centering
+	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+	\caption{Estimates of effect of host’s race and gender on number of reviews}
+	\begin{tabular}{l*{4}{c}}
+		\hline\hline
+		\input{../output/number_reviews}
+		\hline\hline
+		\multicolumn{5}{l}{\footnotesize Standard errors in parentheses}\\
+		\multicolumn{5}{l}{\footnotesize ...}\\
+		\multicolumn{5}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
+	\end{tabular}
+	\begin{tablenotes}
+		\item \footnotesize Standard errors in parentheses
+		\item \footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)
+		\item Notes: The dependent variable is the number of reviews of the listing. The omitted category for race is white males, so all coefficients are relative to that group. The unit of observation is an Airbnb listing, so hosts who have multiple listings are treated separately each time. The sample is the sample of listings across 7 US cities. The specification is the same as Table 5. See Data Appendix for a discussion of my covariates.	
+	\end{tablenotes}
+\end{table}
+
+
+\begin{table}[htbp]\centering
+	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+	\caption{Effect of host’s race on listing availability out of 30 days}
+	\begin{tabular}{l*{1}{c}}
+		\hline\hline
+		\input{../output/availability_30_days}
+		\hline\hline
+		\multicolumn{2}{l}{\footnotesize Standard errors in parentheses}\\
+		\multicolumn{2}{l}{\footnotesize ...}\\
+		\multicolumn{2}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
+	\end{tabular}
+	
+	\begin{tablenotes}
+		\item \footnotesize Standard errors in parentheses
+		\item \footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)
+		\item This table presents the effect of host race on listing availability out of 30 days, controlling for my preferred specification in Table 5, Model 4. When a listing is booked, this availability metric is updated on the Airbnb website to reflect that booking. Therefore, this measure actually represents the number of days out of the total available days that listings were vacant, relative to a white male host.
+	\end{tablenotes}
+\end{table}
+
+
+
+
+\newpage
+\begin{landscape}
+	\begin{table}[htbp]\centering
+		\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+		\caption{Robustness City}
+		\begin{tabular}{l*{7}{c}}
+			\hline\hline
+			\input{../output/robustness_city}
+			\hline\hline
+			\multicolumn{8}{l}{\footnotesize Standard errors in parentheses}\\
+			\multicolumn{8}{l}{\footnotesize ...}\\
+			\multicolumn{8}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
+		\end{tabular}
+		\begin{tablenotes}
+			\item \footnotesize Standard errors in parentheses
+			\item \footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)
+			
+			\item Notes: The effects for the combined data from Table 3 are now broken down across all 7 cities. The cities decrease in number of observations from left to right. Each set of coefficients represents the coefficient on host race, with price as the outcome variable. I control for my preferred specification that includes listing location, listing characteristics, and host characteristics. Low number of observations for Black, Hispanic, and Asian hosts contribute to imprecise estimates in smaller cities. New Orleans and Nashville have less than 100 Hispanic and Asian hosts. DC and Austin have less than 200 Hispanic and Asian hosts. 
+		\end{tablenotes}
+	\end{table}
+\end{landscape}
+\newpage
+
+
+%%%%Careful; When we rerun the stata do file, the "\$" is read as $
+\newpage
+\begin{landscape}
+	\begin{table}[htbp]\centering
+		\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+		\caption{Robustness Listing Characteristics}
+		\begin{tabular}{l*{9}{c}}
+			\hline\hline
+			%			\input{../output/robustness_listing_char}
+			\hline\hline
+			\multicolumn{10}{l}{\footnotesize Standard errors in parentheses}\\
+			\multicolumn{10}{l}{\footnotesize ...}\\
+			\multicolumn{10}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
+		\end{tabular}
+		\begin{tablenotes}
+			\item \footnotesize Standard errors in parentheses
+			\item \footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)
+			\item Notes: I break down my combined data by price, time on market, and property type. The categories, from left to right, are: listings whose price is below vs. above the mean price of \$147 and whose prices are above \$800, the price originally dropped, listings who have have been on the market for no more than 2 years vs. no more than 8 years, and listings of different property types, including apartments (includes apartments and lofts), condos (includes condos and townhouse), and ho uses. I control for my preferred specification throughout. The outcome variable is price of the listing.
+		\end{tablenotes}
+	\end{table}
+\end{landscape}
+%%%%Careful; When we rerun the stata do file, the "\$" is read as $
+
+\begin{table}[htbp]\centering
+	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+	\caption{}
+\end{table}
+
+
+\begin{table}[htbp]\centering
+	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+	\caption{Estimates of effect of host's race and gender on yearly revenue}
+	\begin{tabular}{l*{4}{c}}
+		\hline\hline
+\input{../output/yearly_revenue}
+	\hline\hline
+	\multicolumn{5}{l}{\footnotesize Standard errors in parentheses}\\
+	\multicolumn{5}{l}{\footnotesize ...}\\
+	\multicolumn{5}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
+	\end{tabular}
+
+	\begin{tablenotes}
+		\item \footnotesize Standard errors in parentheses
+		\item \footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)
+		\item Notes: The dependent variable is a constructed measure of yearly host revenue, as measured by (price * number of reviews per month * 12) for each listing. The omitted category for race is white males, so all coefficients are relative to that group. The unit of observation is an Airbnb listing, so hosts who have multiple listings are treated separately each time. The sample is the sample of listings across 7 US cities. The specification is the same as Table 5. See Data Appendix for a full discussion of my covariates.
+	\end{tablenotes}
+\end{table}
+
+\end{document}
