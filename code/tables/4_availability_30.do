@@ -39,7 +39,7 @@ estadd local controlgroup3 "Yes" : model1
 
 // Esttab the table
 #delimit ;
-esttab model1 using "$repository/code/tables/output/availability_30_days.tex", 
+esttab model1 using "$repository/code/tables/tex_output/individual_tables/availability_30_days.tex", 
 	se ar2 replace label 
 	keep(*.race_sex_res) drop(1.race_sex_res)
 	mtitles("Number of vacant days out of 30")

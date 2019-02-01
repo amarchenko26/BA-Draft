@@ -73,7 +73,7 @@ estadd local controlgroup3 "Yes" : edelman medium_avail high_avail
 
 #delimit ;
 esttab edelman using
-	"$repository/code/tables/output/edelman_price.tex",
+	"$repository/code/tables/tex_output/individual_tables/edelman_price.tex",
 		se ar2 replace label 
 		keep(*.race_res) drop(1.race_res)
 		mtitles("Edelman" "Medium Avail." "High Availibility")

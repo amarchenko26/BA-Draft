@@ -96,7 +96,7 @@ estadd local controlgroup3 "Yes" : model4 model5
 // Esttab the table
 #delimit ;
 esttab model1 model2 model3 model4 model5 
-	using "$repository/code/tables/output/price.tex", 
+	using "$repository/code/tables/tex_output/individual_tables/price.tex", 
 		se ar2 replace label 
 		keep(*.race_sex_res) drop(1.race_sex_res)
 		mtitles("Model 1" "Model 2" "Model 3" "Model 4" "Model 5")
