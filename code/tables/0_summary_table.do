@@ -9,7 +9,7 @@ preserve
 
 // open .tex file
 cap file close f
-file open f using "$repository/output/summary_table.tex", write replace
+file open f using "$repository/code/tables/output/summary_table.tex", write replace
 
 // write the beginning of the table
 file write f "\begin{table}[htbp]" _n ///
@@ -27,6 +27,7 @@ local ncat price number_of_reviews accommodates bedrooms bathrooms beds cleaning
 local cat property_type room_type instant_bookable cancellation_policy first_review_year amenities
 
 	foreach i in `ncat'{ //loops over noncategorical variables
+			local var_label : variable label `i'
 			levelsof race_res
 			foreach f in `r(levels)' {
 				sum `i' if race_res == `f'
@@ -50,11 +51,11 @@ local cat property_type room_type instant_bookable cancellation_policy first_rev
 					loc denominator = `r(N)'
 					count if `i' == "`c'" & race_res == `f' //count up if the cat variable equals its subcategories
 					loc numerator = `r(N)'
-					loc `f'_prop_`c'_`i' = `numerator'/`denominator'
+					loc `f'_prop_`c'_`i' = `numerator'/`denominator' // "Condominium" is failing here
 				}
-				// Anya this line of code is driving me crazy
-				local row_label : label `i' `c'
-				file write f " `row_label' & " %4.3f (`1_prop_`c'_`i'') " & " %4.3f (`2_prop_`c'_`i'') " & " %4.3f (`3_prop_`c'_`i'') " & " %4.3f (`4_prop_`c'_`i'') " "
+				local row_label : var label property_type
+				di "hello" // print statement to test code
+				file write f " `row_label' & "  %4.3f ("`1_prop_`c'_`i''") " & " %4.3f ("`2_prop_`c'_`i''") " & " %4.3f ("`3_prop_`c'_`i''") " & " %4.3f ("`4_prop_`c'_`i''") " "
 				file write f "\\" _n
 			}
 	}
