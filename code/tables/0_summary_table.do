@@ -31,7 +31,6 @@ local cat property_type room_type instant_bookable cancellation_policy first_rev
 			foreach f in `r(levels)' {
 				sum `i' if race_res == `f'
 				local `f'_mean_`i' = `r(mean)'
-
 			}
 			//write means
 			//write label
@@ -48,18 +47,13 @@ local cat property_type room_type instant_bookable cancellation_policy first_rev
 				levelsof race_res
 				foreach f in `r(levels)'{ //loops over each race per category
 					count if !mi(`i') & race_res == `f' //counts if not missing the categorical variable
-					di "hello1"
 					loc denominator = `r(N)'
-					di "hello2"
 					count if `i' == "`c'" & race_res == `f' //count up if the cat variable equals its subcategories
-					di "hello3"
 					loc numerator = `r(N)'
-					di "hello4"
 					loc `f'_prop_`c'_`i' = `numerator'/`denominator'
-					di "hello5"
 				}
+				// Anya this line of code is driving me crazy
 				local row_label : label `i' `c'
-				di "hello6"
 				file write f " `row_label' & " %4.3f (`1_prop_`c'_`i'') " & " %4.3f (`2_prop_`c'_`i'') " & " %4.3f (`3_prop_`c'_`i'') " & " %4.3f (`4_prop_`c'_`i'') " "
 				file write f "\\" _n
 			}
