@@ -14,31 +14,39 @@ file open f using "$repository/code/tables/output/summary_table.tex", write repl
 file write f "\begin{table}[htbp]" _n ///
 "\caption{Summary Statistics By Host Race: Listing Characteristics}" _n ///
 "\begin{center}%" _n ///
-"\small\begin{tabular}{l c c c c c c}" _n
+"\small\begin{tabular}{l c | c | c c c c}" _n ///
 
 // write column headers
-file write f " & Full data & All & White & Black & Hispanic & Asian" _n
-file write f "\\" _n ///
-"\hline\hline\noalign{\smallskip} " _n
+file write f "& \multicolumn{1}{c}{} & \multicolumn{5}{c}{Regression Sample}" _n ///
+"\\" _n ///
+" \cmidrule(r){3-7}" _n ///
+"\\" _n ///
+" & \multicolumn{1}{c}{Full data} & \multicolumn{1}{c}{All} & White & Black & Hispanic & Asian" _n ///
+"\\" _n ///
+"\hline\hline\noalign{\smallskip} " _n 
+
 
 // write in stats
-local ncat price number_of_reviews accommodates bedrooms bathrooms beds cleaning_fee extra_people minimum_nights availability_30 num_amenities
-// local cat  room_type 
-// room_type property_type instant_bookable cancellation_policy first_review_year 
+local ncat price number_of_reviews accommodates bedrooms bathrooms beds cleaning_fee extra_people minimum_nights availability_30 num_amenities instant_bookable first_review_year
+// local cat room_type 
+// room_type property_type cancellation_policy
 
 	foreach i in `ncat'{ //loops over noncategorical variables
 			sum `i' //Full data column
+			local full_observations = `r(N)' //saves full data N
 			local full_mean_`i' = `r(mean)'
 			local full_sd_`i' = `r(sd)'
 			preserve
 			keep if sample == 1 //restricts regression sample
 			sum `i' //All column
+			local all_observations = `r(N)' //saves all N 
 			local all_mean_`i' = `r(mean)'
 			local all_sd_`i' = `r(sd)'
 			local var_label : variable label `i'
 			levelsof race_res
 			foreach f in `r(levels)'{
 				sum `i' if race_res == `f'
+				local `f'_race_observations = `r(N)' //saves race N
 				local `f'_mean_`i' = `r(mean)'
 				local `f'_sd_`i' = `r(sd)'
 			}
@@ -74,10 +82,22 @@ local ncat price number_of_reviews accommodates bedrooms bathrooms beds cleaning
 			}
 	}
 
+// number of observations
+file write f "\hline" _n ///
+"Observations & \numprint{`full_observations'} & \numprint{`all_observations'} & \numprint{`1_race_observations'} & \numprint{`2_race_observations'} & \numprint{`3_race_observations'} & \numprint{`4_race_observations'}" _n ///
+"\\" _n
+
 // write end of table
 file write f "\hline\hline\noalign{\smallskip} \end{tabular} " _n ///
 "\begin{minipage}{6in}" _n ///
-	"{\it Note:} \begin{center}DUMMY NOTE" _n ///
+	"\begin{center}{\it Note:} The values in the table are means and standard deviations" ///
+	" of listing-level data in my full sample. Summary statistics for selected covariates" ///
+	" are listed in the table. Categorical variables such as room type do not have standard" ///
+	" deviations. Property types are explicitly listed if more than 1.5\% of listings are that" ///
+	" type. Only the most popular cancellation policy type is listed - in the full sample," ///
+	" 99\% of listings have strict (43\%), flexible (31\%) or moderate (25\%) cancellation policies." ///
+	" Year of first review is a proxy for the time on the market - 14.86 indicates that the" ///
+	" first review of the mean listing in the full sample occurred in October of 2014." _n ///
 "\end{center}" _n ///	
 "\end{minipage}" _n ///
 "\end{center}" _n ///

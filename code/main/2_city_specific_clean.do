@@ -21,14 +21,7 @@ label values cleaned_city _city // label them city names
 destring host_listings_count, replace force
 replace age = 5 if age == 6
 gen sample = 1
-replace sample = 0 if host_listings_count > 20 | price > 800 | host_has_profile_pic == "f" | price > 800 | sex == 0 | age == 7 | age == 11 | age == 12 | age == 0
-
-// drop if host_listings_count > 20
-// drop if host_has_profile_pic == "f"
-// drop if price > 800
-// drop if sex == 0
-// drop if age == 7 | age == 11 | age == 12 | age == 0 
-
+replace sample = 0 if host_listings_count > 20 | host_has_profile_pic == "f" | price > 800 | sex == 0 | age == 7 | age == 11 | age == 12 | age == 0
 
 ** Fixing LA codes
 replace race = 1 if race == 2 & state == "CA"

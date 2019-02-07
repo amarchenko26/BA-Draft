@@ -1,8 +1,12 @@
 \begin{table}[htbp]
 \caption{Summary Statistics By Host Race: Listing Characteristics}
 \begin{center}%
-\small\begin{tabular}{l c c c c c c}
- & Full data & All & White & Black & Hispanic & Asian
+\small\begin{tabular}{l c | c | c c c c}
+& \multicolumn{1}{c}{} & \multicolumn{5}{c}{Regression Sample}
+\\
+ \cmidrule(r){3-7}
+\\
+ & \multicolumn{1}{c}{Full data} & \multicolumn{1}{c}{All} & White & Black & Hispanic & Asian
 \\
 \hline\hline\noalign{\smallskip} 
  Price & 167.39 & 142.77 & 151.46 & 112.22 & 131.45 & 118.08 \\
@@ -27,9 +31,16 @@
  & (11.00) & (10.91) & (10.75) & (11.49) & (10.94) & (11.01) \\
  Number of Amenities & 0.80 & 0.79 & 0.80 & 0.75 & 0.79 & 0.75 \\
  & (1.10) & (1.10) & (1.10) & (1.04) & (1.10) & (1.13) \\
+ Instantly Bookable? & 0.15 & 0.15 & 0.14 & 0.21 & 0.17 & 0.16 \\
+ & (0.36) & (0.36) & (0.34) & (0.41) & (0.38) & (0.37) \\
+ Year of first review & 32.75 & 32.31 & 31.55 & 34.36 & 33.35 & 34.94 \\
+ & (34.45) & (34.13) & (33.60) & (35.50) & (34.82) & (35.73) \\
+\hline
+Observations & \numprint{46930} & \numprint{45076} & \numprint{32934} & \numprint{4354} & \numprint{2913} & \numprint{4875}
+\\
 \hline\hline\noalign{\smallskip} \end{tabular} 
 \begin{minipage}{6in}
-{\it Note:} \begin{center}DUMMY NOTE
+\begin{center}{\it Note:} The values in the table are means and standard deviations of listing-level data in my full sample. Summary statistics for selected covariates are listed in the table. Categorical variables such as room type do not have standard deviations. Property types are explicitly listed if more than 1.5\% of listings are that type. Only the most popular cancellation policy type is listed - in the full sample, 99\% of listings have strict (43\%), flexible (31\%) or moderate (25\%) cancellation policies. Year of first review is a proxy for the time on the market - 14.86 indicates that the first review of the mean listing in the full sample occurred in October of 2014.
 \end{center}
 \end{minipage}
 \end{center}
