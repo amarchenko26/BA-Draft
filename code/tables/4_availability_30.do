@@ -39,7 +39,7 @@ estadd local controlgroup3 "Yes" : model1
 
 // Esttab the table
 #delimit ;
-esttab model1 using "$repository/code/tables/output/availability_30_days.tex", 
+esttab model1 using "$repository/code/tables/tex_output/individual_tables/availability_30_days.tex", 
 	se ar2 replace label 
 	keep(*.race_sex_res) drop(1.race_sex_res)
 	mtitles("Number of vacant days out of 30")
@@ -48,23 +48,5 @@ esttab model1 using "$repository/code/tables/output/availability_30_days.tex",
 		   "Host Fixed Effects" "\hline \vspace{-1.25em}"
 		   "Observations" "Adjusted R2"))
 	fragment 
-;
-#delimit cr
-
-///DELETE LATER
-
-// Esttab the table
-
-#delimit ;
-esttab model1 using "$repository/code/tables/output/availability_30_days_full.tex", 
-	se ar2 replace label 
-	keep(*.race_sex_res) drop(1.race_sex_res)
-	title("Availability")
-	mtitles("Number of vacant days out of 30")
-	stats(controlgroup1 controlgroup2 controlgroup3 linehere N r2,
-	labels("Location Fixed Effects" "Property Fixed Effects" 
-		   "Host Fixed Effects" "\hline \vspace{-1.25em}"
-		   "Observations" "Adjusted R2"))
-	addnotes("...") 
 ;
 #delimit cr
