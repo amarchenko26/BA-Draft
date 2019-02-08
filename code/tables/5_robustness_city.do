@@ -171,26 +171,30 @@ quietly reg price i.race_res
 #delimit cr
 eststo Nashville
 
+// Table Output
+
+local controlgroup1 // Location
+local controlgroup2 // Property
+local controlgroup3 // Host
+
+// Add locals which will serve as indicators for which FEs are included in the models
+estadd local controlgroup1 "Yes" : LA NYC Austin Chicago New_Orleans DC Nashville
+estadd local controlgroup2 "Yes" : LA NYC Austin Chicago New_Orleans DC Nashville
+estadd local controlgroup3 "Yes" : LA NYC Austin Chicago New_Orleans DC Nashville
 
 
 // hi pick back up here
 #delimit ;
 esttab LA NYC Austin Chicago New_Orleans DC Nashville
-	using "$repository/code/tables/output/robustness_city.tex",
+	using "$repository/code/tables/tex_output/individual_tables/robustness_city.tex",
+	keep(*.race_res) drop(1.race_res)
 	se ar2 replace label 
 	keep(*.cleaned_city)
 	mtitles("LA" "NYC" "Austin" "Chicago" "New Orleans" "DC" "Nashville")
+	stats(controlgroup1 controlgroup2 controlgroup3 linehere N r2,
+	labels("Location Fixed Effects" "Property Fixed Effects" 
+		   "Host Fixed Effects" "\hline \vspace{-1.25em}"
+		   "Observations" "Adjusted R2"))
 	fragment
-;
-#delimit cr
-
-
-///DELETE LATER
-#delimit ;
-esttab LA NYC Austin Chicago New_Orleans DC Nashville using "$repository/code/tables/output/robustness_city_full.tex",
-	se ar2 replace label 
-	mtitles()
-	title("Robustness City")
-	addnotes("...")
 ;
 #delimit cr
