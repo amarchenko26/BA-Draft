@@ -23,7 +23,6 @@
 *.pdf
 *.bak~
 *.pdf
-*.tex
 BA_Marchenko_publication.pdf
 .DS_Store
 code/.DS_Store
