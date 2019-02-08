@@ -3,7 +3,7 @@ clear mata
 set more off
 set emptycells drop // If the interaction term is empty, don't report it in the table, reduces memory and variable necessity 
 
-*set matsize 11000
+set matsize 11000
 *set maxvar 32000
 
 

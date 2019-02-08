@@ -19,15 +19,9 @@ label values cleaned_city _city // label them city names
 
 ** Restricting data set
 destring host_listings_count, replace force
-drop if host_listings_count > 20
-
-drop if host_has_profile_pic == "f"
-drop if price > 800
-
 replace age = 5 if age == 6
-drop if age == 7 | age == 11 | age == 12 | age == 0 
-
-drop if sex == 0
+gen sample = 1
+replace sample = 0 if host_listings_count > 20 | host_has_profile_pic == "f" | price > 800 | sex == 0 | age == 7 | age == 11 | age == 12 | age == 0
 
 ** Fixing LA codes
 replace race = 1 if race == 2 & state == "CA"
@@ -115,9 +109,7 @@ replace last_scraped_year = 15 if last_scraped_year == 2015
 gen time_on_market = last_scraped_year - first_review_year if first_review_year
 gen reviews_per_year = number_of_reviews / time_on_market
 
-
-
-
+la var first_review_year "Year of first review"
 
 
 
