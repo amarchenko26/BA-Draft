@@ -73,9 +73,9 @@ estadd local controlgroup3 "Yes" : edelman medium_avail high_avail
 
 #delimit ;
 esttab edelman using
-	"$repository/code/tables/output/edelman_price.tex",
+	"$repository/code/tables/tex_output/individual_tables/edelman_price.tex",
 		se ar2 replace label 
-		keep(*.race_res)
+		keep(*.race_res) drop(1.race_res)
 		mtitles("Edelman" "Medium Avail." "High Availibility")
 		stats(controlgroup1 controlgroup2 controlgroup3 linehere N r2,
 		labels("Location Fixed Effects" "Property Fixed Effects" 
@@ -84,23 +84,3 @@ esttab edelman using
 		fragment
 ;
 #delimit cr
-	
-///WILL BE DELETED
-
-#delimit ;
-esttab edelman using
-	"$repository/code/tables/output/edelman_price_full.tex",
-		se ar2 replace label 
-		keep(*.race_res)
-		title("Edelman")
-		mtitles("Edelman" "Medium Avail." "High Availibility")
-		stats(controlgroup1 controlgroup2 controlgroup3 linehere N r2,
-		labels("Location Fixed Effects" "Property Fixed Effects" 
-				"Host Fixed Effects" "\hline \vspace{-1.25em}" "Observations" 
-				"Adjusted R2"))
-		addnotes("...")
-;
-#delimit cr
-	
-	
-

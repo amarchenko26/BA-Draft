@@ -30,4 +30,6 @@ code/.DS_Store
 #Ignore data folder
 /data
 /archive
+/code/tables/output
+
 code/.DS_Store
