@@ -27,7 +27,7 @@ file write f "& \multicolumn{1}{c}{} & \multicolumn{5}{c}{Regression Sample}" _n
 
 
 // write in stats
-local ncat price number_of_reviews accommodates bedrooms bathrooms beds cleaning_fee extra_people minimum_nights availability_30 num_amenities instant_bookable first_review_year
+local ncat price number_of_reviews accommodates bedrooms bathrooms beds cleaning_fee extra_people minimum_nights availability_30 num_amenities instant_bookable 
 // local cat room_type 
 // room_type property_type cancellation_policy
 
@@ -60,7 +60,31 @@ local ncat price number_of_reviews accommodates bedrooms bathrooms beds cleaning
 			
 	}
 
+// first review year summary stats
+preserve
+keep if first_review_year != 99
+sum first_review_year
+local full_mean_first_review_year = `r(mean)'
+local full_sd_first_review_year = `r(sd)'
+keep if sample == 1
+sum first_review_year
+local all_mean_first_review_year = `r(mean)'
+local all_sd_first_review_year = `r(sd)'
+local var_label : variable label first_review_year
+levelsof race_res
+	foreach f in `r(levels)'{
+		sum first_review_year if race_res == `f'
+		local `f'_race_observations = `r(N)' //saves race N
+		local `f'_mean_first_review_year = `r(mean)'
+		local `f'_sd_first_review_year = `r(sd)'
+	}
+restore
+file write f " `: var label first_review_year' & " %4.2f (`full_mean_first_review_year') " & " %4.2f (`all_mean_first_review_year') " & " %4.2f (`1_mean_first_review_year') " & " %4.2f (`2_mean_first_review_year') " & " %4.2f (`3_mean_first_review_year') " & " %4.2f (`4_mean_first_review_year') " "
+file write f "\\" _n
+file write f " & " "(" %4.2f (`full_sd_first_review_year') ")" " & " "(" %4.2f (`all_sd_first_review_year') ")" " & " "(" %4.2f (`1_sd_first_review_year') ")" " & " "(" %4.2f (`2_sd_first_review_year') ")" " & " "(" %4.2f (`3_sd_first_review_year') ")" " & " "(" %4.2f (`4_sd_first_review_year') ")" " "
+file write f "\\" _n
 
+	
 	foreach i in `cat'{ //loops over categorical variables
 			local var_label : variable label `i'
 			file write f "\textbf{`var_label'} \\" _n _n
