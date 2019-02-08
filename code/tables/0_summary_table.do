@@ -114,7 +114,7 @@ file write f "\hline" _n ///
 // write end of table
 file write f "\hline\hline\noalign{\smallskip} \end{tabular} " _n ///
 "\begin{minipage}{6in}" _n ///
-	"\begin{center}{\it Note:} The values in the table are means and standard deviations" ///
+	"{\it Note:} The values in the table are means and standard deviations" ///
 	" of listing-level data in my full sample. Summary statistics for selected covariates" ///
 	" are listed in the table. Categorical variables such as room type do not have standard" ///
 	" deviations. Property types are explicitly listed if more than 1.5\% of listings are that" ///
@@ -122,7 +122,6 @@ file write f "\hline\hline\noalign{\smallskip} \end{tabular} " _n ///
 	" 99\% of listings have strict (43\%), flexible (31\%) or moderate (25\%) cancellation policies." ///
 	" Year of first review is a proxy for the time on the market - 14.86 indicates that the" ///
 	" first review of the mean listing in the full sample occurred in October of 2014." _n ///
-"\end{center}" _n ///	
 "\end{minipage}" _n ///
 "\end{center}" _n ///
 "\end{table}" _n	
