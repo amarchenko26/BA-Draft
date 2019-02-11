@@ -1,0 +1,29 @@
+\documentclass[11pt, oneside]{article}   	
+\usepackage[margin = 1 in]{geometry}                		
+\geometry{letterpaper}                   		
+%\usepackage[parfill]{parskip}    %Begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}				
+\usepackage{setspace}								
+\usepackage{amssymb}
+\doublespacing
+%\geometry{footnotesep=2\baselineskip}
+\interfootnotelinepenalty=10000 %prevents long footnotes from overflowing to new page
+\usepackage{longtable}
+\usepackage{caption} %Put caption* in a table to remove the enumeration
+\usepackage{rotating} % To rotate the reviewer table
+\usepackage{natbib}   %activates bibliography
+\usepackage [english]{babel} %something for bibliography
+\usepackage{verbatim} %to be able to use \begin{comment}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{float} 
+\usepackage{pdflscape} %allows for one page to be landscape (lscape makes word landscape, pdflscape makes page landscape)
+\usepackage{lscape}
+\usepackage{threeparttable} %allows tablenotes
+
+\begin{document}
+
+	\input{../../output/summary_table}
+	\input{../../output/summary_table_host_demo}
+
+\end{document}
