@@ -14,7 +14,7 @@ label values  age_res age_lbl
 
 // open .tex file
 cap file close f
-file open f using "$repository/code/tables/output/summary_table_host_demo.tex", write replace
+file open f using "$repository/code/tables/tex_output/individual_tables/summary_table_host_demo.tex", write replace
 
 // write the beginning of the table
 file write f "\begin{table}[htbp]" _n ///
