@@ -117,7 +117,7 @@ local cat property_type_2
 					sum `i' if `i' == `k' //Full Data
 					local `k'_full_N_`i' = `r(N)' //saves 'i' N e.g townhouse, etc
 					local `k'_full_mean_`i' = ``k'_full_N_`i''/`all_N_`i''
-					*preserve
+					preserve
 					keep if sample == 1 //restricts regression sample
 					sum `i' if `i' == `k' //Full Data
 					local `k'_all_N_`i' = `r(N)' //saves 'i' N e.g townhouse, etc
@@ -132,6 +132,7 @@ local cat property_type_2
 								local `r'_`k'_race_mean_`i' = ``r'_`k'_race_N_`i''/``r'_race_N_`i''
 						
 						}
+					restore
 					
 					}
 		file write f " \hspace{10bp}Apartments/Lofts  	& " %4.2f (`1_full_mean_`i'') " & " %4.2f (`1_all_mean_`i'') " & " %4.2f (`1_1_race_mean_`i'') " & " %4.2f (`2_1_race_mean_`i'') " & " %4.2f (`3_1_race_mean_`i'') " & " %4.2f (`4_1_race_mean_`i'') " \\"
@@ -158,7 +159,7 @@ local cat2 room_type_2
 					sum `i' if `i' == `k' //Full Data
 					local `k'_full_N_`i' = `r(N)' //saves 'i' N e.g townhouse, etc
 					local `k'_full_mean_`i' = ``k'_full_N_`i''/`all_N_`i''
-					*preserve
+					preserve
 					keep if sample == 1 //restricts regression sample
 					sum `i' if `i' == `k' //All Data
 					local `k'_all_N_`i' = `r(N)' //saves 'i' N e.g townhouse, etc
@@ -173,18 +174,15 @@ local cat2 room_type_2
 								local `r'_`k'_race_mean_`i' = ``r'_`k'_race_N_`i''/``r'_race_N_`i''
 						
 						}
+					restore
 					
 					}
 		file write f " \hspace{10bp}Entire House/Apartment  	& " %4.2f (`1_full_mean_`i'') " & " %4.2f (`1_all_mean_`i'') " & " %4.2f (`1_1_race_mean_`i'') " & " %4.2f (`2_1_race_mean_`i'') " & " %4.2f (`3_1_race_mean_`i'') " & " %4.2f (`4_1_race_mean_`i'') " \\"
 		file write f " \hspace{10bp}Private Room  			& " %4.2f (`2_full_mean_`i'') " & " %4.2f (`2_all_mean_`i'') " & " %4.2f (`1_2_race_mean_`i'') " & " %4.2f (`2_2_race_mean_`i'') " & " %4.2f (`3_2_race_mean_`i'') " & " %4.2f (`4_2_race_mean_`i'') " \\"		
 		file write f " \hspace{10bp}Shared Room  			& " %4.2f (`3_full_mean_`i'') " & " %4.2f (`3_all_mean_`i'') " & " %4.2f (`1_3_race_mean_`i'') " & " %4.2f (`2_3_race_mean_`i'') " & " %4.2f (`3_3_race_mean_`i'') " & " %4.2f (`4_3_race_mean_`i'') " \\"
 }
+	
 
-	
-	
-	
-	
-	
 
 ****************************************
 *Non-Categorical Variables
@@ -247,46 +245,39 @@ local ncat2 accommodates bedrooms bathrooms beds cleaning_fee extra_people minim
 			file write f "\\" _n
 
 // cancellation policy 
-/* capture confirm variable cancellation_policy_2
+capture confirm variable cancellation_policy_2
 if !_rc{
 	drop cancellation_policy_2
-	di "hi"
 	}
 egen cancellation_policy_2 = group(cancellation_policy), label
 
 local cat3 cancellation_policy_2
 	foreach i in `cat3'{ //loops over noncategorical variables
-		sum `i' //Full Data
-		local full_N_`i' = `r(N)' //saves 'i' N e.g townhouse, etc
+		sum `i' // Full Data
+		local full_N = `r(N)' // total observations in Full Data
+		sum `i' if `i' == 5
+		local full_strict_N = `r(N)' // total "strict" in Full Data
+		local full_strict_mean = `full_strict_N'/`full_N' 
 		preserve
 		keep if sample == 1
-		sum `i' //Regression Data
-		local all_N_`i' = `r(N)' //saves 'i' N e.g townhouse, etc
+		sum `i' // Regression Data
+		local all_N = `r(N)' // total observations in All Data
+		sum `i' if `i' == 5
+		local all_strict_N = `r(N)' // total "strict" in All Data
+		local all_strict_mean = `all_strict_N'/`all_N' 
+	
+		levelsof race_res
+		foreach f in `r(levels)'{
+				sum `i' if race_res == `f'
+				local `f'_race_N = `r(N)'
+				sum `i' if `i' == 5 & race_res == `f'
+				local `f'_strict_race_N = `r(N)' 
+				local `f'_strict_race_mean = ``f'_strict_race_N'/``f'_race_N'	
+				}
 		restore
-		levelsof `i'
-			if `r(levels)' == 5{
-				sum `i' //Full Data
-				local strict_full_N_`i' = `r(N)' //saves 'i' N e.g townhouse, etc
-				local strict_full_mean_`i' = `strict_full_N_`i''/`all_N_`i''
-				*preserve
-				keep if sample == 1 //restricts regression sample
-				sum `i' if `i' == 5 //All Data 
-				local strict_all_N_`i' = `r(N)' //saves 'i' N e.g townhouse, etc
-				local strict_all_mean_`i' = `strict_all_N_`i''/`all_N_`i''		
-				levelsof race_res
-					foreach r in `r(levels)' {
-						sum `i' if race_res == `r' 
-						local `r'_race_N_`i' = `r(N)'
-							sum `i' if `i' == 5 & race_res == `r'
-							local `r'_strict_race_N_`i' = `r(N)' //saves 'i' N e.g townhouse, etc
-							local `r'_strict_race_mean_`i' = ``r'_strict_race_N_`i''/``r'_race_N_`i''
-						
-						}
-					
-					}
-		file write f " 	& " %4.2f (`1_full_mean_`i'') " & " %4.2f (`1_all_mean_`i'') " & " %4.2f (`1_1_race_mean_`i'') " & " %4.2f (`2_1_race_mean_`i'') " & " %4.2f (`3_1_race_mean_`i'') " & " %4.2f (`4_1_race_mean_`i'') " \\"
+		file write f " Strict Cancellation Policy & " %4.2f (`full_strict_mean') " & " %4.2f (`all_strict_mean') " & " %4.2f (`1_strict_race_mean') " & " %4.2f (`2_strict_race_mean') " & " %4.2f (`3_strict_race_mean') " & " %4.2f (`4_strict_race_mean') " \\"
 		}
-*/
+
 
 // number of observations
 file write f "\hline" _n ///
