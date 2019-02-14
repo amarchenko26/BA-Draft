@@ -17,11 +17,11 @@ file write f "\begin{table}[htbp]" _n ///
 "\small\begin{tabular}{l c | c | c c c c}" _n ///
 
 // write column headers
-file write f "& \multicolumn{1}{c}{Full data} & \multicolumn{5}{c}{Regression Sample}" _n ///
+file write f "& \multicolumn{1}{c}{} & \multicolumn{5}{c}{Regression Sample}" _n ///
 "\\" _n ///
 " \cmidrule(r){3-7}" _n ///
 "\\" _n ///
-" & \multicolumn{1}{c}{} & \multicolumn{1}{c}{All} & White & Black & Hispanic & Asian" _n ///
+" & \multicolumn{1}{c}{Full data} & \multicolumn{1}{c}{All} & White & Black & Hispanic & Asian" _n ///
 "\\" _n ///
 "\hline\hline\noalign{\smallskip} " _n 
 
@@ -281,7 +281,7 @@ local cat3 cancellation_policy_2
 
 // number of observations
 file write f "\hline" _n ///
-"Observations & \numprint{`full_observations'} & \numprint{`all_observations'} & \numprint{`1_race_observations'} & \numprint{`2_race_observations'} & \numprint{`3_race_observations'} & \numprint{`4_race_observations'}" _n ///
+"Observations & `full_observations' & `all_observations' & `1_race_observations' & `2_race_observations' & `3_race_observations' & `4_race_observations'" _n ///
 "\\" _n
 
 // write end of table
