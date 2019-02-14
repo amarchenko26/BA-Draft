@@ -70,7 +70,6 @@ file write f " \hline"
 
 * Non-categorical covariates
 local ncat2 review_scores_value host_is_superhost host_response_rate host_acceptance_rate good_word_tot len_desc short_words 
-// host_identity_verified require_guest_profile_picture require_guest_phone_verification 
 
 	foreach i in `ncat2'{ //loops over noncategorical variables
 			sum `i' //Full data column
@@ -102,10 +101,121 @@ local ncat2 review_scores_value host_is_superhost host_response_rate host_accept
 	}
 
 * Categorical covariates
-local cat host_response_time
 
-// pick back up here
+//Checking if variable host_response_time_2 already exists
+	capture confirm variable host_response_time_2
+	if !_rc{
+		drop host_response_time_2
+	}
 	
+	egen host_response_time_2 = group(host_response_time), label
+	
+local cat host_response_time_2
+
+	foreach i in `cat'{ //loops over noncategorical variables
+		sum `i' // Full Data
+		local full_N = `r(N)' // total observations in Full Data
+		sum `i' if `i' == 5
+		local full_hour_N = `r(N)' // total "within an hour" responses in Full Data
+		local full_hour_mean = `full_hour_N'/`full_N' 
+		preserve
+		keep if sample == 1
+		sum `i' // Regression Data
+		local all_N = `r(N)' // total observations in All Data
+		sum `i' if `i' == 5
+		local all_hour_N = `r(N)' // total "within an hour" in All Data
+		local all_hour_mean = `all_hour_N'/`all_N' 
+	
+		levelsof race_res
+		foreach f in `r(levels)'{
+				sum `i' if race_res == `f'
+				local `f'_race_N = `r(N)'
+				sum `i' if `i' == 5 & race_res == `f'
+				local `f'_hour_race_N = `r(N)' 
+				local `f'_hour_race_mean = ``f'_hour_race_N'/``f'_race_N'	
+				}
+		restore
+		file write f " Response time $<$ 1 hour & " %4.2f (`full_hour_mean') " & " %4.2f (`all_hour_mean') " & " %4.2f (`1_hour_race_mean') " & " %4.2f (`2_hour_race_mean') " & " %4.2f (`3_hour_race_mean') " & " %4.2f (`4_hour_race_mean') " \\"
+		}
+		
+	
+	// egen require_guest_profile_picture_2 = group(require_guest_profile_picture), label
+
+local cat2 host_identity_verified require_guest_profile_picture require_guest_phone_verification
+
+	foreach i in `cat2'{
+		sum `i' // Full Data
+		local full_N = `r(N)' // total observations in Full Data
+		// local full_sd_`i' = `r(sd)'
+		sum `i' if `i' == 1 // 1 == True
+		local full_true_N = `r(N)' // total "True" in Full Data
+		local full_true_mean = `full_true_N'/`full_N' 
+		preserve
+		keep if sample == 1
+		sum `i' // Regression Data
+		local all_N = `r(N)' // total observations in All Data
+		// local all_sd_`i' = `r(sd)'
+		sum `i' if `i' == 1
+		local all_true_N = `r(N)' // total "True" in All Data
+		local all_true_mean = `all_true_N'/`all_N' 
+		local var_label : variable label `i'
+	
+		levelsof race_res
+		foreach f in `r(levels)'{
+				sum `i' if race_res == `f'
+				local `f'_race_N = `r(N)'
+				// local `f'_sd_`i' = `r(sd)'
+				sum `i' if `i' == 1 & race_res == `f'
+				local `f'_true_race_N = `r(N)' 
+				local `f'_true_race_mean = ``f'_true_race_N'/``f'_race_N'	
+				}
+		restore
+		
+		file write f " `: var label `i'' & " %4.2f (`full_true_mean') " & " %4.2f (`all_true_mean') " & " %4.2f (`1_true_race_mean') " & " %4.2f (`2_true_race_mean') " & " %4.2f (`3_true_race_mean') " & " %4.2f (`4_true_race_mean') " "
+		file write f "\\" _n
+		// file write f " & " "(" %4.2f (`full_sd_`i'') ")" " & " "(" %4.2f (`all_sd_`i'') ")" " & " "(" %4.2f (`1_sd_`i'') ")" " & " "(" %4.2f (`2_sd_`i'') ")" " & " "(" %4.2f (`3_sd_`i'') ")" " & " "(" %4.2f (`4_sd_`i'') ")" " "
+		file write f "\\" _n
+		
+		}
+
+/*		foreach i in `cat3'{
+		sum `i' // Full Data
+		local full_N = `r(N)' // total observations in Full Data
+		local full_sd_`i' = `r(sd)'
+		di "hi i'm `full_sd_`i''"
+		sum `i' if `i' == 2 // 2 == True
+		local full_true_N = `r(N)' // total "True" in Full Data
+		local full_true_mean = `full_true_N'/`full_N' 
+		preserve
+		keep if sample == 1
+		sum `i' // Regression Data
+		local all_N = `r(N)' // total observations in All Data
+		local all_sd_`i' = `r(sd)'
+		di "hi i'm `all_sd_`i''"
+		sum `i' if `i' == 2
+		local all_true_N = `r(N)' // total "True" in All Data
+		local all_true_mean = `all_true_N'/`all_N' 
+		local var_label : variable label `i'
+	
+		levelsof race_res
+		foreach f in `r(levels)'{
+				sum `i' if race_res == `f'
+				local `f'_race_N = `r(N)'
+				local `f'_sd_`i' = `r(sd)'
+				di "hi i'm ``f'_sd_`i''"
+				sum `i' if `i' == 2 & race_res == `f'
+				local `f'_true_race_N = `r(N)' 
+				local `f'_true_race_mean = ``f'_true_race_N'/``f'_race_N'	
+				}
+		restore
+		file write f " `: var label `i'' & " %4.2f (`full_true_mean') " & " %4.2f (`all_true_mean') " & " %4.2f (`1_true_race_mean') " & " %4.2f (`2_true_race_mean') " & " %4.2f (`3_true_race_mean') " & " %4.2f (`4_true_race_mean') " \\"
+		file write f "\\" _n
+		di "hi1"
+		file write f " & " "(" %4.2f (`full_sd_`i'') ")" " & " "(" %4.2f (`all_sd_`i'') ")" " & " "(" %4.2f (`1_sd_`i'') ")" " & " "(" %4.2f (`2_sd_`i'') ")" " & " "(" %4.2f (`3_sd_`i'') ")" " & " "(" %4.2f (`4_sd_`i'') ")" " "
+		file write f "\\" _n
+		
+		}*/
+
 
 // number of observations
 file write f "\hline" _n ///
