@@ -179,44 +179,6 @@ local cat2 host_identity_verified require_guest_profile_picture require_guest_ph
 		
 		}
 
-/*		foreach i in `cat3'{
-		sum `i' // Full Data
-		local full_N = `r(N)' // total observations in Full Data
-		local full_sd_`i' = `r(sd)'
-		di "hi i'm `full_sd_`i''"
-		sum `i' if `i' == 2 // 2 == True
-		local full_true_N = `r(N)' // total "True" in Full Data
-		local full_true_mean = `full_true_N'/`full_N' 
-		preserve
-		keep if sample == 1
-		sum `i' // Regression Data
-		local all_N = `r(N)' // total observations in All Data
-		local all_sd_`i' = `r(sd)'
-		di "hi i'm `all_sd_`i''"
-		sum `i' if `i' == 2
-		local all_true_N = `r(N)' // total "True" in All Data
-		local all_true_mean = `all_true_N'/`all_N' 
-		local var_label : variable label `i'
-	
-		levelsof race_res
-		foreach f in `r(levels)'{
-				sum `i' if race_res == `f'
-				local `f'_race_N = `r(N)'
-				local `f'_sd_`i' = `r(sd)'
-				di "hi i'm ``f'_sd_`i''"
-				sum `i' if `i' == 2 & race_res == `f'
-				local `f'_true_race_N = `r(N)' 
-				local `f'_true_race_mean = ``f'_true_race_N'/``f'_race_N'	
-				}
-		restore
-		file write f " `: var label `i'' & " %4.2f (`full_true_mean') " & " %4.2f (`all_true_mean') " & " %4.2f (`1_true_race_mean') " & " %4.2f (`2_true_race_mean') " & " %4.2f (`3_true_race_mean') " & " %4.2f (`4_true_race_mean') " \\"
-		file write f "\\" _n
-		di "hi1"
-		file write f " & " "(" %4.2f (`full_sd_`i'') ")" " & " "(" %4.2f (`all_sd_`i'') ")" " & " "(" %4.2f (`1_sd_`i'') ")" " & " "(" %4.2f (`2_sd_`i'') ")" " & " "(" %4.2f (`3_sd_`i'') ")" " & " "(" %4.2f (`4_sd_`i'') ")" " "
-		file write f "\\" _n
-		
-		}*/
-
 
 // number of observations
 file write f "\hline" _n ///
