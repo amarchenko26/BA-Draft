@@ -18,12 +18,14 @@ gen short_words = num_words/len_desc //low short_words --> high quality of revie
 la var short_words "Quality of review as measured by proportion of long words"
 
 // Summary
-gen len_desc2 = length(summary) // length of description 
+gen len_desc2 = length(summary) // length of summary
+la var len_desc2 "Length of Summary"
 egen num_words2 = nss(summary), find(" ") //count number of words by counting spaces
 gen short_words2 = num_words2/len_desc2 //low short_words --> high quality of review, (since there's a lot of long words)
+la var short_words2 "Short words in Summary"
 
 // Space
-gen len_desc3 = length(space) // length of descripiton 
+gen len_desc3 = length(space) // length of description 
 egen num_words3 = nss(space), find(" ") //count number of words by counting spaces
 gen short_words3 = num_words3/len_desc3 //low short_words --> high quality of review, (since there's a lot of long words)
 // Experiences offered is always "none"
@@ -69,6 +71,16 @@ egen good_word6 = noccur(description), string("love")
 egen good_word7 = noccur(description), string("quiet")
 
 gen good_word_tot = good_word1 + good_word2 + good_word3 + good_word4 + good_word5 + good_word6 + good_word7
+
+egen sum_good_word1 = noccur(summary), string("spacious")
+egen sum_good_word2 = noccur(summary), string("beautiful")
+egen sum_good_word3 = noccur(summary), string("clean")
+egen sum_good_word4 = noccur(summary), string("comfort")
+egen sum_good_word5 = noccur(summary), string("great")
+egen sum_good_word6 = noccur(summary), string("love")
+egen sum_good_word7 = noccur(summary), string("quiet")
+
+gen sum_good_word_tot = sum_good_word1 + sum_good_word2 + sum_good_word3 + sum_good_word4 + sum_good_word5 + sum_good_word6 + sum_good_word7
 
 
 ** Host Characteristics
@@ -191,7 +203,7 @@ la var sex "Sex"
 la var age "Age"
 la var number_of_reviews "Number of Reviews"
 la var price "Price"
-la var review_scores_value "Review Scores Value"
+la var review_scores_rating "Review Scores Rating"
 la var property_type "Property Type"
 la var room_type "Room Type"
 la var accommodates "Max Num. Guests"
@@ -210,12 +222,12 @@ la var host_is_superhost "Host is a Superhost"
 la var host_response_rate "Response rate"
 la var host_response_time "Response time"
 la var host_acceptance_rate "Acceptance rate"
-la var good_word_tot "Total good words"
+la var sum_good_word_tot "Total good words in Summary"
 la var len_desc "Length of description"
 la var short_words "Short words"
-la var host_identity_verified "Host's Identity Verified"
-la var require_guest_profile_picture "Guest Pic Required"
-la var require_guest_phone_verification "Guest Phone Required"
+la var host_identity_verified "Host's Identity Verified?"
+la var require_guest_profile_picture "Guest Pic Required?"
+la var require_guest_phone_verification "Guest Phone Required?"
 
 ** RA analysis
 replace ra_name = "Fong" if ra_name== "FONG"
