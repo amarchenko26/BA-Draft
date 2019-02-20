@@ -20,8 +20,14 @@ label values cleaned_city _city // label them city names
 ** Restricting data set
 destring host_listings_count, replace force
 replace age = 5 if age == 6
+
 gen sample = 1
-replace sample = 0 if host_listings_count > 20 | host_has_profile_pic == "f" | price > 800 | sex == 0 | age == 7 | age == 11 | age == 12 | age == 0
+replace sample = 0 if host_listings_count > 20
+replace sample = 0 if host_has_profile_pic == "f"
+replace sample = 0 if price > 800
+replace sample = 0 if age == 7 | age == 11 | age == 12 | age == 0
+replace sample = 0 if sex == 0
+
 
 ** Fixing LA codes
 replace race = 1 if race == 2 & state == "CA"
@@ -59,8 +65,8 @@ label values race_res race_res
 la var race_res "Race"
 la var sex_res "Sex"
 
-drop if sex_res > 2
-drop if race_res > 4
+replace sample = 0 if sex_res > 2
+replace sample = 0 race_res > 4
 
 ** Create interaction for race and sex
 egen race_sex_res = group(race_res sex_res), label
