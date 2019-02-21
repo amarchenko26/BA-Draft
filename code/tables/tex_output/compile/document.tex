@@ -21,7 +21,42 @@
 \usepackage{lscape}
 \usepackage{threeparttable} %allows tablenotes
 
+
+\newsavebox{\mybox}
+\newenvironment{mytabularwrap}{\begin{lrbox}{\mybox}}
+	{\end{lrbox}%
+	\setbox0\hbox{\usebox\mybox}%
+	\ifdim\wd0<\textwidth
+	\usebox\mybox%
+	\else
+	\resizebox{\textwidth}{!}{\usebox\mybox}
+	\fi
+}
+
 \begin{document}
 \input{../individual_tables/summary_table}
+\newpage
 \input{../individual_tables/summary_table_host_demo}
+\newpage
+\input{../individual_tables/reviewer_char}
+\newpage
+
+\landscape
+\centering
+\begin{table}[htbp]\centering
+	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+	\caption{Estimates of effect of host demographics on review sentiment, by reviewer demographics}
+	\begin{tabular}{l *{8}{c}}
+		\hline\hline
+		&\multicolumn{8}{c}{Reviewers} \\
+		\cmidrule(r){2-9}\\
+		\input{../individual_tables/reviewer_mean_reg}	
+		\hline\hline
+		\multicolumn{9}{l}{\footnotesize Standard errors in parentheses}\\
+		\multicolumn{9}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
+	\end{tabular}
+\end{table}
+
+
+
 \end{document}
