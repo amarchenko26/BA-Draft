@@ -61,8 +61,8 @@ label values race_res race_res
 la var race_res "Race"
 la var sex_res "Sex"
 
-*drop if sex_res > 2 	//Responsible for dropping ~20k vars
-*drop if race_res > 4	//Responsible for dropping ~20k vars
+replace sample = 0 if sex_res > 2 	//Responsible for dropping ~20k vars
+replace sample = 0 if race_res > 4	//Responsible for dropping ~20k vars
 
 ** Create interaction for race and sex
 egen race_sex_res = group(race_res sex_res), label
