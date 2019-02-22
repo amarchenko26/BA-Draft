@@ -17,11 +17,11 @@ file write f "\begin{table}[htbp]" _n ///
 "\small\begin{tabular}{l c | c | c c c c}" _n ///
 
 // write column headers
-file write f "& \multicolumn{1}{c}{Full data} & \multicolumn{5}{c}{Regression Sample}" _n ///
+file write f "& \multicolumn{1}{c}{} & \multicolumn{5}{c}{Regression Sample}" _n ///
 "\\" _n ///
 " \cmidrule(r){3-7}" _n ///
 "\\" _n ///
-" & \multicolumn{1}{c}{} & \multicolumn{1}{c}{All} & White & Black & Hispanic & Asian" _n ///
+" & \multicolumn{1}{c}{Full data} & \multicolumn{1}{c}{All} & White & Black & Hispanic & Asian" _n ///
 "\\" _n ///
 "\hline\hline\noalign{\smallskip} " _n 
 
@@ -76,11 +76,11 @@ local ncat price number_of_reviews
 	
 	egen property_type_2 = group(property_type), label
 
-	replace property_type_2 = 1 if property_type_2 == 20 //Setting Lofts = Apts
-	replace property_type_2 = 11 if property_type_2 == 27 //Setting Townhouses =  Condos
-	replace property_type_2 = 4 if property_type_2 != 1 & property_type_2 != 11 &  property_type_2 != 16 //Set everything which isn't house, condos/townhouses, apts/lofts to Others
-	replace property_type_2 = 2 if property_type_2 == 11
-	replace property_type_2 = 3 if property_type_2 == 16
+	replace property_type_2 = 1 if property_type_2 == 17 //Setting Lofts = Apts
+	replace property_type_2 = 10 if property_type_2 == 23 //Setting Townhouses =  Condos
+	replace property_type_2 = 4 if property_type_2 != 1 & property_type_2 != 10 &  property_type_2 != 15 //Set everything which isn't house, condos/townhouses, apts/lofts to Others
+	replace property_type_2 = 2 if property_type_2 == 10
+	replace property_type_2 = 3 if property_type_2 == 15
 
 
 	#delimit; 
@@ -102,7 +102,7 @@ local ncat price number_of_reviews
 //Generating Table Output
 		file write f " \textit{Covariates} & & & & & & \\"
 		file write f " \hline"
-		file write f " Property Type & & & & & & \\"
+		file write f " Property Types & & & & & & \\"
 
 local cat property_type_2
 	foreach i in `cat'{ //loops over noncategorical variables
@@ -116,7 +116,7 @@ local cat property_type_2
 				foreach k in `r(levels)'{
 					sum `i' if `i' == `k' //Full Data
 					local `k'_full_N_`i' = `r(N)' //saves 'i' N e.g townhouse, etc
-					local `k'_full_mean_`i' = ``k'_full_N_`i''/`full_N_`i''
+					local `k'_full_mean_`i' = ``k'_full_N_`i''/`all_N_`i''
 					preserve
 					keep if sample == 1 //restricts regression sample
 					sum `i' if `i' == `k' //Full Data
@@ -158,7 +158,7 @@ local cat2 room_type_2
 				foreach k in `r(levels)'{
 					sum `i' if `i' == `k' //Full Data
 					local `k'_full_N_`i' = `r(N)' //saves 'i' N e.g townhouse, etc
-					local `k'_full_mean_`i' = ``k'_full_N_`i''/`full_N_`i''
+					local `k'_full_mean_`i' = ``k'_full_N_`i''/`all_N_`i''
 					preserve
 					keep if sample == 1 //restricts regression sample
 					sum `i' if `i' == `k' //All Data
@@ -281,7 +281,7 @@ local cat3 cancellation_policy_2
 
 // number of observations
 file write f "\hline" _n ///
-"Observations & \numprint{`full_observations'} & \numprint{`all_observations'} & \numprint{`1_race_observations'} & \numprint{`2_race_observations'} & \numprint{`3_race_observations'} & \numprint{`4_race_observations'}" _n ///
+"Observations & `full_observations' & `all_observations' & `1_race_observations' & `2_race_observations' & `3_race_observations' & `4_race_observations'" _n ///
 "\\" _n
 
 // write end of table

@@ -73,7 +73,7 @@ restore
 file write f " Race &&&&&& \\" _n
 file write f " \hspace{10bp}White & " 	%4.3f (`race_res_mean_1') " & " %4.3f (`race_res_mean_all_1') " &  " %4.2f (`race_res_mean_1_1') " & " %4.3f (`race_res_mean_2_1') " &  " %4.3f (`race_res_mean_3_1') " & " %4.3f (`race_res_mean_4_1') " \\ " 
 file write f " \hspace{10bp}Black & " 	%4.3f (`race_res_mean_2') " & " %4.3f (`race_res_mean_all_2') " &  " %4.2f (`race_res_mean_1_2') " & " %4.3f (`race_res_mean_2_2') " &  " %4.3f (`race_res_mean_3_2') " & " %4.3f (`race_res_mean_4_2') " \\ " 
-file write f " \hspace{10bp}Hispanic & "%4.3f (`race_res_mean_3') " & " %4.3f (`race_res_mean_all_3') " &  " %4.2f (`race_res_mean_1_3') " & " %4.3f (`race_res_mean_2_3') " &  " %4.3f (`race_res_mean_3_3') " & " %4.3f (`race_res_mean_4_3') " \\ " 
+file write f " \hspace{10bp}Hispanic & "%4.3f (`race_res_mean_3') " & " %4.f (`race_res_mean_all_3') " &  " %4.2f (`race_res_mean_1_3') " & " %4.3f (`race_res_mean_2_3') " &  " %4.3f (`race_res_mean_3_3') " & " %4.3f (`race_res_mean_4_3') " \\ " 
 file write f " \hspace{10bp}Asian & " 	%4.3f (`race_res_mean_4') " & " %4.3f (`race_res_mean_all_4') " &  " %4.2f (`race_res_mean_1_4') " & " %4.3f (`race_res_mean_2_4') " &  " %4.3f (`race_res_mean_3_4') " & " %4.3f (`race_res_mean_4_4') " \\ " 
 file write f " \hspace{10bp}Unknown & " %4.3f (`race_res_mean_0') " & {0.000} & {0.000} &  {0.000}  & {0.000}  & {0.000} \\ " 	
 
@@ -83,15 +83,15 @@ file write f " \hspace{10bp}Female & " 	%4.3f (`sex_mean_2') " & " %4.3f (`sex_m
 file write f " \hspace{10bp}Unknown & "	%4.3f (`sex_mean_0') " & {0.000} & {0.000} &  {0.000}  & {0.000}  & {0.000} \\ "
 
 file write f " Age &&&&&& \\" _n
-file write f " \hspace{10bp}Young($<30$) & " 	%4.3f (`age_res_mean_1') " & " %4.3f (`age_res_mean_all_1') " &  " %4.3f (`age_res_mean_1_1') " & " %4.3f (`age_res_mean_2_1') " &  " %4.3f (`age_res_mean_3_1') " & " %4.3f (`age_res_mean_4_1') " \\ " 
+file write f " \hspace{10bp}Young($\<30$) & " 	%4.3f (`age_res_mean_1') " & " %4.3f (`age_res_mean_all_1') " &  " %4.3f (`age_res_mean_1_1') " & " %4.3f (`age_res_mean_2_1') " &  " %4.3f (`age_res_mean_3_1') " & " %4.3f (`age_res_mean_4_1') " \\ " 
 file write f " \hspace{10bp}Middle-aged & " 	%4.3f (`age_res_mean_2') " & " %4.3f (`age_res_mean_all_2') " &  " %4.3f (`age_res_mean_1_2') " & " %4.3f (`age_res_mean_2_2') " &  " %4.3f (`age_res_mean_3_2') " & " %4.3f (`age_res_mean_4_2') " \\ " 
-file write f " \hspace{10bp}Old ($>65$) & 		"%4.3f (`age_res_mean_3') " & " %4.3f (`age_res_mean_all_3') " &  " %4.3f (`age_res_mean_1_3') " & " %4.3f (`age_res_mean_2_3') " &  " %4.3f (`age_res_mean_3_3') " & " %4.3f (`age_res_mean_4_3') " \\ " 
+file write f " \hspace{10bp}Old ($/>65$) & 		"%4.3f (`age_res_mean_3') " & " %4.3f (`age_res_mean_all_3') " &  " %4.3f (`age_res_mean_1_3') " & " %4.3f (`age_res_mean_2_3') " &  " %4.3f (`age_res_mean_3_3') " & " %4.3f (`age_res_mean_4_3') " \\ " 
 file write f " \hspace{10bp}Unknown & " 	%4.3f (`age_res_mean_0') " & {0} & {0} &  {0}  & {0}  & {0} \\ " 	
 	
 
 // number of observations
 file write f "\hline" _n ///
-"Observations & \numprint{`race_res_N_full'} & \numprint{`race_res_all'} & \numprint{`race_res_N_1'} & \numprint{`race_res_N_2'} & \numprint{`race_res_N_3'} & \numprint{`race_res_N_4'} " _n ///
+"Observations & `race_res_N_full' & `race_res_N_all' & `race_res_N_1' & `race_res_N_2' & `race_res_N_3' & `race_res_N_4' " _n ///
 "\\" _n
 
 

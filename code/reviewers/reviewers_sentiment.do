@@ -3,10 +3,20 @@
 *********************************************************
 
 
+
+***What is sentiment_mean_stan? I tried standardizing, but I don't think that worked
+** Creating sentiment_mean_stan
+*drop sentiment_mean_min  sentiment_mean_temp  sentiment_mean_temp_max  sentiment_mean_stan
+
+*sum sentiment_mean
+*gen sentiment_mean_stan =  (sentiment_mean-`r(mean)')/`r(sd)'
+
+
 ** Regressions
 
 // White Male reviewers
-eststo, title("White Male Reviewers"): quietly reg sentiment_mean_stan i.race_sex_res ///
+#delimit ;
+quietly reg sentiment_mean_stan i.race_sex_res ///
 	i.group_neighbourhood_cleansed /// 
 	i.group_property_type i.group_room_type /// 
 	accommodates bathrooms bedrooms beds i.group_bed_type /// 
@@ -20,10 +30,13 @@ eststo, title("White Male Reviewers"): quietly reg sentiment_mean_stan i.race_se
 	i.group_host_response_time host_response_rate /// //Host-specific charac.
 	host_identity_verified host_is_superhost if rev_race_sex_res == 1, ///
 	vce(cluster group_neighbourhood_cleansed) 
-
+;
+#delimit cr
+eststo mod1 // title("White Male Reviewers"): 
 
 // White female reviewers
-eststo, title("White Female Reviewers"): quietly reg sentiment_mean_stan i.race_sex_res ///
+#delimit ;
+quietly reg sentiment_mean_stan i.race_sex_res ///
 	i.group_neighbourhood_cleansed /// 
 	i.group_property_type i.group_room_type /// 
 	accommodates bathrooms bedrooms beds i.group_bed_type /// 
@@ -37,10 +50,13 @@ eststo, title("White Female Reviewers"): quietly reg sentiment_mean_stan i.race_
 	i.group_host_response_time host_response_rate /// //Host-specific charac.
 	host_identity_verified host_is_superhost if rev_race_sex_res == 2, ///
 	vce(cluster group_neighbourhood_cleansed) 
-	
+;
+#delimit cr
+	eststo mod2 //, title("White Female Reviewers"): 
 
 // Black Male reviewers
-eststo, title("Black Male Reviewers"): quietly reg sentiment_mean_stan i.race_sex_res ///
+#delimit ;
+quietly reg sentiment_mean_stan i.race_sex_res ///
 	i.group_neighbourhood_cleansed /// 
 	i.group_property_type i.group_room_type /// 
 	accommodates bathrooms bedrooms beds i.group_bed_type /// 
@@ -54,10 +70,13 @@ eststo, title("Black Male Reviewers"): quietly reg sentiment_mean_stan i.race_se
 	i.group_host_response_time host_response_rate /// //Host-specific charac.
 	host_identity_verified host_is_superhost if rev_race_sex_res == 3, ///
 	vce(cluster group_neighbourhood_cleansed) 
-	
+;
+#delimit cr
+	eststo mod3 //, title("Black Male Reviewers"): 
 	
 // Black Female reviewers
-eststo, title("Black Female Reviewers"): quietly reg sentiment_mean_stan i.race_sex_res ///
+#delimit ;
+quietly reg sentiment_mean_stan i.race_sex_res ///
 	i.group_neighbourhood_cleansed /// 
 	i.group_property_type i.group_room_type /// 
 	accommodates bathrooms bedrooms beds i.group_bed_type /// 
@@ -71,9 +90,13 @@ eststo, title("Black Female Reviewers"): quietly reg sentiment_mean_stan i.race_
 	i.group_host_response_time host_response_rate /// //Host-specific charac.
 	host_identity_verified host_is_superhost if rev_race_sex_res == 4, ///
 	vce(cluster group_neighbourhood_cleansed) 
+;
+#delimit cr
+	eststo mod4 //, title("Black Female Reviewers"): 
 	
 // Hispanic Male reviewers
-eststo, title("Hispanic Male Reviewers"): quietly reg sentiment_mean_stan i.race_sex_res ///
+#delimit ;
+quietly reg sentiment_mean_stan i.race_sex_res ///
 	i.group_neighbourhood_cleansed /// 
 	i.group_property_type i.group_room_type /// 
 	accommodates bathrooms bedrooms beds i.group_bed_type /// 
@@ -87,10 +110,13 @@ eststo, title("Hispanic Male Reviewers"): quietly reg sentiment_mean_stan i.race
 	i.group_host_response_time host_response_rate /// //Host-specific charac.
 	host_identity_verified host_is_superhost if rev_race_sex_res == 5, ///
 	vce(cluster group_neighbourhood_cleansed) 
-	
+;
+#delimit cr
+	eststo mod5 //, title("Hispanic Male Reviewers"): 
 	
 // Hispanic Female reviewers
-eststo, title("Hispanic Female Reviewers"): quietly reg sentiment_mean_stan i.race_sex_res ///
+#delimit ;
+quietly reg sentiment_mean_stan i.race_sex_res ///
 	i.group_neighbourhood_cleansed /// 
 	i.group_property_type i.group_room_type /// 
 	accommodates bathrooms bedrooms beds i.group_bed_type /// 
@@ -104,10 +130,13 @@ eststo, title("Hispanic Female Reviewers"): quietly reg sentiment_mean_stan i.ra
 	i.group_host_response_time host_response_rate /// //Host-specific charac.
 	host_identity_verified host_is_superhost if rev_race_sex_res == 6, ///
 	vce(cluster group_neighbourhood_cleansed) 
-
+;
+#delimit cr
+eststo mod6 //, title("Hispanic Female Reviewers"): 
 	
 // Asian Male reviewers	
-eststo, title("Asian Male Reviewers"): quietly reg sentiment_mean_stan i.race_sex_res ///
+#delimit ;
+quietly reg sentiment_mean_stan i.race_sex_res ///
 	i.group_neighbourhood_cleansed /// 
 	i.group_property_type i.group_room_type /// 
 	accommodates bathrooms bedrooms beds i.group_bed_type /// 
@@ -121,9 +150,13 @@ eststo, title("Asian Male Reviewers"): quietly reg sentiment_mean_stan i.race_se
 	i.group_host_response_time host_response_rate /// //Host-specific charac.
 	host_identity_verified host_is_superhost if rev_race_sex_res == 7, ///
 	vce(cluster group_neighbourhood_cleansed) 	
+;
+#delimit cr
+eststo mod7 //, title("Asian Male Reviewers"): 	
 	
 // Asian Female reviewers	
-eststo, title("Asian Female Reviewers"): quietly reg sentiment_mean_stan i.race_sex_res ///
+#delimit ;
+reg sentiment_mean_stan i.race_sex_res ///
 	i.group_neighbourhood_cleansed /// 
 	i.group_property_type i.group_room_type /// 
 	accommodates bathrooms bedrooms beds i.group_bed_type /// 
@@ -137,12 +170,37 @@ eststo, title("Asian Female Reviewers"): quietly reg sentiment_mean_stan i.race_
 	i.group_host_response_time host_response_rate /// //Host-specific charac.
 	host_identity_verified host_is_superhost if rev_race_sex_res == 8, ///
 	vce(cluster group_neighbourhood_cleansed) 
-
-
-delimit ;
-esttab est9 est10 est11 est12 est13 est14 est15 est16 using 
-	"$repository/code/output/reviewer_mean_reg.tex", se ar2 replace label mtitles 
-	title("Estimates of effect of host demographics on review sentiment, by reviewer demographics") 
-	longtable page(longtable)
 ;
+#delimit cr
+eststo mod8 //, title("Asian Female Reviewers"):  
 
+****************************************
+*Output
+****************************************
+
+local controlgroup1 // Location
+local controlgroup2 // Property
+local controlgroup3 // Host
+
+// Add locals which will serve as indicators for which FEs are included in the models
+estadd local controlgroup1 "Yes" : mod1  mod2  mod3  mod4  mod5  mod6  mod7  mod8
+estadd local controlgroup2 "Yes" : mod1  mod2  mod3  mod4  mod5  mod6  mod7  mod8
+estadd local controlgroup3 "Yes" : mod1  mod2  mod3  mod4  mod5  mod6  mod7  mod8
+
+
+#delimit ;
+esttab  mod1  mod2  mod3  mod4  mod5  mod6  mod7  mod8  using 
+	"$repository/code/tables/tex_output/individual_tables/reviewer_mean_reg.tex",
+	keep(*.race_sex_res) drop(1.race_sex_res)
+	se ar2 replace label
+	mtitles("White M" "White F" "Black M"
+			"Black F" "Hispanic M" "Hispanic F"
+			"Asian M" "Asian F")
+	title("Estimates of effect of host demographics on review sentiment, by reviewer demographics" ) 
+	stats(controlgroup1 controlgroup2 controlgroup3 linehere N r2,
+	labels("Location Fixed Effects" "Property Fixed Effects" 
+		   "Host Fixed Effects" "\hline \vspace{-1.25em}"
+		   "Observations" "Adjusted R2"))
+	fragment
+		   ;
+#delimit cr
