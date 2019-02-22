@@ -20,13 +20,9 @@ label values cleaned_city _city // label them city names
 ** Restricting data set
 destring host_listings_count, replace force
 replace age = 5 if age == 6
-
 gen sample = 1
-replace sample = 0 if host_listings_count > 20
-replace sample = 0 if host_has_profile_pic == "f"
-replace sample = 0 if price > 800
-replace sample = 0 if age == 7 | age == 11 | age == 12 | age == 0
-replace sample = 0 if sex == 0
+replace sample = 0 if host_listings_count > 20 | host_has_profile_pic == "f" | price > 800 | sex == 0 | age == 7 | age == 11 | age == 12 | age == 0
+//Why not for sex == <3 too?
 
 
 ** Fixing LA codes
@@ -49,14 +45,14 @@ label variable neighbourhood "Neighbourhood"
 
 
 ** Collapsing demographic cat.
-gen age_res = age if age < 4 
-replace age_res = 4 if age == 4 | age == 5
+gen age_res = age if age < 4 &  age > 0
+replace age_res = 4 if age >= 4 | age == 0
 
-gen sex_res = sex if sex < 3 
-replace sex_res = 3 if sex == 3 | sex == 4 | sex == 5 | sex == 6
+gen sex_res = sex if sex < 3 & sex > 0 
+replace sex_res = 3 if sex == 3 | sex == 4 | sex == 5 | sex == 6 | sex == 0
 
-gen race_res = race if race != 5 | race!= 6
-replace race_res = 5 if race == 5 | race == 6
+gen race_res = race if race != 5 | race!= 6 | race != 0
+replace race_res = 5 if race == 5 | race == 6  | race == 0
 
 label define sex_res 1 "Male" 2 "Female" 3 "Two people or Unknown"
 label values sex_res sex_res
@@ -65,12 +61,11 @@ label values race_res race_res
 la var race_res "Race"
 la var sex_res "Sex"
 
-replace sample = 0 if sex_res > 2
-replace sample = 0 race_res > 4
+replace sample = 0 if sex_res > 2 	//Responsible for dropping ~20k vars
+replace sample = 0 if race_res > 4	//Responsible for dropping ~20k vars
 
 ** Create interaction for race and sex
 egen race_sex_res = group(race_res sex_res), label
-
 
 ** Creating first_review times
 // states where month is first
