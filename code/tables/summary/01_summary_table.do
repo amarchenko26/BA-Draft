@@ -116,7 +116,7 @@ local cat property_type_2
 				foreach k in `r(levels)'{
 					sum `i' if `i' == `k' //Full Data
 					local `k'_full_N_`i' = `r(N)' //saves 'i' N e.g townhouse, etc
-					local `k'_full_mean_`i' = ``k'_full_N_`i''/`all_N_`i''
+					local `k'_full_mean_`i' = ``k'_full_N_`i''/`full_N_`i''
 					preserve
 					keep if sample == 1 //restricts regression sample
 					sum `i' if `i' == `k' //Full Data
@@ -158,7 +158,7 @@ local cat2 room_type_2
 				foreach k in `r(levels)'{
 					sum `i' if `i' == `k' //Full Data
 					local `k'_full_N_`i' = `r(N)' //saves 'i' N e.g townhouse, etc
-					local `k'_full_mean_`i' = ``k'_full_N_`i''/`all_N_`i''
+					local `k'_full_mean_`i' = ``k'_full_N_`i''/`full_N_`i''
 					preserve
 					keep if sample == 1 //restricts regression sample
 					sum `i' if `i' == `k' //All Data
