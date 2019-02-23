@@ -22,7 +22,6 @@ destring host_listings_count, replace force
 replace age = 5 if age == 6
 gen sample = 1
 replace sample = 0 if host_listings_count > 20 | host_has_profile_pic == "f" | price > 800 | sex == 0 | age == 7 | age == 11 | age == 12 | age == 0
-//Why not for sex == <3 too?
 
 
 ** Fixing LA codes
