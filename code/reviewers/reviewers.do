@@ -20,8 +20,8 @@ rename indicator rev_indicator
 rename date rev_date
 rename comments rev_comments
 
-label var sentiment_listing "Mean Sentiment per Listing"
-label var sentiment_mean "Mean Sentiment per Review"
+label var sentiment_listing "Listing Sentiment"
+label var sentiment_mean "Review Sentiment"
 rename v1 word_count
 
 destring sentiment_sd, replace force

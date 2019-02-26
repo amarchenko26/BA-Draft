@@ -15,11 +15,10 @@ file write f "\begin{table}[htbp]" _n ///
 "\small\begin{tabular}{l c c c c c}" _n ///
 
 // write column headers
-file write f "& \multicolumn{5}{c}{Regression Sample}" _n ///
+file write f " \cmidrule(r){1-6}" _n ///
+" & (1) & (2) & (3) & (4) & (5)" _n ///
 "\\" _n ///
-" \cmidrule(r){2-6}" _n ///
-"\\" _n ///
-" & \multicolumn{1}{c}{Full Sample} & White & Black & Hispanic & Asian" _n ///
+" & \multicolumn{1}{c}{Full sample} & White & Black & Hispanic & Asian" _n ///
 "\\" _n ///
 "\hline\hline\noalign{\smallskip} " _n 
 
@@ -28,23 +27,70 @@ file write f "& \multicolumn{5}{c}{Regression Sample}" _n ///
 
 
 
-local cat rev_race_res race_res 
+// local cat  
+// rev_race_res
 local ncat sentiment_mean sentiment_listing
+	
+		file write f " \textit{Reviewer characteristics} & & & & & \\"
+		file write f " \hline \\"		
 
-/*
-foreach i in `cat'{
 
+local cat1 rev_race_res		
+local cat2 race_res
 
+	foreach i in `cat1'{ //loops over Reviewer race
+		sum `i' //Full Data
+		local full_N = `r(N)' //
+		local full_prop = `r(N)' / `full_N'
+		
+		levelsof rev_race_res
+		foreach r in `r(levels)'{
+			sum `i' if rev_race_res == `r'
+			local `r'_race_N = `r(N)' // reviewer race count
+			local `r'_race_prop = ``r'_race_N' / `full_N'
+			
+		}
 
+		file write f " Reviewer race & " %4.2f (`full_prop') " & " %4.2f (`1_race_prop') " & " %4.2f (`2_race_prop') " & " %4.2f (`3_race_prop') " & " %4.2f (`4_race_prop') " \\"
+		file write f "\\" _n
 }
-levelsof race_res
-	foreach r in `r(levels)'{
-		sum race_res if race_res == `r'
-			local race_res_`r' = `r(N)' 
-			local p_race_res_`r' = race_res_`r' / `r'
-	}
-	*/
 
+		file write f "Host Race &&&&& \\"		
+
+	foreach i in `cat2'{ //loops over Host race
+		sum `i' //Full Data
+		local full_N_`i' = `r(N)' //saves 'i' N e.g townhouse, etc
+		
+		levelsof `i'
+			foreach k in `r(levels)'{
+				sum `i' if `i' == `k' //Full Data
+				local `k'_full_N_`i' = `r(N)' //saves 'i' N e.g townhouse, etc
+				local `k'_full_mean_`i' = ``k'_full_N_`i''/`full_N_`i''
+				preserve
+				keep if sample == 1 //restricts regression sample
+
+				levelsof rev_race_res
+					foreach r in `r(levels)' {
+						sum `i' if rev_race_res == `r' 
+						local `r'_race_N_`i' = `r(N)'
+							sum `i' if `i' == `k' & rev_race_res == `r'
+							local `r'_`k'_race_N_`i' = `r(N)' //saves 'i' N e.g townhouse, etc
+							local `r'_`k'_race_mean_`i' = ``r'_`k'_race_N_`i''/``r'_race_N_`i''
+						
+						}
+				restore
+					
+					}
+
+		file write f " \hspace{10bp}White & " %4.2f (`1_full_mean_`i'') " & " %4.2f (`1_1_race_mean_`i'') " & " %4.2f (`2_1_race_mean_`i'') " & " %4.2f (`3_1_race_mean_`i'') " & " %4.2f (`4_1_race_mean_`i'') " \\"
+		file write f " \hspace{10bp}Black & " %4.2f (`2_full_mean_`i'') " & " %4.2f (`1_2_race_mean_`i'') " & " %4.2f (`2_2_race_mean_`i'') " & " %4.2f (`3_2_race_mean_`i'') " & " %4.2f (`4_2_race_mean_`i'') " \\"		
+		file write f " \hspace{10bp}Hispanic & " %4.2f (`3_full_mean_`i'') " & " %4.2f (`1_3_race_mean_`i'') " & " %4.2f (`2_3_race_mean_`i'') " & " %4.2f (`3_3_race_mean_`i'') " & " %4.2f (`4_3_race_mean_`i'') " \\"
+		file write f " \hspace{10bp}Asian & " %4.2f (`2_full_mean_`i'') " & " %4.2f (`1_2_race_mean_`i'') " & " %4.2f (`2_2_race_mean_`i'') " & " %4.2f (`3_2_race_mean_`i'') " & " %4.2f (`4_2_race_mean_`i'') " \\"		
+		file write f " \hspace{10bp}Unknown & " %4.2f (`3_full_mean_`i'') " & " %4.2f (`1_3_race_mean_`i'') " & " %4.2f (`2_3_race_mean_`i'') " & " %4.2f (`3_3_race_mean_`i'') " & " %4.2f (`4_3_race_mean_`i'') " \\"
+			file write f "\\" _n
+}
+
+		
 	foreach i in `ncat'{ //loops over outcome variable
 			sum `i' //Full data column
 			local full_observations = `r(N)' //saves full data N
@@ -57,6 +103,7 @@ levelsof race_res
 			local all_mean_`i' = `r(mean)'
 			local all_sd_`i' = `r(sd)'
 			local var_label : variable label `i'
+			
 			levelsof race_res
 			foreach f in `r(levels)'{
 				sum `i' if race_res == `f'
@@ -81,7 +128,7 @@ levelsof race_res
 
 // number of observations
 file write f "\hline" _n ///
-"Observations & `all_observations' & `1_race_observations' & `2_race_observations' & `3_race_observations' & `4_race_observations'" _n ///
+"Observations & `full_observations' & `1_race_observations' & `2_race_observations' & `3_race_observations' & `4_race_observations'" _n ///
 "\\" _n
 
 // write end of table
