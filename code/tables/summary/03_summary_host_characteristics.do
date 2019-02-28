@@ -181,7 +181,7 @@ local cat2 host_identity_verified require_guest_profile_picture require_guest_ph
 
 // number of observations
 file write f "\hline" _n ///
-"Observations & \numprint{`full_observations'} & \numprint{`all_observations'} & \numprint{`1_race_observations'} & \numprint{`2_race_observations'} & \numprint{`3_race_observations'} & \numprint{`4_race_observations'}" _n ///
+"Observations & `full_observations' & `all_observations' & `1_race_observations' & `2_race_observations' & `3_race_observations' & `4_race_observations'" _n ///
 "\\" _n
 
 // write end of table
@@ -190,14 +190,14 @@ file write f "\hline\hline\noalign{\smallskip} \end{tabular} " _n ///
 	"{\it Note:} The values in the table are means and standard deviations" ///
 	" of host-level data in the full sample. Summary statistics for selected covariates" ///
 	" are listed in the table. Categorical variables such as response time do not have" ///
-	" standard deviations. Statistics for only the most frequent response time (\say{within an hour})" ///
-	" are included. White refers only to non-Hispanic whites. Length of \say{Summary}" ///
-	" and proportion of short words in the \say{Summary} refer to my constructed" ///
+	" standard deviations. Statistics for only the most frequent response time (within an hour)" ///
+	" are included. White refers only to non-Hispanic whites. Length of Summary" ///
+	" and proportion of short words in the Summary refer to my constructed" ///
 	" measures of host quality. These two measures were also calculated for the description," ///
 	" space, neighborhood overview, notes, and transit fields, but were not included in the" ///
 	" table for the sake of clarity and because they follow a similar pattern as the" ///
 	" table for the sake of clarity and because they follow a similar pattern as the" ///
-	" \say{Summary} field." _n ///
+	" Summary field." _n ///
 "\end{minipage}" _n ///
 "\end{center}" _n ///
 "\end{table}" _n	

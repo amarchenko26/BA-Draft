@@ -111,15 +111,3 @@ gen reviews_per_year = number_of_reviews / time_on_market
 
 la var first_review_year "Year of first review"
 
-
-
-
-
-
-
-
-
-
-
-
-

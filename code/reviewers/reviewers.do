@@ -2,7 +2,6 @@
 *					  Reviewers 					    *
 *********************************************************
 
-
 clear all
 set more off
 
@@ -45,13 +44,10 @@ label values rev_age _age_rev
 
 ** Collapsing demographic cat.
 gen rev_sex_res = rev_sex if rev_sex == 1 | rev_sex == 2
-replace rev_sex_res = 3 if rev_sex == 3 | rev_sex == 4 | rev_sex == 5 | rev_sex == 6 //we could remove this
-drop if rev_sex_res == 0 | rev_sex_res > 2 // drop missing observations  //we could remove this
+replace rev_sex_res = 3 if rev_sex == 3 | rev_sex == 4 | rev_sex == 5 | rev_sex == 6 //| rev_sex == 0  //Groups missing with unkown and two males/two females
 
 gen rev_race_res = rev_race if rev_race != 5 | rev_race!= 6 | rev_race!= 0
-replace rev_race_res = 5 if rev_race == 5 | rev_race == 6  //we could remove this
-drop if rev_race_res == 0 | rev_race_res > 4  //we could remove this
-
+replace rev_race_res = 5 if rev_race == 5 | rev_race == 6 // | rev_race == 0 //Groups missing with unkown and multiracial
 
 label define rev_sex_res 1 "Male" 2 "Female" 3 "Two people or Unknown"
 label values rev_sex_res rev_sex_res
@@ -63,12 +59,6 @@ label var rev_sex_res "Sex"
 ** Create interaction for race and sex
 egen rev_race_sex_res = group(rev_race_res rev_sex_res), label
 
-** Create sample variable
-gen sample = 1
-replace sample = 0 if host_listings_count > 20 | host_has_profile_pic == "f" | price > 800 | sex == 0 | age == 7 | age == 11 | age == 12 | age == 0
-replace sample = 0 if sex_res > 2 	
-replace sample = 0 if race_res > 4
-
 
 *******************
 ** Join w/ host data
@@ -77,4 +67,3 @@ merge m:1 listing_id using "$repository/data/done_Chi_full_listings_renamed.dta"
 keep if _merge == 3
 
 do "$repository/code/reviewers/review_cleaner"
-
