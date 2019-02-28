@@ -20,7 +20,8 @@
 \usepackage{pdflscape} %allows for one page to be landscape (lscape makes word landscape, pdflscape makes page landscape)
 \usepackage{lscape}
 \usepackage{threeparttable} %allows tablenotes
-
+\usepackage{numprint}
+\usepackage{dirtytalk}
 
 \newsavebox{\mybox}
 \newenvironment{mytabularwrap}{\begin{lrbox}{\mybox}}
@@ -37,15 +38,13 @@
 %\input{../individual_tables/summary_table}
 \newpage
 
-%\input{../individual_tables/summary_table_host_demo}
+\input{../individual_tables/summary_table_host_demo}
 \newpage
 
-%\input{../individual_tables/summary_table_host_chars}
+\input{../individual_tables/summary_table_host_chars}
 \newpage
 
 \input{../individual_tables/summary_reviewer_char}
-RACE Unknown = UNK + MULTI
-SEX = UNK + MULTI
 \newpage
 
 \landscape
