@@ -21,10 +21,12 @@ file write f "\begin{table}[htbp]" _n ///
 "\small\begin{tabular}{l c c c c c}" _n ///
 
 // write column headers
-file write f " \cmidrule(r){1-6}" _n ///
+file write f " & \multicolumn{5}{c}{Reviewer race} " _n ///
+"\\" _n ///
+" \cmidrule(r){1-6}" _n ///
 " & (1) & (2) & (3) & (4) & (5)" _n ///
 "\\" _n ///
-" & \multicolumn{1}{c}{Full sample} & White & Black & Hispanic & Asian" _n ///
+" & \multicolumn{1}{c}{All} & White & Black & Hispanic & Asian" _n ///
 "\\" _n ///
 "\hline\hline\noalign{\smallskip} " _n 
 
@@ -46,29 +48,54 @@ local cat1 rev_race_res
 			
 		}
 
-		file write f " Reviewer race & " %4.2f (`full_prop') " & " %4.2f (`1_race_prop') " & " %4.2f (`2_race_prop') " & " %4.2f (`3_race_prop') " & " %4.2f (`4_race_prop') " \\"
+		file write f "  & " %4.2f (`full_prop') " & " %4.2f (`1_race_prop') " & " %4.2f (`2_race_prop') " & " %4.2f (`3_race_prop') " & " %4.2f (`4_race_prop') " \\"
 		file write f "\\" _n
 }
 
-local cat2 race_res		
+		file write f " Host race & & & & & \\"
 
-	foreach i in `cat2'{ //loops over Reviewer race
+local cat2 race_res
+	foreach i in `cat2'{ //loops over Host race
 		sum `i' //Full Data
-		local full_N = `r(N)' //
-		local full_prop = `r(N)' / `full_N'
+		local full_N_`i' = `r(N)' //saves 'i' N e.g townhouse, etc
 		
-		levelsof race_res
-		foreach r in `r(levels)'{
-			sum `i' if race_res == `r'
-			local `r'_race_N = `r(N)' // reviewer race count
-			local `r'_race_prop = ``r'_race_N' / `full_N'
-			
-		}
+		levelsof `i'
+			foreach k in `r(levels)'{
+				sum `i' if `i' == `k' //Full Data
+				local `k'_full_N_`i' = `r(N)' //saves 'i' N e.g townhouse, etc
+				local `k'_full_mean_`i' = ``k'_full_N_`i''/`full_N_`i''
+				preserve
+				keep if sample == 1 //restricts regression sample
 
-		file write f " Host race & " %4.2f (`full_prop') " & " %4.2f (`1_race_prop') " & " %4.2f (`2_race_prop') " & " %4.2f (`3_race_prop') " & " %4.2f (`4_race_prop') " \\"
-		file write f "\\" _n
+				levelsof rev_race_res
+					foreach r in `r(levels)' {
+						sum `i' if rev_race_res == `r' 
+						local `r'_race_N_`i' = `r(N)'
+							sum `i' if `i' == `k' & rev_race_res == `r'
+							local `r'_`k'_race_N_`i' = `r(N)' //saves 'i' N e.g townhouse, etc
+							local `r'_`k'_race_mean_`i' = ``r'_`k'_race_N_`i''/``r'_race_N_`i''
+						
+						}
+				restore
+				levelsof rev_race_res // Unknown 
+					foreach r in `r(levels)' {
+						sum `i' if rev_race_res == `r' 
+						local `r'_race_N_`i' = `r(N)'
+							sum `i' if `i' == 5 & rev_race_res == `r'
+							local `r'_5_race_N_`i' = `r(N)' //saves 'i' N e.g townhouse, etc
+							local `r'_5_race_mean_`i' = ``r'_5_race_N_`i''/``r'_race_N_`i''
+						
+						}
+					}
+
+		file write f " \hspace{10bp}White & " %4.2f (`1_full_mean_`i'') " & " %4.2f (`1_1_race_mean_`i'') " & " %4.2f (`2_1_race_mean_`i'') " & " %4.2f (`3_1_race_mean_`i'') " & " %4.2f (`4_1_race_mean_`i'') " \\"
+		file write f " \hspace{10bp}Black & " %4.2f (`2_full_mean_`i'') " & " %4.2f (`1_2_race_mean_`i'') " & " %4.2f (`2_2_race_mean_`i'') " & " %4.2f (`3_2_race_mean_`i'') " & " %4.2f (`4_2_race_mean_`i'') " \\"		
+		file write f " \hspace{10bp}Hispanic & " %4.2f (`3_full_mean_`i'') " & " %4.2f (`1_3_race_mean_`i'') " & " %4.2f (`2_3_race_mean_`i'') " & " %4.2f (`3_3_race_mean_`i'') " & " %4.2f (`4_3_race_mean_`i'') " \\"
+		file write f " \hspace{10bp}Asian & " %4.2f (`4_full_mean_`i'') " & " %4.2f (`1_4_race_mean_`i'') " & " %4.2f (`2_4_race_mean_`i'') " & " %4.2f (`3_4_race_mean_`i'') " & " %4.2f (`4_4_race_mean_`i'') " \\"		
+		file write f " \hspace{10bp}Unknown & " %4.2f (`5_full_mean_`i'') " & " %4.2f (`1_5_race_mean_`i'') " & " %4.2f (`2_5_race_mean_`i'') " & " %4.2f (`3_5_race_mean_`i'') " & " %4.2f (`4_5_race_mean_`i'') " \\"		
+
 }
-
+		file write f "\\" _n
 
 local ncat sentiment_mean sentiment_listing		
 
@@ -99,6 +126,7 @@ local ncat sentiment_mean sentiment_listing
 			file write f "\\" _n
 			file write f " & " "(" %4.2f (`full_sd_`i'') ")" " & " "(" %4.2f (`1_sd_`i'') ")" " & " "(" %4.2f (`2_sd_`i'') ")" " & " "(" %4.2f (`3_sd_`i'') ")" " & " "(" %4.2f (`4_sd_`i'') ")" " "
 			file write f "\\" _n
+			file write f "\\" _n
 			
 	}
 
@@ -109,7 +137,7 @@ local ncat sentiment_mean sentiment_listing
 
 // number of observations
 file write f "\hline" _n ///
-"Observations & `full_observations' & `1_race_observations' & `2_race_observations' & `3_race_observations' & `4_race_observations'" _n ///
+"Observations & \numprint{`full_observations'} & \numprint{`1_race_observations'} & \numprint{`2_race_observations'} & \numprint{`3_race_observations'} & \numprint{`4_race_observations'}" _n ///
 "\\" _n
 
 // write end of table
@@ -127,51 +155,30 @@ file write f "\hline\hline\noalign{\smallskip} \end{tabular} " _n ///
 file close f
 
 /*
-local cat2 race_res
+
+// old Thiago code
+
+local cat2 race_res		
+
 	foreach i in `cat2'{ //loops over Host race
 		sum `i' //Full Data
-		local full_N_`i' = `r(N)' //saves 'i' N e.g townhouse, etc
+		local full_N = `r(N)' //
+		local full_prop = `r(N)' / `full_N'
 		
-		levelsof `i'
-			foreach k in `r(levels)'{
-				sum `i' if `i' == `k' //Full Data
-				local `k'_full_N_`i' = `r(N)' //saves 'i' N e.g townhouse, etc
-				local `k'_full_mean_`i' = ``k'_full_N_`i''/`full_N_`i''
-				preserve
-				keep if sample == 1 //restricts regression sample
+		levelsof race_res
+		foreach r in `r(levels)'{
+			sum `i' if race_res == `r'
+			local `r'_race_N = `r(N)' // reviewer race count
+			local `r'_race_prop = ``r'_race_N' / `full_N'
+			
+		}
 
-				levelsof rev_race_res
-					foreach r in `r(levels)' {
-						sum `i' if rev_race_res == `r' 
-						local `r'_race_N_`i' = `r(N)'
-							sum `i' if `i' == `k' & rev_race_res == `r'
-							local `r'_`k'_race_N_`i' = `r(N)' //saves 'i' N e.g townhouse, etc
-							local `r'_`k'_race_mean_`i' = ``r'_`k'_race_N_`i''/``r'_race_N_`i''
-						
-						}
-				restore
-					
-					}
-
-		file write f " \hspace{10bp}White & " %4.2f (`1_full_mean_`i'') " & " %4.2f (`1_1_race_mean_`i'') " & " %4.2f (`2_1_race_mean_`i'') " & " %4.2f (`3_1_race_mean_`i'') " & " %4.2f (`4_1_race_mean_`i'') " \\"
-		file write f " \hspace{10bp}Black & " %4.2f (`2_full_mean_`i'') " & " %4.2f (`1_2_race_mean_`i'') " & " %4.2f (`2_2_race_mean_`i'') " & " %4.2f (`3_2_race_mean_`i'') " & " %4.2f (`4_2_race_mean_`i'') " \\"		
-		file write f " \hspace{10bp}Hispanic & " %4.2f (`3_full_mean_`i'') " & " %4.2f (`1_3_race_mean_`i'') " & " %4.2f (`2_3_race_mean_`i'') " & " %4.2f (`3_3_race_mean_`i'') " & " %4.2f (`4_3_race_mean_`i'') " \\"
-		file write f " \hspace{10bp}Asian & " %4.2f (`2_full_mean_`i'') " & " %4.2f (`1_2_race_mean_`i'') " & " %4.2f (`2_2_race_mean_`i'') " & " %4.2f (`3_2_race_mean_`i'') " & " %4.2f (`4_2_race_mean_`i'') " \\"		
-
-
-
-
-		
+		file write f " Host race & " %4.2f (`full_prop') " & " %4.2f (`1_race_prop') " & " %4.2f (`2_race_prop') " & " %4.2f (`3_race_prop') " & " %4.2f (`4_race_prop') " \\"
+		file write f "\\" _n
 }
 
 
-
-
-
-
-
-
-// local cat  
+// old Melody code
 // rev_race_res
 	
 		file write f " \textit{Reviewer characteristics} & & & & & \\"
