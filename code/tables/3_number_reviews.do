@@ -80,3 +80,5 @@ esttab model1 model2 model3 model4 using
 		fragment
 ;
 #delimit cr
+
+restore
