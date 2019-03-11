@@ -14,7 +14,7 @@ drop if state == "MP" | state == "IA" | state == "Asturias"
 
 egen cleaned_city = group(state) // create new variable of cities by their state location
 label define _city 1 "Los Angeles" 2 "Washington DC" 3 "Chicago" 4 "New Orleans" 5 "New York City" 6 "Nashville" 7 "Austin"
-label values cleaned_city _city // label them city names
+label values cleaned_city _city 
 
 
 ** Restricting data set
