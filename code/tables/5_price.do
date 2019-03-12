@@ -2,6 +2,8 @@
 *						PRICE 												   *
 ********************************************************************************
 
+keep if sample == 1
+
 // Base
 quietly reg price i.race_sex_res i.age, vce(cluster group_neighbourhood_cleansed) 
 eststo model1
