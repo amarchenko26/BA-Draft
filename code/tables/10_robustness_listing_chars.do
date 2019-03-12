@@ -370,8 +370,8 @@ esttab model1 model2 model3 model4 model7 model8 model9 model10 model11
 		using "$repository/code/tables/tex_output/individual_tables/robustness_listing_char.tex", 
 	se ar2 replace label 
 	keep(*.race_res) drop(1.race_res)
-	mtitles("Low \$ LA" 
-			"High \$ LA" "Low \$ NY" "High \$ NY" "Older Listings" 
+	mtitles("Low \\$ LA" 
+			"High \\$ LA" "Low \\$ NY" "High \\$ NY" "Older Listings" 
 			"Newer Listings" "Apartments" "Condos" "Houses") //Did not inlude m5 and m6
 	stats(controlgroup1 controlgroup2 controlgroup3 linehere N r2,
 	labels("Location Fixed Effects" "Property Fixed Effects" 

@@ -186,11 +186,11 @@ estadd local controlgroup3 "Yes" : LA NYC Austin Chicago New_Orleans DC Nashvill
 #delimit ;
 esttab LA NYC Austin Chicago New_Orleans DC Nashville
 	using "$repository/code/tables/tex_output/individual_tables/robustness_city.tex",
-	keep(*.race_res *.cleaned_city) drop(1.race_res)
+	keep(*.race_res) drop(1.race_res)
 	se ar2 replace label 
 	mtitles("LA" "NYC" "Austin" "Chicago" "New Orleans" "DC" "Nashville")
-	stats(controlgroup1 controlgroup2 controlgroup3 linehere N r2,
-	labels("Location Fixed Effects" "Property Fixed Effects" 
+	stats(linehere controlgroup1 controlgroup2 controlgroup3 linehere N r2,
+	labels( "\textit{Fixed Effects:}" "Location Fixed Effects" "Property Fixed Effects" 
 		   "Host Fixed Effects" "\hline \vspace{-1.25em}"
 		   "Observations" "Adjusted R2"))
 	fragment
