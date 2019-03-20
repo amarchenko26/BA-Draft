@@ -41,3 +41,9 @@ code/tables/tex_output/individual_tables/
 code/.DS_Store
 
 
+code/tables/tex_output/individual_tables/availability_30_days.tex
+code/tables/tex_output/individual_tables/edelman_price.tex
+code/tables/tex_output/individual_tables/price.tex
+code/tables/tex_output/individual_tables/robustness_city.tex
+code/tables/tex_output/individual_tables/price.tex
+code/tables/tex_output/individual_tables/reviewer_mean_reg.tex

@@ -190,9 +190,9 @@ esttab LA NYC Austin Chicago New_Orleans DC Nashville
 	se ar2 replace label 
 	mtitles("LA" "NYC" "Austin" "Chicago" "New Orleans" "DC" "Nashville")
 	stats(linehere controlgroup1 controlgroup2 controlgroup3 linehere N r2,
-	labels( "\textit{Fixed Effects:}" "Location Fixed Effects" "Property Fixed Effects" 
-		   "Host Fixed Effects" "\hline \vspace{-1.25em}"
-		   "Observations" "Adjusted R2"))
+	labels( "\textit{Fixed Effects:}" "Location Fixed Effects" "Property-Specific Controls" 
+		   "Host-Specific Controls" "\hline \vspace{-1.25em}"
+		   "Observations" "Adjusted R^2"))
 	fragment
 ;
 #delimit cr

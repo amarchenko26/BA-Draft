@@ -78,8 +78,8 @@ esttab edelman using
 		keep(*.race_res) drop(1.race_res)
 		mtitles("Edelman" "Medium Avail." "High Availibility")
 		stats(controlgroup1 controlgroup2 controlgroup3 linehere N r2,
-		labels("Location Fixed Effects" "Property Fixed Effects" 
-				"Host Fixed Effects" "\hline \vspace{-1.25em}" "Observations" 
+		labels("Location Fixed Effects" "Property-Specific Controls" 
+				"Host-Specific Controls" "\hline \vspace{-1.25em}" "Observations" 
 				"Adjusted R2"))
 		fragment
 ;

@@ -91,8 +91,20 @@ egen first_review_day = rowmax(first_review_day1 first_review_day_chi)
 egen first_review_month = rowmax(first_review_month1 first_review_month_chi)
 egen first_review_year = rowmax(first_review_year1 first_review_year_chi)
 
+drop first_review_day1
+drop first_review_day_chi
+drop first_review_month1
+drop first_review_month_chi
+drop first_review_year1
+drop first_review_year_chi
+
 replace first_review_month = 99 if first_review_month == . //create fake month for people w/ no reviews
 replace first_review_year = 99 if first_review_year == .  //create fake year for people w/ no reviews to boost observations
+
+gen miss_first_review_month = 0
+replace miss_first_review_month = 1 if first_review_month == 99
+gen miss_first_review_year = 0
+replace miss_first_review_year = 1 if first_review_year == 99
 
 
 ** Creating last scraped times

@@ -44,9 +44,9 @@ esttab model1 using "$repository/code/tables/tex_output/individual_tables/availa
 	keep(*.race_sex_res) drop(1.race_sex_res)
 	mtitles("Number of vacant days out of 30")
 	stats(controlgroup1 controlgroup2 controlgroup3 linehere N r2,
-	labels("Location Fixed Effects" "Property Fixed Effects" 
-		   "Host Fixed Effects" "\hline \vspace{-1.25em}"
-		   "Observations" "Adjusted R2"))
+	labels("Location Fixed Effects" "Property-Specific Controls" 
+		   "Host-Specific Controls" "\hline \vspace{-1.25em}"
+		   "Observations" "Adjusted R^2"))
 	fragment 
 ;
 #delimit cr
