@@ -37,3 +37,5 @@ code/.DS_Store
 
 code/.DS_Store
 
+*.synctex(busy)
+*.tex

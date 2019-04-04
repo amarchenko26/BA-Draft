@@ -91,7 +91,7 @@ file write f " \hspace{10bp}Old ($>65$) & 		"%4.3f (`age_res_mean_3') " & " %4.3
 
 // number of observations
 file write f "\hline" _n ///
-"Observations & `race_res_N_full' & `race_res_all' & `race_res_N_1' & `race_res_N_2' & `race_res_N_3' & `race_res_N_4' " _n ///
+"Observations & \numprint{`race_res_N_full'} & \numprint{`race_res_all'} & \numprint{`race_res_N_1'} & \numprint{`race_res_N_2'} & \numprint{`race_res_N_3'} & \numprint{`race_res_N_4'} " _n ///
 "\\" _n
 
 
