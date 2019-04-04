@@ -14,7 +14,7 @@ file write f "\begin{table}[htbp]" _n ///
 "\small\begin{tabular}{l c | c | c c c c}" _n ///
 
 // write column headers
-file write f "& \multicolumn{1}{c}{Full Data} & \multicolumn{5}{c}{Regression Sample}" _n ///
+file write f "& \multicolumn{1}{c}{} & \multicolumn{5}{c}{Regression Sample}" _n ///
 "\\" _n ///
 " \cmidrule(r){3-7}" _n ///
 "\\" _n ///
