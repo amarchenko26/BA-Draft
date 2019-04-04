@@ -64,9 +64,9 @@ local controlgroup2 // Property
 local controlgroup3 // Host
 
 // Add locals which will serve as indicators for which FEs are included in the models
-estadd local controlgroup1 "Yes" : model2 model3 model4 model5
-estadd local controlgroup2 "Yes" : model3 model4 model5
-estadd local controlgroup3 "Yes" : model4 model5
+estadd local controlgroup1 "Yes" : model2 model3 model4 
+estadd local controlgroup2 "Yes" : model3 model4
+estadd local controlgroup3 "Yes" : model4
 
 // Esttab the table
 #delimit ;
@@ -74,7 +74,7 @@ esttab model1 model2 model3 model4
 	using "$repository/code/tables/tex_output/individual_tables/price.tex", 
 		se ar2 replace label 
 		keep(*.race_sex_res) drop(1.race_sex_res)
-		mtitles("Model 1" "Model 2" "Model 3" "Model 4" "Model 5")
+		mtitles("Model 1" "Model 2" "Model 3" "Model 4")
 		stats(controlgroup1 controlgroup2 controlgroup3 linehere N r2,
 		labels("Location Fixed Effects" "Property Characteristics Controls" 
 			   "Host Characteristics Controls" "\hline \vspace{-1.25em}"
