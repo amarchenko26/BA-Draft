@@ -17,29 +17,6 @@ global repository `c(pwd)' //returns current working directory
 * Set OS
 global os `c(os)'
 
-****************************
-* Refreshing output folder *
-****************************
-
-//Remove output folder if exists. Do NOT remove "code" folder.
-foreach folder in output {
-	capture {
-		cd "$repository/code/tables/`folder'/"
-	}
-	if _rc == 0 { //0 is return code if nothing wrong
-		cd "$repository/code/tables/"
- 		if "$os" == "Windows" {
-			!rmdir `folder' /s /q //remove directory you're in to refresh on every re-run
-		}
-		if "$os" == "MacOSX" {
-			!rm -rf `folder'
-		}
-	}
-
-	cd "$repository/code/tables/"
-	mkdir `folder'
-}
-
 ************************************************
 * Run all code in all folders in correct order *
 ************************************************
