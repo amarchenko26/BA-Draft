@@ -26,11 +26,11 @@ file write f "\begin{table}[htbp]" _n ///
 "\small\begin{tabular}{l c | c | c c c c}" _n ///
 
 // write column headers
-file write f " & \multicolumn{6}{c}{Reviewer Race in \say{All} data} " _n ///
+file write f "& \multicolumn{1}{c}{} & \multicolumn{5}{c}{Reviewer Race in \say{All} data} " _n ///
 "\\" _n ///
 " \cmidrule(r){3-7}" _n ///
 "\\" _n ///
-" & \multicolumn{1}{c}{Full data} & All & White & Black & Hispanic & Asian" _n ///
+" & \multicolumn{1}{c}{Full data} & \multicolumn{1}{c}{All} & White & Black & Hispanic & Asian" _n ///
 "\\" _n ///
 "\hline\hline\noalign{\smallskip} " _n 
 
@@ -177,7 +177,7 @@ file write f "\hline\hline\noalign{\smallskip} \end{tabular} " _n ///
 	"This table demonstratates the summary statistics for data used in the" ///
 	" \say{Estimates of effect of host demographics on review sentiment, by reviewer demographics}" ///
 	" table. Column 1 contains statistics on the raw data. Column 2 contains statistics on " ///
-	"the data used in the estimations. Columns 3-6 section Column 2 by reviewer race. " ///
+	"the data used in the estimations. Columns 3 - 6 section Column 2 by reviewer race. " ///
 	"Row 1: Reviewer race, indicates the proportion of the different races in the reviewer data." ///
 	" Row 2: Host race, indicates the marginal probability of a host race given reviewer race." ///
 	" The values in the table are means and standard deviations" ///
