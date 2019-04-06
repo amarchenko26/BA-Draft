@@ -73,7 +73,7 @@ estadd local controlgroup3 "Yes" : model4
 esttab model1 model2 model3 model4 
 	using "$repository/code/tables/tex_output/individual_tables/price.tex", 
 		se ar2 replace label 
-		keep(*.race_sex_res) drop(1.race_sex_res)
+		keep(*.race_sex_res) drop(1.race_sex_res 3.race_sex_res 6.race_sex_res 9.race_sex_res 12.race_sex_res 13.race_sex_res 14.race_sex_res 15.race_sex_res)
 		mtitles("Model 1" "Model 2" "Model 3" "Model 4")
 		stats(controlgroup1 controlgroup2 controlgroup3 linehere N r2,
 		labels("Location Fixed Effects" "Property Characteristics Controls" 
