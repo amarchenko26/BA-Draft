@@ -192,7 +192,7 @@ esttab LA NYC Austin Chicago New_Orleans DC Nashville
 	stats(linehere controlgroup1 controlgroup2 controlgroup3 linehere N r2,
 	labels( "\textit{Fixed Effects:}" "Location Fixed Effects" "Property-Specific Controls" 
 		   "Host-Specific Controls" "\hline \vspace{-1.25em}"
-		   "Observations" "Adjusted R^2"))
+		   "Observations" "Adjusted R2"))
 	fragment
 ;
 #delimit cr

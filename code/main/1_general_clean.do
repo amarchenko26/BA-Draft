@@ -227,6 +227,7 @@ la var short_words "Short words"
 la var host_identity_verified "Host's Identity Verified?"
 la var require_guest_profile_picture "Guest Pic Required?"
 la var require_guest_phone_verification "Guest Phone Required?"
+la var short_words2 "Short words in Summary"
 
 ** RA analysis
 replace ra_name = "Fong" if ra_name== "FONG"

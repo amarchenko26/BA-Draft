@@ -78,7 +78,7 @@ esttab model1 model2 model3 model4
 		stats(controlgroup1 controlgroup2 controlgroup3 linehere N r2,
 		labels("Location Fixed Effects" "Property Characteristics Controls" 
 			   "Host Characteristics Controls" "\hline \vspace{-1.25em}"
-			   "Observations" "Adjusted R^2"))
+			   "Observations" "Adjusted R2"))
 		fragment 
 ;
 #delimit cr
