@@ -42,24 +42,22 @@
 	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
 	\caption{Main result: Estimates of effect of host’s race and gender on price}
 	\begin{tabular}{l*{5}{c}}
-		\hline\hline
+		%\hline\hline
 \input{../individual_tables/price}
-	\hline\hline
+	%\hline\hline
 	\multicolumn{6}{l}{\footnotesize Standard errors in parentheses}\\
-	\multicolumn{6}{l}{\footnotesize ...}\\
+	%\multicolumn{6}{l}{\footnotesize ...}\\
 	\multicolumn{6}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
 	\end{tabular}
 
 	\begin{tablenotes}
-	\item \footnotesize Standard errors in parentheses
-	\item \footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)
 	
 	\item Notes: The dependent variable is the price of the listing. All race coefficients are relative to white males. The unit of observation is a listing. The sample is the sample of listings across 7 US cities. Model 1 is the baseline effect of host demographics on price. Model 2 controls for listing location to the neighborhood level. Model 3 adds listing characteristics such as property type, time on market, number of bedrooms, availability, etc. Model 4 adds host characteristics such as response and acceptance rates, measures of host effort, Superhost status, etc. See Data Appendix for full description of covariates.  
 \end{tablenotes}
 \end{table}
 
 
-
+\begin{comment}
 
 \begin{table}[htbp]\centering
 	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
@@ -204,7 +202,7 @@
 		\item Notes: The dependent variable is a constructed measure of yearly host revenue, as measured by (price * number of reviews per month * 12) for each listing. The omitted category for race is white males, so all coefficients are relative to that group. The unit of observation is an Airbnb listing, so hosts who have multiple listings are treated separately each time. The sample is the sample of listings across 7 US cities. The specification is the same as Table 5. See Data Appendix for a full discussion of my covariates.
 	\end{tablenotes}
 \end{table}
-
+\end{comment}
 \end{document}
 
 
