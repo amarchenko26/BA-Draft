@@ -1,8 +1,8 @@
 ********************************************************************************
 *					  City Robustness 				    					   *
 ********************************************************************************
-
-
+preserve
+keep if sample == 1
 ** State robustness checks do-file
 set more off
 set emptycells drop 
@@ -196,3 +196,4 @@ esttab LA NYC Austin Chicago New_Orleans DC Nashville
 	fragment
 ;
 #delimit cr
+restore

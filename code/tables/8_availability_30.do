@@ -1,8 +1,8 @@
 ********************************************************************************
 * 						30 Day Availability Supply Side Analysis			   *
 ********************************************************************************
-
-
+preserve
+keep if sample == 1
 * Availability supply-side analysis
 #delimit ; 
 reg availability_30 i.race_sex_res
@@ -44,9 +44,10 @@ esttab model1 using "$repository/code/tables/tex_output/individual_tables/availa
 	keep(*.race_sex_res) drop(1.race_sex_res)
 	mtitles("Number of vacant days out of 30")
 	stats(controlgroup1 controlgroup2 controlgroup3 linehere N r2,
-	labels("Location Fixed Effects" "Property-Specific Controls" 
+	labels("Location Controls" "Property-Specific Controls" 
 		   "Host-Specific Controls" "\hline \vspace{-1.25em}"
 		   "Observations" "Adjusted R2"))
 	fragment 
 ;
 #delimit cr
+restore

@@ -1,7 +1,8 @@
 ********************************************************************************
 *								Number of reviews							   *
 ********************************************************************************
-
+preserve
+keep if sample == 1
 #delimit ;
 quietly reg number_of_reviews i.race_sex_res i.age,  
 			vce(cluster group_neighbourhood_cleansed)
@@ -80,4 +81,4 @@ esttab model1 model2 model3 model4 using
 		fragment
 ;
 #delimit cr
-
+restore
