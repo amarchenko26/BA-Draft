@@ -79,7 +79,7 @@ esttab model1 model2 model3 model4 using
 		keep(*.race_sex_res) drop(1.race_sex_res)
 		mtitles("Model 1" "Model 2" "Model 3" "Model 4")
 			stats(controlgroup1 controlgroup2 controlgroup3 linehere N r2,
-		labels("Location Controls" "Property-Specific Controls" 
+		labels("Location FE" "Property-Specific Controls" 
 			   "Host-Specific Controls" "\hline \vspace{-1.25em}"
 			   "Observations" "Adjusted R2"))
 		fragment 

@@ -1,8 +1,8 @@
 ********************************************************************************
 *			    Edelman Price Robustness 							  		   *
 ********************************************************************************
-
-
+preserve
+keep if sample==1
 ** State robustness checks do-file
 set more off
 set emptycells drop 
@@ -10,6 +10,14 @@ set emptycells drop
 destring review_scores*, replace force
 gen rev_loc_2 = review_scores_location^2
 gen test1 = bedrooms * group_room_type
+
+la var accommodates "Accommodates"
+la var review_scores_location "Review Scores Location"
+la var rev_loc_2 "Review Scores Location Squared"
+la var review_scores_checkin "Review Scores Checkin"
+la var review_scores_communication "Review Scores Communication"
+la var review_scores_cleanliness "Review Scores Cleanliness"
+la var review_scores_accuracy "Review Scores Accuracy"
 	
 #delimit ;
 quietly reg price i.race_res
@@ -22,61 +30,22 @@ quietly reg price i.race_res
 ;
 #delimit cr
 eststo edelman
-	
-#delimit ;	
-quietly reg price i.race_res 
-			i.group_neighbourhood_cleansed i.cleaned_city 
-			i.group_property_type i.group_room_type 
-			accommodates bathrooms bedrooms beds i.group_bed_type 
-			cleaning_fee extra_people num_amenities 
-			i.first_review_month i.first_review_year   
-			i.group_cancellation_policy instant_bookable require_guest_profile_picture 
-			require_guest_phone_verification minimum_nights 
-			availability_30 availability_60 
-			len_desc short_words len_desc2 short_words2 len_desc3 short_words3 //Quality of listing/effort of host
-			len_desc4 short_words4 len_desc5 short_words5 len_desc6 short_words6 good_word_tot //Q of listing
-			i.group_host_response_time miss_group_host_response_time host_response_rate //Host-specific charac.
-			host_identity_verified host_is_superhost 
-				if availability_30 > 10 & availability_30 < 20,  //Host-specific charac.
-			vce(cluster group_neighbourhood_cleansed) 
-;
-#delimit cr
-eststo medium_avail
 
-#delimit ;
-quietly reg price i.race_res
-			i.group_neighbourhood_cleansed i.cleaned_city 
-			i.group_property_type i.group_room_type 
-			accommodates bathrooms bedrooms beds i.group_bed_type 
-			cleaning_fee extra_people num_amenities 
-			i.first_review_month i.first_review_year  
-			i.group_cancellation_policy instant_bookable require_guest_profile_picture 
-			require_guest_phone_verification minimum_nights
-			availability_30 availability_60
-			len_desc short_words len_desc2 short_words2 len_desc3 short_words3 //Quality of listing/effort of host
-			len_desc4 short_words4 len_desc5 short_words5 len_desc6 short_words6 good_word_tot //Q of listing
-			i.group_host_response_time miss_group_host_response_time host_response_rate //Host-specific charac.
-			host_identity_verified host_is_superhost 
-				if availability_30 > 20, //Host-specific charac.
-			vce(cluster group_neighbourhood_cleansed) 
-;
-#delimit cr
-eststo high_avail	
 
 local controlgroup1 // Location
 local controlgroup2 // Property
 local controlgroup3 // Host
 
-estadd local controlgroup1 "Yes" : edelman medium_avail high_avail
-estadd local controlgroup2 "Yes" : edelman medium_avail high_avail
-estadd local controlgroup3 "Yes" : edelman medium_avail high_avail
+estadd local controlgroup1 "Yes" 
+estadd local controlgroup2 "Yes" 
+estadd local controlgroup3 "Yes"
 
 #delimit ;
 esttab edelman using
 	"$repository/code/tables/tex_output/individual_tables/edelman_price.tex",
-		se ar2 replace label 
-		keep(*.race_res) drop(1.race_res)
-		mtitles("Edelman" "Medium Avail." "High Availibility")
+		se ar2 replace label
+		mtitles("Price per night")
+		drop(1.race_res 3.race_res 4.race_res 1.group_room_type)
 		stats(controlgroup1 controlgroup2 controlgroup3 linehere N r2,
 		labels("Location Controls" "Property-Specific Controls" 
 				"Host-Specific Controls" "\hline \vspace{-1.25em}" "Observations" 
@@ -84,3 +53,4 @@ esttab edelman using
 		fragment
 ;
 #delimit cr
+restore

@@ -62,10 +62,11 @@
 % Table 6
 \begin{table}[htbp]\centering
 	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+
 	\caption{Robustness check with controls from Edelman \& Luca (2014), NYC data}
 	\begin{tabular}{l*{1}{c}}
 		\hline\hline
-		\input{../individual_tables/edelman_price}
+		\input{../individual_tables/edelman_price} 
 		\hline\hline
 		\multicolumn{2}{l}{\footnotesize Standard errors in parentheses}\\
 		\multicolumn{2}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
@@ -74,6 +75,7 @@
 				
 		\item Notes: This table presents the effect on price of controlling for Edelman \& Luca's (2014) full specification using my NYC data. My results are nearly identical to theirs (their coefficient on Black *hosts was -17.8) when controlling for similar covariates in the same city. The omitted category for race is White hosts. The omitted category for room type is Entire Apartment. I could not control for host social media accounts as a proxy for host reliability like Edelman \& Luca did, because Airbnb no longer provides this information. Instead, I controlled for ``host verified", a boolean for whether Airbnb has the host's phone number and email. I was not able to control for ``picture quality" either, but picture quality did not significantly influence price in Edelman \& Luca's regression.
 	\end{tablenotes}
+	
 \end{table}
 
 % Table 7
@@ -131,7 +133,7 @@
 
 
 \newpage
-\begin{comment}
+%\begin{comment}
 % Table 10
 %%%%Careful; When we rerun the stata do file, the "\$" is read as $
 \newpage
@@ -147,14 +149,13 @@
 			\multicolumn{10}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
 		\end{tabular}
 		\begin{tablenotes}
-			\item \footnotesize Standard errors in parentheses
-			\item \footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)
+
 			\item Notes: I break down my combined data by price, time on market, and property type. The categories, from left to right, are: listings whose price is below vs. above the mean price of \$147 and whose prices are above \$800, the price originally dropped, listings who have have been on the market for no more than 2 years vs. no more than 8 years, and listings of different property types, including apartments (includes apartments and lofts), condos (includes condos and townhouse), and ho uses. I control for my preferred specification throughout. The outcome variable is price of the listing.
 		\end{tablenotes}
 	\end{table}
 \end{landscape}
 %%%%Careful; When we rerun the stata do file, the "\$" is read as $
-\end{comment}
+%\end{comment}
 
 \centering
 % Table 11
