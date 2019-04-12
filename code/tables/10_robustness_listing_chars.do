@@ -14,7 +14,7 @@ quietly reg price
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type 
 			cleaning_fee extra_people num_amenities 
-			i.first_review_month i.first_review_year  
+			i.first_review_month i.first_review_year miss_first_review_year 
 			i.group_cancellation_policy instant_bookable 
 			require_guest_profile_picture 
 			require_guest_phone_verification minimum_nights 
@@ -39,7 +39,7 @@ quietly reg price
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type 
 			cleaning_fee extra_people num_amenities  
-			i.first_review_month i.first_review_year   
+			i.first_review_month i.first_review_year miss_first_review_year 
 			i.group_cancellation_policy instant_bookable
 			require_guest_profile_picture 
 			require_guest_phone_verification minimum_nights  
@@ -64,7 +64,7 @@ quietly reg price
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type 
 			cleaning_fee extra_people num_amenities  
-			i.first_review_month i.first_review_year  
+			i.first_review_month i.first_review_year miss_first_review_year
 			i.group_cancellation_policy instant_bookable 
 			require_guest_profile_picture
 			require_guest_phone_verification minimum_nights 
@@ -90,7 +90,7 @@ quietly reg price i.race_res
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type 
 			cleaning_fee extra_people num_amenities  
-			i.first_review_month i.first_review_year  
+			i.first_review_month i.first_review_year miss_first_review_year 
 			i.group_cancellation_policy instant_bookable 
 			require_guest_profile_picture 
 			require_guest_phone_verification minimum_nights 
@@ -114,7 +114,7 @@ quietly reg price i.race_res
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type 
 			cleaning_fee extra_people num_amenities 
-			i.first_review_month i.first_review_year  
+			i.first_review_month i.first_review_year miss_first_review_year
 			i.group_cancellation_policy instant_bookable 
 			require_guest_profile_picture
 			require_guest_phone_verification minimum_nights 
@@ -138,7 +138,7 @@ quietly reg price i.race_res
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type
 			cleaning_fee extra_people num_amenities 
-			i.first_review_month i.first_review_year  
+			i.first_review_month i.first_review_year miss_first_review_year
 			i.group_cancellation_policy instant_bookable 
 			require_guest_profile_picture 
 			require_guest_phone_verification minimum_nights 
@@ -162,7 +162,7 @@ quietly reg price i.race_res
 			i.group_property_type i.group_room_type
 			accommodates bathrooms bedrooms beds i.group_bed_type
 			cleaning_fee extra_people num_amenities 
-			i.first_review_month i.first_review_year  
+			i.first_review_month i.first_review_year miss_first_review_year
 			i.group_cancellation_policy instant_bookable 
 			require_guest_profile_picture
 			require_guest_phone_verification minimum_nights
@@ -186,7 +186,7 @@ quietly reg price i.race_res
 			i.group_property_type i.group_room_type
 			accommodates bathrooms bedrooms beds i.group_bed_type
 			cleaning_fee extra_people num_amenities 
-			i.first_review_month i.first_review_year 
+			i.first_review_month i.first_review_year miss_first_review_year
 			i.group_cancellation_policy instant_bookable 
 			require_guest_profile_picture
 			require_guest_phone_verification minimum_nights 
@@ -210,7 +210,7 @@ eststo model5
 	i.group_property_type i.group_room_type
 	accommodates bathrooms bedrooms beds i.group_bed_type 
 	cleaning_fee extra_people num_amenities  
-	i.first_review_month i.first_review_year
+	i.first_review_month i.first_review_year miss_first_review_year
 	i.group_cancellation_policy instant_bookable require_guest_profile_picture
 	require_guest_phone_verification minimum_nights
 	availability_30 availability_60
@@ -233,7 +233,7 @@ quietly reg price i.race_res
 			i.group_property_type i.group_room_type
 			accommodates bathrooms bedrooms beds i.group_bed_type
 			cleaning_fee extra_people num_amenities
-			i.first_review_month i.first_review_year 
+			i.first_review_month i.first_review_year miss_first_review_year
 			i.group_cancellation_policy instant_bookable require_guest_profile_picture
 			require_guest_phone_verification minimum_nights 
 			availability_30 availability_60
@@ -256,7 +256,7 @@ quietly reg price i.race_res
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type 
 			cleaning_fee extra_people num_amenities 
-			i.first_review_month i.first_review_year 
+			i.first_review_month i.first_review_year miss_first_review_year
 			i.group_cancellation_policy instant_bookable 
 			require_guest_profile_picture
 			require_guest_phone_verification minimum_nights 
@@ -281,7 +281,7 @@ quietly reg price i.race_res
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type 
 			cleaning_fee extra_people num_amenities 
-			i.first_review_month i.first_review_year 
+			i.first_review_month i.first_review_year miss_first_review_year
 			i.group_cancellation_policy instant_bookable 
 			require_guest_profile_picture 
 			require_guest_phone_verification minimum_nights 
@@ -306,7 +306,7 @@ quietly reg price i.race_res
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type 
 			cleaning_fee extra_people num_amenities 
-			i.first_review_month i.first_review_year  
+			i.first_review_month i.first_review_year miss_first_review_year
 			i.group_cancellation_policy instant_bookable 
 			require_guest_profile_picture
 			require_guest_phone_verification minimum_nights 
@@ -331,7 +331,7 @@ quietly reg price i.race_res
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type  
 			cleaning_fee extra_people num_amenities  
-			i.first_review_month i.first_review_year  
+			i.first_review_month i.first_review_year miss_first_review_year
 			i.group_cancellation_policy instant_bookable 
 			require_guest_profile_picture 
 			require_guest_phone_verification minimum_nights 
@@ -374,8 +374,8 @@ esttab model1 model2 model3 model4 model7 model8 model9 model10 model11
 			"High \\$ LA" "Low \\$ NY" "High \\$ NY" "Older Listings" 
 			"Newer Listings" "Apartments" "Condos" "Houses") //Did not inlude m5 and m6
 	stats(controlgroup1 controlgroup2 controlgroup3 linehere N r2,
-	labels("Location Fixed Effects" "Property-Specific Controls" 
-		   "Host-Specific Controls" "\hline \vspace{-1.25em}"
+	labels("Location Controls" "Property Controls" 
+		   "Host Controls" "\hline \vspace{-1.25em}"
 		   "Observations" "Adjusted R2"))
 	fragment 
 ;

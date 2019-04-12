@@ -23,6 +23,7 @@
 \usepackage[autolanguage]{numprint}
 \usepackage{dirtytalk}
 
+
 \begin{document}
 
 % Table 1
@@ -42,7 +43,7 @@
 \newpage
 
 % Table 5
-\begin{table}[htbp]
+\begin{table}[htbp]\centering
 	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
 	\caption{Main result: Estimates of effect of host’s race and gender on price}
 	\begin{tabular}{l*{5}{c}}
@@ -55,11 +56,12 @@
 
 	\begin{tablenotes}
 	
-	\item Notes: The dependent variable is the price of the listing. All race coefficients are relative to white males. The unit of observation is a listing. The sample is the sample of listings across 7 US cities. Model 1 is the baseline effect of host demographics on price. Model 2 controls for listing location to the neighborhood level. Model 3 adds listing characteristics such as property type, time on market, number of bedrooms, availability, etc. Model 4 adds host characteristics such as response and acceptance rates, measures of host effort, Superhost status, etc. See Data Appendix for full description of covariates.  
+	\item {\it Note:} The dependent variable is the price of the listing. All race coefficients are relative to white males. The unit of observation is a listing. The sample is the sample of listings across 7 US cities. Model 1 is the baseline effect of host demographics on price. Model 2 controls for listing location to the neighborhood level. Model 3 adds listing characteristics such as property type, time on market, number of bedrooms, availability, etc. Model 4 adds host characteristics such as response and acceptance rates, measures of host effort, Superhost status, etc. See Data Appendix for full description of covariates.  
 \end{tablenotes}
 \end{table}
 
 % Table 6
+
 \begin{table}[htbp]\centering
 	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
 
@@ -73,7 +75,7 @@
 	\end{tabular}
 	\begin{tablenotes}
 				
-		\item Notes: This table presents the effect on price of controlling for Edelman \& Luca's (2014) full specification using my NYC data. My results are nearly identical to theirs (their coefficient on Black *hosts was -17.8) when controlling for similar covariates in the same city. The omitted category for race is White hosts. The omitted category for room type is Entire Apartment. I could not control for host social media accounts as a proxy for host reliability like Edelman \& Luca did, because Airbnb no longer provides this information. Instead, I controlled for ``host verified", a boolean for whether Airbnb has the host's phone number and email. I was not able to control for ``picture quality" either, but picture quality did not significantly influence price in Edelman \& Luca's regression.
+		\item {\it Note:} This table presents the effect on price of controlling for Edelman \& Luca's (2014) full specification using my NYC data. My results are nearly identical to theirs (their coefficient on Black *hosts was -17.8) when controlling for similar covariates in the same city. The omitted category for race is White hosts. The omitted category for room type is Entire Apartment. I could not control for host social media accounts as a proxy for host reliability like Edelman \& Luca did, because Airbnb no longer provides this information. Instead, I controlled for ``host verified", a boolean for whether Airbnb has the host's phone number and email. I was not able to control for ``picture quality" either, but picture quality did not significantly influence price in Edelman \& Luca's regression.
 	\end{tablenotes}
 	
 \end{table}
@@ -91,7 +93,7 @@
 	\end{tabular}
 	\begin{tablenotes}
 
-		\item Notes: The dependent variable is the number of reviews of the listing. The omitted category for race is white males, so all coefficients are relative to that group. The unit of observation is an Airbnb listing, so hosts who have multiple listings are treated separately each time. The sample is the sample of listings across 7 US cities. The specification is the same as Table 5. See Data Appendix for a discussion of my covariates.	
+		\item {\it Note:}The dependent variable is the number of reviews of the listing. The omitted category for race is white males, so all coefficients are relative to that group. The unit of observation is an Airbnb listing, so hosts who have multiple listings are treated separately each time. The sample is the sample of listings across 7 US cities. The specification is the same as Table 5. See Data Appendix for a discussion of my covariates.	
 	\end{tablenotes}
 \end{table}
 
@@ -109,7 +111,7 @@
 	
 	\begin{tablenotes}
 		
-		\item This table presents the effect of host race on listing availability out of 30 days, controlling for my preferred specification in Table 5, Model 4. When a listing is booked, this availability metric is updated on the Airbnb website to reflect that booking. Therefore, this measure actually represents the number of days out of the total available days that listings were vacant, relative to a white male host.
+		\item {\it Note:} This table presents the effect of host race on listing availability out of 30 days, controlling for my preferred specification in Table 5, Model 4. When a listing is booked, this availability metric is updated on the Airbnb website to reflect that booking. Therefore, this measure actually represents the number of days out of the total available days that listings were vacant, relative to a white male host.
 	\end{tablenotes}
 \end{table}
 
@@ -127,13 +129,13 @@
 		\end{tabular}
 		\begin{tablenotes}
 
-			\item Notes: The effects for the combined data from Table 3 are now broken down across all 7 cities. The cities decrease in number of observations from left to right. Each set of coefficients represents the coefficient on host race, with price as the outcome variable. I control for my preferred specification that includes listing location, listing characteristics, and host characteristics. Low number of observations for Black, Hispanic, and Asian hosts contribute to imprecise estimates in smaller cities. New Orleans and Nashville have less than 100 Hispanic and Asian hosts. DC and Austin have less than 200 Hispanic and Asian hosts. 
+			\item {\it Note:} The effects for the combined data from Table 3 are now broken down across all 7 cities. The cities decrease in number of observations from left to right. Each set of coefficients represents the coefficient on host race, with price as the outcome variable. I control for my preferred specification that includes listing location, listing characteristics, and host characteristics. Low number of observations for Black, Hispanic, and Asian hosts contribute to imprecise estimates in smaller cities. New Orleans and Nashville have less than 100 Hispanic and Asian hosts. DC and Austin have less than 200 Hispanic and Asian hosts. 
 		\end{tablenotes}
 	\end{table}
 
 
 \newpage
-%\begin{comment}
+
 % Table 10
 %%%%Careful; When we rerun the stata do file, the "\$" is read as $
 \newpage
@@ -150,12 +152,11 @@
 		\end{tabular}
 		\begin{tablenotes}
 
-			\item Notes: I break down my combined data by price, time on market, and property type. The categories, from left to right, are: listings whose price is below vs. above the mean price of \$147 and whose prices are above \$800, the price originally dropped, listings who have have been on the market for no more than 2 years vs. no more than 8 years, and listings of different property types, including apartments (includes apartments and lofts), condos (includes condos and townhouse), and ho uses. I control for my preferred specification throughout. The outcome variable is price of the listing.
+			\item {\it Note:} I break down my combined data by price, time on market, and property type. The categories, from left to right, are: listings whose price is below vs. above the mean price of \$147 and whose prices are above \$800, the price originally dropped, listings who have have been on the market for no more than 2 years vs. no more than 8 years, and listings of different property types, including apartments (includes apartments and lofts), condos (includes condos and townhouse), and ho uses. I control for my preferred specification throughout. The outcome variable is price of the listing.
 		\end{tablenotes}
 	\end{table}
 \end{landscape}
 %%%%Careful; When we rerun the stata do file, the "\$" is read as $
-%\end{comment}
 
 \centering
 % Table 11
@@ -172,6 +173,12 @@
 		\multicolumn{9}{l}{\footnotesize Standard errors in parentheses}\\
 		\multicolumn{9}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
 	\end{tabular}
+	\begin{tablenotes}
+	
+	\item {\it Note:} This table measures the quality of a review that reviewers leave for hosts in Chicago. The demographics of the reviewers are the columns (male os \say{M}, female is \say{F}), and the demographics of the host are the rows. The outcome variable is the sentiment of the review. Each coefficient is the standardized sentiment of a review. Review sentiment measures how positive or negative the review is. Reviews that are numerically positive are of positive sentiment and numerically negative are negative sentiment, relative to the mean sentiment score for each host type. The unit of observation is a single review. The data is a subsample of the Chicago hosts and their reviewers. I control for my preferred specification throughout (referred to as Model 4 in Table 5). See Data Appendix for a full discussion of the covariates included. 
+	
+	\end{tablenotes}
+	
 \end{table}
 \end{landscape}
 
@@ -189,11 +196,9 @@
 
 	\begin{tablenotes}
 
-		\item Notes: The dependent variable is a constructed measure of yearly host revenue, as measured by (price * number of reviews per month * 12) for each listing. The omitted category for race is white males, so all coefficients are relative to that group. The unit of observation is an Airbnb listing, so hosts who have multiple listings are treated separately each time. The sample is the sample of listings across 7 US cities. The specification is the same as Table 5. See Data Appendix for a full discussion of my covariates.
+		\item {\it Note:} The dependent variable is a constructed measure of yearly host revenue, as measured by (price * number of reviews per month * 12) for each listing. The omitted category for race is white males, so all coefficients are relative to that group. The unit of observation is an Airbnb listing, so hosts who have multiple listings are treated separately each time. The sample is the sample of listings across 7 US cities. The specification is the same as Table 5. See Data Appendix for a full discussion of my covariates.
 	\end{tablenotes}
 \end{table}
 
 \end{document}
-
-
 

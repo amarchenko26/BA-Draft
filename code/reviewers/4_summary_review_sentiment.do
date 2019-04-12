@@ -173,7 +173,7 @@ file write f "\hline" _n ///
 // write end of table
 file write f "\hline\hline\noalign{\smallskip} \end{tabular} " _n ///
 "\begin{minipage}{6in}" _n ///
-	"{Note:} " ///
+	"{\it Note:} " ///
 	"This table demonstratates the summary statistics for data used in the" ///
 	" \say{Estimates of effect of host demographics on review sentiment, by reviewer demographics}" ///
 	" table. Column 1 contains statistics on the raw data. Column 2 contains statistics on " ///

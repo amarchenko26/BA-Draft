@@ -16,7 +16,7 @@ quietly reg price i.race_res
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type
 			cleaning_fee extra_people num_amenities 
-			i.first_review_month i.first_review_year 
+			i.first_review_month i.first_review_year miss_first_review_year
 			i.group_cancellation_policy instant_bookable require_guest_profile_picture 
 			require_guest_phone_verification minimum_nights 
 			availability_30 availability_60 
@@ -36,7 +36,7 @@ quietly reg price i.race_res
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type 
 			cleaning_fee extra_people num_amenities 
-			i.first_review_month i.first_review_year  
+			i.first_review_month i.first_review_year miss_first_review_year
 			i.group_cancellation_policy instant_bookable require_guest_profile_picture
 			require_guest_phone_verification minimum_nights
 			availability_30 availability_60
@@ -56,7 +56,7 @@ quietly reg price i.race_res
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type 
 			cleaning_fee extra_people num_amenities 
-			i.first_review_month i.first_review_year  
+			i.first_review_month i.first_review_year miss_first_review_year
 			i.group_cancellation_policy instant_bookable 
 			require_guest_profile_picture
 			require_guest_phone_verification minimum_nights
@@ -81,7 +81,7 @@ quietly reg price i.race_res
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type 
 			cleaning_fee extra_people num_amenities
-			i.first_review_month i.first_review_year 
+			i.first_review_month i.first_review_year miss_first_review_year
 			i.group_cancellation_policy instant_bookable 
 			require_guest_profile_picture
 			require_guest_phone_verification minimum_nights
@@ -105,7 +105,7 @@ quietly reg price i.race_res
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type 
 			cleaning_fee extra_people num_amenities 
-			i.first_review_month i.first_review_year 
+			i.first_review_month i.first_review_year miss_first_review_year
 			i.group_cancellation_policy instant_bookable 
 			require_guest_profile_picture 
 			require_guest_phone_verification minimum_nights 
@@ -129,7 +129,7 @@ quietly reg price i.race_res
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type 
 			cleaning_fee extra_people num_amenities 
-			i.first_review_month i.first_review_year  
+			i.first_review_month i.first_review_year  miss_first_review_year
 			i.group_cancellation_policy instant_bookable 
 			require_guest_profile_picture
 			require_guest_phone_verification minimum_nights 
@@ -153,7 +153,7 @@ quietly reg price i.race_res
 			i.group_property_type i.group_room_type
 			accommodates bathrooms bedrooms beds i.group_bed_type
 			cleaning_fee extra_people num_amenities 
-			i.first_review_month i.first_review_year 
+			i.first_review_month i.first_review_year miss_first_review_year
 			i.group_cancellation_policy instant_bookable 
 			require_guest_profile_picture
 			require_guest_phone_verification minimum_nights
@@ -190,8 +190,8 @@ esttab LA NYC Austin Chicago New_Orleans DC Nashville
 	se ar2 replace label 
 	mtitles("LA" "NYC" "Austin" "Chicago" "New Orleans" "DC" "Nashville")
 	stats(linehere controlgroup1 controlgroup2 controlgroup3 linehere N r2,
-	labels( "\textit{Fixed Effects:}" "Location Fixed Effects" "Property-Specific Controls" 
-		   "Host-Specific Controls" "\hline \vspace{-1.25em}"
+	labels( "\textit{Fixed Effects:}" "Location Controls" "Property Controls" 
+		   "Host Controls" "\hline \vspace{-1.25em}"
 		   "Observations" "Adjusted R2"))
 	fragment
 ;

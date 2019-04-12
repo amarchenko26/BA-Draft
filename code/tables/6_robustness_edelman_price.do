@@ -31,7 +31,6 @@ quietly reg price i.race_res
 #delimit cr
 eststo edelman
 
-
 local controlgroup1 // Location
 local controlgroup2 // Property
 local controlgroup3 // Host
@@ -43,12 +42,12 @@ estadd local controlgroup3 "Yes"
 #delimit ;
 esttab edelman using
 	"$repository/code/tables/tex_output/individual_tables/edelman_price.tex",
-		se ar2 replace label
+		se ar2 replace label nogaps
 		mtitles("Price per night")
-		drop(1.race_res 3.race_res 4.race_res 1.group_room_type)
+		drop(_cons 1.race_res 3.race_res 4.race_res 1.group_room_type)
 		stats(controlgroup1 controlgroup2 controlgroup3 linehere N r2,
-		labels("Location Controls" "Property-Specific Controls" 
-				"Host-Specific Controls" "\hline \vspace{-1.25em}" "Observations" 
+		labels("Location Controls" "Property Controls" 
+				"Host Controls" "\hline \vspace{-1.25em}" "Observations" 
 				"Adjusted R2"))
 		fragment
 ;
