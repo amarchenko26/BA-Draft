@@ -51,11 +51,15 @@ local pre summary description space neighborhood_overview
 local ras race_res age_res sex_res
 
 foreach name in `pre'{
-		reg `name'_s i.sex_res
+	foreach name2 in `ras'{
+		reg `name'_s i.`name2'
+	}
 }
 
 foreach name in `pre'{
-		reg `name'_pol i.sex_res
+	foreach name2 in `ras'{
+		reg `name'_pol i.`name2'
+	}
 }
 
 
