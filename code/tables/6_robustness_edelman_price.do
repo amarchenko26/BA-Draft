@@ -20,7 +20,7 @@ la var review_scores_cleanliness "Review Scores Cleanliness"
 la var review_scores_accuracy "Review Scores Accuracy"
 	
 #delimit ;
-quietly reg price i.race_res
+quietly reg log_price i.race_res
 			accommodates bedrooms 
 			review_scores_location rev_loc_2 review_scores_checkin review_scores_communication 
 			review_scores_cleanliness review_scores_accuracy

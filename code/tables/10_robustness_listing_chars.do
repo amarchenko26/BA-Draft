@@ -9,7 +9,7 @@ set emptycells drop
 
 ** Predicted price in LA
 #delimit ; 
-quietly reg price
+quietly reg log_price
 			i.group_neighbourhood_cleansed i.cleaned_city 
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type 
@@ -34,7 +34,7 @@ predict predict_price_LA
 
 ** Predicted price in NYC
 #delimit ; 
-quietly reg price
+quietly reg log_price
 			i.group_neighbourhood_cleansed i.cleaned_city 
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type 
@@ -59,7 +59,7 @@ predict predict_price_NY
 
 ** Predicted price in Chicago
 #delimit ; 
-quietly reg price
+quietly reg log_price
 			i.group_neighbourhood_cleansed i.cleaned_city 
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type 
@@ -85,7 +85,7 @@ predict predict_price_chi
 
 ****** Low/high price robustness 
 #delimit ; 
-quietly reg price i.race_res
+quietly reg log_price i.race_res
 			i.group_neighbourhood_cleansed 
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type 
@@ -109,7 +109,7 @@ quietly reg price i.race_res
 eststo model1
 
 #delimit ;
-quietly reg price i.race_res
+quietly reg log_price i.race_res
 			i.group_neighbourhood_cleansed 
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type 
@@ -133,7 +133,7 @@ quietly reg price i.race_res
 eststo model2 
 
 #delimit ;
-quietly reg price i.race_res
+quietly reg log_price i.race_res
 			i.group_neighbourhood_cleansed 
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type
@@ -157,7 +157,7 @@ quietly reg price i.race_res
 eststo model3 
 
 #delimit ; 
-quietly reg price i.race_res
+quietly reg log_price i.race_res
 			i.group_neighbourhood_cleansed 
 			i.group_property_type i.group_room_type
 			accommodates bathrooms bedrooms beds i.group_bed_type
@@ -181,7 +181,7 @@ quietly reg price i.race_res
 eststo model4
 
 #delimit ; 		
-quietly reg price i.race_res
+quietly reg log_price i.race_res
 			i.group_neighbourhood_cleansed 
 			i.group_property_type i.group_room_type
 			accommodates bathrooms bedrooms beds i.group_bed_type
@@ -205,7 +205,7 @@ quietly reg price i.race_res
 eststo model5 
 
 #delimit ; 
- quietly reg price i.race_res
+ quietly reg log_price i.race_res
 	i.group_neighbourhood_cleansed
 	i.group_property_type i.group_room_type
 	accommodates bathrooms bedrooms beds i.group_bed_type 
@@ -228,7 +228,7 @@ eststo model5
 eststo model6
 
 #delimit ; 
-quietly reg price i.race_res 
+quietly reg log_price i.race_res 
 			i.group_neighbourhood_cleansed i.cleaned_city 
 			i.group_property_type i.group_room_type
 			accommodates bathrooms bedrooms beds i.group_bed_type
@@ -251,7 +251,7 @@ quietly reg price i.race_res
 eststo model7 
 
 #delimit ; 
-quietly reg price i.race_res
+quietly reg log_price i.race_res
 			i.group_neighbourhood_cleansed i.cleaned_city 
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type 
@@ -276,7 +276,7 @@ quietly reg price i.race_res
 eststo model8 
 
 #delimit ; 			
-quietly reg price i.race_res 
+quietly reg log_price i.race_res 
 			i.group_neighbourhood_cleansed i.cleaned_city  
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type 
@@ -301,7 +301,7 @@ quietly reg price i.race_res
 eststo model9 
 
 #delimit ; 
-quietly reg price i.race_res
+quietly reg log_price i.race_res
 			i.group_neighbourhood_cleansed i.cleaned_city 
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type 
@@ -326,7 +326,7 @@ quietly reg price i.race_res
 eststo model10 
 
 #delimit ; 			
-quietly reg price i.race_res
+quietly reg log_price i.race_res
 			i.group_neighbourhood_cleansed i.cleaned_city 
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type  

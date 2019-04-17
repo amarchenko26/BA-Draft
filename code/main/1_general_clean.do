@@ -233,3 +233,14 @@ la var short_words2 "Short words in Summary"
 replace ra_name = "Fong" if ra_name== "FONG"
 replace ra_name = "Joe" if ra_name== "Joseph"
 egen group_ra_name = group(ra_name)
+
+** Log price, number of reviews
+local log_me price number_of_reviews
+
+foreach i in `log_me'{
+	gen log_`i' = ln(`i')
+	gen miss_log_`i' = 0
+	replace miss_log_`i' = 1 if mi(`i')
+}
+
+

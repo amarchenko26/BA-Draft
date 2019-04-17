@@ -11,7 +11,7 @@ set emptycells drop
 
 ****** Price
 #delimit ;
-quietly reg price i.race_res 
+quietly reg log_price i.race_res 
 			i.group_neighbourhood_cleansed i.cleaned_city
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type
@@ -31,7 +31,7 @@ quietly reg price i.race_res
 eststo LA
 	
 #delimit ;
-quietly reg price i.race_res 
+quietly reg log_price i.race_res 
 			i.group_neighbourhood_cleansed i.cleaned_city 
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type 
@@ -51,7 +51,7 @@ quietly reg price i.race_res
 eststo NYC
 
 #delimit ;
-quietly reg price i.race_res
+quietly reg log_price i.race_res
 			i.group_neighbourhood_cleansed i.cleaned_city 
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type 
@@ -76,7 +76,7 @@ eststo Austin
 
 
 #delimit ;
-quietly reg price i.race_res
+quietly reg log_price i.race_res
 			i.group_neighbourhood_cleansed i.cleaned_city 
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type 
@@ -100,7 +100,7 @@ quietly reg price i.race_res
 eststo Chicago
 		 
 #delimit ;	
-quietly reg price i.race_res
+quietly reg log_price i.race_res
 			i.group_neighbourhood_cleansed i.cleaned_city 
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type 
@@ -124,7 +124,7 @@ quietly reg price i.race_res
 eststo New_Orleans
 
 #delimit ;
-quietly reg price i.race_res
+quietly reg log_price i.race_res
 			i.group_neighbourhood_cleansed i.cleaned_city 
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type 
@@ -148,7 +148,7 @@ quietly reg price i.race_res
 eststo DC
 	
 #delimit ;
-quietly reg price i.race_res
+quietly reg log_price i.race_res
 			i.group_neighbourhood_cleansed i.cleaned_city
 			i.group_property_type i.group_room_type
 			accommodates bathrooms bedrooms beds i.group_bed_type

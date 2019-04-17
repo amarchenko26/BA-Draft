@@ -27,7 +27,7 @@ file write f "& \multicolumn{1}{c}{} & \multicolumn{5}{c}{Regression Sample}" _n
 ****************************************
 			file write f " \textit{\textit{Outcome Variables}} & & & & & & \\"
 			
-local ncat price number_of_reviews
+local ncat log_price log_number_of_reviews
 
 	foreach i in `ncat'{ //loops over noncategorical variables
 			sum `i' //Full data column

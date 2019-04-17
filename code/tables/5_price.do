@@ -4,13 +4,13 @@
 preserve
 keep if sample == 1
 // Base
-quietly reg price i.race_sex_res i.age, vce(cluster group_neighbourhood_cleansed) 
+quietly reg log_price i.race_sex_res i.age, vce(cluster group_neighbourhood_cleansed) 
 eststo model1
 			
 			
 // Add location FEs		
 #delimit ; 
-quietly reg price i.race_sex_res i.age
+quietly reg log_price i.race_sex_res i.age
 				  i.group_neighbourhood_cleansed i.cleaned_city, 
 				  vce(cluster group_neighbourhood_cleansed) 
 ;
@@ -20,7 +20,7 @@ eststo model2
 // Add listing FEs
 
 #delimit ;
-quietly reg price i.race_sex_res i.age
+quietly reg log_price i.race_sex_res i.age
 			i.group_neighbourhood_cleansed i.cleaned_city  
 			i.group_property_type i.group_room_type
 			accommodates bathrooms bedrooms beds i.group_bed_type  
@@ -37,7 +37,7 @@ eststo model3
 				
 // Add host FEs
 #delimit ;
-quietly reg price i.race_sex_res i.age i.group_ra_name
+quietly reg log_price i.race_sex_res i.age i.group_ra_name
 			i.group_neighbourhood_cleansed i.cleaned_city 
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type 
