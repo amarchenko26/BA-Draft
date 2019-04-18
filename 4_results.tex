@@ -1,0 +1,66 @@
+\subsection*{Minority hosts have lower prices than white hosts} 
+	\label{result1}
+
+Table \ref{table:price} presents OLS estimates of the effect of host race and gender on the listing price. 
+
+Model 2 discussion: As expected, controlling for location substantially decreases the estimated racial gaps in prices. 
+model 3 discussion: Controlling for listing characteristics decreases all effects to \$5 - \$10, depending on the race of the host. The effects for Hispanic males and white women largely disappear with the addition of property controls.
+
+After controlling for my final specification, I estimate that, across the board, minority hosts earn lower prices from their Airbnb listing than white hosts. The biggest effect is for Asian female hosts, whose prices are roughly \$9 less per day than white male hosts who own the same type of listing. The second biggest effect is for black males, with a coefficient of \$7. The coefficients on black women and Asian men are \$6 per day each, Hispanic females is \$5.%
+	\footnote{This effect is statistically significant at the p $<$ .001 level for black hosts and Asian women, the p $<$ .01 level for Asian male hosts, and p $<$ .05 level for Hispanic women.}  
+There is little effect for Hispanic men or white females. My results are stable to the addition of host characteristic controls while still clustering standard errors at the neighborhood level. The inclusion of host characteristics does not improve the fit of the model substantially.  
+
+I find smaller effects than Edelman and Luca (2014). This is likely because I control for a larger set of covariates correlated with race. I replicate Edelman and Luca's results using their model with my New York City listing data. The results, presented in Table \ref{table:edelman_new}, show that I get the same coefficient - an \$18 (12\%) price difference between black hosts and white hosts. This indicates that my main results in Table \ref{table:price_new} were smaller because I controlled for more variation, not because of a structural change in the extent of discrimination in Airbnb.%
+	\footnote{Airbnb has changed their user interface in the past four years, so I approximated several of their regressors with the closest variable available in my data. For example, instead of whether the host had social media accounts, I controlled for whether the host's contact information was verified by Airbnb.}
+
+
+
+\subsection*{Minority hosts have lower quantity demanded than white hosts}
+
+%moved to lit review
+%Market discrimination laid out by Becker rests on the idea that groups who are discriminated against see lower demand in the market, which drives down their prices. I have estimated that prices are lower, but it is so far unclear if the price disparity is caused by a supply or a demand shift.%
+%	\footnote{There could be multiple explanations for a lower supply curve. One hypothesis is that minority hosts charge a lower price for their listing because it is cheaper for them, on the margin, to operate the same listing as compared to a white host. Since black and Hispanic workers tend to earn less than their white counterparts, even for the same amount of education, they may have a lower opportunity cost of time \citep{wages}. Minority hosts would therefore have a lower marginal cost of managing their listing, and so would choose to set lower prices than white hosts with comparable listings. If the price disparity was due to these marginal cost differences, then the quantity demanded of minority hosts' listings should be higher than white hosts'.}
+%Basic microeconomic theory tells us that we can test this by looking at the quantity demanded. If prices are lower because the supply curve is lower, then minority hosts would have a higher quantity demanded. Conversely, if the prices are lower because the demand curve is lower - which would be in line with the presence of discrimination - then the quantity demanded should be lower than it is for white hosts. 
+ 
+I use two different measures of quantity demanded - the number of reviews and the vacancy rate. Both confirm that despite lower prices, black hosts do not have a higher quantity demanded. This supports a demand-side, rather than a supply-side, explanation. The results for Asian and Hispanic hosts are mixed. 
+
+My first measure of quantity demanded is the number of reviews. In Table \ref{table:numreviews_new}, I regress the number of reviews on host race, controlling for the same set of models as Table \ref{table:price_new} (including the listing's time on the market, an important driver of the number of reviews). I find that minority hosts have either the same or lower review numbers than white hosts for a listing that spends the same amount of time on the market. Specifically, all black hosts, and white females, have 1 - 2 reviews less than white males. Coefficients are roughly zero for Hispanic and Asian hosts. 
+
+%\footnote{As a robustness check, I also create a metric of the number of reviews per years active. I regress this on my preferred specification. White females and black females both have significant and negative reviews, while other hosts all have coefficients close to zero.}
+
+My second measure of quantity demanded is the number of days per month a listing remains vacant. Minority hosts may have a lower quantity demanded because they offer up their listing for fewer days of the month, not because they face lower demand. In order to test this, I regress the availability of the listing on host race, controlling for my preferred specification. The availability of a listing is a measure of vacancy for the following reason: availability is controlled by the host, who can update their availability calendar on their listing page. Potential guests can then see on which days the listing is available and book accordingly. When a guest books an available day, that day is removed from the availability calendar. Therefore, the availability out of 30 days measure is a true measure of the vacancy of a listing.% 
+	\footnote{Days could be unavailable on a listing's calendar for two reasons: either a host marks them as unavailable, or a guest books on that day. The vacancy measure could be problematic if minority and white hosts mark days as unavailable at different rates. Therefore, if a host has few vacancies, it is not possible to tell if they have high demand, or simply no time to manage their listing. Vacancy rates can also be affected by the number of properties a host owns - if a host does not live in the property they rent out, they might make more days available on their calendar. Even if they have the same vacancy rate as another host, they still might have more raw vacant days.}
+
+The results, presented in Table \ref{table:availability_30_new}, are striking. I find that the listings of black hosts spend about 20\% more time vacant on the market than the listings of white males. The effect is statistically significant, and amounts to about 2 - 3 days per month in real units. Interestingly, white females make their listing less available than white males, with approximately .9 of a day statistically significant difference. Asian females are similar to white females, making their listing available one day less than white males. 
+
+Overall, evidence shows that even though black hosts offer their listings for more days and charge lower prices, fewer guests stay with them. This is significant evidence for the presence of discrimination against black hosts. Female Asian and female white hosts, on the other hand, choose to make their listing available less often than white hosts. Lower availability is therefore a possible explanation for why these groups have a lower number of reviews. I am not able to further distinguish between availability effects and discrimination in my data. Finally, the quantity demanded results for Hispanic hosts are not statistically significant. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{comment}
+	coThis might be because Airbnb listings tend to be more concentrated in certain areas of each city (North Side in Chicago, lower and middle Manhattan in New York City, etc). If listings in a city cluster together instead of being uniformly dispersed, then controlling for location won't explain as much of the variation as controlling for property characteristics. LISTING OR PROPERTY PICK ONE - FIX
+	
+	It is well-documented that blacks in urban populations are nearly four times more likely than whites to live in neighborhoods where the poverty rate is 40\% or higher \cite{firebaugh}. 
+	
+	The coefficients for minority hosts decrease from a range of \$20-40 to a range of \$10-20 (these are all negative, and relative to white male hosts). I observe the largest decrease in the coefficients on black hosts, which go down from \$40 to roughly \$15. Coefficients of Hispanic hosts decrease by around \$10; Asian hosts by about \$20. In fact, minorities at every income level live in poorer neighborhoods than do whites with comparable incomes. For example, a black household earning \$75,000 a year resides in a higher-poverty neighborhood than a white household with earnings of less than \$40,000 a year \cite{logan}. The coefficients of white females, on the other hand, persist at around \$4 with the addition of location controls. This is most likely because white females tend to live in the same areas as white males and therefore have little to no variation in price that can be explained by differences in neighborhood.  
+	
+	Asian female hosts have the largest decrease in coefficient after controlling for listing characteristics, which indicates that a substantial part of their effect is driven by owning properties with worse observable characteristics. The effects on middle-aged and senior hosts are almost eliminated by controlling for property characteristics, indicating that their higher listing prices are primarily driven by better observable characteristics. 
+	
+	If one believed the price difference was driven by unobserved characteristics, one might have expected that the price gap between white and minority hosts would disappear with the addition of more controls. However, my coefficient of interest is stable to the addition of controls - adding host-specific controls does not substantially change any of the effects. 
+	
+	There are a few possible sources of unexplained variation in the price of the listing - variation in the real, physical qualities of the listing that wasn't captured by the property controls and variation in the quality of the listing's profile that was not captured by the host controls. Since I was able to control for all of the property-quality variables that Airbnb offers on a listing page, it is unlikely that there are unobserved property characteristics driving the price differences. Since adding host controls explained very little variation in the price, increasing the $R^2$ by only .006, it is unlikely that adding more sophisticated measures of host quality or effort would significantly help explain price disparities. While this does not eliminate the possibility that there is a set of controls not related to property type or host type that would have increased the $R^2$ drastically, this is still good evidence to believe that the price difference I estimate is a real difference, rather than purely caused by endogeneity. 
+	
+	The results are significant for white females and black hosts. While the coefficients were significant for Asian hosts under the less robust specifications, under the full specification the coefficient is not significant, but still slightly negative.
+\end{comment}

@@ -1,0 +1,23 @@
+% EMPIRICAL APPROACH
+\label{empirical}
+
+I use OLS to estimate the impact of host race on listing price on Airbnb, controlling for location, property, and host characteristics. My main specification is of the form:
+
+\[ log(\text{Price}_{i,j}) = \alpha_i + \beta_1 \text{Race}_{i} \;  \text{X} \; \text{Sex}_i + \beta_2 \text{Age}_i + \beta_3 \text{Location} +  x_{i,j} \]
+
+Where $log(\text{Price}_{i,j})$ is the log of host $i$'s price from their Airbnb listing $j$. For hosts with multiple listings, each listing is treated separately. $\text{Race}_{i} \;  \text{X} \; \text{Sex}_i$ is the interaction of the race and sex of the host, where white males are the omitted category throughout. $\text{Age}_i$ is a dummy variable for whether the host is young, middle-aged, or senior. $x_{i,j}$ is a vector of location, property, and host controls that grows additively in each model. Each column of Tables 5 and 7 [SUB IN FOR REFERENCES] controls for everything in the previous columns, plus a new set of covariates. All other tables control for the full specification, as decribed in Model 4. Standard errors are clustered by neighborhood throughout.
+
+\begin{enumerate}
+	\item \textit{Model 1} presents the raw effect of host race and sex on the price of a listing. These coefficients are consistent with the mean listing prices by race presented in Table \ref{table:listing}, except further broken down by male and female hosts within each racial category.
+	
+	\item \textit{Model 2} adds city and neighborhood fixed effects. Since race is highly correlated with location and therefore the price of the listing, I expect that a large amount of variation in Airbnb prices between racial groups can be explained by listing location. I also add controls for the median home prices in 2015 on the zipcode level from Zillow [MELODY].  
+	
+	\item \textit{Model 3} adds controls for listing-specific characteristics. See Table \ref{table:listing} for a full list of these controls. 
+	
+	\item \textit{Model 4} represents my full, preferred specification. It adds host-specific characteristics available on the listing page, such whether the host is a Superhost, the host's response time, and their cancellation policy. Importantly, I also attempt to control for variation in unobservable host effort. To this end, I add three constructed host effort variables to control for hosts who write longer descriptions, use longer words in those descriptions, and write more objective descriptions of more positive valence. See Table \ref{table:covariates} for details of controls and Section \ref{data} for details of construction of host effort variables. 
+\end{enumerate}
+
+
+
+
+
