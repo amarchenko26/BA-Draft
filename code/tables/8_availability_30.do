@@ -14,10 +14,10 @@ reg availability_30 i.race_sex_res
 			i.group_cancellation_policy instant_bookable 
 			require_guest_profile_picture
 			require_guest_phone_verification minimum_nights
-			len_desc short_words len_desc2 short_words2 len_desc3 
-			short_words3 //Quality of listing/effort of host
-			len_desc4 short_words4 len_desc5 short_words5 len_desc6 
-			short_words6 good_word_tot //Quality of listing
+			reviews_polarity reviews_subjectivity summary_polarity summary_subjectivity 
+			space_polarity space_subjectivity description_polarity description_subjectivity 
+			neighborhood_overview_polarity 
+			neighborhood_overview_subject //Quality of listing/effort of host
 			i.group_host_response_time miss_group_host_response_time 
 			host_response_rate //Host-specific charac.
 			host_identity_verified host_is_superhost,  //Host-specific charac.

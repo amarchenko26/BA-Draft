@@ -9,7 +9,7 @@ set emptycells drop
 
 ** Predicted price in LA
 #delimit ; 
-quietly reg log_price
+quietly reg price
 			i.group_neighbourhood_cleansed i.cleaned_city 
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type 
@@ -19,10 +19,10 @@ quietly reg log_price
 			require_guest_profile_picture 
 			require_guest_phone_verification minimum_nights 
 			availability_30 availability_60 
-			len_desc short_words len_desc2 short_words2 
-			len_desc3 short_words3 //Quality of listing/effort of host
-			len_desc4 short_words4 len_desc5 short_words5 
-			len_desc6 short_words6 good_word_tot //Quality of listing
+			summary_polarity summary_subjectivity 
+			space_polarity space_subjectivity description_polarity description_subjectivity 
+			neighborhood_overview_polarity 
+			neighborhood_overview_subject //Quality of listing/effort of host
 			i.group_host_response_time miss_group_host_response_time 
 			host_response_rate //Host-specific charac.
 			host_identity_verified host_is_superhost 
@@ -34,7 +34,7 @@ predict predict_price_LA
 
 ** Predicted price in NYC
 #delimit ; 
-quietly reg log_price
+quietly reg price
 			i.group_neighbourhood_cleansed i.cleaned_city 
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type 
@@ -44,10 +44,10 @@ quietly reg log_price
 			require_guest_profile_picture 
 			require_guest_phone_verification minimum_nights  
 			availability_30 availability_60
-			len_desc short_words len_desc2 short_words2 
-			len_desc3 short_words3  //Quality of listing/effort of host
-			len_desc4 short_words4 len_desc5 short_words5 len_desc6 
-			short_words6 good_word_tot //Quality of listing
+			summary_polarity summary_subjectivity 
+			space_polarity space_subjectivity description_polarity description_subjectivity 
+			neighborhood_overview_polarity 
+			neighborhood_overview_subject  //Quality of listing/effort of host
 			i.group_host_response_time miss_group_host_response_time 
 			host_response_rate //Host-specific charac.
 			host_identity_verified host_is_superhost
@@ -59,7 +59,7 @@ predict predict_price_NY
 
 ** Predicted price in Chicago
 #delimit ; 
-quietly reg log_price
+quietly reg price
 			i.group_neighbourhood_cleansed i.cleaned_city 
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type 
@@ -69,10 +69,10 @@ quietly reg log_price
 			require_guest_profile_picture
 			require_guest_phone_verification minimum_nights 
 			availability_30 availability_60 
-			len_desc short_words len_desc2 short_words2 len_desc3 
-			short_words3  //Quality of listing/effort of host
-			len_desc4 short_words4 len_desc5 short_words5 len_desc6 
-			short_words6 good_word_tot  // listing
+			reviews_polarity reviews_subjectivity summary_polarity summary_subjectivity 
+			space_polarity space_subjectivity description_polarity description_subjectivity 
+			neighborhood_overview_polarity 
+			neighborhood_overview_subject  //Quality of listing/effort of host
 			i.group_host_response_time miss_group_host_response_time
 			host_response_rate  //Host-specific charac.
 			host_identity_verified host_is_superhost 
@@ -85,7 +85,7 @@ predict predict_price_chi
 
 ****** Low/high price robustness 
 #delimit ; 
-quietly reg log_price i.race_res
+quietly reg price i.race_res
 			i.group_neighbourhood_cleansed 
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type 
@@ -95,10 +95,10 @@ quietly reg log_price i.race_res
 			require_guest_profile_picture 
 			require_guest_phone_verification minimum_nights 
 			availability_30 availability_60 
-			len_desc short_words len_desc2 short_words2 
-			len_desc3 short_words3  //Quality of listing/effort of host
-			len_desc4 short_words4 len_desc5 short_words5 
-			len_desc6 short_words6 good_word_tot //Quality of listing
+			summary_polarity summary_subjectivity 
+			space_polarity space_subjectivity description_polarity description_subjectivity 
+			neighborhood_overview_polarity 
+			neighborhood_overview_subject  //Quality of listing/effort of host
 			i.group_host_response_time miss_group_host_response_time
 			host_response_rate //Host-specific charac.
 			host_identity_verified host_is_superhost 
@@ -109,7 +109,7 @@ quietly reg log_price i.race_res
 eststo model1
 
 #delimit ;
-quietly reg log_price i.race_res
+quietly reg price i.race_res
 			i.group_neighbourhood_cleansed 
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type 
@@ -119,10 +119,10 @@ quietly reg log_price i.race_res
 			require_guest_profile_picture
 			require_guest_phone_verification minimum_nights 
 			availability_30 availability_60 
-			len_desc short_words len_desc2 short_words2 
-			len_desc3 short_words3 //Quality of listing/effort of host
-			len_desc4 short_words4 len_desc5 short_words5 
-			len_desc6 short_words6 good_word_tot //Quality of listing
+			summary_polarity summary_subjectivity 
+			space_polarity space_subjectivity description_polarity description_subjectivity 
+			neighborhood_overview_polarity 
+			neighborhood_overview_subject //Quality of listing/effort of host
 			i.group_host_response_time miss_group_host_response_time
 			host_response_rate //Host-specific charac.
 			host_identity_verified host_is_superhost 
@@ -133,7 +133,7 @@ quietly reg log_price i.race_res
 eststo model2 
 
 #delimit ;
-quietly reg log_price i.race_res
+quietly reg price i.race_res
 			i.group_neighbourhood_cleansed 
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type
@@ -143,10 +143,10 @@ quietly reg log_price i.race_res
 			require_guest_profile_picture 
 			require_guest_phone_verification minimum_nights 
 			availability_30 availability_60
-			len_desc short_words len_desc2 short_words2 
-			len_desc3 short_words3  //Quality of listing/effort of host
-			len_desc4 short_words4 len_desc5 short_words5 len_desc6 
-			short_words6 good_word_tot /// //Quality of listing
+			summary_polarity summary_subjectivity 
+			space_polarity space_subjectivity description_polarity description_subjectivity 
+			neighborhood_overview_polarity 
+			neighborhood_overview_subject  //Quality of listing/effort of host
 			i.group_host_response_time miss_group_host_response_time 
 			host_response_rate  //Host-specific charac.
 			host_identity_verified host_is_superhost 
@@ -157,7 +157,7 @@ quietly reg log_price i.race_res
 eststo model3 
 
 #delimit ; 
-quietly reg log_price i.race_res
+quietly reg price i.race_res
 			i.group_neighbourhood_cleansed 
 			i.group_property_type i.group_room_type
 			accommodates bathrooms bedrooms beds i.group_bed_type
@@ -167,10 +167,10 @@ quietly reg log_price i.race_res
 			require_guest_profile_picture
 			require_guest_phone_verification minimum_nights
 			availability_30 availability_60
-			len_desc short_words len_desc2 short_words2 
-			len_desc3 short_words3  //Quality of listing/effort of host
-			len_desc4 short_words4 len_desc5 short_words5 len_desc6 
-			short_words6 good_word_tot //Quality of listing
+			summary_polarity summary_subjectivity 
+			space_polarity space_subjectivity description_polarity description_subjectivity 
+			neighborhood_overview_polarity 
+			neighborhood_overview_subject  //Quality of listing/effort of host
 			i.group_host_response_time miss_group_host_response_time 
 			host_response_rate //Host-specific charac.
 			host_identity_verified host_is_superhost 
@@ -181,7 +181,7 @@ quietly reg log_price i.race_res
 eststo model4
 
 #delimit ; 		
-quietly reg log_price i.race_res
+quietly reg price i.race_res
 			i.group_neighbourhood_cleansed 
 			i.group_property_type i.group_room_type
 			accommodates bathrooms bedrooms beds i.group_bed_type
@@ -191,10 +191,10 @@ quietly reg log_price i.race_res
 			require_guest_profile_picture
 			require_guest_phone_verification minimum_nights 
 			availability_30 availability_60
-			len_desc short_words len_desc2 short_words2 
-			len_desc3 short_words3  //Quality of listing/effort of host
-			len_desc4 short_words4 len_desc5 short_words5 len_desc6 
-			short_words6 good_word_tot //Quality of listing
+			reviews_polarity reviews_subjectivity summary_polarity summary_subjectivity 
+			space_polarity space_subjectivity description_polarity description_subjectivity 
+			neighborhood_overview_polarity 
+			neighborhood_overview_subject  //Quality of listing/effort of host
 			i.group_host_response_time miss_group_host_response_time 
 			host_response_rate //Host-specific charac.
 			host_identity_verified host_is_superhost 
@@ -205,30 +205,30 @@ quietly reg log_price i.race_res
 eststo model5 
 
 #delimit ; 
- quietly reg log_price i.race_res
-	i.group_neighbourhood_cleansed
-	i.group_property_type i.group_room_type
-	accommodates bathrooms bedrooms beds i.group_bed_type 
-	cleaning_fee extra_people num_amenities  
-	i.first_review_month i.first_review_year miss_first_review_year
-	i.group_cancellation_policy instant_bookable require_guest_profile_picture
-	require_guest_phone_verification minimum_nights
-	availability_30 availability_60
-	len_desc short_words len_desc2 short_words2 len_desc3 
-	short_words3 //Quality of listing/effort of host
-	len_desc4 short_words4 len_desc5 short_words5 len_desc6 
-	short_words6 good_word_tot //Quality of listing
-	i.group_host_response_time miss_group_host_response_time 
-	host_response_rate //Host-specific charac.
-	host_identity_verified host_is_superhost 
-		if predict_price_chi > 124 & state=="IL",  //Host-specific charac.
-	vce(cluster group_neighbourhood_cleansed) 
+ quietly reg price i.race_res
+			i.group_neighbourhood_cleansed
+			i.group_property_type i.group_room_type
+			accommodates bathrooms bedrooms beds i.group_bed_type 
+			cleaning_fee extra_people num_amenities  
+			i.first_review_month i.first_review_year miss_first_review_year
+			i.group_cancellation_policy instant_bookable require_guest_profile_picture
+			require_guest_phone_verification minimum_nights
+			availability_30 availability_60
+			reviews_polarity reviews_subjectivity summary_polarity summary_subjectivity 
+			space_polarity space_subjectivity description_polarity description_subjectivity 
+			neighborhood_overview_polarity 
+			neighborhood_overview_subject  //Quality of listing/effort of host
+			i.group_host_response_time miss_group_host_response_time 
+			host_response_rate //Host-specific charac.
+			host_identity_verified host_is_superhost 
+				if predict_price_chi > 124 & state=="IL",  //Host-specific charac.
+			vce(cluster group_neighbourhood_cleansed) 
 ;
 #delimit cr
 eststo model6
 
 #delimit ; 
-quietly reg log_price i.race_res 
+quietly reg price i.race_res 
 			i.group_neighbourhood_cleansed i.cleaned_city 
 			i.group_property_type i.group_room_type
 			accommodates bathrooms bedrooms beds i.group_bed_type
@@ -237,10 +237,10 @@ quietly reg log_price i.race_res
 			i.group_cancellation_policy instant_bookable require_guest_profile_picture
 			require_guest_phone_verification minimum_nights 
 			availability_30 availability_60
-			len_desc short_words len_desc2 short_words2 
-			len_desc3 short_words3 //Quality of listing/effort of host
-			len_desc4 short_words4 len_desc5 short_words5 len_desc6 
-			short_words6 good_word_tot //Quality of listing
+			reviews_polarity reviews_subjectivity summary_polarity summary_subjectivity 
+			space_polarity space_subjectivity description_polarity description_subjectivity 
+			neighborhood_overview_polarity 
+			neighborhood_overview_subject  //Quality of listing/effort of host
 			i.group_host_response_time miss_group_host_response_time 
 			host_response_rate //Host-specific charac.
 			host_identity_verified host_is_superhost 
@@ -251,7 +251,7 @@ quietly reg log_price i.race_res
 eststo model7 
 
 #delimit ; 
-quietly reg log_price i.race_res
+quietly reg price i.race_res
 			i.group_neighbourhood_cleansed i.cleaned_city 
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type 
@@ -261,10 +261,10 @@ quietly reg log_price i.race_res
 			require_guest_profile_picture
 			require_guest_phone_verification minimum_nights 
 			availability_30 availability_60 
-			len_desc short_words len_desc2 short_words2 
-			len_desc3 short_words3 //Quality of listing/effort of host
-			len_desc4 short_words4 len_desc5 short_words5 len_desc6 
-			short_words6 good_word_tot //Quality of listing
+			reviews_polarity reviews_subjectivity summary_polarity summary_subjectivity 
+			space_polarity space_subjectivity description_polarity description_subjectivity 
+			neighborhood_overview_polarity 
+			neighborhood_overview_subject  //Quality of listing/effort of host
 			i.group_host_response_time miss_group_host_response_time 
 			host_response_rate //Host-specific charac.
 			host_identity_verified host_is_superhost 
@@ -276,7 +276,7 @@ quietly reg log_price i.race_res
 eststo model8 
 
 #delimit ; 			
-quietly reg log_price i.race_res 
+quietly reg price i.race_res 
 			i.group_neighbourhood_cleansed i.cleaned_city  
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type 
@@ -286,10 +286,10 @@ quietly reg log_price i.race_res
 			require_guest_profile_picture 
 			require_guest_phone_verification minimum_nights 
 			availability_30 availability_60
-			len_desc short_words len_desc2 short_words2 
-			len_desc3 short_words3 //Quality of listing/effort of host
-			len_desc4 short_words4 len_desc5 short_words5 len_desc6
-			short_words6 good_word_tot //Quality of listing
+			reviews_polarity reviews_subjectivity summary_polarity summary_subjectivity 
+			space_polarity space_subjectivity description_polarity description_subjectivity 
+			neighborhood_overview_polarity 
+			neighborhood_overview_subject  //Quality of listing/effort of host
 			i.group_host_response_time miss_group_host_response_time
 			host_response_rate //Host-specific charac.
 			host_identity_verified host_is_superhost 
@@ -301,7 +301,7 @@ quietly reg log_price i.race_res
 eststo model9 
 
 #delimit ; 
-quietly reg log_price i.race_res
+quietly reg price i.race_res
 			i.group_neighbourhood_cleansed i.cleaned_city 
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type 
@@ -311,10 +311,10 @@ quietly reg log_price i.race_res
 			require_guest_profile_picture
 			require_guest_phone_verification minimum_nights 
 			availability_30 availability_60
-			len_desc short_words len_desc2 short_words2 len_desc3 
-			short_words3 //Quality of listing/effort of host
-			len_desc4 short_words4 len_desc5 short_words5 len_desc6 
-			short_words6 good_word_tot //Quality of listing
+			reviews_polarity reviews_subjectivity summary_polarity summary_subjectivity 
+			space_polarity space_subjectivity description_polarity description_subjectivity 
+			neighborhood_overview_polarity 
+			neighborhood_overview_subject  //Quality of listing/effort of host
 			i.group_host_response_time miss_group_host_response_time 
 			host_response_rate //Host-specific charac.
 			host_identity_verified host_is_superhost 
@@ -326,7 +326,7 @@ quietly reg log_price i.race_res
 eststo model10 
 
 #delimit ; 			
-quietly reg log_price i.race_res
+quietly reg price i.race_res
 			i.group_neighbourhood_cleansed i.cleaned_city 
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type  
@@ -336,10 +336,10 @@ quietly reg log_price i.race_res
 			require_guest_profile_picture 
 			require_guest_phone_verification minimum_nights 
 			availability_30 availability_60
-			len_desc short_words len_desc2 short_words2 len_desc3 
-			short_words3 //Quality of listing/effort of host
-			len_desc4 short_words4 len_desc5 short_words5 len_desc6 
-			short_words6 good_word_tot //Quality of listing
+			reviews_polarity reviews_subjectivity summary_polarity summary_subjectivity 
+			space_polarity space_subjectivity description_polarity description_subjectivity 
+			neighborhood_overview_polarity 
+			neighborhood_overview_subject  //Quality of listing/effort of host
 			i.group_host_response_time miss_group_host_response_time 
 			host_response_rate //Host-specific charac.
 			host_identity_verified host_is_superhost 

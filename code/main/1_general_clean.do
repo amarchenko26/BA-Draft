@@ -243,4 +243,5 @@ foreach i in `log_me'{
 	replace miss_log_`i' = 1 if mi(`i')
 }
 
-
+la var log_price "Log Price"
+la var log_number_of_reviews "Log Number of Reviews"

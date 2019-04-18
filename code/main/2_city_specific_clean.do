@@ -123,3 +123,15 @@ gen reviews_per_year = number_of_reviews / time_on_market
 
 la var first_review_year "Year of first review"
 
+** Merging NLP analysis columns
+rename id id2
+rename v1 id // v1 corresponds to id column in final_cleaned_all_sentiments
+
+#delimit ;
+merge m:m id using "$repository/data/full_listings_all_sentiments_updated6.dta", nogen 
+keepusing(id reviews_polarity reviews_subjectivity summary_polarity summary_subjectivity 
+space_polarity space_subjectivity description_polarity description_subjectivity 
+experiences_offered_polarity experiences_offered_subjectivity neighborhood_overview_polarity 
+neighborhood_overview_subject)
+;
+#delimit cr
