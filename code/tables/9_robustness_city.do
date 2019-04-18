@@ -1,8 +1,8 @@
 ********************************************************************************
 *					  City Robustness 				    					   *
 ********************************************************************************
-
-
+preserve
+keep if sample == 1
 ** State robustness checks do-file
 set more off
 set emptycells drop 
@@ -11,12 +11,12 @@ set emptycells drop
 
 ****** Price
 #delimit ;
-quietly reg price i.race_res 
+quietly reg log_price i.race_res 
 			i.group_neighbourhood_cleansed i.cleaned_city
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type
 			cleaning_fee extra_people num_amenities 
-			i.first_review_month i.first_review_year 
+			i.first_review_month i.first_review_year miss_first_review_year
 			i.group_cancellation_policy instant_bookable require_guest_profile_picture 
 			require_guest_phone_verification minimum_nights 
 			availability_30 availability_60 
@@ -31,12 +31,12 @@ quietly reg price i.race_res
 eststo LA
 	
 #delimit ;
-quietly reg price i.race_res 
+quietly reg log_price i.race_res 
 			i.group_neighbourhood_cleansed i.cleaned_city 
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type 
 			cleaning_fee extra_people num_amenities 
-			i.first_review_month i.first_review_year  
+			i.first_review_month i.first_review_year miss_first_review_year
 			i.group_cancellation_policy instant_bookable require_guest_profile_picture
 			require_guest_phone_verification minimum_nights
 			availability_30 availability_60
@@ -51,12 +51,12 @@ quietly reg price i.race_res
 eststo NYC
 
 #delimit ;
-quietly reg price i.race_res
+quietly reg log_price i.race_res
 			i.group_neighbourhood_cleansed i.cleaned_city 
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type 
 			cleaning_fee extra_people num_amenities 
-			i.first_review_month i.first_review_year  
+			i.first_review_month i.first_review_year miss_first_review_year
 			i.group_cancellation_policy instant_bookable 
 			require_guest_profile_picture
 			require_guest_phone_verification minimum_nights
@@ -76,12 +76,12 @@ eststo Austin
 
 
 #delimit ;
-quietly reg price i.race_res
+quietly reg log_price i.race_res
 			i.group_neighbourhood_cleansed i.cleaned_city 
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type 
 			cleaning_fee extra_people num_amenities
-			i.first_review_month i.first_review_year 
+			i.first_review_month i.first_review_year miss_first_review_year
 			i.group_cancellation_policy instant_bookable 
 			require_guest_profile_picture
 			require_guest_phone_verification minimum_nights
@@ -100,12 +100,12 @@ quietly reg price i.race_res
 eststo Chicago
 		 
 #delimit ;	
-quietly reg price i.race_res
+quietly reg log_price i.race_res
 			i.group_neighbourhood_cleansed i.cleaned_city 
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type 
 			cleaning_fee extra_people num_amenities 
-			i.first_review_month i.first_review_year 
+			i.first_review_month i.first_review_year miss_first_review_year
 			i.group_cancellation_policy instant_bookable 
 			require_guest_profile_picture 
 			require_guest_phone_verification minimum_nights 
@@ -124,12 +124,12 @@ quietly reg price i.race_res
 eststo New_Orleans
 
 #delimit ;
-quietly reg price i.race_res
+quietly reg log_price i.race_res
 			i.group_neighbourhood_cleansed i.cleaned_city 
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type 
 			cleaning_fee extra_people num_amenities 
-			i.first_review_month i.first_review_year  
+			i.first_review_month i.first_review_year  miss_first_review_year
 			i.group_cancellation_policy instant_bookable 
 			require_guest_profile_picture
 			require_guest_phone_verification minimum_nights 
@@ -148,12 +148,12 @@ quietly reg price i.race_res
 eststo DC
 	
 #delimit ;
-quietly reg price i.race_res
+quietly reg log_price i.race_res
 			i.group_neighbourhood_cleansed i.cleaned_city
 			i.group_property_type i.group_room_type
 			accommodates bathrooms bedrooms beds i.group_bed_type
 			cleaning_fee extra_people num_amenities 
-			i.first_review_month i.first_review_year 
+			i.first_review_month i.first_review_year miss_first_review_year
 			i.group_cancellation_policy instant_bookable 
 			require_guest_profile_picture
 			require_guest_phone_verification minimum_nights
@@ -190,9 +190,10 @@ esttab LA NYC Austin Chicago New_Orleans DC Nashville
 	se ar2 replace label 
 	mtitles("LA" "NYC" "Austin" "Chicago" "New Orleans" "DC" "Nashville")
 	stats(linehere controlgroup1 controlgroup2 controlgroup3 linehere N r2,
-	labels( "\textit{Fixed Effects:}" "Location Fixed Effects" "Property-Specific Controls" 
-		   "Host-Specific Controls" "\hline \vspace{-1.25em}"
+	labels( "\textit{Fixed Effects:}" "Location Controls" "Property Controls" 
+		   "Host Controls" "\hline \vspace{-1.25em}"
 		   "Observations" "Adjusted R2"))
 	fragment
 ;
 #delimit cr
+restore

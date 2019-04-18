@@ -27,7 +27,7 @@ file write f "& \multicolumn{1}{c}{} & \multicolumn{5}{c}{Regression Sample}" _n
 ****************************************
 			file write f " \textit{\textit{Outcome Variables}} & & & & & & \\"
 			
-local ncat price number_of_reviews
+local ncat log_price log_number_of_reviews
 
 	foreach i in `ncat'{ //loops over noncategorical variables
 			sum `i' //Full data column
@@ -231,7 +231,6 @@ local ncat2 accommodates bedrooms bathrooms beds cleaning_fee extra_people minim
 			levelsof race_res
 				foreach f in `r(levels)'{
 					sum first_review_year if race_res == `f'
-					local `f'_race_observations = `r(N)' //saves race N
 					local `f'_mean_first_review_year = `r(mean)'
 					local `f'_sd_first_review_year = `r(sd)'
 				}
@@ -262,7 +261,7 @@ local cat3 cancellation_policy_2
 		sum `i' if `i' == 5
 		local all_strict_N = `r(N)' // total "strict" in All Data
 		local all_strict_mean = `all_strict_N'/`all_N' 
-	
+		restore
 		levelsof race_res
 		foreach f in `r(levels)'{
 				sum `i' if race_res == `f'
@@ -271,7 +270,6 @@ local cat3 cancellation_policy_2
 				local `f'_strict_race_N = `r(N)' 
 				local `f'_strict_race_mean = ``f'_strict_race_N'/``f'_race_N'	
 				}
-		restore
 		file write f " Strict Cancellation Policy & " %4.2f (`full_strict_mean') " & " %4.2f (`all_strict_mean') " & " %4.2f (`1_strict_race_mean') " & " %4.2f (`2_strict_race_mean') " & " %4.2f (`3_strict_race_mean') " & " %4.2f (`4_strict_race_mean') " \\"
 		}
 
