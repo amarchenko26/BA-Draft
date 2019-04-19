@@ -19,7 +19,6 @@
 \usepackage{float} 
 \usepackage{pdflscape} %allows for one page to be landscape (lscape makes word landscape, pdflscape makes page landscape)
 \usepackage{threeparttable} %allows tablenotes
-\usepackage{amsmath}
 
 \begin{document}
 
@@ -27,14 +26,12 @@
 % update intro to match results
 
 \title{Measuring Discrimination: The Impact of Host Race and Gender on Earnings from Airbnb\footnote
-	{I thank Steven D. Levitt for valuable advice. Kirthi Bellamkonda, Jacob Dorn, Michal Dzitko, Sonia Jaffe, Ezra Karger, Sylvia Klosin, Victor Lima, and Kotaro Yoshida provided excellent feedback and comments. Mahathi Ayyagari, Fong Chai, Joseph Day, Melody Jih, Spencer Kang, Cristian Raygoza, Thiago Resende, Tony Song, Lydia Sum, Putter Thepkanjana, and Leah Umanskiy provided research assistance. All remaining errors are my own. Data was provided by InsideAirbnb.com, founded and maintained by Murray Cox. Airbnb was not consulted in this research. Sentiment analysis would not be possible without coding by Ben Chaimberg.}}
+	{I thank Steven D. Levitt for valuable advice. Kirthi Bellamkonda, Jacob Dorn, Michal Dzitko, Sonia Jaffe, Ezra Karger, Sylvia Klosin, Victor Lima, and Kotaro Yoshida provided excellent feedback and comments. Mahathi Ayyagari, Fong Chai, Joseph Day, Melody Jih, Spencer Kang, Cristian Raygoza, Thiago Resende, Tony Song, Lydia Sum, Putter Thepkanjana, and Leah Umanskiy provided research assistance. All remaining errors are my own. Data was provided by InsideAirbnb.com, founded and maintained by Murray Cox. Airbnb was not consulted in this research. Sentiment analysis would not be possible without Sentimentr and coding by Ben Chaimberg.}}
 \author{Anya Marchenko\footnote{University of Chicago, Becker Friedman Institute}}
 \maketitle
 
 \begin{abstract}
-This paper leverages the recent rise of sharing economies and the standardization of their platforms to credibly measure discrimination against minority landlords on Airbnb. Using a dataset created by scraping the Airbnb website, I estimate that black hosts earn \$5 - \$7 less per night and Asian hosts \$6 - \$9 less per night (depending on the sex of the host) than white hosts who post a similar type of listing. Crucially, I use two measures of quantity demanded of hosts' listings to estimate whether a demand or supply shift is responsible for the price disparity. I find that despite their lower prices, black hosts face lower demand. This is consistent with the presence of discrimination. 
-
-"relative to their white counterparts"
+This paper leverages the recent rise of sharing economies and the standardization of their platforms to credibly measure discrimination against minority landlords on Airbnb. Using a previously unexploited dataset created by scraping the Airbnb website, I estimate that black hosts earn \$5 - \$7 less per night and Asian hosts \$6 - \$9 less per night (depending on the sex of the host) than white hosts who post a similar type of listing. Crucially, I use two measures of quantity demanded of hosts' listings to estimate whether a demand or supply shift is responsible for the price disparity. I find that despite their lower prices, black hosts face lower demand. This is consistent with the presence of discrimination. 
 \\\\
 \textit{Keywords}: Prejudice and Bias; Online Technology; Race; Trust; Renting or Rental; Accommodations Industry; Real Estate Industry
 
@@ -51,20 +48,16 @@ This paper leverages the recent rise of sharing economies and the standardizatio
 \input{2_data}
 	\label{data}
 
-\section{Empirical Approach}
-\input{3_empirical_approach}
-\label{empirical}
-
 \section{Results}
-\input{4_results}
+\input{3_results}
 	\label{results}
 
 \section{Robustness Checks}
-\input{5_robustness}
+\input{4_robustness}
 	\label{robustness}
 
 \section{Conclusion \& Further Work}
-\input{6_conclusion}
+\input{5_conclusion}
 	\label{conclusion}
 \newpage
 
@@ -72,10 +65,15 @@ This paper leverages the recent rise of sharing economies and the standardizatio
 \bibliography{bibliography2}
 
 \newpage
-%\input{full_tables.tex}
+\input{full_tables.tex}
+
+\newpage
+\section*{Data Appendix}
+\input{6_data_appendix}
+	\label{appendix}
 
 \section*{Figures}
-%\input{full_figures.tex}
+\input{full_figures.tex}
 	\label{figures}
 
 \newpage

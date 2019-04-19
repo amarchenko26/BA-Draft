@@ -56,7 +56,7 @@
 
 	\begin{tablenotes}
 	
-	\item {\it Note:} The dependent variable is the price of the listing. All race coefficients are relative to white males. The unit of observation is a listing. The sample is the sample of listings across 7 US cities. Model 1 is the baseline effect of host demographics on price. Model 2 controls for listing location to the neighborhood level. Model 3 adds listing characteristics such as property type, time on market, number of bedrooms, availability, etc. Model 4 adds host characteristics such as response and acceptance rates, measures of host effort, Superhost status, etc. See Data Appendix for full description of covariates.  
+	\item {\it Note:} The dependent variable is the log price of the listing. All race coefficients are relative to white males. The unit of observation is a listing. The sample is the sample of listings across 7 US cities. Model 1 is the baseline effect of host demographics on price. Model 2 controls for listing location to the neighborhood level. Model 3 adds listing characteristics such as property type, time on market, number of bedrooms, availability, etc. Model 4 adds host characteristics such as response and acceptance rates, measures of host effort, Superhost status, etc. See Data Appendix for full description of covariates.  
 \end{tablenotes}
 \end{table}
 
@@ -75,7 +75,7 @@
 	\end{tabular}
 	\begin{tablenotes}
 				
-		\item {\it Note:} This table presents the effect on price of controlling for Edelman \& Luca's (2014) full specification using my NYC data. My results are nearly identical to theirs (their coefficient on Black *hosts was -17.8) when controlling for similar covariates in the same city. The omitted category for race is White hosts. The omitted category for room type is Entire Apartment. I could not control for host social media accounts as a proxy for host reliability like Edelman \& Luca did, because Airbnb no longer provides this information. Instead, I controlled for ``host verified", a boolean for whether Airbnb has the host's phone number and email. I was not able to control for ``picture quality" either, but picture quality did not significantly influence price in Edelman \& Luca's regression.
+		\item {\it Note:} This table presents the effect on log price of controlling for Edelman \& Luca's (2014) full specification using my NYC data. My results are nearly identical to theirs (their coefficient on Black hosts was -17.8) when controlling for similar covariates in the same city. The omitted category for race is White hosts. The omitted category for room type is Entire Apartment. I could not control for host social media accounts as a proxy for host reliability like Edelman \& Luca did, because Airbnb no longer provides this information. Instead, I controlled for ``host verified", a boolean for whether Airbnb has the host's phone number and email. I was not able to control for ``picture quality" either, but picture quality did not significantly influence price in Edelman \& Luca's regression.
 	\end{tablenotes}
 	
 \end{table}
@@ -93,7 +93,7 @@
 	\end{tabular}
 	\begin{tablenotes}
 
-		\item {\it Note:}The dependent variable is the number of reviews of the listing. The omitted category for race is white males, so all coefficients are relative to that group. The unit of observation is an Airbnb listing, so hosts who have multiple listings are treated separately each time. The sample is the sample of listings across 7 US cities. The specification is the same as Table 5. See Data Appendix for a discussion of my covariates.	
+		\item {\it Note:}The dependent variable is the log number of reviews of the listing. The omitted category for race is white males, so all coefficients are relative to that group. The unit of observation is an Airbnb listing, so hosts who have multiple listings are treated separately each time. The sample is the sample of listings across 7 US cities. The specification is the same as Table 5. See Data Appendix for a discussion of my covariates.	
 	\end{tablenotes}
 \end{table}
 
@@ -129,7 +129,7 @@
 		\end{tabular}
 		\begin{tablenotes}
 
-			\item {\it Note:} The effects for the combined data from Table 3 are now broken down across all 7 cities. The cities decrease in number of observations from left to right. Each set of coefficients represents the coefficient on host race, with price as the outcome variable. I control for my preferred specification that includes listing location, listing characteristics, and host characteristics. Low number of observations for Black, Hispanic, and Asian hosts contribute to imprecise estimates in smaller cities. New Orleans and Nashville have less than 100 Hispanic and Asian hosts. DC and Austin have less than 200 Hispanic and Asian hosts. 
+			\item {\it Note:} The effects for the combined data from Table 3 are now broken down across all 7 cities. The cities decrease in number of observations from left to right. Each set of coefficients represents the coefficient on host race, with log price as the outcome variable. I control for my preferred specification that includes listing location, listing characteristics, and host characteristics. Low number of observations for Black, Hispanic, and Asian hosts contribute to imprecise estimates in smaller cities. New Orleans and Nashville have less than 100 Hispanic and Asian hosts. DC and Austin have less than 200 Hispanic and Asian hosts. 
 		\end{tablenotes}
 	\end{table}
 
@@ -152,7 +152,7 @@
 		\end{tabular}
 		\begin{tablenotes}
 
-			\item {\it Note:} I break down my combined data by price, time on market, and property type. The categories, from left to right, are: listings whose price is below vs. above the mean price of \$147 and whose prices are above \$800, the price originally dropped, listings who have have been on the market for no more than 2 years vs. no more than 8 years, and listings of different property types, including apartments (includes apartments and lofts), condos (includes condos and townhouse), and ho uses. I control for my preferred specification throughout. The outcome variable is price of the listing.
+			\item {\it Note:} I break down my combined data by log price, time on market, and property type. The categories, from left to right, are: listings whose log price is below vs. above the mean predicted log price in each city, the price originally dropped, listings who have have been on the market for no more than 2 years vs. no more than 8 years, and listings of different property types, including apartments (includes apartments and lofts), condos (includes condos and townhouse), and houses. I control for my preferred specification throughout. The outcome variable is price of the listing.
 		\end{tablenotes}
 	\end{table}
 \end{landscape}
