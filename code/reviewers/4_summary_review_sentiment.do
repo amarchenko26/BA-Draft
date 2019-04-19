@@ -26,12 +26,11 @@ file write f "\begin{table}[htbp]" _n ///
 "\small\begin{tabular}{l c | c | c c c c}" _n ///
 
 // write column headers
-file write f " & \multicolumn{6}{c}{Reviewer Race in \say{Used} data} " _n ///
+file write f "& \multicolumn{1}{c}{} & \multicolumn{5}{c}{Reviewer Race in \say{All} data} " _n ///
 "\\" _n ///
 " \cmidrule(r){3-7}" _n ///
-" & (1) & (2) & (3) & (4) & (5) & (6)" _n ///
 "\\" _n ///
-" & \multicolumn{1}{c}{Raw} & Used & White & Black & Hispanic & Asian" _n ///
+" & \multicolumn{1}{c}{Full data} & \multicolumn{1}{c}{All} & White & Black & Hispanic & Asian" _n ///
 "\\" _n ///
 "\hline\hline\noalign{\smallskip} " _n 
 
@@ -174,14 +173,14 @@ file write f "\hline" _n ///
 // write end of table
 file write f "\hline\hline\noalign{\smallskip} \end{tabular} " _n ///
 "\begin{minipage}{6in}" _n ///
-	"{Note:} " ///
+	"{\it Note:} " ///
 	"This table demonstratates the summary statistics for data used in the" ///
-	"\say{Estimates of effect of host demographics on review sentiment, by reviewer demographics}" ///
-	"table. Column 1 contains statistics on the raw data. Column 2 contains statistics on " ///
-	"the data used in the estimations. Columns 3-6 section Column 2 by reviewer race. " ///
+	" \say{Estimates of effect of host demographics on review sentiment, by reviewer demographics}" ///
+	" table. Column 1 contains statistics on the raw data. Column 2 contains statistics on " ///
+	"the data used in the estimations. Columns 3 - 6 section Column 2 by reviewer race. " ///
 	"Row 1: Reviewer race, indicates the proportion of the different races in the reviewer data." ///
-	"Row 2: Host race, indicates the marginal probability of a host race given reviewer race." ///
-	"The values in the table are means and standard deviations" ///
+	" Row 2: Host race, indicates the marginal probability of a host race given reviewer race." ///
+	" The values in the table are means and standard deviations" ///
 	" of reviewer-level data who left reviews for a randomly chosen set of hosts in Chicago." ///
 	" The review sentiment is the sentiment of each review, the listing sentiment is the average" ///
 	" sentiment per listing. Observations in columns 2 - 5 do not add up to 17,050 because multiracial or" ///

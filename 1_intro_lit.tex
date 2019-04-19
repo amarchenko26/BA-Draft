@@ -17,7 +17,7 @@ This paper leverages the rise of sharing economies and the data and standardizat
 
 Measurements of discrimination on Airbnb are still potentially confounded by many other factors that affect a listing's price. Edelman and Luca (2014) estimated the effect of host race on the price of their listing in New York City with a small set of controls. Their results suggest that non-black hosts on Airbnb have prices roughly 12\% higher than black hosts. However, they only control for a few property characteristics, the quality of the host's reviews, and a measure of the reliability of the host. They leave out many other unobservables such as the type of listing (which is important if black hosts own single rooms and white hosts own entire houses) and proxies for the quality of the host themselves (which could also vary by race). 
 
-In this paper, I use a dataset from a webscrape of Airbnb to empirically measure discrimination. Using price and quantity information for 70,000 Airbnb hosts throughout the country, I address the limitations of Edelman and Luca's research by controlling for location, additional property characteristics, comprehensive measures of listing size, and text analyses of host-written descriptions of the listing. 
+In this paper, I use a previously unexploited dataset from a webscrape of Airbnb to empirically measure discrimination. Using price and quantity information for 70,000 Airbnb hosts throughout the country, I address the limitations of Edelman and Luca's research by controlling for location, additional property characteristics, comprehensive measures of listing size, and text analyses of host-written descriptions of the listing. 
 
 I find that non-white hosts, both male and female, have lower prices than white hosts. The biggest effect is for Asian female hosts, whose prices are roughly \$9 (6\%) less per day than white male hosts who own the same type of listing. The second biggest effect is for black males, whose price is lower by \$7 (4.5\%), followed by black women and Asian men with price disparities of \$6 (4\%) per day, and Hispanic females with a coefficient of \$5 (3.3\%).%
 	\footnote{This effect is statistically significant at the p $<$ .001 level for black hosts and Asian females, the p $<$ .01 level for Asian male hosts, and p $<$ .05 level for Hispanic females.} 
@@ -26,7 +26,7 @@ For Hispanic men the effect is small, around \$2 (1.3\%), and is not statistical
 Crucially, I also have data on the number of reviews and the number of vacancies of a listing, two measures of the quantity demanded. This is important because knowing both quantity demanded and price allows me to distinguish whether the price disparity between minority and white hosts on Airbnb is due to a demand shift (consistent with discrimination) or a supply shift (consistent with a difference in marginal cost for the hosts, or other hypotheses). The presence of discrimination would mean that despite lower prices, minority hosts face lower quantity demanded. 
 
 My first measure of quantity demanded is the number of reviews. I find that black hosts and white female hosts have 1 - 2 fewer reviews than white hosts for a listing that spent the same amount of time on the market. Effects for all other hosts are slightly negative, but not significant.%
-	\footnote{This conclusion is only salient if the total number of reviews is a reasonable proxy for the demand of a listing. Yet, one can imagine that if reviewers systematically under-review minority hosts relative to white hosts, these groups would have lower numbers of reviews that do not necessarily represent a lower quantity demanded. There is no way to tell apart these mechanisms in my data. A recent study found that reviews left by hosts on guests’ pages can significantly reduce discrimination and render acceptance rates of guests with white-sounding names and African American-sounding names statistically indistinguishable \citep{cui}, but it remains unknown whether or not reviewers discriminate against minorities in leaving reviews \citep{ye}. If reviewers systematically under-review minority hosts, this itself could be evidence of discrimination. My working assumption is that even if not every guest leaves a review, the review proportion is similar across host race, and a lower number of reviews therefore indicates a real difference between quantity demanded of minority hosts and white hosts.}
+	\footnote{It is important to keep in mind that this conclusion is only salient if the total number of reviews is a reasonable proxy for the demand of a listing. Yet, one can imagine that if reviewers systematically under-review minority hosts relative to white hosts, these groups would have lower numbers of reviews that do not necessarily represent a lower quantity demanded. There is no way to tell apart these mechanisms in my data. A recent study found that reviews left by hosts on guests’ pages can significantly reduce discrimination and render acceptance rates of guests with white-sounding names and African American-sounding names statistically indistinguishable \citep{cui}, but it remains unknown whether or not reviewers discriminate against minorities in leaving reviews \citep{ye}. If reviewers systematically under-review minority hosts, this itself could be evidence of discrimination. My working assumption is that even if not every guest leaves a review, the review proportion is similar across host race, and a lower number of reviews therefore indicates a real difference between quantity demanded of minority hosts and white hosts.}
 	
 One potential explanation for a lower number of reviews is that a minority host might make their listing available to guests less frequently than a white host. A host controls how many days of the month they offer their listing for rent via an availability calendar on the listing page. When a guest books their listing, the booked days disappear from the availability calendar. Therefore, the measure of availability is actually a measure of true vacancy for the listing. If a black host has a lower number of reviews, perhaps this is because they offer their listing for fewer days of the month than white hosts. To test this, I regress a listing's availability out of 30 days on host race. Results show that contrary to this hypothesis, the listings of black hosts stay vacant 2 - 3 days per month \textit{longer} than the listings of white hosts. The listings of white female hosts and Asian female hosts, on the other hand, are vacant less frequently than white hosts.
 
@@ -38,113 +38,30 @@ Finally, I investigate whether or not the price disparity is driven by minority 
 	\footnote{Since it required hand-coding, demographic information of the reviewers is only available for a randomly-chosen subset of hosts in Chicago.} 
 Rather than observing that minority hosts uniformly had lower quality reviews, which the hypothesis would predict, the significance of the result was either negligible, or depended on the demographics of the reviewer and host. While there is some evidence that male reviewers tend to rate male hosts higher, there is little within-race preference between reviewers and hosts. Taken as a whole, sentiment analysis suggests that minority hosts do not have lower quality reviews. 
 
-
-
-
-
-
 \subsection{About Airbnb} 
 	\label{about}
 Airbnb is an online marketplace founded in 2008 that allows hosts to rent their private dwellings to guests as temporary accommodation. As of 2017, it has more than 3 million listings, more than Marriott's 1.2 million rooms worldwide \citep{aboutus}. Just like traditional hotel chains, guests on Airbnb can browse listings by city and property type, and book a stay based on prices, location, past reviews, pictures of the listing, size, and amenities. Unlike traditional hotel chains, however, hosts create a profile for themselves and a page for each listing they are renting. Each listing page includes the name and picture of the host, the reviews left by previous guests, and those guests' profile pictures. Guests can therefore infer demographic information about the host through a host's picture and name, creating the opportunity for discrimination. Figures \ref{fig:listing}-\ref{fig:property} present screenshots of a listing in a Chicago neighborhood, illustrating some of the information that would be available to a potential guest. Figures \ref{fig:reviewinfo}-\ref{fig:location} display an example of reviews, a sample host profile, and sample location maps, and can be found in the Appendix.
 
 
-
-
-
-
-
-
-
-
 \subsection{Previous Literature} 
 	\label{previous}
-	
-	
-\textbf{Research on discrimination in P2P online commerce }
-
-There has been a large amount of research indicating that discrimination is present in online markets for labor, lending, rental, and products. In these cases, participants simply bring their prejudices online and use names and photos to discriminate. A canonical example is the \cite{bertrand} study, which found that resumes with white sounding names received 50\% more callbacks from potential employers than identical resumes with African-American sounding names. \cite{doleac} examined market outcomes when selling an iPod on various online marketplaces. In some pictures, a dark-skinned hand was holding the iPod, signaling a black seller, while in others, a light-skinned hand was holding the iPod, signaling a white seller. Hands which indicate a black seller received fewer and lower offers than white sellers. In sharing economies, a similar pattern occurs. Uber riders with distinctively African-American names experience longer wait times and more frequent cancellations than riders who use distinctively white names \citep{knittel}. These examples suggest that users of online platforms transfer their biases from the real world into the online world.  
-
-
-
-\textbf{Research on discrimination in Airbnb}
-
-This study builds on research done by \cite{edelman}, \cite{wang}, and \cite{kakar}. 
-
-\cite{edelman} explore the effect of Airbnb host race on the price of a listing using a sample of 3,800 New York City hosts in 2012. They use Amazon Mechanical Turk workers to identify the race of the host in Airbnb profile pictures. Controlling for a listing's location, its rating on various dimensions, and several variables related to the size of the listing, they find evidence that non-black hosts on Airbnb have prices roughly 12\% higher than black hosts. Their study was conducted while Airbnb was relatively new in New York City, so they were able to include all New York City listings. Edelman considered only Black hosts in New York City. They did not differentiate impact by gender, and were only able to control for a few property characteristics. 
-
-Given these constraints, Wang et al. (2015) and Kakar et al. (2018) use Edelman and Luca (2014)’s approach, and apply it the context of the Bay Area. 
-
-Wang et al. (2015) analyzed the impact of Asian host race on Airbnb prices in Oakland and Berkeley by scraping information on 100 hosts from the Airbnb website in those areas. Specifically, they considered the impact on Asian hosts and found that, when controlling for the number of bedrooms, bathrooms, and maximum occupancy, Asian hosts earned \$90 (20\%) less than white hosts with similar rentals. 
-
-The fact that a price disparity is estimated for both Black and Asian hosts, albeit in different contexts, is potentially informative about the mechanism behind discrimination in this context. The Black-White wealth gap is well-documented, large, and pervasive [cites]. When considering discrimination against Black hosts, therefore, it is unclear if guests discriminate because they expect listings of lower quality (statistical discrimination) or if they simply do not want to stay with Black hosts (taste-based discrimination). By contrast, Asians in the United States have the highest incomes out of any ethnicity in the US [cites]. It is therefore unlikely that discrimination against Asian hosts would be statistical. 
-
-Kakar et al. (2018) conduct a similar analysis for hosts in San Francisco as Wang et al. in Oakland, and Edelman and Luca in New York City. Kakar et al. find that Asian hosts charge 8\% lower prices relative to White hosts for comparable listings, controlling for neighborhood property values from Trulia, area demographics from the Census, and occupancy rates purchased from AirDNA as proxies for desirability or attractiveness of the locations. The price disparity is 10\% for Hispanic hosts, but becomes insignificant when adding They code the race, gender, self-identified sexual orientation, and whether the host is a couple from the profile picture. Since each picture needed to be manually coded, they only identify 800 out of the entire sample of 6,000 listings which were active in San Francisco as of 2015. 
-
-Several audit studies have also examined 
-
-I build on this study in several important ways. First, my sample includes seven large urban centers that cover each geographic region in the US. Second, their set of controls is limited by the relatively sparse listing information available on the Airbnb website (Airbnb has added more comprehensive data on each listing page since 2013). They control only for a listing's location, its rating, and several variables related to the size of the listing.%
-\footnote{See Table \ref{table:edelman_new} for the results of my regression using their covariates.} 
-I control for a more comprehensive set of confounders, including using machine learning techniques to analyze the image quality and quality of the host-written descriptions. Mostly importantly, I test alternative hypotheses that could explain my findings, which Edelman and Luca are unable to address. 
-
-	
-% edelman and luca 2014
-Most relevant to this paper is \cite{edelman}. They explore the effect of Airbnb host race on the price of their listing using a snapshot of roughly 3,800 New York City hosts in 2012. Controlling for several confounders that influence price, their findings indicate that non-black hosts on Airbnb have prices roughly 12\% higher than black hosts. I build on Edelman and Luca's research in several important ways. First, their sample was confined to a single city. My sample includes seven large urban centers that cover each geographic region in the US, which is important since discrimination in a large, cosmopolitan city with a highly diverse population such as New York might look different from discrimination in Nashville, which is more racially homogenous.
-
-Second, their set of controls is limited by the relatively sparse listing information available on the Airbnb website (Airbnb has added more comprehensive data on each listing page since 2013). They control only for a listing's location, its rating, and several variables related to the size of the listing. Since there could be a differences by race in the quality of the photos, x, and z that , including a more comprehensive set of covariates is important to more precisely measure the gap.  I control for a more comprehensive set of confounders
-
-After confirming their results with their model, I then control for a more complete set of covariates (see Section \ref{summary} and Section \ref{result1}).%
-\footnote{See Table \ref{table:edelman_new} for the results of my regression using their covariates.} 
-Most importantly, I also test alternative hypotheses for these price disparities, which Edelman and Luca are unable to address. 
-
-
-% 
-Others have found evidence of discrimination in Airbnb in various contexts. 	
-
-Cui et al (2018) 
-Cui, Li, and Zhang measured discrimination against Airbnb guests by creating fake guests accounts with identical profiles but with different names, either distinctively White or distinctively African American. In the first round of their experiment, they sent out requests for accommodation from a set of accounts with no reviews, as well as a set of accounts with one positive review. In the second round, the accounts were modified to have one negative review. They found that guests with White-sounding names were accepted on average 19 percentage points more often than those with African American-sounding names when the guest accounts had no reviews, but that the presence of a single review, whether positive or negative, rendered the acceptance rates statistically indistinguishable \cite{cui}.
-Edelman and Luca (2017)
-In a more recent audit study, Edelman and Luca measured discrimination against Airbnb guests. They created fake guest accounts that differed only by name and inquiring about the availability of listings across five cities. They found that requests for reservations by guests with distinctively African American names were 16\% less likely to be accepted by hosts than identical guests with distinctively white names. The estimated cost to the median host who rejects a guest on the basis of race was a loss of between \$65-\$100 of revenue \cite{ }.
-A later study by \cite{edelman2} found a similar result: guests with distinctively African-American names receive 16\% fewer responses from Airbnb hosts than those with white names. 
-
-
-
-% beginning of draft for above
-Wang et al. (2015) analyzed the impact of race on Airbnb in Oakland and Berkeley and found that, when controlling for the number of bedrooms, bathrooms, and maximum occupancy, Asians earned \$90 (20\%) less than white hosts with similar rentals. Extending this analysis, Kakar et al. (2018) also controlled for neighborhood property values as a proxy for desirability or attractiveness of the locations.
-
-
-	
 % START OF MELODY EDITS
+
+The recent rise of the Airbnb sharing economy has garnered interest in its microeconomic impacts and policy implications. Mao, Tian, and Ye investigated the effects of Airbnb on hotel prices in 221 different counties across the U.S. and found that the expansion of Airbnb into counties led to drops in hotel room demand, but also reduced unemployment in industries complementary to Airbnb’s core business, such as administration, support and waste management, and accommodation and food services \citep{mao}. Concerned with Airbnb’s impact on residential housing, Barron, Kung, and Proserpio found evidence that a 10\% increase in Airbnb listings resulted in a 0.42\% increase in rents of residential properties, and a 0.76\% increase in house prices. These effects were found to be more pronounced in areas with smaller shares of occupiers who owned their place of residence, meaning that not only was the rent increase larger in these areas, but it also affected a larger share of those areas’ residents \citep{barron}.
 
 The appeal of easily accessible, affordable, and short-term peer-to-peer accommodation has led many travelers to opt for Airbnb over a hotel stay under the perception that a number of Airbnb attributes outperform those of traditional hotels \citep{guttentag}. This pattern has become increasingly prevalent in popular tourist cities, where lodging closer to city centers and famous sites is more readily achievable with Airbnb listings than with hotels \citep{gutierrez}. The influx of tourists into residential areas and lack of industry regulation on Airbnb are quickly becoming causes of economic and social concern. Leong and Belzer investigate the legal ramifications of not subjecting Airbnb to some of the same regulations as other similar establishments. They note that the existing policies prohibiting public accommodations like hotels, restaurants, taxis, and retail businesses from discriminating against customers on the basis of characteristics such as race or religion have not yet evolved to apply to Airbnb, which exposes the platform to the risk of intentional bias and discrimination. Since online platform economy businesses encourage the use of public profiles and user ratings, biases can be triggered and aggregate over time to the point of becoming discriminatory against members of disfavored racial categories \citep{leong}. 
 
-The rise of the Airbnb sharing economy has garnered interest in its microeconomic impacts and policy implications. Mao, Tian, and Ye investigated the effects of Airbnb on hotel prices in 221 different counties across the U.S. and found that the expansion of Airbnb into counties led to drops in hotel room demand, but also reduced unemployment in industries complementary to Airbnb’s core business, such as administration, support and waste management, and accommodation and food services \citep{mao}. Barron, Kung, and Proserpio found evidence that a 10\% increase in Airbnb listings resulted in a 0.42\% increase in rents of residential properties, and a 0.76\% increase in house prices. These effects were found to be more pronounced in areas with smaller shares of occupiers who owned their place of residence, meaning that not only was the rent increase larger in these areas, but it also affected a larger share of those areas’ residents \citep{barron}.
-
 % END OF MELODY EDITS
 
-\subsection*{Theoretical  foundation}
+Most relevant to this paper is \cite{edelman}. They explore the effect of Airbnb host race on the price of their listing using a snapshot of roughly 3,800 New York City hosts in 2012. Controlling for several confounders that influence price, their findings indicate that non-black hosts on Airbnb have prices roughly 12\% higher than black hosts. I build on Edelman and Luca's research in several important ways. First, their sample was relatively narrow and confined to a single city. My sample includes seven large urban centers that cover each geographic region in the US. Discrimination in a large, cosmopolitan city with a highly diverse population such as New York might look different from discrimination in Nashville, which is more racially homogenous.
+
+Second, their set of controls was limited by the relatively sparse listing information available on the Airbnb website (Airbnb has added more comprehensive data on each listing page since 2013). Their covariates only included a listing's location, the number of people the listing accommodates, the rating, the number of bedrooms, and whether or not the whole apartment is available to the guest. After confirming their results with their model, I then control for a more complete set of covariates (see Section \ref{summary} and Section \ref{result1}).%
+	\footnote{See Table \ref{table:edelman_new} for the results of my regression using their covariates.} 
+Most importantly, I also test alternative hypotheses for these price disparities, which Edelman and Luca are unable to address. 
+
 \cite{becker} proposed the idea that discrimination against a group can be reflected in that group's market prices. In the Airbnb market, Becker's market discrimination would be reflected in the price that the guest (buyer) pays to the host (seller) to stay with them. If the guest (buyer) is discriminating, then given two comparable listings, they would choose not to stay in the one owned by a minority host (seller). Responding to the lowered demand curve, hosts in minority groups rationally post a lower price and, despite this, face a lower quantity demanded. 
 
-
-Market discrimination laid out by Becker rests on the idea that groups who are discriminated against see lower demand in the market, which drives down their prices. I have estimated that prices are lower, but it is so far unclear if the price disparity is caused by a supply or a demand shift.%
-\footnote{There could be multiple explanations for a lower supply curve. One hypothesis is that minority hosts charge a lower price for their listing because it is cheaper for them, on the margin, to operate the same listing as compared to a white host. Since black and Hispanic workers tend to earn less than their white counterparts, even for the same amount of education, they may have a lower opportunity cost of time \citep{wages}. Minority hosts would therefore have a lower marginal cost of managing their listing, and so would choose to set lower prices than white hosts with comparable listings. If the price disparity was due to these marginal cost differences, then the quantity demanded of minority hosts' listings should be higher than white hosts'.}
-Basic microeconomic theory tells us that we can test this by looking at the quantity demanded. If prices are lower because the supply curve is lower, then minority hosts would have a higher quantity demanded. Conversely, if the prices are lower because the demand curve is lower - which would be in line with the presence of discrimination - then the quantity demanded should be lower than it is for white hosts. 
-
 Becker (1957) was concerned with discrimination arising from face-to-face interactions between minority and majority groups. Since then, there has been a large amount of research indicating that Becker's theory holds for people participating in online markets for labor, lending, rental, and products. In these cases, participants simply bring their prejudices online and use names and photos to discriminate. A canonical example is the \cite{bertrand} study, which found that resumes with white sounding names received 50\% more callbacks from potential employers than identical resumes with African-American sounding names. \cite{doleac} examined market outcomes when selling an iPod on various online marketplaces. In some pictures, a dark-skinned hand was holding the iPod, signaling a black seller, while in others, a light-skinned hand was holding the iPod, signaling a white seller. Hands which indicate a black seller received fewer and lower offers than white sellers. In sharing economies, a similar pattern occurs. Uber riders with distinctively African-American names experience longer wait times and more frequent cancellations than riders who use distinctively white names \citep{knittel}. A later study by \cite{edelman2} found a similar result: guests with distinctively African-American names receive 16\% fewer responses from Airbnb hosts than those with white names. These examples suggest that users of online platforms transfer their biases from the real world into the online world.  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 \begin{comment}
 Structurally, African-Americans were denied Federal Housing Adminstration mortgages at the low interest rates that were offered to white families, redlining districts , predatory , among many other structural moving north during the Great Migration were met with  Shut out from One reason is  

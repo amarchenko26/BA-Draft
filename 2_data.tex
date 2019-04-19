@@ -1,7 +1,8 @@
-%  DATA
-\subsubsection*{Source} 
-The data are taken from Inside Airbnb, a project unaffiliated with Airbnb which aggregates cleaned data on Airbnb listings in over 40 cities across the world \citep{insideairbnb}. The data on Inside Airbnb are sourced from a webscrape of publicly available information on the Airbnb website.%
+\subsection{Source} 
+	\label{source}
+My data are taken from the website Inside Airbnb, which provides cleaned and aggregated data on Airbnb listings in 43 cities across the world \citep{insideairbnb}. The data provided on the website are sourced from a webscrape of publicly available information on the Airbnb website. Inside Airbnb is not run by or affiliated with Airbnb itself.%
 	\footnote{Airbnb's host profiles and listings are publicly available information, and no private data was accessed in the scrape. The cleaned data is under a Creative Commons Public Domain Dedication.} 
+<<<<<<< HEAD
 The scrape of the Airbnb website was conducted throughout 2015 [MELODY CHECK THIS], and provides a point-in-time snapshot of all of the listings available in a particular city. This includes all of the information that would be available to an Airbnb guest browsing through listings at the time of the scrape.%
 	\footnote{Inside Airbnb provides some time-series information on prices, but since each listing's price was not scraped daily, there are often week-long or month-long gaps in the time-series price data. A cursory glance at the time-series prices reveals that hosts do not change prices often, and if they do, they often reflect predictable weekend or holiday seasonality. There is therefore reason to believe that the prices posted at the time of the scrape are representative of a listing's price throughout the year. Because of the incompleteness of the time-series data set, I focus on the cross-sectional data for the main analysis.} 
 	
@@ -51,35 +52,39 @@ For the 16,000 reviewers who left reviews in Chicago listings, I also use natura
 \doublespacing
 
 
+=======
+The intent of Inside Airbnb is to inform the public on how Airbnb competes with the residential housing market in their areas. 
+>>>>>>> 93fc9012d8d062f256f1ef36f75c04bd25e7920a
 
+The scrape of the Airbnb website was conducted throughout 2015, and provides a point-in-time snapshot of all of the listings available in a particular city. This includes all of the information that would be available to an Airbnb user browsing through listings at the time of the scrape. 
 
+A total of 70,000 host pictures across seven US cities were coded - Chicago, Los Angeles, New York City, Austin, Washington, D.C., and New Orleans.%
+	\footnote{For every city but New York, every single Airbnb listing that existed in that city at the time of the scrape was coded. In New York, which had the most listings in the sample, half of the existing 40,000 listings were randomly chosen.} 
+Large cities with racial diversity which were geographically dispersed were chosen. Time, effort, and monetary constraints prohibited the coding of all 16 US cities whose data was available on InsideAirbnb.com. This approach limits the applicability of my findings to urban areas, discounting the roughly one-fifth of Airbnb's listings which are located in rural areas.%
+	\footnote{A 2017 report released by Airbnb stated that 18.4\% of all active listings are located in rural areas, and there was 138\% year-in-year growth in Airbnb guest arrivals at rural listings.} 
+In addition to main host data, demographic data was also coded for 16,000 reviewers who stayed with a subset of the Chicago hosts.%
+	\footnote{This represents about 23\% of the total number of reviewers in Chicago. Not all reviewers could be coded due to time and labor constraints. A random subset of Chicago hosts was chosen such that the 16,000 reviews represent all of the reviews left for those hosts. Each review has a unique reviewer id, host id, listing id, the date of the review, the review text, and the coded race, sex, and age of the reviewer.}
+For those hosts in Chicago, it is thus possible to study the interaction of reviewer demographics, host demographics, and review quality.
 
 
 \subsection{Data Summary}
 	\label{summary}
 Summary statistics of listing characteristics, host demographics, and host characteristics are displayed in Tables \ref{table:listing}-\ref{table:covariates}. Histograms of prices, number of reviews, and review sentiment are included in Figures \ref{fig:prices} - \ref{fig:sentiment}. There is significant variation in both sex and race of the hosts on Airbnb. Roughly a third of the sample are single females (38\%), and a third are single males (31\%), with the rest being couples or groups (31\%). About two-thirds of the hosts are white (64\%), and less than a tenth are black (7\%), Hispanic (5\%), or Asian (9\%).%
-	\footnote{The rest of the profile pictures were either pictures of groups, pictures without a human face, or multiracial couples.} 
+	\footnote{The rest of the profile pictures were either pictures of groups, pictures without a human face, or multiracial couples, all of which were put in the ``Unknown/Multiracial" category in Table \ref{table:demographics}.} 
 %Black hosts in the sample are underrepresented relative to the proportion of African-Americans in the national population (13\%). Hispanic hosts are similarly very underrepresented relative to the proportion of Hispanics in the population (16\%). One explanation for this could be that people self-identify as Hispanic for census data, while Airbnb hosts were identified by RAs who might have mistakenly coded Hispanic hosts as other categories. Asian-American hosts (9\%) are overrepresented by a few percentage points relative to the 5.6\% of Asian-Americans in the national average \cite{census}. 
 
 The prices of listings owned by white hosts are dramatically higher than those of other hosts. The mean price per night of a listing is \$178 per night for white, \$125 for black, \$160 for Hispanic, and \$131 for Asian hosts. Minority hosts also have lower median prices and lower standard deviations, indicating that not only do minority hosts own cheaper listings on average, but their listings are more concentrated around the lower mean.\footnote{The median price of a listing owned by a white hosts is \$115 per night, \$90 for black hosts, \$99 for Hispanic hosts, and \$90 for Asian hosts.} 
 
-A substantial driver of the price disparity is differences in property characteristics. Table \ref{table:listing} indeed shows that white hosts own the most houses and the fewest apartments or lofts. They have the most bedrooms, bathrooms, beds, and amenities in their properties, all features correlated with higher prices. In most of these measures of property quality, black and Asian hosts have listings with the worst characteristics. 
+It is reasonable to expect that a large portion of the price differences described above are driven by differences in property characteristics. Table \ref{table:listing} shows that white hosts own the most houses and the fewest apartments or lofts. They have the most bedrooms, bathrooms, beds, and amenities in their properties. In most of these measures of property quality, the listings owned by Hispanic hosts come the closest in quality to white hosts. Both black and Asian hosts have properties with the worst listing characteristics. 
 
 While white hosts' listings are of higher quality in terms of property characteristics, this is not the case for host characteristics. Black hosts do well in categories where the host can personally influence their desirability: responding on time, writing long descriptions, or making their listing available for more days out of the month. %They have the highest response rate at 77\%, with white and Hispanic hosts behind them at 75.6\%. They make their listings available an average of 14 days a month, a full 4 days more than white hosts. However, black hosts have the lowest acceptance rate, accepting only 36\% of guests who ask to stay with them. Hispanic hosts have the highest acceptance rate at nearly 50\%. 
-Black and Hispanic hosts also describe their listings using as many or more words associated with quality descriptions, such as ``airy," ``beautiful," and ``clean", as white hosts).%
-	\footnote{See Figure \ref{fig:property} for an example of the host-written descriptions on a listing page.} 
+Black and Hispanic hosts also do well in some of my constructed measures of ``host quality" (for example, they describe their listings using as many or more words associated with quality descriptions, such as ``airy," ``beautiful," and ``clean", as white hosts).%
+	\footnote{See Figure \ref{fig:property} for an example of host-written descriptions on a real listing profile.} 
 	
 %The difference between white and Asian hosts increases as the fields get less prominent on the profile. At most the difference in the length of descriptions that white and Asian hosts write is 13 words. While white hosts write the longest descriptions in every host-written field, black hosts are, on average, only four words behind white hosts in this metric. Asian hosts write the shortest descriptions in every host written field. 
 
-White hosts have the highest number of reviews, and the highest review ratings. Airbnb designates especially experienced, highly-rated hosts as ``Superhosts". Users on Airbnb are willing to pay more to stay with a Superhost, likely due to the perception that their listings are of higher quality. Because Airbnb assigns Superhost status based on the number of guests a host has, the quality of their reviews, and their response rate, white hosts are Superhosts most frequently. %13.4\% of white hosts are Superhosts, while the next runner-up, Hispanic hosts, are at 10.8\% Superhosts.
+White hosts also have the highest number of reviews, and the highest review ratings. Airbnb designates especially experienced, highly-rated hosts as ``Superhosts". Users on Airbnb are willing to pay more to stay with a ``Superhost," which is likely due to the perception that they own listings of higher quality. Because Airbnb assigns Superhost status based on the number of stays a host has, the quality of their reviews, and their response rate, white hosts are Superhosts most frequently. %13.4\% of white hosts are Superhosts, while the next runner-up, Hispanic hosts, are at 10.8\% Superhosts.
 
-The reviewers in Chicago have some interesting characteristics, displayed in Table \ref{table:reviewer}. The reviewers have similar gender diversity as the overall host population but significantly less racial diversity, perhaps indicating that the population of Airbnb guests, as opposed to hosts, tend to be  more white. Importantly, the measure of review quality assigned by the machine learning algorithm to the review text correlates  well with the actual numeric scores reviewers gave. While all hosts have on average very positive reviews, white hosts have the most positive review sentiment, and black hosts the worst review sentiment.
-
-
-
-
-
-% OLD SENTIMENT PARAGRAPHS
-%Hu and Liu (2004) create a list of 2,006 positive words that commonly appear in customer reviews to aid in sentiment categorization \citep{hu}. I only include words that have substantial variation in the description, meaning that more than 5\% of descriptions had these words. This narrowed the list of viable words significantly. I take 7 positive words from that list that would be most relevant for Airbnb listings: ``spacious," ``beautiful," ``clean," ``comfort," ``great," ``love," and ``quiet". I then added a covariate for the number of these ``good words" in the host's ``Description" field.
-
-%this end, I construct three variables to measure host effort. My first variable simply measures the length of each of these fields. My second variable measures whether these fields had mostly long words or short words, so that a description that uses shorter words, such as ``My house is nice", would be counted as lower quality than ``My house is gorgeous". My third measure of host effort is a rudimentary sentiment analysis of the ``Description" field.
+The reviewers in Chicago have some interesting characteristics, displayed in Table \ref{table:reviewer}. The reviewers have similar gender diversity as the overall host population but significantly less racial diversity. Importantly, the measure of review quality externally assigned by Sentimentr to the text of each review generally matches up with the numeric scores reviewers gave. While all hosts have on average very positive reviews, white hosts have the most positive review sentiment, and black hosts the worst review sentiment.%
+	\footnote{See Data Appendix for details of sentiment analysis. } 
+%However, 67\% of reviewers are white, with only 6\% being African American and Hispanic, and 12\% Asian.

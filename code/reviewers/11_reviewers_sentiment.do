@@ -1,8 +1,6 @@
 *********************************************************
 *					  Reviewers Regression 			    *
 *********************************************************
-
-
 preserve
 keep if sample == 1
 
@@ -194,14 +192,14 @@ estadd local controlgroup3 "Yes" : mod1  mod2  mod3  mod4  mod5  mod6  mod7  mod
 esttab  mod1  mod2  mod3  mod4  mod5  mod6  mod7  mod8  using 
 	"$repository/code/tables/tex_output/individual_tables/reviewer_mean_reg.tex",
 	keep(*.race_sex_res) drop(1.race_sex_res)
-	se ar2 replace label
+	se ar2 replace label nogap
 	mtitles("White M" "White F" "Black M"
 			"Black F" "Hispanic M" "Hispanic F"
 			"Asian M" "Asian F")
 	title("Estimates of effect of host demographics on review sentiment, by reviewer demographics" ) 
 	stats(controlgroup1 controlgroup2 controlgroup3 linehere N r2,
-	labels("Location Fixed Effects" "Property Fixed Effects" 
-		   "Host Fixed Effects" "\hline \vspace{-1.25em}"
+	labels("Location Controls" "Property Controls" 
+		   "Host Controls" "\hline \vspace{-1.25em}"
 		   "Observations" "Adjusted R2"))
 	fragment
 		   ;
