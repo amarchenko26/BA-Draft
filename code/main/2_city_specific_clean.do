@@ -135,3 +135,6 @@ experiences_offered_polarity experiences_offered_subjectivity neighborhood_overv
 neighborhood_overview_subject)
 ;
 #delimit cr
+
+** Exporting for census merging
+save "$repository/code/census/cleaned.dta", replace

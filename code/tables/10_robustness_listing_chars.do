@@ -9,7 +9,7 @@ set emptycells drop
 
 ** Predicted price in LA
 #delimit ; 
-quietly reg price
+quietly reg log_price
 			i.group_neighbourhood_cleansed i.cleaned_city 
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type 
@@ -31,10 +31,12 @@ quietly reg price
 ;
 #delimit cr
 predict predict_price_LA
+sum predict_price_LA
+local mean_price_LA = `r(mean)'
 
 ** Predicted price in NYC
 #delimit ; 
-quietly reg price
+quietly reg log_price
 			i.group_neighbourhood_cleansed i.cleaned_city 
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type 
@@ -56,10 +58,12 @@ quietly reg price
 ;
 #delimit cr
 predict predict_price_NY
+sum predict_price_NY
+local mean_price_NY = `r(mean)'
 
 ** Predicted price in Chicago
 #delimit ; 
-quietly reg price
+quietly reg log_price
 			i.group_neighbourhood_cleansed i.cleaned_city 
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type 
@@ -81,11 +85,12 @@ quietly reg price
 ;
 #delimit cr
 predict predict_price_chi
-*/
+sum predict_price_chi
+local mean_price_chi = `r(mean)'
 
 ****** Low/high price robustness 
 #delimit ; 
-quietly reg price i.race_res
+quietly reg log_price i.race_res
 			i.group_neighbourhood_cleansed 
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type 
@@ -102,14 +107,14 @@ quietly reg price i.race_res
 			i.group_host_response_time miss_group_host_response_time
 			host_response_rate //Host-specific charac.
 			host_identity_verified host_is_superhost 
-				if predict_price_LA < 171 & state=="CA",  //Host-specific charac.
+				if predict_price_LA < `mean_price_LA' & state=="CA",  //Host-specific charac.
 			vce(cluster group_neighbourhood_cleansed) 
 ;
 #delimit cr
 eststo model1
 
 #delimit ;
-quietly reg price i.race_res
+quietly reg log_price i.race_res
 			i.group_neighbourhood_cleansed 
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type 
@@ -126,14 +131,14 @@ quietly reg price i.race_res
 			i.group_host_response_time miss_group_host_response_time
 			host_response_rate //Host-specific charac.
 			host_identity_verified host_is_superhost 
-				if predict_price_LA > 171 & state=="CA",   //Host-specific charac.
+				if predict_price_LA > `mean_price_LA' & state=="CA",   //Host-specific charac.
 			vce(cluster group_neighbourhood_cleansed) 
 ;
 #delimit cr
 eststo model2 
 
 #delimit ;
-quietly reg price i.race_res
+quietly reg log_price i.race_res
 			i.group_neighbourhood_cleansed 
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type
@@ -150,14 +155,14 @@ quietly reg price i.race_res
 			i.group_host_response_time miss_group_host_response_time 
 			host_response_rate  //Host-specific charac.
 			host_identity_verified host_is_superhost 
-				if predict_price_NY < 132 & state=="NY", //Host-specific charac.
+				if predict_price_NY < `mean_price_NY' & state=="NY", //Host-specific charac.
 			vce(cluster group_neighbourhood_cleansed) 
 ;
 #delimit cr
 eststo model3 
 
 #delimit ; 
-quietly reg price i.race_res
+quietly reg log_price i.race_res
 			i.group_neighbourhood_cleansed 
 			i.group_property_type i.group_room_type
 			accommodates bathrooms bedrooms beds i.group_bed_type
@@ -174,14 +179,14 @@ quietly reg price i.race_res
 			i.group_host_response_time miss_group_host_response_time 
 			host_response_rate //Host-specific charac.
 			host_identity_verified host_is_superhost 
-				if predict_price_NY > 132 & state=="NY", //Host-specific charac.
+				if predict_price_NY > `mean_price_NY' & state=="NY", //Host-specific charac.
 			vce(cluster group_neighbourhood_cleansed) 
 ;
 #delimit cr
 eststo model4
 
 #delimit ; 		
-quietly reg price i.race_res
+quietly reg log_price i.race_res
 			i.group_neighbourhood_cleansed 
 			i.group_property_type i.group_room_type
 			accommodates bathrooms bedrooms beds i.group_bed_type
@@ -198,14 +203,14 @@ quietly reg price i.race_res
 			i.group_host_response_time miss_group_host_response_time 
 			host_response_rate //Host-specific charac.
 			host_identity_verified host_is_superhost 
-				if predict_price_chi < 124 & state=="IL", //Host-specific charac.
+				if predict_price_chi < `mean_price_chi' & state=="IL", //Host-specific charac.
 			vce(cluster group_neighbourhood_cleansed) 
 ;
 #delimit cr
 eststo model5 
 
 #delimit ; 
- quietly reg price i.race_res
+ quietly reg log_price i.race_res
 			i.group_neighbourhood_cleansed
 			i.group_property_type i.group_room_type
 			accommodates bathrooms bedrooms beds i.group_bed_type 
@@ -221,14 +226,14 @@ eststo model5
 			i.group_host_response_time miss_group_host_response_time 
 			host_response_rate //Host-specific charac.
 			host_identity_verified host_is_superhost 
-				if predict_price_chi > 124 & state=="IL",  //Host-specific charac.
+				if predict_price_chi > `mean_price_chi' & state=="IL",  //Host-specific charac.
 			vce(cluster group_neighbourhood_cleansed) 
 ;
 #delimit cr
 eststo model6
 
 #delimit ; 
-quietly reg price i.race_res 
+quietly reg log_price i.race_res 
 			i.group_neighbourhood_cleansed i.cleaned_city 
 			i.group_property_type i.group_room_type
 			accommodates bathrooms bedrooms beds i.group_bed_type
@@ -251,7 +256,7 @@ quietly reg price i.race_res
 eststo model7 
 
 #delimit ; 
-quietly reg price i.race_res
+quietly reg log_price i.race_res
 			i.group_neighbourhood_cleansed i.cleaned_city 
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type 
@@ -276,7 +281,7 @@ quietly reg price i.race_res
 eststo model8 
 
 #delimit ; 			
-quietly reg price i.race_res 
+quietly reg log_price i.race_res 
 			i.group_neighbourhood_cleansed i.cleaned_city  
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type 
@@ -301,7 +306,7 @@ quietly reg price i.race_res
 eststo model9 
 
 #delimit ; 
-quietly reg price i.race_res
+quietly reg log_price i.race_res
 			i.group_neighbourhood_cleansed i.cleaned_city 
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type 
@@ -326,7 +331,7 @@ quietly reg price i.race_res
 eststo model10 
 
 #delimit ; 			
-quietly reg price i.race_res
+quietly reg log_price i.race_res
 			i.group_neighbourhood_cleansed i.cleaned_city 
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type  
