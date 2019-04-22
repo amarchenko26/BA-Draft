@@ -174,14 +174,12 @@ file write f "\hline" _n ///
 file write f "\hline\hline\noalign{\smallskip} \end{tabular} " _n ///
 "\begin{minipage}{6in}" _n ///
 	"{\it Note:} " ///
-	"This table demonstratates the summary statistics for data used in the" ///
-	" \say{Estimates of effect of host demographics on review sentiment, by reviewer demographics}" ///
-	" table. Column 1 contains statistics on the raw data. Column 2 contains statistics on " ///
-	"the data used in the estimations. Columns 3 - 6 section Column 2 by reviewer race. " ///
-	"Row 1: Reviewer race, indicates the proportion of the different races in the reviewer data." ///
-	" Row 2: Host race, indicates the marginal probability of a host race given reviewer race." ///
-	" The values in the table are means and standard deviations" ///
-	" of reviewer-level data who left reviews for a randomly chosen set of hosts in Chicago." ///
+	"The values in this table are means and standard deviations of reviewer-level data" ///
+	" who left reviews for a randomly chosen set of hosts in Chicago." ///
+	"Column 1 has the means for the entire data. Column 2 has the means of the sample" ///
+	"used in Table 11. Columns 3 - 6 partition Column 2 by reviewer race." ///
+	"Row 1, Reviewer race: indicates the proportion of the different reviewer races in the data coded." ///
+	" Row 2, Host race: indicates the marginal probability of a host race given a reviewer race." ///
 	" The review sentiment is the sentiment of each review, the listing sentiment is the average" ///
 	" sentiment per listing. Observations in columns 2 - 5 do not add up to 17,050 because multiracial or" ///
 	" unidentifiable reviewer pictures are excluded. White refers only to non-Hispanic whites." _n ///

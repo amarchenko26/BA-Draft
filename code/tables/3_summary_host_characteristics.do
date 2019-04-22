@@ -195,7 +195,6 @@ file write f "\hline\hline\noalign{\smallskip} \end{tabular} " _n ///
 	" measures of host quality. These two measures were also calculated for the description," ///
 	" space, neighborhood overview, notes, and transit fields, but were not included in the" ///
 	" table for the sake of clarity and because they follow a similar pattern as the" ///
-	" table for the sake of clarity and because they follow a similar pattern as the" ///
 	" \say{Summary} field." _n ///
 "\end{minipage}" _n ///
 "\end{center}" _n ///
