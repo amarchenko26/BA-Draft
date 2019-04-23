@@ -83,7 +83,7 @@ file write f " \hspace{10bp}Female & " 	%4.2f (`sex_res_mean_2') " & " %4.2f (`s
 file write f " \hspace{10bp}Unknown & "	%4.2f (`sex_res_mean_3') " & {0.00} & {0.00} &  {0.00}  & {0.00}  & {0.00} \\ " 	
 
 file write f " \textit{Age} &&&&&& \\" _n
-file write f " \hspace{10bp}Young($<30$) & " 	%4.2f (`age_res_mean_1') " & " %4.2f (`age_res_mean_all_1') " &  " %4.2f (`age_res_mean_1_1') " & " %4.2f (`age_res_mean_2_1') " &  " %4.2f (`age_res_mean_3_1') " & " %4.2f (`age_res_mean_4_1') " \\ " 
+file write f " \hspace{10bp}Young ($<30$) & " 	%4.2f (`age_res_mean_1') " & " %4.2f (`age_res_mean_all_1') " &  " %4.2f (`age_res_mean_1_1') " & " %4.2f (`age_res_mean_2_1') " &  " %4.2f (`age_res_mean_3_1') " & " %4.2f (`age_res_mean_4_1') " \\ " 
 file write f " \hspace{10bp}Middle-aged & " 	%4.2f (`age_res_mean_2') " & " %4.2f (`age_res_mean_all_2') " &  " %4.2f (`age_res_mean_1_2') " & " %4.2f (`age_res_mean_2_2') " &  " %4.2f (`age_res_mean_3_2') " & " %4.2f (`age_res_mean_4_2') " \\ " 
 file write f " \hspace{10bp}Old ($>65$) & "		%4.2f (`age_res_mean_3') " & " %4.2f (`age_res_mean_all_3') " &  " %4.2f (`age_res_mean_1_3') " & " %4.2f (`age_res_mean_2_3') " &  " %4.2f (`age_res_mean_3_3') " & " %4.2f (`age_res_mean_4_3') " \\ " 
 file write f " \hspace{10bp}Unknown & " 	%4.2f (`age_res_mean_4') " & {0.00} & {0.00} &  {0.00}  & {0.00}  & {0.00} \\ " 	

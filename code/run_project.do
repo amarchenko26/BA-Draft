@@ -27,6 +27,12 @@ foreach file in 1_general_clean 2_city_specific_clean{
 	do "`file'".do
 }
 
+//Run code in census cleaning
+cd "$repository/code/census/"
+foreach file in 3_census_merge.do{
+	do "`file'".do
+}
+
 //Run code in robustness analysis
 cd "$repository/code/tables/"
 foreach file in 1_summary_table 2_summary_host_demographics 3_summary_host_characteristics 5_price 6_robustness_edelman_price 7_number_reviews 8_availability_30 9_robustness_city 10_robustness_listing_chars 12_revenue{

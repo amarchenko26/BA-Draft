@@ -73,3 +73,36 @@ git rm --cached availability_30_days.tex
 
 
 BA-Draft/code/tables/tex_output/individual_tables
+
+code/.DS_Store
+
+#Ignore following tex table outputs
+availability_30_days.tex
+edelman_price.tex
+number_reviews.tex
+
+
+*.synctex(busy)
+
+
+code/tables/tex_output/individual_tables/availability_30_days.tex
+code/tables/tex_output/individual_tables/edelman_price.tex
+code/tables/tex_output/individual_tables/number_reviews.tex
+code/tables/tex_output/individual_tables/price.tex
+code/tables/tex_output/individual_tables/reviewer_mean_reg.tex
+code/tables/tex_output/individual_tables/robustness_city.tex
+code/tables/tex_output/individual_tables/robustness_listing_char.tex
+code/tables/tex_output/individual_tables/summary_reviewer_char.tex
+code/tables/tex_output/individual_tables/summary_table_host_demo.tex
+code/tables/tex_output/individual_tables/yearly_revenue.tex
+code/tables/tex_output/individual_tables/availability_30_days.tex
+code/tables/tex_output/individual_tables/edelman_price.tex
+code/tables/tex_output/individual_tables/number_reviews.tex
+code/tables/tex_output/individual_tables/price.tex
+code/tables/tex_output/individual_tables/reviewer_mean_reg.tex
+code/tables/tex_output/individual_tables/robustness_city.tex
+code/tables/tex_output/individual_tables/robustness_listing_char.tex
+code/tables/tex_output/individual_tables/summary_reviewer_char.tex
+code/tables/tex_output/individual_tables/summary_table_host_demo.tex
+code/tables/tex_output/individual_tables/yearly_revenue.tex
+.DS_Store

@@ -202,7 +202,7 @@ la var sex "Sex"
 la var age "Age"
 la var number_of_reviews "Number of Reviews"
 la var price "Price"
-la var review_scores_rating "Review Scores Rating"
+la var review_scores_rating "Review scores rating"
 la var property_type "Property Type"
 la var room_type "Room Type"
 la var accommodates "Max Num. Guests"
@@ -221,7 +221,7 @@ la var host_is_superhost "Host is a Superhost"
 la var host_response_rate "Response rate"
 la var host_response_time "Response time"
 la var host_acceptance_rate "Acceptance rate"
-la var sum_good_word_tot "Total good words in summary"
+la var sum_good_word_tot "Total good words in Summary"
 la var len_desc "Length of description"
 la var short_words "Short words"
 la var host_identity_verified "Host's Identity Verified?"
@@ -233,3 +233,15 @@ la var short_words2 "Short words in Summary"
 replace ra_name = "Fong" if ra_name== "FONG"
 replace ra_name = "Joe" if ra_name== "Joseph"
 egen group_ra_name = group(ra_name)
+
+** Log price, number of reviews
+local log_me price number_of_reviews
+
+foreach i in `log_me'{
+	gen log_`i' = ln(`i')
+	gen miss_log_`i' = 0
+	replace miss_log_`i' = 1 if mi(`i')
+}
+
+la var log_price "Log Price"
+la var log_number_of_reviews "Log Number of Reviews"
