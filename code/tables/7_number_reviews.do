@@ -50,8 +50,8 @@ quietly reg log_number_of_reviews i.race_sex_res i.age
 			availability_30 availability_60 reviews_polarity reviews_subjectivity 
 			summary_polarity summary_subjectivity 
 			space_polarity space_subjectivity description_polarity description_subjectivity 
-			neighborhood_overview_polarity 
-			neighborhood_overview_subject //Quality of listing/effort of host
+			neighborhood_polarity 
+			neighborhood_subjectivity //Quality of listing/effort of host
 			i.group_host_response_time miss_group_host_response_time 
 			host_response_rate //Host-specific charac.
 			host_identity_verified host_is_superhost, //Host-specific charac.

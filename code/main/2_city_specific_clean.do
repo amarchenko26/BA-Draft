@@ -136,5 +136,37 @@ neighborhood_overview_subject)
 ;
 #delimit cr
 
+rename neighborhood_overview_polarity neighborhood_polarity
+rename neighborhood_overview_subject neighborhood_subjectivity
+
+** Renaming just for creating missing dummies
+rename group_neighbourhood_cleansed group_nhood_clean
+rename require_guest_profile_picture req_guest_pro_pic
+rename require_guest_phone_verification req_guest_phone
+
+** Create more indicator variables for missing variables 
+local varlist race_sex_res group_ra_name cleaned_city group_nhood_clean group_property_type group_room_type accommodates bathrooms bedrooms beds group_bed_type cleaning_fee extra_people num_amenities group_cancellation_policy instant_bookable req_guest_pro_pic req_guest_phone minimum_nights availability_30 availability_60 
+
+foreach var in `varlist'{
+	gen miss_`var' = 0
+	replace miss_`var' = 1 if `var'== .
+	replace `var' = 0 if `var'== .
+}
+
+rename group_nhood_clean group_neighbourhood_cleansed
+rename req_guest_pro_pic require_guest_profile_picture
+rename req_guest_phone require_guest_phone_verification
+
+
+** Creating missing dummies for NLP
+local NLP summary_polarity summary_subjectivity description_polarity description_subjectivity space_polarity space_subjectivity reviews_polarity reviews_subjectivity neighborhood_polarity neighborhood_subjectivity
+
+foreach var in `NLP'{
+	gen miss_`var' = 0
+	replace miss_`var' = 1 if `var'== .
+	sum `var'
+	replace `var' = `r(mean)' if `var'== .
+}
+
 ** Exporting for census merging
 save "$repository/code/census/cleaned.dta", replace
