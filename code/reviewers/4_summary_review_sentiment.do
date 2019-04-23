@@ -26,7 +26,7 @@ file write f "\begin{table}[htbp]" _n ///
 "\small\begin{tabular}{l c | c | c c c c}" _n ///
 
 // write column headers
-file write f "& \multicolumn{1}{c}{} & \multicolumn{5}{c}{Reviewer Race in \say{All} data} " _n ///
+file write f "& \multicolumn{1}{c}{} & \multicolumn{5}{c}{Reviewer Race from Chicago data} " _n ///
 "\\" _n ///
 " \cmidrule(r){3-7}" _n ///
 "\\" _n ///
