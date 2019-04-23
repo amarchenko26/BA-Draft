@@ -27,11 +27,20 @@ foreach file in 1_general_clean 2_city_specific_clean{
 	do "`file'".do
 }
 
-//Run code in census cleaning
+//Run code in census cleaning 
 cd "$repository/code/census/"
 foreach file in 3_census_merge.do{
 	do "`file'".do
 }
+
+save "$repository/data/cleaned.dta", replace
+
+//Run code to import NLP variables
+cd "$repository/code/reviewers/"
+foreach file in {
+	do "`file'".do
+}
+
 
 //Run code in robustness analysis
 cd "$repository/code/tables/"
@@ -39,6 +48,7 @@ foreach file in 1_summary_table 2_summary_host_demographics 3_summary_host_chara
 	do "`file'".do
 }
 
+/*
 
 //Run code in reviewers analysis
 cd "$repository/code/reviewers/"

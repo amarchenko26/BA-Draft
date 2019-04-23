@@ -26,11 +26,12 @@ merged it with the census data and kept unique zipcodes only.
 STEP 4: Using this new data set, we can now create all of the variables needed. I already 
 created a few which can act as a template for creating the remainder. 
 
-Melody cleaning:
+
+                           Melody cleaning:
 a) Dropped extra variables we don't need
 
 
-STEP 5: Once we create all of the variables, we can merge this dataset to the main cleaned data. 
+STEP 6: Once we create all of the variables, we can merge this dataset to the main cleaned data. 
 
 */
 ********************************************************************************
@@ -75,7 +76,7 @@ gen race_`race'_zip_norm = (race_`race'_zip_percent - `r(mean)')/`r(sd)'
 
 ***Merging Cities into cleaned data frame 
 
-use "$repository/code/census/cleaned.dta", clear
+use "$repository/data/cleaned.dta", clear
 
 keep cleaned_city zipcode
 
@@ -212,5 +213,9 @@ keep zipcode cleaned_city popdensity med_value med_gross_rent med_income_city_no
 
 save "$repository/code/census/census.dta", replace
 
-merge 1:m zipcode using "$repository/code/census/cleaned.dta", nogen
+merge 1:m zipcode using "$repository/data/cleaned.dta", nogen
+
+
+
+
 

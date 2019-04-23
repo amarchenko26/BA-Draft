@@ -286,8 +286,8 @@ file write f "\hline\hline\noalign{\smallskip} \end{tabular} " _n ///
 	" of listing-level data in my full sample. Summary statistics for selected covariates" ///
 	" are listed in the table. Categorical variables such as room type do not have standard" ///
 	" deviations. Property types are explicitly listed if more than 1.5\% of listings are that" ///
-	" type. Only the most popular cancellation policy type is listed - in the full sample," ///
-	" 99\% of listings have strict (43\%), flexible (31\%) or moderate (25\%) cancellation policies." ///
+	" type. Strict cancellation policy is the most common out of 4 possible policies:" ///
+	"  strict (43\%), flexible (31\%), moderate (25\%) and other (1\%)na" ///
 	" Year of first review is a proxy for the time on the market - 14.86 indicates that the" ///
 	" first review of the mean listing in the full sample occurred in October of 2014." _n ///
 "\end{minipage}" _n ///
