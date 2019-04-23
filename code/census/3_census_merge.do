@@ -192,23 +192,33 @@ gen commuters = B09001_002 + B09001_003 + B09001_004 + B09001_005 + B09001_006 +
 gen commuters_zip_percent_under = (B09001_002 + B09001_003 + B09001_004 + B09001_005) / commuters // PERCENTAGE UNDER 40 MIN
 gen commuters_zip_percent_over = (B09001_006 + B09001_007 + B09001_008) / commuters // PERCENTAGE OVER 40 MIN
 
-gen commute_time_city_percent_under = 0 
+gen commute_city_percent_under = 0 
 forvalues city = 1/7{
 	sum commuters_zip_percent_under if cleaned_city == `city'
-	replace commute_time_city_percent_under = (commuters_zip_percent_under - `r(mean)') / `r(sd)' 
+	replace commute_city_percent_under = (commuters_zip_percent_under - `r(mean)') / `r(sd)' 
 }
 
-gen commute_time_city_percent_over = 0 
+gen commute_city_percent_over = 0 
 forvalues city = 1/7{
 	sum commuters_zip_percent_over if cleaned_city == `city'
-	replace commute_time_city_percent_over = (commuters_zip_percent_over - `r(mean)') / `r(sd)' 
+	replace commute_city_percent_over = (commuters_zip_percent_over - `r(mean)') / `r(sd)' 
 }
 
 
 ********************************************************************************
 * STEP 5: GENERAL MERGE
 
-keep zipcode cleaned_city popdensity med_value med_gross_rent med_income_city_norm race_white_city_norm race_black_city_norm race_asian_city_norm race_sor_city_norm race_hnom_city_norm unemployed_city_percent HHSSI_city_percent occupied_city_percent commute_time_city_percent_under commute_time_city_percent_over
+keep zipcode cleaned_city popdensity med_value med_gross_rent med_income_city_norm race_white_city_norm race_black_city_norm race_asian_city_norm race_sor_city_norm race_hnom_city_norm unemployed_city_percent HHSSI_city_percent occupied_city_percent commute_city_percent_under commute_city_percent_over
+
+
+***CREATING MISSING INDICATORS
+local ncat popdensity med_value med_gross_rent med_income_city_norm race_white_city_norm race_black_city_norm race_asian_city_norm race_sor_city_norm race_hnom_city_norm unemployed_city_percent HHSSI_city_percent occupied_city_percent commute_city_percent_under commute_city_percent_over
+foreach var in `ncat'{
+	gen miss_`var' = 0
+	replace miss_`var' = 1 if `var'== .
+	sum `var'
+	replace `var' = `r(mean)' if `var'== .
+}
 
 save "$repository/code/census/census.dta", replace
 

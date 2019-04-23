@@ -16,8 +16,8 @@ reg availability_30 i.race_sex_res
 			require_guest_phone_verification minimum_nights
 			reviews_polarity reviews_subjectivity summary_polarity summary_subjectivity 
 			space_polarity space_subjectivity description_polarity description_subjectivity 
-			neighborhood_overview_polarity 
-			neighborhood_overview_subject //Quality of listing/effort of host
+			neighborhood_polarity 
+			neighborhood_subjectivity //Quality of listing/effort of host
 			i.group_host_response_time miss_group_host_response_time 
 			host_response_rate //Host-specific charac.
 			host_identity_verified host_is_superhost,  //Host-specific charac.
