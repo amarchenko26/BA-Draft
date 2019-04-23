@@ -26,7 +26,7 @@ file write f "\begin{table}[htbp]" _n ///
 "\small\begin{tabular}{l c | c | c c c c}" _n ///
 
 // write column headers
-file write f "& \multicolumn{1}{c}{} & \multicolumn{5}{c}{Reviewer Race in \say{All} data} " _n ///
+file write f "& \multicolumn{1}{c}{} & \multicolumn{5}{c}{Reviewer Race in Chicago data} " _n ///
 "\\" _n ///
 " \cmidrule(r){3-7}" _n ///
 "\\" _n ///
@@ -174,85 +174,9 @@ file write f "\hline" _n ///
 file write f "\hline\hline\noalign{\smallskip} \end{tabular} " _n ///
 "\begin{minipage}{6in}" _n ///
 	"{\it Note:} " ///
-	"The values in this table are means and standard deviations of reviewer-level data" ///
-	" who left reviews for a randomly chosen set of hosts in Chicago." ///
-	"Column 1 has the means for the entire data. Column 2 has the means of the sample" ///
-	"used in Table 11. Columns 3 - 6 partition Column 2 by reviewer race." ///
-	"Row 1, Reviewer race: indicates the proportion of the different reviewer races in the data coded." ///
-	" Row 2, Host race: indicates the marginal probability of a host race given a reviewer race." ///
-	" The review sentiment is the sentiment of each review, the listing sentiment is the average" ///
-	" sentiment per listing. Observations in columns 2 - 5 do not add up to 17,050 because multiracial or" ///
-	" unidentifiable reviewer pictures are excluded. White refers only to non-Hispanic whites." _n ///
+	"The values in this table are means and standard deviations of reviewer-level data who left reviews for a randomly chosen set of hosts in Chicago. Column 1 has the means for the entire data. Column 2 has the means of the sample used in Table 11. Columns 3 - 6 partition Column 2 by reviewer race. Row 1, Reviewer race: indicates the proportion of the different reviewer races in the data coded. Row 2, Host race: indicates the marginal probability of a host race given a reviewer race. The review sentiment is the sentiment of each review, the listing sentiment is the average sentiment per listing. Observations in columns 2 - 5 do not add up to 17,050 because multiracial or unidentifiable reviewer pictures are excluded. White refers only to non-Hispanic whites." _n ///
 "\end{minipage}" _n ///
 "\end{center}" _n ///
 "\end{table}" _n	
 		
 file close f
-
-/*
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 3edc2d600a9ef9316146935b94743b7d08ce9e78
-
-// old Thiago code
-
-local cat2 race_res		
-
-<<<<<<< HEAD
-	foreach i in `cat2'{ //loops over Reviewer race
-=======
-	foreach i in `cat2'{ //loops over Host race
->>>>>>> 3edc2d600a9ef9316146935b94743b7d08ce9e78
-		sum `i' //Full Data
-		local full_N = `r(N)' //
-		local full_prop = `r(N)' / `full_N'
-		
-		levelsof race_res
-		foreach r in `r(levels)'{
-			sum `i' if race_res == `r'
-			local `r'_race_N = `r(N)' // reviewer race count
-			local `r'_race_prop = ``r'_race_N' / `full_N'
-			
-		}
-<<<<<<< HEAD
-
-		file write f " Host race & " %4.2f (`full_prop') " & " %4.2f (`1_race_prop') " & " %4.2f (`2_race_prop') " & " %4.2f (`3_race_prop') " & " %4.2f (`4_race_prop') " \\"
-		file write f "\\" _n
-}
-
-=======
->>>>>>> 3edc2d600a9ef9316146935b94743b7d08ce9e78
-
-		file write f " Host race & " %4.2f (`full_prop') " & " %4.2f (`1_race_prop') " & " %4.2f (`2_race_prop') " & " %4.2f (`3_race_prop') " & " %4.2f (`4_race_prop') " \\"
-		file write f "\\" _n
-}
-
-
-// old Melody code
-// rev_race_res
-	
-		file write f " \textit{Reviewer characteristics} & & & & & \\"
-		file write f " \hline \\"		
-
-
-local cat1 rev_race_res	race_res
-	
-	foreach i in `cat1'{ //loops over Reviewer race
-		sum `i' //Full Data
-		local full_N_`i' = `r(N)' //
-		local full_prop_`i' = `r(N)' / `full_N'
-		
-		levelsof `i'
-		foreach r in `r(levels)'{
-			sum `i' if rev_race_res == `r'
-			local `r'_race_N_`i' = `r(N)' // reviewer race count
-			local `r'_race_prop_`i' = ``r'_race_N' / `full_N_`i''
-			
-		}
-		local var_label : variable label `i'
-		
-		file write f " Reviewer race & " %4.2f (`full_prop_rev_race_res') " &&&& " \\"
-		file write f "\\" _n
-}		
