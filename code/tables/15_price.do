@@ -10,7 +10,7 @@ eststo model1
 			
 // Add location FEs		
 #delimit ; 
-quietly reg log_price i.sex_res i.race_res  i.age
+quietly reg log_price i.sex_res i.race_res i.age
 				  i.group_neighbourhood_cleansed i.cleaned_city, 
 				  vce(cluster group_neighbourhood_cleansed) 
 ;

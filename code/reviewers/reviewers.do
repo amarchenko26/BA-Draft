@@ -24,8 +24,6 @@ label var sentiment_mean "Review Sentiment"
 rename v1 word_count
 
 destring sentiment_sd, replace force
-replace sentiment_sd = -1 if sentiment_sd == . //replace missing values of sentiment_sd --> EZRA, is dis okay? 
-**[QUESTION: Why do this?]
 
 destring rev_race, replace force
 destring rev_sex, replace force

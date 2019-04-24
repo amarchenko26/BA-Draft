@@ -10,9 +10,8 @@ quietly reg log_number_of_reviews i.race_sex_res i.age,
 #delimit cr
 eststo model1
 
-#delimit ;
-quietly reg log_number_of_reviews i.race_sex_res i.age
-			i.group_neighbourhood_cleansed i.cleaned_city,
+#delimit ; //MELODY I STARTED THIS ONE ALREADY
+quietly reg log_number_of_reviews i.race_sex_res i.age $loc_controls,
 			vce(cluster group_neighbourhood_cleansed)
 ;
 #delimit cr

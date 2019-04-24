@@ -18,7 +18,6 @@ label values cleaned_city _city
 
 
 ** Restricting data set
-destring host_listings_count, replace force
 replace age = 5 if age == 6
 gen sample = 1
 replace sample = 0 if host_listings_count > 20 | host_has_profile_pic == "f" | price > 800 | sex == 0 | age == 7 | age == 11 | age == 12 | age == 0
@@ -144,8 +143,8 @@ rename group_neighbourhood_cleansed group_nhood_clean
 rename require_guest_profile_picture req_guest_pro_pic
 rename require_guest_phone_verification req_guest_phone
 
-** Create more indicator variables for missing variables 
-local varlist race_sex_res group_ra_name cleaned_city group_nhood_clean group_property_type group_room_type accommodates bathrooms bedrooms beds group_bed_type cleaning_fee extra_people num_amenities group_cancellation_policy instant_bookable req_guest_pro_pic req_guest_phone minimum_nights availability_30 availability_60 
+** Create indicator variables for missing variables 
+local varlist race_sex_res age group_ra_name cleaned_city group_nhood_clean group_property_type group_room_type accommodates bathrooms bedrooms beds group_bed_type cleaning_fee extra_people num_amenities group_cancellation_policy instant_bookable req_guest_pro_pic req_guest_phone minimum_nights availability_30 availability_60 host_acceptance_rate host_response_rate host_is_superhost group_host_response_time host_identity_verified
 
 foreach var in `varlist'{
 	gen miss_`var' = 0

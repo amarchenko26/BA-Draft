@@ -1,6 +1,6 @@
 
 ** Creating quality of listing controls
-
+/* The below is commented out temporarily bc it takes forever to run, but doesn't affect the results
 // Description
 gen len_desc = length(description) // length of description 
 la var len_desc "Length of Description"
@@ -34,8 +34,6 @@ gen len_desc6 = length(transit)
 egen num_words6 = nss(space), find(" ") //count number of words by counting spaces
 gen short_words6 = num_words6/len_desc6 //low short_words --> high quality of review, (since there's a lot of long words)
 
-// Amenities
-egen num_amenities = nss(amenities), find(",")
 
 replace short_words = 0 if short_words == . 
 replace short_words2 = 0 if short_words2 == . 
@@ -50,7 +48,9 @@ replace num_words3 = 0 if num_words3 == .
 replace num_words4 = 0 if num_words4 == .
 replace num_words5 = 0 if num_words5 == .
 replace num_words6 = 0 if num_words6 == .
- 
+*/
+
+/* Commented out permanently, redundant bc NLP 
 egen good_word1 = noccur(description), string("spacious")
 egen good_word2 = noccur(description), string("beautiful")
 egen good_word3 = noccur(description), string("clean")
@@ -60,7 +60,10 @@ egen good_word6 = noccur(description), string("love")
 egen good_word7 = noccur(description), string("quiet")
 
 gen good_word_tot = good_word1 + good_word2 + good_word3 + good_word4 + good_word5 + good_word6 + good_word7
+*/
 
+// Amenities
+egen num_amenities = nss(amenities), find(",")
 
 ** Host Characteristics
 egen group_host_response_time = group(host_response_time), label  //, lname("Host Response Time")
@@ -163,6 +166,9 @@ destring review_scores_value, replace force
 destring review_scores_rating, replace force
 
 ** Missing Data
+** Create indicator variables for missing variables 
+quietly misstable summarize, generate(miss_) //creating miss_X indicator variable, 1 if X missing
+
 // Replace missing data with zeros
 destring reviews_per_month, replace force
 replace reviews_per_month = 0 if reviews_per_month ==  . 
@@ -172,9 +178,6 @@ replace cleaning_fee = 0 if cleaning_fee == .
 replace bedrooms = 0 if bedrooms == . 
 replace beds = 0 if beds == .
 replace bathrooms = 0 if bathrooms == .
-
-** Create indicator variables for missing variables 
-quietly misstable summarize, generate(miss_) //creating miss_X indicator variable, 1 if X missing
 
 ** Creating labels
 la var race "Race"
@@ -202,9 +205,9 @@ la var host_is_superhost "Host is a Superhost"
 la var host_response_rate "Response rate"
 la var host_response_time "Response time"
 la var host_acceptance_rate "Acceptance rate"
-la var good_word_tot "Total good words"
-la var len_desc "Length of description"
-la var short_words "Short words"
+*la var good_word_tot "Total good words" //commenting out while above len_desc is commented out
+//la var len_desc "Length of description"
+//la var short_words "Short words"
 la var host_identity_verified "Host's Identity Verified"
 la var require_guest_profile_picture "Guest Pic Required"
 la var require_guest_phone_verification "Guest Phone Required"
