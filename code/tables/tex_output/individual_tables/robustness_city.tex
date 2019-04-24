@@ -1,42 +1,22 @@
                     &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}&\multicolumn{1}{c}{(7)}\\
                     &\multicolumn{1}{c}{LA}&\multicolumn{1}{c}{NYC}&\multicolumn{1}{c}{Austin}&\multicolumn{1}{c}{Chicago}&\multicolumn{1}{c}{New Orleans}&\multicolumn{1}{c}{DC}&\multicolumn{1}{c}{Nashville}\\
 \hline
-Black               &      -2.140         &       0.216         &      -22.44         &      -5.119         &      -24.97\sym{*}  &      -15.82\sym{**} &      -16.53         \\
-                    &     (8.483)         &     (3.988)         &     (20.55)         &     (5.020)         &     (9.445)         &     (5.621)         &     (10.24)         \\
+Female              &    -0.00402         &     0.00639         &      0.0148         &     -0.0317         &      0.0171         &      0.0249\sym{*}  &      0.0115         \\
+                    &   (0.00649)         &   (0.00641)         &    (0.0147)         &    (0.0163)         &    (0.0201)         &    (0.0114)         &    (0.0191)         \\
 [1em]
-Hispanic            &       8.654         &      -3.570         &       12.48         &     -0.0855         &      -4.189         &      -2.363         &      -40.36\sym{**} \\
-                    &     (8.023)         &     (2.893)         &     (11.39)         &     (5.714)         &     (12.29)         &     (7.185)         &     (13.55)         \\
+Black               &     -0.0328\sym{*}  &     -0.0120         &     -0.0834         &     -0.0377         &     -0.0739         &     -0.0624         &     -0.0811         \\
+                    &    (0.0133)         &    (0.0106)         &    (0.0575)         &    (0.0281)         &    (0.0506)         &    (0.0351)         &    (0.0509)         \\
 [1em]
-Asian               &       0.939         &       1.329         &      -45.73\sym{***}&      -16.85\sym{***}&      -3.150         &      -14.33\sym{*}  &      -5.671         \\
-                    &     (5.852)         &     (6.272)         &     (12.07)         &     (4.175)         &     (16.86)         &     (6.042)         &     (23.82)         \\
+Hispanic            &     -0.0364\sym{***}&     -0.0202         &      0.0188         &     -0.0389         &     0.00685         &     0.00233         &      -0.126\sym{*}  \\
+                    &    (0.0104)         &    (0.0144)         &    (0.0277)         &    (0.0200)         &    (0.0468)         &    (0.0232)         &    (0.0614)         \\
 [1em]
-Multiracial or Unknown&       7.168         &       1.392         &       2.283         &       13.52         &      -13.03         &       4.361         &      -43.06\sym{**} \\
-                    &     (6.057)         &     (6.277)         &     (15.28)         &     (7.754)         &     (7.951)         &     (6.297)         &     (12.67)         \\
-[1em]
-Los Angeles         &           0         &                     &                     &                     &                     &                     &                     \\
-                    &         (.)         &                     &                     &                     &                     &                     &                     \\
-[1em]
-New York City       &                     &           0         &                     &                     &                     &                     &                     \\
-                    &                     &         (.)         &                     &                     &                     &                     &                     \\
-[1em]
-Austin              &                     &                     &           0         &                     &                     &                     &                     \\
-                    &                     &                     &         (.)         &                     &                     &                     &                     \\
-[1em]
-Chicago             &                     &                     &                     &           0         &                     &                     &                     \\
-                    &                     &                     &                     &         (.)         &                     &                     &                     \\
-[1em]
-New Orleans         &                     &                     &                     &                     &           0         &                     &                     \\
-                    &                     &                     &                     &                     &         (.)         &                     &                     \\
-[1em]
-Washington DC       &                     &                     &                     &                     &                     &           0         &                     \\
-                    &                     &                     &                     &                     &                     &         (.)         &                     \\
-[1em]
-Nashville           &                     &                     &                     &                     &                     &                     &           0         \\
-                    &                     &                     &                     &                     &                     &                     &         (.)         \\
+Asian               &     -0.0331\sym{**} &     -0.0407\sym{**} &      -0.106\sym{*}  &      -0.102\sym{***}&     0.00588         &     -0.0521\sym{*}  &     -0.0462         \\
+                    &    (0.0112)         &    (0.0138)         &    (0.0464)         &    (0.0282)         &    (0.0619)         &    (0.0206)         &    (0.0630)         \\
 \hline
-Location Fixed Effects&         Yes         &         Yes         &         Yes         &         Yes         &         Yes         &         Yes         &         Yes         \\
-Property Fixed Effects&         Yes         &         Yes         &         Yes         &         Yes         &         Yes         &         Yes         &         Yes         \\
-Host Fixed Effects  &         Yes         &         Yes         &         Yes         &         Yes         &         Yes         &         Yes         &         Yes         \\
+\textit{Fixed Effects:}&                     &                     &                     &                     &                     &                     &                     \\
+Location Controls   &         Yes         &         Yes         &         Yes         &         Yes         &         Yes         &         Yes         &         Yes         \\
+Property Controls   &         Yes         &         Yes         &         Yes         &         Yes         &         Yes         &         Yes         &         Yes         \\
+Host Controls       &         Yes         &         Yes         &         Yes         &         Yes         &         Yes         &         Yes         &         Yes         \\
 \hline \vspace{-1.25em}&                     &                     &                     &                     &                     &                     &                     \\
-Observations        &       26076         &       20417         &        5818         &        5144         &        4511         &        3722         &        3277         \\
-Adjusted R2         &       0.438         &       0.280         &       0.468         &       0.366         &       0.475         &       0.450         &       0.616         \\
+Observations        &       16824         &       14765         &        3635         &        3255         &        2562         &        2285         &        1747         \\
+Adjusted R2         &       0.747         &       0.727         &       0.714         &       0.715         &       0.655         &       0.663         &       0.757         \\

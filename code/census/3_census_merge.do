@@ -210,6 +210,9 @@ forvalues city = 1/7{
 
 keep zipcode cleaned_city popdensity med_value med_gross_rent med_income_city_norm race_white_city_norm race_black_city_norm race_asian_city_norm race_sor_city_norm race_hnom_city_norm unemployed_city_percent HHSSI_city_percent occupied_city_percent commute_city_percent_under commute_city_percent_over
 
+save "$repository/code/census/census.dta", replace
+
+merge 1:m zipcode using "$repository/code/census/cleaned.dta", nogen
 
 ***CREATING MISSING INDICATORS
 local ncat popdensity med_value med_gross_rent med_income_city_norm race_white_city_norm race_black_city_norm race_asian_city_norm race_sor_city_norm race_hnom_city_norm unemployed_city_percent HHSSI_city_percent occupied_city_percent commute_city_percent_under commute_city_percent_over
@@ -220,7 +223,5 @@ foreach var in `ncat'{
 	replace `var' = `r(mean)' if `var'== .
 }
 
-save "$repository/code/census/census.dta", replace
 
-merge 1:m zipcode using "$repository/code/census/cleaned.dta", nogen
 
