@@ -1,6 +1,50 @@
 *********************************************************
 *					  Reviewers Regression 			    *
 *********************************************************
+#delimit ; 
+global full_controls_reviewer i.age i.group_ra_name
+			i.group_neighbourhood_cleansed miss_group_ra_name // Location dummies
+			miss_age miss_race_sex_res  // Location missing dummies
+			miss_group_nhood_clean miss_cleaned_city 
+				popdensity med_value med_gross_rent med_income_city_norm race_white_city_norm // Census variables
+				race_black_city_norm race_asian_city_norm race_sor_city_norm race_hnom_city_norm
+				unemployed_city_percent HHSSI_city_percent occupied_city_percent commute_city_percent_under
+				commute_city_percent_over 
+				miss_popdensity 
+				miss_med_value miss_med_gross_rent miss_med_income_city_norm miss_race_white_city_norm 
+				miss_race_black_city_norm miss_race_asian_city_norm miss_race_sor_city_norm miss_race_hnom_city_norm
+				miss_unemployed_city_percent miss_HHSSI_city_percent miss_occupied_city_percent miss_commute_city_percent_under
+				miss_commute_city_percent_over 
+					i.group_property_type i.group_room_type // Listing FEs
+					accommodates bathrooms bedrooms beds i.group_bed_type  
+					cleaning_fee extra_people num_amenities
+					i.first_review_month i.first_review_year
+					i.group_cancellation_policy instant_bookable 
+					require_guest_profile_picture
+					require_guest_phone_verification minimum_nights
+					availability_30
+					miss_group_property_type miss_group_room_type // Listing missing dummies
+					miss_accommodates miss_bathrooms miss_bedrooms miss_beds miss_group_bed_type 
+					miss_cleaning_fee miss_extra_people miss_num_amenities 
+					miss_first_review_month miss_first_review_year 
+					miss_group_cancellation_policy miss_instant_bookable 	
+					miss_req_guest_pro_pic
+					miss_req_guest_phone miss_minimum_nights 
+					miss_availability_30
+						reviews_polarity reviews_subjectivity summary_polarity summary_subjectivity // NLP controls
+						space_polarity space_subjectivity description_polarity description_subjectivity 
+						neighborhood_polarity neighborhood_subjectivity
+						miss_reviews_polarity miss_reviews_subjectivity miss_summary_polarity // NLP missing dummies
+						miss_summary_subjectivity miss_space_polarity miss_space_subjectivity miss_description_polarity 
+						miss_description_subjectivity miss_neighborhood_polarity miss_neighborhood_subjectivity 
+						i.group_host_response_time host_response_rate // Host listing FEs
+						host_identity_verified host_is_superhost 
+						miss_group_host_response_time miss_host_response_rate // Host missing dummies
+						miss_host_identity_verified miss_host_is_superhost
+;
+#delimit cr
+
+
 preserve
 keep if sample == 1
 
@@ -26,13 +70,13 @@ quietly reg sentiment_mean_stan i.race_sex_res ///
 	require_guest_phone_verification minimum_nights /// 
 	availability_30 availability_60 ///
 	len_desc short_words len_desc2 short_words2 len_desc3 short_words3 /// //Quality of listing/effort of host
-	len_desc4 short_words4 len_desc5 short_words5 len_desc6 short_words6 good_word_tot /// //Quality of listing
+	len_desc4 short_words4 len_desc5 short_words5 len_desc6 short_words6 /// //Quality of listing
 	i.group_host_response_time host_response_rate /// //Host-specific charac.
 	host_identity_verified host_is_superhost if rev_race_sex_res == 1, ///
 	vce(cluster group_neighbourhood_cleansed) 
 ;
 #delimit cr
-eststo mod1 // title("White Male Reviewers"): 
+eststo mod1 
 
 // White female reviewers
 #delimit ;
@@ -46,13 +90,13 @@ quietly reg sentiment_mean_stan i.race_sex_res ///
 	require_guest_phone_verification minimum_nights /// 
 	availability_30 availability_60 ///
 	len_desc short_words len_desc2 short_words2 len_desc3 short_words3 /// //Quality of listing/effort of host
-	len_desc4 short_words4 len_desc5 short_words5 len_desc6 short_words6 good_word_tot /// //Quality of listing
+	len_desc4 short_words4 len_desc5 short_words5 len_desc6 short_words6 /// //Quality of listing
 	i.group_host_response_time host_response_rate /// //Host-specific charac.
 	host_identity_verified host_is_superhost if rev_race_sex_res == 2, ///
 	vce(cluster group_neighbourhood_cleansed) 
 ;
 #delimit cr
-	eststo mod2 //, title("White Female Reviewers"): 
+	eststo mod2 
 
 // Black Male reviewers
 #delimit ;
@@ -66,13 +110,13 @@ quietly reg sentiment_mean_stan i.race_sex_res ///
 	require_guest_phone_verification minimum_nights /// 
 	availability_30 availability_60 ///
 	len_desc short_words len_desc2 short_words2 len_desc3 short_words3 /// //Quality of listing/effort of host
-	len_desc4 short_words4 len_desc5 short_words5 len_desc6 short_words6 good_word_tot /// //Quality of listing
+	len_desc4 short_words4 len_desc5 short_words5 len_desc6 short_words6 /// //Quality of listing
 	i.group_host_response_time host_response_rate /// //Host-specific charac.
 	host_identity_verified host_is_superhost if rev_race_sex_res == 3, ///
 	vce(cluster group_neighbourhood_cleansed) 
 ;
 #delimit cr
-	eststo mod3 //, title("Black Male Reviewers"): 
+	eststo mod3  
 	
 // Black Female reviewers
 #delimit ;
@@ -86,13 +130,13 @@ quietly reg sentiment_mean_stan i.race_sex_res ///
 	require_guest_phone_verification minimum_nights /// 
 	availability_30 availability_60 ///
 	len_desc short_words len_desc2 short_words2 len_desc3 short_words3 /// //Quality of listing/effort of host
-	len_desc4 short_words4 len_desc5 short_words5 len_desc6 short_words6 good_word_tot /// //Quality of listing
+	len_desc4 short_words4 len_desc5 short_words5 len_desc6 short_words6 /// //Quality of listing
 	i.group_host_response_time host_response_rate /// //Host-specific charac.
 	host_identity_verified host_is_superhost if rev_race_sex_res == 4, ///
 	vce(cluster group_neighbourhood_cleansed) 
 ;
 #delimit cr
-	eststo mod4 //, title("Black Female Reviewers"): 
+	eststo mod4 
 	
 // Hispanic Male reviewers
 #delimit ;
@@ -106,13 +150,13 @@ quietly reg sentiment_mean_stan i.race_sex_res ///
 	require_guest_phone_verification minimum_nights /// 
 	availability_30 availability_60 ///
 	len_desc short_words len_desc2 short_words2 len_desc3 short_words3 /// //Quality of listing/effort of host
-	len_desc4 short_words4 len_desc5 short_words5 len_desc6 short_words6 good_word_tot /// //Quality of listing
+	len_desc4 short_words4 len_desc5 short_words5 len_desc6 short_words6 /// //Quality of listing
 	i.group_host_response_time host_response_rate /// //Host-specific charac.
 	host_identity_verified host_is_superhost if rev_race_sex_res == 5, ///
 	vce(cluster group_neighbourhood_cleansed) 
 ;
 #delimit cr
-	eststo mod5 //, title("Hispanic Male Reviewers"): 
+	eststo mod5 
 	
 // Hispanic Female reviewers
 #delimit ;
@@ -126,13 +170,13 @@ quietly reg sentiment_mean_stan i.race_sex_res ///
 	require_guest_phone_verification minimum_nights /// 
 	availability_30 availability_60 ///
 	len_desc short_words len_desc2 short_words2 len_desc3 short_words3 /// //Quality of listing/effort of host
-	len_desc4 short_words4 len_desc5 short_words5 len_desc6 short_words6 good_word_tot /// //Quality of listing
+	len_desc4 short_words4 len_desc5 short_words5 len_desc6 short_words6 /// //Quality of listing
 	i.group_host_response_time host_response_rate /// //Host-specific charac.
 	host_identity_verified host_is_superhost if rev_race_sex_res == 6, ///
 	vce(cluster group_neighbourhood_cleansed) 
 ;
 #delimit cr
-eststo mod6 //, title("Hispanic Female Reviewers"): 
+eststo mod6 
 	
 // Asian Male reviewers	
 #delimit ;
@@ -146,13 +190,13 @@ quietly reg sentiment_mean_stan i.race_sex_res ///
 	require_guest_phone_verification minimum_nights /// 
 	availability_30 availability_60 ///
 	len_desc short_words len_desc2 short_words2 len_desc3 short_words3 /// //Quality of listing/effort of host
-	len_desc4 short_words4 len_desc5 short_words5 len_desc6 short_words6 good_word_tot /// //Quality of listing
+	len_desc4 short_words4 len_desc5 short_words5 len_desc6 short_words6 /// //Quality of listing
 	i.group_host_response_time host_response_rate /// //Host-specific charac.
 	host_identity_verified host_is_superhost if rev_race_sex_res == 7, ///
 	vce(cluster group_neighbourhood_cleansed) 	
 ;
 #delimit cr
-eststo mod7 //, title("Asian Male Reviewers"): 	
+eststo mod7 
 	
 // Asian Female reviewers	
 #delimit ;
@@ -166,13 +210,13 @@ reg sentiment_mean_stan i.race_sex_res ///
 	require_guest_phone_verification minimum_nights /// 
 	availability_30 availability_60 ///
 	len_desc short_words len_desc2 short_words2 len_desc3 short_words3 /// //Quality of listing/effort of host
-	len_desc4 short_words4 len_desc5 short_words5 len_desc6 short_words6 good_word_tot /// //Quality of listing
+	len_desc4 short_words4 len_desc5 short_words5 len_desc6 short_words6 /// //Quality of listing
 	i.group_host_response_time host_response_rate /// //Host-specific charac.
 	host_identity_verified host_is_superhost if rev_race_sex_res == 8, ///
 	vce(cluster group_neighbourhood_cleansed) 
 ;
 #delimit cr
-eststo mod8 //, title("Asian Female Reviewers"):  
+eststo mod8 
 
 ****************************************
 *Output

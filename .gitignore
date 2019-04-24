@@ -34,6 +34,6 @@ code/.DS_Store
 /code/tables/individual_tables
 /code/tables/tex_output/individual_tables/
 
-
+**/*.DS_Store
 *.synctex(busy)
 

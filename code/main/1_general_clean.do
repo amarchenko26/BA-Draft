@@ -8,6 +8,7 @@
 insheet using "$repository/data/done_combined_full_listings.csv", clear
 sort id
 
+/* COMMENTING THIS OUT TO RUN FASTER
 ** Creating quality of listing controls
 
 // Description
@@ -44,9 +45,6 @@ gen len_desc6 = length(transit)
 egen num_words6 = nss(space), find(" ") //count number of words by counting spaces
 gen short_words6 = num_words6/len_desc6 //low short_words --> high quality of review, (since there's a lot of long words)
 
-// Amenities
-egen num_amenities = nss(amenities), find(",")
-
 replace short_words = 0 if short_words == . 
 replace short_words2 = 0 if short_words2 == . 
 replace short_words3 = 0 if short_words3 == . 
@@ -60,7 +58,12 @@ replace num_words3 = 0 if num_words3 == .
 replace num_words4 = 0 if num_words4 == .
 replace num_words5 = 0 if num_words5 == .
 replace num_words6 = 0 if num_words6 == .
- 
+*/
+
+// Amenities
+egen num_amenities = nss(amenities), find(",")
+
+/* COMMENTING OUT FOREVER BC NOT NEEDED WITH NLP
 egen good_word1 = noccur(description), string("spacious")
 egen good_word2 = noccur(description), string("beautiful")
 egen good_word3 = noccur(description), string("clean")
@@ -80,7 +83,7 @@ egen sum_good_word6 = noccur(summary), string("love")
 egen sum_good_word7 = noccur(summary), string("quiet")
 
 gen sum_good_word_tot = sum_good_word1 + sum_good_word2 + sum_good_word3 + sum_good_word4 + sum_good_word5 + sum_good_word6 + sum_good_word7
-
+*/
 
 ** Host Characteristics
 egen group_host_response_time = group(host_response_time), label  //, lname("Host Response Time")
@@ -152,6 +155,7 @@ replace price = subinstr(price, ",", "",.) //deletes "," sign in price>1000
 destring price, replace force
 
 destring number_of_reviews, replace force
+destring host_listings_count, replace force
 
 replace weekly_price = subinstr(weekly_price, "$", "",.) //deletes $ sign
 replace weekly_price = subinstr(weekly_price, ",", "",.) //deletes "," sign in price>1000
@@ -182,19 +186,8 @@ destring zipcode, replace force
 destring review_scores_value, replace force
 destring review_scores_rating, replace force
 
-** Missing Data
-// Replace missing data with zeros
 destring reviews_per_month, replace force
-replace reviews_per_month = 0 if reviews_per_month ==  . 
-replace host_acceptance_rate = 0 if host_acceptance_rate == .
-replace host_response_rate = 0 if host_response_rate == .
-replace cleaning_fee = 0 if cleaning_fee == . 
-replace bedrooms = 0 if bedrooms == . 
-replace beds = 0 if beds == .
-replace bathrooms = 0 if bathrooms == .
 
-** Create indicator variables for missing variables 
-quietly misstable summarize, generate(miss_) //creating miss_X indicator variable, 1 if X missing
 
 ** Creating labels
 la var race "Race"
@@ -221,13 +214,12 @@ la var host_is_superhost "Host is a Superhost"
 la var host_response_rate "Response rate"
 la var host_response_time "Response time"
 la var host_acceptance_rate "Acceptance rate"
-la var sum_good_word_tot "Total good words in Summary"
-la var len_desc "Length of description"
-la var short_words "Short words"
+*la var len_desc "Length of description" //commenting out while above len_desc is commented out
+*la var short_words "Short words"
 la var host_identity_verified "Host's Identity Verified?"
 la var require_guest_profile_picture "Guest Pic Required?"
 la var require_guest_phone_verification "Guest Phone Required?"
-la var short_words2 "Short words in Summary"
+*la var short_words2 "Short words in Summary"
 
 ** RA analysis
 replace ra_name = "Fong" if ra_name== "FONG"

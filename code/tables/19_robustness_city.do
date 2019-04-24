@@ -11,7 +11,7 @@ set emptycells drop
 
 ****** Price
 #delimit ;
-quietly reg log_price i.sex_res i.race_res 
+quietly reg log_price i.race_sex_res 
 			i.group_neighbourhood_cleansed i.cleaned_city
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type
@@ -33,7 +33,7 @@ quietly reg log_price i.sex_res i.race_res
 eststo LA
 	
 #delimit ;
-quietly reg log_price i.sex_res  i.race_res 
+quietly reg log_price i.race_sex_res 
 			i.group_neighbourhood_cleansed i.cleaned_city 
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type 
@@ -55,7 +55,7 @@ quietly reg log_price i.sex_res  i.race_res
 eststo NYC
 
 #delimit ;
-quietly reg log_price i.sex_res  i.race_res
+quietly reg log_price i.race_sex_res
 			i.group_neighbourhood_cleansed i.cleaned_city 
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type 
@@ -80,7 +80,7 @@ eststo Austin
 
 
 #delimit ;
-quietly reg log_price i.sex_res  i.race_res
+quietly reg log_price i.race_sex_res
 			i.group_neighbourhood_cleansed i.cleaned_city 
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type 
@@ -104,7 +104,7 @@ quietly reg log_price i.sex_res  i.race_res
 eststo Chicago
 		 
 #delimit ;	
-quietly reg log_price i.sex_res  i.race_res
+quietly reg log_price i.race_sex_res
 			i.group_neighbourhood_cleansed i.cleaned_city 
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type 
@@ -128,7 +128,7 @@ quietly reg log_price i.sex_res  i.race_res
 eststo New_Orleans
 
 #delimit ;
-quietly reg log_price i.sex_res  i.race_res
+quietly reg log_price i.race_sex_res
 			i.group_neighbourhood_cleansed i.cleaned_city 
 			i.group_property_type i.group_room_type 
 			accommodates bathrooms bedrooms beds i.group_bed_type 
@@ -152,7 +152,7 @@ quietly reg log_price i.sex_res  i.race_res
 eststo DC
 	
 #delimit ;
-quietly reg log_price i.sex_res  i.race_res
+quietly reg log_price i.race_sex_res
 			i.group_neighbourhood_cleansed i.cleaned_city
 			i.group_property_type i.group_room_type
 			accommodates bathrooms bedrooms beds i.group_bed_type
@@ -189,8 +189,8 @@ estadd local controlgroup3 "Yes" : LA NYC Austin Chicago New_Orleans DC Nashvill
 
 #delimit ;
 esttab LA NYC Austin Chicago New_Orleans DC Nashville
-	using "$repository/code/tables/tex_output/individual_tables/robustness_city.tex",
-	keep(*.race_res *.sex_res ) drop(1.race_res 1.sex_res )
+	using "$repository/code/tables/tex_output/individual_tables/robustness_city_int.tex",
+	keep(*.race_sex_res) drop(1.race_sex_res)
 	se ar2 replace label 
 	mtitles("LA" "NYC" "Austin" "Chicago" "New Orleans" "DC" "Nashville")
 	stats(linehere controlgroup1 controlgroup2 controlgroup3 linehere N r2,

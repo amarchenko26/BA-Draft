@@ -22,11 +22,11 @@ quietly reg log_price
 			summary_polarity summary_subjectivity 
 			space_polarity space_subjectivity description_polarity description_subjectivity 
 			neighborhood_polarity 
-			neighborhood_subjectivity//Quality of listing/effort of host
+			neighborhood_subjectivity //Quality of listing, effort of host
 			i.group_host_response_time miss_group_host_response_time 
 			host_response_rate //Host-specific charac.
 			host_identity_verified host_is_superhost 
-				if state == "CA",  //Host-specific charac.
+				if state == "CA",
 			vce(cluster group_neighbourhood_cleansed) 
 ;
 #delimit cr
@@ -49,7 +49,7 @@ quietly reg log_price
 			summary_polarity summary_subjectivity 
 			space_polarity space_subjectivity description_polarity description_subjectivity 
 			neighborhood_polarity 
-			neighborhood_subjectivity //Quality of listing/effort of host
+			neighborhood_subjectivity //Quality of listing, effort of host
 			i.group_host_response_time miss_group_host_response_time 
 			host_response_rate //Host-specific charac.
 			host_identity_verified host_is_superhost
@@ -76,7 +76,7 @@ quietly reg log_price
 			reviews_polarity reviews_subjectivity summary_polarity summary_subjectivity 
 			space_polarity space_subjectivity description_polarity description_subjectivity 
 			neighborhood_polarity 
-			neighborhood_subjectivity //Quality of listing/effort of host
+			neighborhood_subjectivity //Quality of listing, effort of host
 			i.group_host_response_time miss_group_host_response_time
 			host_response_rate  //Host-specific charac.
 			host_identity_verified host_is_superhost 
@@ -103,12 +103,12 @@ quietly reg log_price i.race_res
 			summary_polarity summary_subjectivity 
 			space_polarity space_subjectivity description_polarity description_subjectivity 
 			neighborhood_polarity 
-			neighborhood_subjectivity //Quality of listing/effort of host
+			neighborhood_subjectivity //Quality of listing, effort of host
 			i.group_host_response_time miss_group_host_response_time
 			host_response_rate //Host-specific charac.
 			host_identity_verified host_is_superhost 
-				if predict_price_LA < `mean_price_LA' & state=="CA",  //Host-specific charac.
-			vce(cluster group_neighbourhood_cleansed) 
+				if predict_price_LA < `mean_price_LA' & state=="CA",
+				vce(cluster group_neighbourhood_cleansed) 
 ;
 #delimit cr
 eststo model1
@@ -127,12 +127,12 @@ quietly reg log_price i.race_res
 			summary_polarity summary_subjectivity 
 			space_polarity space_subjectivity description_polarity description_subjectivity 
 			neighborhood_polarity 
-			neighborhood_subjectivity//Quality of listing/effort of host
+			neighborhood_subjectivity //Quality of listing, effort of host
 			i.group_host_response_time miss_group_host_response_time
 			host_response_rate //Host-specific charac.
 			host_identity_verified host_is_superhost 
-				if predict_price_LA > `mean_price_LA' & state=="CA",   //Host-specific charac.
-			vce(cluster group_neighbourhood_cleansed) 
+				if predict_price_LA > `mean_price_LA' & state=="CA",
+				vce(cluster group_neighbourhood_cleansed) 
 ;
 #delimit cr
 eststo model2 
@@ -151,12 +151,12 @@ quietly reg log_price i.race_res
 			summary_polarity summary_subjectivity 
 			space_polarity space_subjectivity description_polarity description_subjectivity 
 			neighborhood_polarity 
-			neighborhood_subjectivity //Quality of listing/effort of host
+			neighborhood_subjectivity //Quality of listing, effort of host
 			i.group_host_response_time miss_group_host_response_time 
 			host_response_rate  //Host-specific charac.
 			host_identity_verified host_is_superhost 
-				if predict_price_NY < `mean_price_NY' & state=="NY", //Host-specific charac.
-			vce(cluster group_neighbourhood_cleansed) 
+				if predict_price_NY < `mean_price_NY' & state=="NY",
+				vce(cluster group_neighbourhood_cleansed) 
 ;
 #delimit cr
 eststo model3 
@@ -175,12 +175,12 @@ quietly reg log_price i.race_res
 			summary_polarity summary_subjectivity 
 			space_polarity space_subjectivity description_polarity description_subjectivity 
 			neighborhood_polarity 
-			neighborhood_subjectivity //Quality of listing/effort of host
+			neighborhood_subjectivity //Quality of listing, effort of host
 			i.group_host_response_time miss_group_host_response_time 
 			host_response_rate //Host-specific charac.
 			host_identity_verified host_is_superhost 
-				if predict_price_NY > `mean_price_NY' & state=="NY", //Host-specific charac.
-			vce(cluster group_neighbourhood_cleansed) 
+				if predict_price_NY > `mean_price_NY' & state=="NY",
+				vce(cluster group_neighbourhood_cleansed) 
 ;
 #delimit cr
 eststo model4
@@ -199,12 +199,12 @@ quietly reg log_price i.race_res
 			reviews_polarity reviews_subjectivity summary_polarity summary_subjectivity 
 			space_polarity space_subjectivity description_polarity description_subjectivity 
 			neighborhood_polarity 
-			neighborhood_subjectivity //Quality of listing/effort of host
+			neighborhood_subjectivity //Quality of listing, effort of host
 			i.group_host_response_time miss_group_host_response_time 
 			host_response_rate //Host-specific charac.
 			host_identity_verified host_is_superhost 
-				if predict_price_chi < `mean_price_chi' & state=="IL", //Host-specific charac.
-			vce(cluster group_neighbourhood_cleansed) 
+				if predict_price_chi < `mean_price_chi' & state=="IL",
+				vce(cluster group_neighbourhood_cleansed) 
 ;
 #delimit cr
 eststo model5 
@@ -222,12 +222,12 @@ eststo model5
 			reviews_polarity reviews_subjectivity summary_polarity summary_subjectivity 
 			space_polarity space_subjectivity description_polarity description_subjectivity 
 			neighborhood_polarity 
-			neighborhood_subjectivity //Quality of listing/effort of host
+			neighborhood_subjectivity //Quality of listing, effort of host
 			i.group_host_response_time miss_group_host_response_time 
 			host_response_rate //Host-specific charac.
 			host_identity_verified host_is_superhost 
-				if predict_price_chi > `mean_price_chi' & state=="IL",  //Host-specific charac.
-			vce(cluster group_neighbourhood_cleansed) 
+				if predict_price_chi > `mean_price_chi' & state=="IL",
+				vce(cluster group_neighbourhood_cleansed) 
 ;
 #delimit cr
 eststo model6
@@ -245,12 +245,12 @@ quietly reg log_price i.race_res
 			reviews_polarity reviews_subjectivity summary_polarity summary_subjectivity 
 			space_polarity space_subjectivity description_polarity description_subjectivity 
 			neighborhood_polarity 
-			neighborhood_subjectivity //Quality of listing/effort of host
+			neighborhood_subjectivity //Quality of listing, effort of host
 			i.group_host_response_time miss_group_host_response_time 
 			host_response_rate //Host-specific charac.
 			host_identity_verified host_is_superhost 
-				if first_review_year < 15, //Host-specific charac.
-			vce(cluster group_neighbourhood_cleansed) 
+				if first_review_year < 15,
+				vce(cluster group_neighbourhood_cleansed) 
 ;
 #delimit cr
 eststo model7 
@@ -269,13 +269,12 @@ quietly reg log_price i.race_res
 			reviews_polarity reviews_subjectivity summary_polarity summary_subjectivity 
 			space_polarity space_subjectivity description_polarity description_subjectivity 
 			neighborhood_polarity 
-			neighborhood_subjectivity //Quality of listing/effort of host
+			neighborhood_subjectivity //Quality of listing, effort of host
 			i.group_host_response_time miss_group_host_response_time 
 			host_response_rate //Host-specific charac.
 			host_identity_verified host_is_superhost 
-				if first_review_year < 99 & first_review_year > 14, 
-					//Host-specific charac.
-			vce(cluster group_neighbourhood_cleansed) 
+				if first_review_year < 99 & first_review_year > 14,
+				vce(cluster group_neighbourhood_cleansed) 
 ;
 #delimit cr
 eststo model8 
@@ -294,13 +293,12 @@ quietly reg log_price i.race_res
 			reviews_polarity reviews_subjectivity summary_polarity summary_subjectivity 
 			space_polarity space_subjectivity description_polarity description_subjectivity 
 			neighborhood_polarity 
-			neighborhood_subjectivity //Quality of listing/effort of host
+			neighborhood_subjectivity //Quality of listing, effort of host
 			i.group_host_response_time miss_group_host_response_time
 			host_response_rate //Host-specific charac.
 			host_identity_verified host_is_superhost 
-				if property_type == "Apartment" | property_type == "Loft", 
-					//Host-specific charac.
-			vce(cluster group_neighbourhood_cleansed) 
+				if property_type == "Apartment" | property_type == "Loft",
+				vce(cluster group_neighbourhood_cleansed) 
 ;
 #delimit cr
 eststo model9 
@@ -319,13 +317,12 @@ quietly reg log_price i.race_res
 			reviews_polarity reviews_subjectivity summary_polarity summary_subjectivity 
 			space_polarity space_subjectivity description_polarity description_subjectivity 
 			neighborhood_polarity 
-			neighborhood_subjectivity //Quality of listing/effort of host
+			neighborhood_subjectivity //Quality of listing, effort of host
 			i.group_host_response_time miss_group_host_response_time 
 			host_response_rate //Host-specific charac.
 			host_identity_verified host_is_superhost 
-				if property_type == "Townhouse" | property_type == "Condominium"
-				, //Host-specific charac.
-			vce(cluster group_neighbourhood_cleansed)
+				if property_type == "Townhouse" | property_type == "Condominium",
+				vce(cluster group_neighbourhood_cleansed)
 ;
 #delimit cr
 eststo model10 
@@ -344,13 +341,12 @@ quietly reg log_price i.race_res
 			reviews_polarity reviews_subjectivity summary_polarity summary_subjectivity 
 			space_polarity space_subjectivity description_polarity description_subjectivity 
 			neighborhood_polarity 
-			neighborhood_subjectivity //Quality of listing/effort of host
+			neighborhood_subjectivity //Quality of listing, effort of host
 			i.group_host_response_time miss_group_host_response_time 
 			host_response_rate //Host-specific charac.
 			host_identity_verified host_is_superhost 
-				if property_type == "House" | property_type == "Guesthouse" 
-				,  //Host-specific charac.
-			vce(cluster group_neighbourhood_cleansed) 
+				if property_type == "House" | property_type == "Guesthouse",
+				vce(cluster group_neighbourhood_cleansed) 
 ;
 #delimit cr
 
