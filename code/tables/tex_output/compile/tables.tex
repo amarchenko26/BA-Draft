@@ -60,6 +60,27 @@
 \end{tablenotes}
 \end{table}
 
+
+% Table 15
+\begin{table}[htbp]\centering
+	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+	\caption{Main result: Estimates of effect of host’s race and gender on price [without interaction]}
+	\begin{tabular}{l*{5}{c}}
+		\hline\hline
+		\input{../individual_tables/price}
+		\hline\hline
+		\multicolumn{5}{l}{\footnotesize Standard errors in parentheses}\\
+		\multicolumn{5}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
+	\end{tabular}
+	
+	\begin{tablenotes}
+		
+		\item {\it Note:} The dependent variable is the log price of the listing. All race coefficients are relative to white males. The unit of observation is a listing. The sample is the sample of listings across 7 US cities. Model 1 is the baseline effect of host demographics on price. Model 2 controls for listing location to the neighborhood level. Model 3 adds listing characteristics such as property type, time on market, number of bedrooms, availability, etc. Model 4 adds host characteristics such as response and acceptance rates, measures of host effort, Superhost status, etc. See Data Appendix for full description of covariates.  
+	\end{tablenotes}
+\end{table}
+
+
+
 % Table 6
 
 \begin{table}[htbp]\centering
@@ -132,6 +153,25 @@
 			\item {\it Note:} The effects for the combined data from Table 3 are now broken down across all 7 cities. The cities decrease in number of observations from left to right. Each set of coefficients represents the coefficient on host race, with log price as the outcome variable. I control for my preferred specification that includes listing location, listing characteristics, and host characteristics. Low number of observations for Black, Hispanic, and Asian hosts contribute to imprecise estimates in smaller cities. New Orleans and Nashville have less than 100 Hispanic and Asian hosts. DC and Austin have less than 200 Hispanic and Asian hosts. 
 		\end{tablenotes}
 	\end{table}
+
+
+\newpage
+% Table 19
+\begin{table}[htbp]\centering
+	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+	\caption{Robustness City}
+	\begin{tabular}{l*{7}{c}}
+		\hline\hline
+		\input{../individual_tables/robustness_city}
+		\hline\hline
+		\multicolumn{8}{l}{\footnotesize Standard errors in parentheses}\\
+		\multicolumn{8}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
+	\end{tabular}
+	\begin{tablenotes}
+		
+		\item {\it Note:} The effects for the combined data from Table 3 are now broken down across all 7 cities. The cities decrease in number of observations from left to right. Each set of coefficients represents the coefficient on host race, with log price as the outcome variable. I control for my preferred specification that includes listing location, listing characteristics, and host characteristics. Low number of observations for Black, Hispanic, and Asian hosts contribute to imprecise estimates in smaller cities. New Orleans and Nashville have less than 100 Hispanic and Asian hosts. DC and Austin have less than 200 Hispanic and Asian hosts. 
+	\end{tablenotes}
+\end{table}
 
 
 \newpage

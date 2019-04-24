@@ -4,6 +4,9 @@
 * HELLO WORLD!! 
 * --- start of table here --- *
 
+label var summary_polarity  "Polarity of Summary"
+label var summary_subjectivity "Subjectivity of Summary"
+
 //preserve
 
 // open .tex file
@@ -69,7 +72,7 @@ file write f " \textit{Covariates} & & & & & & \\"
 file write f " \hline"
 
 * Non-categorical covariates
-local ncat2 review_scores_rating host_is_superhost host_response_rate host_acceptance_rate len_desc2 short_words2
+local ncat2 review_scores_rating host_is_superhost host_response_rate host_acceptance_rate len_desc2 short_words2 summary_polarity summary_subjectivity 
 
 	foreach i in `ncat2'{ //loops over noncategorical variables
 			sum `i' //Full data column
