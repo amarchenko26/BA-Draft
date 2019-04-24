@@ -38,7 +38,7 @@ global prop_controls i.group_neighbourhood_cleansed i.cleaned_city // Location d
 					i.group_cancellation_policy instant_bookable 
 					require_guest_profile_picture
 					require_guest_phone_verification minimum_nights
-					availability_30
+					availability_30 availability_60
 					miss_group_property_type miss_group_room_type // Listing missing dummies
 					miss_accommodates miss_bathrooms miss_bedrooms miss_beds miss_group_bed_type 
 					miss_cleaning_fee miss_extra_people miss_num_amenities 
@@ -46,7 +46,7 @@ global prop_controls i.group_neighbourhood_cleansed i.cleaned_city // Location d
 					miss_group_cancellation_policy miss_instant_bookable 	
 					miss_req_guest_pro_pic
 					miss_req_guest_phone miss_minimum_nights 
-					miss_availability_30
+					miss_availability_30 miss_availability_60
 ;
 #delimit cr
 
@@ -72,7 +72,7 @@ global full_controls i.age i.group_ra_name
 					i.group_cancellation_policy instant_bookable 
 					require_guest_profile_picture
 					require_guest_phone_verification minimum_nights
-					availability_30
+					availability_30 availability_60
 					miss_group_property_type miss_group_room_type // Listing missing dummies
 					miss_accommodates miss_bathrooms miss_bedrooms miss_beds miss_group_bed_type 
 					miss_cleaning_fee miss_extra_people miss_num_amenities 
@@ -80,7 +80,7 @@ global full_controls i.age i.group_ra_name
 					miss_group_cancellation_policy miss_instant_bookable 	
 					miss_req_guest_pro_pic
 					miss_req_guest_phone miss_minimum_nights 
-					miss_availability_30
+					miss_availability_30 miss_availability_60
 						reviews_polarity reviews_subjectivity summary_polarity summary_subjectivity // NLP controls
 						space_polarity space_subjectivity description_polarity description_subjectivity 
 						neighborhood_polarity neighborhood_subjectivity

@@ -9,23 +9,17 @@ set emptycells drop
 
 ** Predicted price in LA
 #delimit ; 
-quietly reg log_price
-			i.group_neighbourhood_cleansed i.cleaned_city 
-			i.group_property_type i.group_room_type 
-			accommodates bathrooms bedrooms beds i.group_bed_type 
-			cleaning_fee extra_people num_amenities 
-			i.first_review_month i.first_review_year miss_first_review_year 
-			i.group_cancellation_policy instant_bookable 
-			require_guest_profile_picture 
-			require_guest_phone_verification minimum_nights 
-			availability_30 availability_60 
+quietly reg log_price $prop_controls
 			summary_polarity summary_subjectivity 
+			miss_summary_polarity miss_summary_subjectivity
 			space_polarity space_subjectivity description_polarity description_subjectivity 
-			neighborhood_polarity 
-			neighborhood_subjectivity //Quality of listing, effort of host
-			i.group_host_response_time miss_group_host_response_time 
-			host_response_rate //Host-specific charac.
+			miss_space_polarity miss_space_subjectivity miss_description_polarity miss_description_subjectivity
+			neighborhood_polarity miss_neighborhood_polarity 
+			neighborhood_subjectivity miss_neighborhood_subjectivity //Quality of listing/effort of host
+			i.group_host_response_time host_response_rate //Host-specific charac.
 			host_identity_verified host_is_superhost 
+			miss_group_host_response_time miss_host_response_rate 
+			miss_host_identity_verified miss_host_is_superhost 
 				if state == "CA",
 			vce(cluster group_neighbourhood_cleansed) 
 ;
@@ -36,23 +30,17 @@ local mean_price_LA = `r(mean)'
 
 ** Predicted price in NYC
 #delimit ; 
-quietly reg log_price
-			i.group_neighbourhood_cleansed i.cleaned_city 
-			i.group_property_type i.group_room_type 
-			accommodates bathrooms bedrooms beds i.group_bed_type 
-			cleaning_fee extra_people num_amenities  
-			i.first_review_month i.first_review_year miss_first_review_year 
-			i.group_cancellation_policy instant_bookable
-			require_guest_profile_picture 
-			require_guest_phone_verification minimum_nights  
-			availability_30 availability_60
+quietly reg log_price $prop_controls
 			summary_polarity summary_subjectivity 
+			miss_summary_polarity miss_summary_subjectivity
 			space_polarity space_subjectivity description_polarity description_subjectivity 
-			neighborhood_polarity 
-			neighborhood_subjectivity //Quality of listing, effort of host
-			i.group_host_response_time miss_group_host_response_time 
-			host_response_rate //Host-specific charac.
-			host_identity_verified host_is_superhost
+			miss_space_polarity miss_space_subjectivity miss_description_polarity miss_description_subjectivity
+			neighborhood_polarity miss_neighborhood_polarity 
+			neighborhood_subjectivity miss_neighborhood_subjectivity //Quality of listing/effort of host
+			i.group_host_response_time host_response_rate //Host-specific charac.
+			host_identity_verified host_is_superhost 
+			miss_group_host_response_time miss_host_response_rate 
+			miss_host_identity_verified miss_host_is_superhost 
 				if state == "NY",   //Host-specific charac.
 			vce(cluster group_neighbourhood_cleansed) 
 ;
@@ -63,23 +51,7 @@ local mean_price_NY = `r(mean)'
 
 ** Predicted price in Chicago
 #delimit ; 
-quietly reg log_price
-			i.group_neighbourhood_cleansed i.cleaned_city 
-			i.group_property_type i.group_room_type 
-			accommodates bathrooms bedrooms beds i.group_bed_type 
-			cleaning_fee extra_people num_amenities  
-			i.first_review_month i.first_review_year miss_first_review_year
-			i.group_cancellation_policy instant_bookable 
-			require_guest_profile_picture
-			require_guest_phone_verification minimum_nights 
-			availability_30 availability_60 
-			reviews_polarity reviews_subjectivity summary_polarity summary_subjectivity 
-			space_polarity space_subjectivity description_polarity description_subjectivity 
-			neighborhood_polarity 
-			neighborhood_subjectivity //Quality of listing, effort of host
-			i.group_host_response_time miss_group_host_response_time
-			host_response_rate  //Host-specific charac.
-			host_identity_verified host_is_superhost 
+quietly reg log_price $full_controls
 				if state == "IL",   //Host-specific charac.
 			vce(cluster group_neighbourhood_cleansed) 
 ;
@@ -90,23 +62,17 @@ local mean_price_chi = `r(mean)'
 
 ****** Low/high price robustness 
 #delimit ; 
-quietly reg log_price i.race_res
-			i.group_neighbourhood_cleansed 
-			i.group_property_type i.group_room_type 
-			accommodates bathrooms bedrooms beds i.group_bed_type 
-			cleaning_fee extra_people num_amenities  
-			i.first_review_month i.first_review_year miss_first_review_year 
-			i.group_cancellation_policy instant_bookable 
-			require_guest_profile_picture 
-			require_guest_phone_verification minimum_nights 
-			availability_30 availability_60 
+quietly reg log_price i.race_res $prop_controls 
 			summary_polarity summary_subjectivity 
+			miss_summary_polarity miss_summary_subjectivity
 			space_polarity space_subjectivity description_polarity description_subjectivity 
-			neighborhood_polarity 
-			neighborhood_subjectivity //Quality of listing, effort of host
-			i.group_host_response_time miss_group_host_response_time
-			host_response_rate //Host-specific charac.
+			miss_space_polarity miss_space_subjectivity miss_description_polarity miss_description_subjectivity
+			neighborhood_polarity miss_neighborhood_polarity 
+			neighborhood_subjectivity miss_neighborhood_subjectivity //Quality of listing/effort of host
+			i.group_host_response_time host_response_rate //Host-specific charac.
 			host_identity_verified host_is_superhost 
+			miss_group_host_response_time miss_host_response_rate 
+			miss_host_identity_verified miss_host_is_superhost 
 				if predict_price_LA < `mean_price_LA' & state=="CA",
 				vce(cluster group_neighbourhood_cleansed) 
 ;
@@ -114,23 +80,17 @@ quietly reg log_price i.race_res
 eststo model1
 
 #delimit ;
-quietly reg log_price i.race_res
-			i.group_neighbourhood_cleansed 
-			i.group_property_type i.group_room_type 
-			accommodates bathrooms bedrooms beds i.group_bed_type 
-			cleaning_fee extra_people num_amenities 
-			i.first_review_month i.first_review_year miss_first_review_year
-			i.group_cancellation_policy instant_bookable 
-			require_guest_profile_picture
-			require_guest_phone_verification minimum_nights 
-			availability_30 availability_60 
+quietly reg log_price i.race_res $prop_controls 
 			summary_polarity summary_subjectivity 
+			miss_summary_polarity miss_summary_subjectivity
 			space_polarity space_subjectivity description_polarity description_subjectivity 
-			neighborhood_polarity 
-			neighborhood_subjectivity //Quality of listing, effort of host
-			i.group_host_response_time miss_group_host_response_time
-			host_response_rate //Host-specific charac.
+			miss_space_polarity miss_space_subjectivity miss_description_polarity miss_description_subjectivity
+			neighborhood_polarity miss_neighborhood_polarity 
+			neighborhood_subjectivity miss_neighborhood_subjectivity //Quality of listing/effort of host
+			i.group_host_response_time host_response_rate //Host-specific charac.
 			host_identity_verified host_is_superhost 
+			miss_group_host_response_time miss_host_response_rate 
+			miss_host_identity_verified miss_host_is_superhost 
 				if predict_price_LA > `mean_price_LA' & state=="CA",
 				vce(cluster group_neighbourhood_cleansed) 
 ;
@@ -138,23 +98,17 @@ quietly reg log_price i.race_res
 eststo model2 
 
 #delimit ;
-quietly reg log_price i.race_res
-			i.group_neighbourhood_cleansed 
-			i.group_property_type i.group_room_type 
-			accommodates bathrooms bedrooms beds i.group_bed_type
-			cleaning_fee extra_people num_amenities 
-			i.first_review_month i.first_review_year miss_first_review_year
-			i.group_cancellation_policy instant_bookable 
-			require_guest_profile_picture 
-			require_guest_phone_verification minimum_nights 
-			availability_30 availability_60
+quietly reg log_price i.race_res $prop_controls 
 			summary_polarity summary_subjectivity 
+			miss_summary_polarity miss_summary_subjectivity
 			space_polarity space_subjectivity description_polarity description_subjectivity 
-			neighborhood_polarity 
-			neighborhood_subjectivity //Quality of listing, effort of host
-			i.group_host_response_time miss_group_host_response_time 
-			host_response_rate  //Host-specific charac.
+			miss_space_polarity miss_space_subjectivity miss_description_polarity miss_description_subjectivity
+			neighborhood_polarity miss_neighborhood_polarity 
+			neighborhood_subjectivity miss_neighborhood_subjectivity //Quality of listing/effort of host
+			i.group_host_response_time host_response_rate //Host-specific charac.
 			host_identity_verified host_is_superhost 
+			miss_group_host_response_time miss_host_response_rate 
+			miss_host_identity_verified miss_host_is_superhost 
 				if predict_price_NY < `mean_price_NY' & state=="NY",
 				vce(cluster group_neighbourhood_cleansed) 
 ;
@@ -162,23 +116,17 @@ quietly reg log_price i.race_res
 eststo model3 
 
 #delimit ; 
-quietly reg log_price i.race_res
-			i.group_neighbourhood_cleansed 
-			i.group_property_type i.group_room_type
-			accommodates bathrooms bedrooms beds i.group_bed_type
-			cleaning_fee extra_people num_amenities 
-			i.first_review_month i.first_review_year miss_first_review_year
-			i.group_cancellation_policy instant_bookable 
-			require_guest_profile_picture
-			require_guest_phone_verification minimum_nights
-			availability_30 availability_60
+quietly reg log_price i.race_res $prop_controls 
 			summary_polarity summary_subjectivity 
+			miss_summary_polarity miss_summary_subjectivity
 			space_polarity space_subjectivity description_polarity description_subjectivity 
-			neighborhood_polarity 
-			neighborhood_subjectivity //Quality of listing, effort of host
-			i.group_host_response_time miss_group_host_response_time 
-			host_response_rate //Host-specific charac.
+			miss_space_polarity miss_space_subjectivity miss_description_polarity miss_description_subjectivity
+			neighborhood_polarity miss_neighborhood_polarity 
+			neighborhood_subjectivity miss_neighborhood_subjectivity //Quality of listing/effort of host
+			i.group_host_response_time host_response_rate //Host-specific charac.
 			host_identity_verified host_is_superhost 
+			miss_group_host_response_time miss_host_response_rate 
+			miss_host_identity_verified miss_host_is_superhost 
 				if predict_price_NY > `mean_price_NY' & state=="NY",
 				vce(cluster group_neighbourhood_cleansed) 
 ;
@@ -186,23 +134,7 @@ quietly reg log_price i.race_res
 eststo model4
 
 #delimit ; 		
-quietly reg log_price i.race_res
-			i.group_neighbourhood_cleansed 
-			i.group_property_type i.group_room_type
-			accommodates bathrooms bedrooms beds i.group_bed_type
-			cleaning_fee extra_people num_amenities 
-			i.first_review_month i.first_review_year miss_first_review_year
-			i.group_cancellation_policy instant_bookable 
-			require_guest_profile_picture
-			require_guest_phone_verification minimum_nights 
-			availability_30 availability_60
-			reviews_polarity reviews_subjectivity summary_polarity summary_subjectivity 
-			space_polarity space_subjectivity description_polarity description_subjectivity 
-			neighborhood_polarity 
-			neighborhood_subjectivity //Quality of listing, effort of host
-			i.group_host_response_time miss_group_host_response_time 
-			host_response_rate //Host-specific charac.
-			host_identity_verified host_is_superhost 
+quietly reg log_price i.race_res $full_controls
 				if predict_price_chi < `mean_price_chi' & state=="IL",
 				vce(cluster group_neighbourhood_cleansed) 
 ;
@@ -210,22 +142,7 @@ quietly reg log_price i.race_res
 eststo model5 
 
 #delimit ; 
- quietly reg log_price i.race_res
-			i.group_neighbourhood_cleansed
-			i.group_property_type i.group_room_type
-			accommodates bathrooms bedrooms beds i.group_bed_type 
-			cleaning_fee extra_people num_amenities  
-			i.first_review_month i.first_review_year miss_first_review_year
-			i.group_cancellation_policy instant_bookable require_guest_profile_picture
-			require_guest_phone_verification minimum_nights
-			availability_30 availability_60
-			reviews_polarity reviews_subjectivity summary_polarity summary_subjectivity 
-			space_polarity space_subjectivity description_polarity description_subjectivity 
-			neighborhood_polarity 
-			neighborhood_subjectivity //Quality of listing, effort of host
-			i.group_host_response_time miss_group_host_response_time 
-			host_response_rate //Host-specific charac.
-			host_identity_verified host_is_superhost 
+ quietly reg log_price i.race_res $full_controls 
 				if predict_price_chi > `mean_price_chi' & state=="IL",
 				vce(cluster group_neighbourhood_cleansed) 
 ;
@@ -233,22 +150,7 @@ eststo model5
 eststo model6
 
 #delimit ; 
-quietly reg log_price i.race_res 
-			i.group_neighbourhood_cleansed i.cleaned_city 
-			i.group_property_type i.group_room_type
-			accommodates bathrooms bedrooms beds i.group_bed_type
-			cleaning_fee extra_people num_amenities
-			i.first_review_month i.first_review_year miss_first_review_year
-			i.group_cancellation_policy instant_bookable require_guest_profile_picture
-			require_guest_phone_verification minimum_nights 
-			availability_30 availability_60
-			reviews_polarity reviews_subjectivity summary_polarity summary_subjectivity 
-			space_polarity space_subjectivity description_polarity description_subjectivity 
-			neighborhood_polarity 
-			neighborhood_subjectivity //Quality of listing, effort of host
-			i.group_host_response_time miss_group_host_response_time 
-			host_response_rate //Host-specific charac.
-			host_identity_verified host_is_superhost 
+quietly reg log_price i.race_res $full_controls
 				if first_review_year < 15,
 				vce(cluster group_neighbourhood_cleansed) 
 ;
@@ -256,23 +158,7 @@ quietly reg log_price i.race_res
 eststo model7 
 
 #delimit ; 
-quietly reg log_price i.race_res
-			i.group_neighbourhood_cleansed i.cleaned_city 
-			i.group_property_type i.group_room_type 
-			accommodates bathrooms bedrooms beds i.group_bed_type 
-			cleaning_fee extra_people num_amenities 
-			i.first_review_month i.first_review_year miss_first_review_year
-			i.group_cancellation_policy instant_bookable 
-			require_guest_profile_picture
-			require_guest_phone_verification minimum_nights 
-			availability_30 availability_60 
-			reviews_polarity reviews_subjectivity summary_polarity summary_subjectivity 
-			space_polarity space_subjectivity description_polarity description_subjectivity 
-			neighborhood_polarity 
-			neighborhood_subjectivity //Quality of listing, effort of host
-			i.group_host_response_time miss_group_host_response_time 
-			host_response_rate //Host-specific charac.
-			host_identity_verified host_is_superhost 
+quietly reg log_price i.race_res $full_controls
 				if first_review_year < 99 & first_review_year > 14,
 				vce(cluster group_neighbourhood_cleansed) 
 ;
@@ -280,23 +166,7 @@ quietly reg log_price i.race_res
 eststo model8 
 
 #delimit ; 			
-quietly reg log_price i.race_res 
-			i.group_neighbourhood_cleansed i.cleaned_city  
-			i.group_property_type i.group_room_type 
-			accommodates bathrooms bedrooms beds i.group_bed_type 
-			cleaning_fee extra_people num_amenities 
-			i.first_review_month i.first_review_year miss_first_review_year
-			i.group_cancellation_policy instant_bookable 
-			require_guest_profile_picture 
-			require_guest_phone_verification minimum_nights 
-			availability_30 availability_60
-			reviews_polarity reviews_subjectivity summary_polarity summary_subjectivity 
-			space_polarity space_subjectivity description_polarity description_subjectivity 
-			neighborhood_polarity 
-			neighborhood_subjectivity //Quality of listing, effort of host
-			i.group_host_response_time miss_group_host_response_time
-			host_response_rate //Host-specific charac.
-			host_identity_verified host_is_superhost 
+quietly reg log_price i.race_res $full_controls
 				if property_type == "Apartment" | property_type == "Loft",
 				vce(cluster group_neighbourhood_cleansed) 
 ;
@@ -304,23 +174,7 @@ quietly reg log_price i.race_res
 eststo model9 
 
 #delimit ; 
-quietly reg log_price i.race_res
-			i.group_neighbourhood_cleansed i.cleaned_city 
-			i.group_property_type i.group_room_type 
-			accommodates bathrooms bedrooms beds i.group_bed_type 
-			cleaning_fee extra_people num_amenities 
-			i.first_review_month i.first_review_year miss_first_review_year
-			i.group_cancellation_policy instant_bookable 
-			require_guest_profile_picture
-			require_guest_phone_verification minimum_nights 
-			availability_30 availability_60
-			reviews_polarity reviews_subjectivity summary_polarity summary_subjectivity 
-			space_polarity space_subjectivity description_polarity description_subjectivity 
-			neighborhood_polarity 
-			neighborhood_subjectivity //Quality of listing, effort of host
-			i.group_host_response_time miss_group_host_response_time 
-			host_response_rate //Host-specific charac.
-			host_identity_verified host_is_superhost 
+quietly reg log_price i.race_res $full_controls
 				if property_type == "Townhouse" | property_type == "Condominium",
 				vce(cluster group_neighbourhood_cleansed)
 ;
@@ -328,31 +182,13 @@ quietly reg log_price i.race_res
 eststo model10 
 
 #delimit ; 			
-quietly reg log_price i.race_res
-			i.group_neighbourhood_cleansed i.cleaned_city 
-			i.group_property_type i.group_room_type 
-			accommodates bathrooms bedrooms beds i.group_bed_type  
-			cleaning_fee extra_people num_amenities  
-			i.first_review_month i.first_review_year miss_first_review_year
-			i.group_cancellation_policy instant_bookable 
-			require_guest_profile_picture 
-			require_guest_phone_verification minimum_nights 
-			availability_30 availability_60
-			reviews_polarity reviews_subjectivity summary_polarity summary_subjectivity 
-			space_polarity space_subjectivity description_polarity description_subjectivity 
-			neighborhood_polarity 
-			neighborhood_subjectivity //Quality of listing, effort of host
-			i.group_host_response_time miss_group_host_response_time 
-			host_response_rate //Host-specific charac.
-			host_identity_verified host_is_superhost 
+quietly reg log_price i.race_res $full_controls
 				if property_type == "House" | property_type == "Guesthouse",
 				vce(cluster group_neighbourhood_cleansed) 
 ;
 #delimit cr
 
 eststo model11 
-
-
 
 
 local controlgroup1 // Location
