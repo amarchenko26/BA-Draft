@@ -5,22 +5,42 @@ preserve
 keep if sample == 1
 * Availability supply-side analysis
 #delimit ; 
-reg availability_30 i.race_sex_res
+reg availability_30 i.race_sex_res miss_race_sex_res
 			i.group_neighbourhood_cleansed i.cleaned_city
-			i.group_property_type i.group_room_type
+			popdensity med_value med_gross_rent med_income_city_norm race_white_city_norm // Census variables
+			race_black_city_norm race_asian_city_norm race_sor_city_norm race_hnom_city_norm
+			unemployed_city_percent HHSSI_city_percent occupied_city_percent commute_city_percent_under
+			commute_city_percent_over 
+				miss_group_nhood_clean miss_cleaned_city 
+				miss_popdensity miss_med_value miss_med_gross_rent miss_med_income_city_norm miss_race_white_city_norm 
+				miss_race_black_city_norm miss_race_asian_city_norm miss_race_sor_city_norm miss_race_hnom_city_norm
+				miss_unemployed_city_percent miss_HHSSI_city_percent miss_occupied_city_percent miss_commute_city_percent_under
+				miss_commute_city_percent_over 
+			i.group_property_type i.group_room_type // Listing FEs
 			accommodates bathrooms bedrooms beds i.group_bed_type
 			cleaning_fee extra_people num_amenities  
 			i.first_review_month i.first_review_year miss_first_review_year
 			i.group_cancellation_policy instant_bookable 
 			require_guest_profile_picture
 			require_guest_phone_verification minimum_nights
-			reviews_polarity reviews_subjectivity summary_polarity summary_subjectivity 
-			space_polarity space_subjectivity description_polarity description_subjectivity 
-			neighborhood_polarity 
-			neighborhood_subjectivity //Quality of listing/effort of host
-			i.group_host_response_time miss_group_host_response_time 
+				miss_group_property_type miss_group_room_type // Listing missing dummies
+				miss_accommodates miss_bathrooms miss_bedrooms miss_beds miss_group_bed_type 
+				miss_cleaning_fee miss_extra_people miss_num_amenities 
+				miss_first_review_month miss_first_review_year 
+				miss_group_cancellation_policy miss_instant_bookable 	
+				miss_req_guest_pro_pic
+				miss_req_guest_phone miss_minimum_nights 
+			reviews_polarity reviews_subjectivity summary_polarity //Quality of listing/effort of host
+			summary_subjectivity space_polarity space_subjectivity description_polarity 
+			description_subjectivity neighborhood_polarity neighborhood_subjectivity 
+				miss_reviews_polarity miss_reviews_subjectivity miss_summary_polarity // NLP missing dummies
+				miss_summary_subjectivity miss_space_polarity miss_space_subjectivity miss_description_polarity 
+				miss_description_subjectivity miss_neighborhood_polarity miss_neighborhood_subjectivity
+			i.group_host_response_time 
 			host_response_rate //Host-specific charac.
-			host_identity_verified host_is_superhost,  //Host-specific charac.
+			host_identity_verified host_is_superhost
+					miss_group_host_response_time miss_host_response_rate // Host missing dummies
+					miss_host_identity_verified miss_host_is_superhost,  
 			vce(cluster group_neighbourhood_cleansed) 
 ;
 #delimit cr
