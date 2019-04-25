@@ -5,7 +5,9 @@ The data are taken from Inside Airbnb, a project unaffiliated with Airbnb which 
 The scrape of the Airbnb website was conducted throughout 2015 and 2016, and provides a point-in-time snapshot of all of the listings available in a particular city. This includes all of the information that would be available to an Airbnb guest browsing through listings at the time of the scrape.%
 	\footnote{Inside Airbnb provides some time-series information on prices, but since each listing's price was not scraped daily, there are often week-long or month-long gaps in the time-series price data. A cursory glance at the time-series prices reveals that hosts do not change prices often, and if they do, they often reflect predictable weekend or holiday seasonality. There is therefore reason to believe that the prices posted at the time of the scrape are representative of a listing's price throughout the year. Because of the incompleteness of the time-series data set, I focus on the cross-sectional data for the main analysis.} 
 
-I restricted the sample to hosts who have profile pictures and manage less than 20 listings, and listings priced at less than \$800 per night. 45,076 listings were left after restricting the data set. Only 20 hosts did not have profile pictures. [NOTE TO SELF CHECK THAT THIS IS TRUE IN FINAL VERSION]
+I restricted the sample to hosts who have profile pictures and manage less than 20 listings, and listings priced at less than \$800 per night. 45,076 listings were left after restricting the data set. Only 20 hosts did not have profile pictures. 
+
+[CHECK IF numbers TRUE IN FINAL VERSION.]
 
 \subsubsection*{Coding} 
 Airbnb does not provide the demographic information of their hosts, so undergraduate research assistants manually coded the hosts' demographic information. For each listing, assistants identified the race, gender, and age of the host, as well as whether or not there was more than one person in the picture. Table \ref{table:coding} presents the full set of categories according to which each picture was coded. Only listings with a single person in the profile picture who were identifiably White, Black, Asian, or Hispanic, were included in the main analysis. Listings with couples, groups, children, pictures without a human face, or people of ambiguous race were dropped from the main analysis. Listings that no longer existed at the time of coding were also excluded.%
@@ -18,20 +20,21 @@ Each RA was compensated based on the quantity of the listings they coded. Since 
 A total of 70,000 host pictures across seven US cities were coded - Chicago, Los Angeles, New York City, Austin, Washington, D.C., and New Orleans. This sample represents large, racially diverse cities which are geographically dispersed across the United States. For every city but New York, every single Airbnb listing that existed in that city at the time of the scrape was coded. In New York, which had the most listings in the sample, half of the existing 40,000 listings were randomly chosen.%
 	\footnote{This approach limits the applicability of my findings to urban areas, discounting the roughly one-fifth of Airbnb's listings which are located in rural areas. A 2017 report released by Airbnb stated that roughly a fifth of all active listings are located in rural areas, with 138\% year-in-year growth in Airbnb guest arrivals at rural listings.} 
 
-In addition to hosts, research assistants also identified the race, gender, and age of 16,000 reviewers who had stayed at a subset of the listings in Chicago, representing about a quarter of the total number of Airbnb guests in my Chicago sample. I chose a random subset of Chicago hosts such that the 16,000 reviewers represented all of the reviews left for those hosts. For those hosts in Chicago, it is thus possible to study the dynamics between reviewer versus host demographics and review quality. Chicago was chosen primarily because of personpower constraints - since there are many more guests than hosts, coding all of the reviewers even for a single city would be infeasible. Instead of spreading thin across each city, I dove deep into Chicago. Since Chicago is demographically more similar to the average Airbnb population [SOMEBODY blah blah put  something here]. 
+In addition to hosts, research assistants also identified the race, gender, and age of 16,000 reviewers who had stayed at a subset of the listings in Chicago, representing about a quarter of the total number of Airbnb guests in my Chicago sample. I chose a random subset of Chicago hosts such that the 16,000 reviewers represented all of the reviews left for those hosts. For those hosts in Chicago, it is thus possible to study the dynamics between reviewer versus host demographics and review quality. Chicago was chosen primarily because of personpower constraints - since there are on average twenty reviewers for every host, coding all of the reviewers even for a single city remained infeasible. I chose Chicago because unlike New York or Los Angeles, Chicago's Airbnb market is small enough to be able to code a substantial portion of its Airbnb hosts and their reviewers, while still obtaining results that could be generalizeable to other major metropolitan areas in the United States. It is also racially diverse enough to obtain adequate sample sizes for my analysis. Since reviewer-side analysis requires sufficient variation not just in the host race, but also in the reviewer race, choosing a smaller but more racially homogenous city would have been less fruitful.  
 
+\subsubsection*{Location controls \& Census data} 
+
+Data is available on the neighborhood and city of each listing from Airbnb. Adding neighborhood fixed effects removes any differences in prices that are due to a listing's location being in a neighborhood that has better amenities or is more proximate to downtown or any tourist attractions. To further control for characteristics of a listing's location that may differentially impact price by race, I use Census data from the American Community Survey 2016 5-year zipcode-level estimates. 
+
+From the Census, I merge in demographic data such as the racial composition of each zipcode. I also include various measures of economic health such as the median income, unemployment rate for the total labor force, share of households on Supplemental Security Income, median housing value, and gross rent. The population density and commuting time to work proxy for distance to downtown. Importantly, I add controls for the occupancy rate per zipcode, allowing me to account for the [blah blah someone please help]. 
 
 \subsubsection*{Listing controls} 
 
-%\footnote{MOVE DEMOGRAPHIC DETAILS TO DATA APPENDIX. According to the U.S. Census Bureau, Nashvile is 60.4\% white, 28.4\% black, 10.0\% Hispanic, and 2.5\% Asian. New York City is 44\% white, 25.5\% black, 12.7\% Asian, and 28.6\% Hispanic.} 
+In addition to controlling for listing location, I add two broad sets of controls: listing-specific and host-specific. Together, I control for all features of the listing that are available to a potential guest, as well as additional metrics that aim to capture unobservable differences between hosts. 
 
-
-I add two broad sets of controls: listing-specific and host-specific. Together, I control for all features of the listing that are available to a potential guest, as well as additional metrics that aim to capture unobservable differences between hosts. 
-
-Listing characteristics include fixed effects for the neighborhood and city of the listing, the property type and room type, the listing's duration on the market, and controls for the number of guests the listing accommodates, the number of bathrooms, bedrooms, and beds, the bed type, the number of amenities, the number of minimum nights, any extra fees, whether the listing is instantly bookable, and the cancellation policy.%
+Listing characteristics include fixed effects for the property type and room type of the listing, the listing's duration on the market, and controls for the number of guests the listing accommodates, the number of bathrooms, bedrooms, and beds, the bed type, the number of amenities, the number of minimum nights, any extra fees, whether the listing is instantly bookable, and the cancellation policy.%
 	\footnote{The data set does not include Airbnb's original neighborhood designations ``due to inaccuracies". Instead, Inside Airbnb assigned neighborhoods to each listing by comparing the geographic coordinates of the listing with each city's neighborhood designations. Location information for listings is anonymized by Airbnb, and no exact address is provided for any listing. The location for a listing could be 0-150 meters from the actual address. Figure \ref{fig:chicago} presents a map of Chicago's neighborhoods to give an example of the granularity of the neighborhood controls.}
 I also control for the listing's duration on the market by proxying with fixed effects for the month and year of the listing's first review.
-
 
 \subsection*{Host quality controls  \& sentiment analysis}
 Host controls include the host response time and the host response rate, whether the host is a Superhost, whether the host identity was verified by Airbnb, and if the host requires a guest's profile picture or phone to book. 
@@ -48,7 +51,7 @@ For the 16,000 reviewers who left reviews in Chicago listings, I also use natura
 \newpage	
 \singlespacing
 %\include{tables/table_1_coding_keys}
-\doublespacing
+
 
 
 
@@ -59,14 +62,12 @@ For the 16,000 reviewers who left reviews in Chicago listings, I also use natura
 \label{summary}
 
 Summary statistics of listing characteristics, host demographics, and host characteristics are displayed in Tables \ref{table:listing}-\ref{table:covariates}. Histograms of price, number of reviews, and review sentiment are included in Figures \ref{fig:prices} - \ref{fig:sentiment}. There is significant variation in both sex and race of the hosts on Airbnb. Roughly a third of the sample are single females (38\%), and a third are single males (31\%), and the rest are couples or groups (31\%). About two-thirds of the hosts are white (64\%), and less than a tenth are black (7\%), Hispanic (5\%), or Asian (9\%).%
-	\footnote{The rest of the profile pictures were either pictures of groups, pictures without a human face, or multiracial couples.} 
+	\footnote{The rest of the profile pictures were pictures of groups, pictures without a human face, or multiracial couples.} 
 
 The prices of listings owned by white hosts are higher than those of other hosts. The mean price per night of a listing is \$178 per night for White, \$125 for Black, \$160 for Hispanic, and \$131 for Asian hosts. Minority hosts also have lower median prices and lower standard deviations, indicating that not only do minority hosts own cheaper listings on average, but their listings are more concentrated around the lower mean.%
 	\footnote{The median price of a listing owned by a white hosts is \$115 per night, \$90 for black hosts, \$99 for Hispanic hosts, and \$90 for Asian hosts.} 
 
 Consistent with previous research, differences in property characteristics explain a substantial part of the price disparity. Table \ref{table:listing} shows that White hosts own the most costly property type (houses) and the fewest cheaper property types (apartments or lofts), and their properties have the most features correlated with higher prices (such as more bedrooms, bathrooms, beds). Though White hosts' listings are better on every single metric of immutable property quality, this is not the case for host characteristics. Minority hosts do well in categories where the host can personally influence their desirability. For example, Black hosts have the fastest response time, fewest minimum nights restrictions, make their listing available for more days, and make their property more instantly bookable than any other race.  
-
-%White hosts have the highest number of reviews, and the highest review ratings. Airbnb designates especially experienced, highly-rated hosts as ``Superhosts". Users on Airbnb are willing to pay more to stay with a Superhost, likely due to the perception that their listings are of higher quality. Because Airbnb assigns Superhost status based on the number of guests a host has, the quality of their reviews, and their response rate, white hosts are Superhosts most frequently.
 
 Reviewer characteristics are displayed in Table \ref{table:reviewer}. The reviewers have similar gender diversity as the overall host population but significantly less racial diversity. Importantly, the measure of review quality assigned by the machine learning algorithm to the review text correlates well with the numeric review score. While all hosts have on average very positive reviews, White hosts have the most positive, and Black hosts the least positive, review sentiment. 
 
@@ -74,6 +75,7 @@ Reviewer characteristics are displayed in Table \ref{table:reviewer}. The review
 
 
 % OLD PARAGRAPHS
+%White hosts have the highest number of reviews, and the highest review ratings. Airbnb designates especially experienced, highly-rated hosts as ``Superhosts". Users on Airbnb are willing to pay more to stay with a Superhost, likely due to the perception that their listings are of higher quality. Because Airbnb assigns Superhost status based on the number of guests a host has, the quality of their reviews, and their response rate, white hosts are Superhosts most frequently.
 
 %Black and Hispanic hosts also describe their listings using as many or more words associated with quality descriptions, such as ``airy," ``beautiful," and ``clean", as white hosts).%\footnote{See Figure \ref{fig:property} for an example of the host-written descriptions on a listing page.}
 

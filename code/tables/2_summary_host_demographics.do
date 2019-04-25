@@ -6,8 +6,8 @@
  
 
 ///Defining Labels
-label define age_lbl 1 "Young" 2 "Middle-Aged" 3 "Old" 4 "Unkown/Multiple People"
-label values  age_res age_lbl
+label define age_lbl2 1 "Young" 2 "Middle-Aged" 3 "Old" 4 "Unkown/Multiple People"
+label values  age_res age_lbl2
 
 
 // open .tex file

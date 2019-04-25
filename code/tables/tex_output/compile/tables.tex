@@ -56,7 +56,7 @@
 
 	\begin{tablenotes}
 	
-	\item {\it Note:} The dependent variable is the log price of the listing. All race coefficients are relative to white males. The unit of observation is a listing. The sample is the sample of listings across 7 US cities. Model 1 is the baseline effect of host demographics on price. Model 2 controls for listing location to the neighborhood level. Model 3 adds listing characteristics such as property type, time on market, number of bedrooms, availability, etc. Model 4 adds host characteristics such as response and acceptance rates, measures of host effort, Superhost status, etc. See Data Appendix for full description of covariates.  
+	\item {\it Note:} This table presents the impact of host race on the price of a listing. The dependent variable is the log price. The omitted category is white males. The unit of observation is a listing. The sample is the sample of listings across 7 US cities. Model 1 is the baseline effect of host demographics on price. Model 2 controls for listing location to the neighborhood level and demographic and economic health characteristics on the zipcode-level. Model 3 adds listing characteristics such as the property type and size. Model 4 adds host characteristics such as response and acceptance rates and measures of host effort.  
 \end{tablenotes}
 \end{table}
 
@@ -64,7 +64,7 @@
 % Table 15
 \begin{table}[htbp]\centering
 	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
-	\caption{Main result: Estimates of effect of host’s race and gender on price [without interaction]}
+	\caption{Main result: Estimates of effect of host’s race and gender on price [Without interaction]}
 	\begin{tabular}{l*{5}{c}}
 		\hline\hline
 		\input{../individual_tables/price_no_int}
@@ -75,7 +75,7 @@
 	
 	\begin{tablenotes}
 		
-		\item {\it Note:} The dependent variable is the log price of the listing. The omitted category for host race and gender is white males. The unit of observation is a listing. The sample is the sample of listings across 7 US cities. Model 1 is the baseline effect of host demographics on price. Model 2 controls for listing location to the neighborhood level. Model 3 adds listing characteristics such as property type, time on market, number of bedrooms, availability, etc. Model 4 adds host characteristics such as response and acceptance rates, measures of host effort, Superhost status, etc. See Data Appendix for full description of covariates.  
+		\item {\it Note:} The dependent variable is the log price of the listing. The omitted category for host race and gender is White hosts. The unit of observation is a listing. The sample is the sample of listings across 7 US cities. Model 1 is the baseline effect of host demographics on price. Model 2 controls for listing location to the neighborhood level and demographic and economic health characteristics on the zipcode-level. Model 3 adds listing characteristics such as the property type and size. Model 4 adds host characteristics such as response and acceptance rates and measures of host effort.  
 	\end{tablenotes}
 \end{table}
 
@@ -96,7 +96,7 @@
 	\end{tabular}
 	\begin{tablenotes}
 				
-		\item {\it Note:} This table presents the effect on log price of controlling for Edelman \& Luca's (2014) full specification using my NYC data. My results are nearly identical to theirs (their coefficient on Black hosts was -17.8) when controlling for similar covariates in the same city. The omitted category for race is White hosts. The omitted category for room type is Entire Apartment. I could not control for host social media accounts as a proxy for host reliability like Edelman \& Luca did, because Airbnb no longer provides this information. Instead, I controlled for ``host verified", a dummy for whether Airbnb has the host's phone number and email. I was not able to control for ``picture quality" either, but picture quality did not significantly influence price in Edelman \& Luca's regression.
+		\item {\it Note:} This table presents the effect on log price of controlling for Edelman \& Luca's (2014) full specification using my NYC data. The omitted category for race is White hosts. The omitted category for room type is Entire Apartment. I could not control for host social media accounts as a proxy for host reliability like Edelman \& Luca did, because Airbnb no longer provides this information. Instead, I controlled for ``host verified", a dummy for whether Airbnb has the host's phone number and email. I was not able to control for ``picture quality" either, but picture quality did not significantly influence price in Edelman \& Luca's regression.
 	\end{tablenotes}
 	
 \end{table}
@@ -114,7 +114,7 @@
 	\end{tabular}
 	\begin{tablenotes}
 
-		\item {\it Note:}The dependent variable is the log number of reviews of the listing. The omitted category for race is white males, so all coefficients are relative to that group. The unit of observation is an Airbnb listing, so hosts who have multiple listings are treated separately each time. The sample is the sample of listings across 7 US cities. The specification is the same as Table \ref{table:price}.	
+		\item {\it Note:} The dependent variable is the log number of reviews of the listing. The omitted category for race is White males. The unit of observation is an Airbnb listing, so hosts who have multiple listings are treated separately each time. The sample is the sample of listings across 7 US cities. The specification is the same as Table \ref{table:price}.	
 	\end{tablenotes}
 \end{table}
 
@@ -140,7 +140,7 @@
 % Table 9
 	\begin{table}[htbp]\centering
 		\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
-		\caption{Robustness City}
+		\caption{Robustness City [WITHOUT interaction]}
 		\begin{tabular}{l*{7}{c}}
 			\hline\hline
 			\input{../individual_tables/robustness_city}
