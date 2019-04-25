@@ -282,6 +282,7 @@ file write f "\hline" _n ///
 // write end of table
 file write f "\hline\hline\noalign{\smallskip} \end{tabular} " _n ///
 "\begin{minipage}{6in}" _n ///
+"\label{table:listing_summary}" _n ///
 	"{\it Note:} The values in the table are means and standard deviations" ///
 	" of listing-level data in my full sample. Summary statistics for selected covariates" ///
 	" are listed in the table. Categorical variables such as room type do not have standard" ///

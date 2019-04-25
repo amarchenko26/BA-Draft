@@ -68,7 +68,7 @@ quietly reg sentiment_mean_stan i.race_sex_res ///
 	i.first_review_month i.first_review_year  /// 
 	i.group_cancellation_policy instant_bookable require_guest_profile_picture ///
 	require_guest_phone_verification minimum_nights /// 
-	availability_30 availability_60 ///
+	availability_30 ///
 	len_desc short_words len_desc2 short_words2 len_desc3 short_words3 /// //Quality of listing/effort of host
 	len_desc4 short_words4 len_desc5 short_words5 len_desc6 short_words6 /// //Quality of listing
 	i.group_host_response_time host_response_rate /// //Host-specific charac.
@@ -88,7 +88,7 @@ quietly reg sentiment_mean_stan i.race_sex_res ///
 	i.first_review_month i.first_review_year  /// 
 	i.group_cancellation_policy instant_bookable require_guest_profile_picture ///
 	require_guest_phone_verification minimum_nights /// 
-	availability_30 availability_60 ///
+	availability_30 ///
 	len_desc short_words len_desc2 short_words2 len_desc3 short_words3 /// //Quality of listing/effort of host
 	len_desc4 short_words4 len_desc5 short_words5 len_desc6 short_words6 /// //Quality of listing
 	i.group_host_response_time host_response_rate /// //Host-specific charac.
@@ -108,7 +108,7 @@ quietly reg sentiment_mean_stan i.race_sex_res ///
 	i.first_review_month i.first_review_year  /// 
 	i.group_cancellation_policy instant_bookable require_guest_profile_picture ///
 	require_guest_phone_verification minimum_nights /// 
-	availability_30 availability_60 ///
+	availability_30 ///
 	len_desc short_words len_desc2 short_words2 len_desc3 short_words3 /// //Quality of listing/effort of host
 	len_desc4 short_words4 len_desc5 short_words5 len_desc6 short_words6 /// //Quality of listing
 	i.group_host_response_time host_response_rate /// //Host-specific charac.
@@ -128,7 +128,7 @@ quietly reg sentiment_mean_stan i.race_sex_res ///
 	i.first_review_month i.first_review_year  /// 
 	i.group_cancellation_policy instant_bookable require_guest_profile_picture ///
 	require_guest_phone_verification minimum_nights /// 
-	availability_30 availability_60 ///
+	availability_30 ///
 	len_desc short_words len_desc2 short_words2 len_desc3 short_words3 /// //Quality of listing/effort of host
 	len_desc4 short_words4 len_desc5 short_words5 len_desc6 short_words6 /// //Quality of listing
 	i.group_host_response_time host_response_rate /// //Host-specific charac.
@@ -148,7 +148,7 @@ quietly reg sentiment_mean_stan i.race_sex_res ///
 	i.first_review_month i.first_review_year  /// 
 	i.group_cancellation_policy instant_bookable require_guest_profile_picture ///
 	require_guest_phone_verification minimum_nights /// 
-	availability_30 availability_60 ///
+	availability_30 ///
 	len_desc short_words len_desc2 short_words2 len_desc3 short_words3 /// //Quality of listing/effort of host
 	len_desc4 short_words4 len_desc5 short_words5 len_desc6 short_words6 /// //Quality of listing
 	i.group_host_response_time host_response_rate /// //Host-specific charac.
@@ -168,7 +168,7 @@ quietly reg sentiment_mean_stan i.race_sex_res ///
 	i.first_review_month i.first_review_year  /// 
 	i.group_cancellation_policy instant_bookable require_guest_profile_picture ///
 	require_guest_phone_verification minimum_nights /// 
-	availability_30 availability_60 ///
+	availability_30 ///
 	len_desc short_words len_desc2 short_words2 len_desc3 short_words3 /// //Quality of listing/effort of host
 	len_desc4 short_words4 len_desc5 short_words5 len_desc6 short_words6 /// //Quality of listing
 	i.group_host_response_time host_response_rate /// //Host-specific charac.
@@ -188,7 +188,7 @@ quietly reg sentiment_mean_stan i.race_sex_res ///
 	i.first_review_month i.first_review_year  /// 
 	i.group_cancellation_policy instant_bookable require_guest_profile_picture ///
 	require_guest_phone_verification minimum_nights /// 
-	availability_30 availability_60 ///
+	availability_30 ///
 	len_desc short_words len_desc2 short_words2 len_desc3 short_words3 /// //Quality of listing/effort of host
 	len_desc4 short_words4 len_desc5 short_words5 len_desc6 short_words6 /// //Quality of listing
 	i.group_host_response_time host_response_rate /// //Host-specific charac.
@@ -208,7 +208,7 @@ reg sentiment_mean_stan i.race_sex_res ///
 	i.first_review_month i.first_review_year  /// 
 	i.group_cancellation_policy instant_bookable require_guest_profile_picture ///
 	require_guest_phone_verification minimum_nights /// 
-	availability_30 availability_60 ///
+	availability_30 ///
 	len_desc short_words len_desc2 short_words2 len_desc3 short_words3 /// //Quality of listing/effort of host
 	len_desc4 short_words4 len_desc5 short_words5 len_desc6 short_words6 /// //Quality of listing
 	i.group_host_response_time host_response_rate /// //Host-specific charac.
