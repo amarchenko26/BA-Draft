@@ -189,6 +189,7 @@ file write f "\hline" _n ///
 // write end of table
 file write f "\hline\hline\noalign{\smallskip} \end{tabular} " _n ///
 "\begin{minipage}{6in}" _n ///
+"\label{table:host_summary}" _n ///
 	"{\it Note:} The values in the table are means and standard deviations" ///
 	" of host-level data in the full sample. Summary statistics for selected covariates" ///
 	" are listed in the table. Categorical variables such as response time do not have" ///

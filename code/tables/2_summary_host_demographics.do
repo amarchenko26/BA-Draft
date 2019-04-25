@@ -98,6 +98,7 @@ file write f "\hline" _n ///
 // write end of table
 file write f "\hline\hline\noalign{\smallskip} \end{tabular} " _n ///
 "\begin{minipage}{6in}" _n ///
+"\label{table:host_demographics}" _n ///
 	"{\it Note:} The values in the table are summaries of host demographics in" ///
 	" the host-level data. Column 1 is the summary statistics for the full," ///
 	" unrestricted data set across 7 cities. Columns 2 - 6 are the restricted" ///
