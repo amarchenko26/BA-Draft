@@ -165,10 +165,34 @@ destring zipcode, replace force
 destring review_scores_value, replace force
 destring review_scores_rating, replace force
 
+** RA analysis
+replace ra_name = "Fong" if ra_name== "FONG"
+replace ra_name = "Joe" if ra_name== "Joseph"
+egen group_ra_name = group(ra_name)
+
 ** Missing Data
 ** Create indicator variables for missing variables 
-quietly misstable summarize, generate(miss_) //creating miss_X indicator variable, 1 if X missing
+* quietly misstable summarize, generate(miss_) //creating miss_X indicator variable, 1 if X missing
 
+** Renaming just for creating missing dummies
+rename group_neighbourhood_cleansed group_nhood_clean
+rename require_guest_profile_picture req_guest_pro_pic
+rename require_guest_phone_verification req_guest_phone
+
+** Create indicator variables for missing variables 
+local varlist age group_ra_name group_nhood_clean group_property_type group_room_type accommodates bathrooms bedrooms beds group_bed_type cleaning_fee extra_people num_amenities group_cancellation_policy instant_bookable req_guest_pro_pic req_guest_phone minimum_nights availability_30 availability_60 host_acceptance_rate host_response_rate host_is_superhost group_host_response_time host_identity_verified
+
+foreach var in `varlist'{
+	gen miss_`var' = 0
+	replace miss_`var' = 1 if `var'== .
+	replace `var' = 0 if `var'== .
+}
+
+rename group_nhood_clean group_neighbourhood_cleansed
+rename req_guest_pro_pic require_guest_profile_picture
+rename req_guest_phone require_guest_phone_verification
+
+/*
 // Replace missing data with zeros
 destring reviews_per_month, replace force
 replace reviews_per_month = 0 if reviews_per_month ==  . 
@@ -178,6 +202,7 @@ replace cleaning_fee = 0 if cleaning_fee == .
 replace bedrooms = 0 if bedrooms == . 
 replace beds = 0 if beds == .
 replace bathrooms = 0 if bathrooms == .
+*/
 
 ** Creating labels
 la var race "Race"
@@ -212,10 +237,6 @@ la var host_identity_verified "Host's Identity Verified"
 la var require_guest_profile_picture "Guest Pic Required"
 la var require_guest_phone_verification "Guest Phone Required"
 
-** RA analysis
-replace ra_name = "Fong" if ra_name== "FONG"
-replace ra_name = "Joe" if ra_name== "Joseph"
-egen group_ra_name = group(ra_name)
 
 ********************************************************************************
 * Chicago City Specific
@@ -235,6 +256,10 @@ destring first_review_year, replace force
 replace first_review_month = 99 if first_review_month == . //create fake month for people w/ no reviews
 replace first_review_year = 99 if first_review_year == .  //create fake year for people w/ no reviews to boost observations
 
+gen miss_first_review_month = 0
+replace miss_first_review_month = 1 if first_review_month == 99
+gen miss_first_review_year = 0
+replace miss_first_review_year = 1 if first_review_year == 99
 
 ** Collapsing demographic cat.
 gen sex_res = sex if sex < 3 
@@ -275,3 +300,32 @@ experiences_offered_polarity experiences_offered_subjectivity neighborhood_overv
 neighborhood_overview_subject)
 ;
 #delimit cr
+
+
+rename neighborhood_overview_polarity neighborhood_polarity
+rename neighborhood_overview_subject neighborhood_subjectivity
+
+
+** Creating missing dummies for NLP
+local NLP summary_polarity summary_subjectivity description_polarity description_subjectivity space_polarity space_subjectivity reviews_polarity reviews_subjectivity neighborhood_polarity neighborhood_subjectivity
+
+foreach var in `NLP'{
+	gen miss_`var' = 0
+	replace miss_`var' = 1 if `var'== .
+	sum `var'
+	replace `var' = `r(mean)' if `var'== .
+}
+
+** Merging census analysis columns
+merge m:1 zipcode using "$repository/code/census/census.dta"
+rename _merge census_merge
+
+*** Creating missing census indicators
+local ncat popdensity med_value med_gross_rent med_income_city_norm race_white_city_norm race_black_city_norm race_asian_city_norm race_sor_city_norm race_hnom_city_norm unemployed_city_percent HHSSI_city_percent occupied_city_percent commute_city_percent_under commute_city_percent_over
+foreach var in `ncat'{
+	gen miss_`var' = 0
+	replace miss_`var' = 1 if `var'== .
+	sum `var'
+	replace `var' = `r(mean)' if `var'== .
+}
+
