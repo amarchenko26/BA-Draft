@@ -1,24 +1,37 @@
 
-In this section, I explore if the effects on price persist when I break up the data by city and property type. I also test to see if minorities have lower prices because they own listings of worse quality. 
+In this section, I explore if the effects on price persist when I break up the data by property type. I also test to see if minorities have lower prices because they own listings of worse quality. 
 
 \textbf{Effects persist between listing types}
 
-Table \ref{table:robustlisting_new} presents the effects of host race on price, broken down by various listing characteristics such as price, time on market, and property type. I break up the listings by price in the following way: separately for Los Angeles and New York City, I predict the price of a listing based on its property and host characteristics, without host race. I then use this predicted price to break up listings into higher- and lower-than the mean predicted price in each city. I control for my preferred specification.  
+Table \ref{table:robustlisting_new} presents the effects of host race on price, broken down by various listing characteristics such as price, time on market, and property type. I break up the listings by price in the following way: separately for Los Angeles and New York City, I predict the price of a listing based on its property and host characteristics, without host race. I then use this predicted price to divide listings into higher- and lower-than the mean predicted price in each city. I control for my preferred specification.  
 
-I find that there is much greater price disparity between white and minority hosts for high-priced listings. This pattern indicates that discrimination is more pronounced against minority hosts who own more expensive properties than against minority hosts who own cheaper properties. One hypothesis for this effect is that discrimination is statistical, in which case the host's race isn't as good of a proxy for property value for cheap listings as it is for expensive listings, which are owned primarily by white hosts. 
+I find that there is much greater price disparity between white and minority hosts for high-priced listings in Los Angeles, but not in New York City. [FIX - The following does not actually explain why it'd be different, but unsure if I really need to.] This pattern indicates that discrimination is more pronounced against minority hosts who own more expensive properties than against minority hosts who own cheaper properties. One hypothesis for this effect is that discrimination is statistical, in which case the host's race isn't as good of a proxy for property value for cheap listings as it is for expensive listings, which are owned primarily by white hosts. 
 
-Columns 5 and 6 show that the price disparities are similar for both old and new listings (old listings are defined as those which have been on the market for more than two years). This suggests that the effects of discrimination are \textit{not} erased out by spending a longer time on the market. In other words, minority hosts do not simply ``catch up" to white hosts after a few years. Columns 7-9 break price disparities up by property type. The effects for black hosts across property types get more pronounced the more expensive the property type. 
-
+Columns 5 and 6 show that the price disparities are similar for both old and new listings (old listings are defined as those which have been on the market for more than two years). This suggests that the effects of discrimination are \textit{not} erased out by spending a longer time on the market. In other words, minority hosts do not simply ``catch up" to white hosts after a few years. Columns 7-9 break price disparities up by property type, with little difference in price disparity between property type. 
 
 \textbf{Prices are not lower because minority hosts have worse reviews} 
 
-Reviews are often critical for the decisions guests make about the listings they book. It is reasonable to expect the quality of a listing's reviews influences the demand, and therefore the price, for that listing. Previous analyses, including Edelman and Luca (2014), control for the numeric review score of the listing as a proxy for listing quality. However, there is often very little variation in the numeric review score, making it an uninformative measure of listing quality. For this reason I use review text instead of the numeric score in my analysis.%
+Good reviews are essential to establishing the credibility of a host on Airbnb, as well as for transacting in the wider P2P market. Previous analyses, including \cite{edelman}, control for the numeric review score of the listing as a proxy for listing quality. However, since there is little variation in the numeric review score, these measures could be uninformative for potential guests in inferring listing quality.%
+	\footnote{This is the case for most online marketplaces. \cite{fradkin} study the determinants of review informativeness on Airbnb and find that most reviews, both numeric and text, are positive. In general, however, reviews tend to reflect real experience of the user.} 
+For this reason I use review text instead of the numeric score in my analysis.%
 	\footnote{A low share of guests who review may be a more accurate proxy for low quality, because many users prefer to leave no review rather than a negative review. Review share information, however, is not available.} 
+I conduct sentiment analysis on those reviews to give each review a polarity and subjectivity score, allowing me to include controls that better approximate the listing selection process for potential Airbnb guests.
 
 For each sentence of each review, a sentiment-analysis algorithm evaluated how positive or negative the sentence is. In Table \ref{table:sentiment}, I regress this sentiment score on the host race, controlling for my preferred specification from Table \ref{table:price_new}, Model 4. Each coefficient indicates the standardized review quality, relative to white males, that a reviewer of demographic A gave a host of demographic B. I break up my regressions by the race and sex of the reviewer, varying across the columns of Table \ref{table:sentiment}. The race and sex of the host varies by row. 
 
+No clear pattern emerges in the results. White reviewers show little evidence of systematic bias against minority hosts. There are some anomalies - Black male guests rate Asian hosts almost 4-8 standard deviations above the mean, but rate Black women 3 standard deviation lower than the mean. However, there is no one minority group that uniformly has lower quality reviews. Overall, there is not enough evidence to substantiate that minority hosts have systematically lower review quality that can explain lower prices. 
 
-I find that results were mixed. Overall, white reviewers show little evidence of systematic bias against minority hosts. There are stronger effects in the quality of the reviews minority reviewers give to minority hosts (for example, black male guests rate Asian hosts almost 4-8 standard deviations above the mean, but rate black women 3 standard deviation lower than the mean). However, there is no one minority group that uniformly has lower quality reviews. Overall, there is not enough evidence to substantiate that minority hosts have systematically lower review quality that can explain lower prices. 
+
+
+
+
+
+
+
+
+
+
+
 
 \begin{comment}
 However, there are a few outlier coefficients that are most likely driven by low sample size in smaller cities. The coefficients for black hosts are fairly consistent with the combined data in all cities but New Orleans. In New Orleans, a black host is estimated to earn \$18 less for the same kind of listing as a white host, an effect that is statistically significant at the p $<$ .05 level. The coefficients on Hispanic hosts are mixed - in LA, NYC, and Chicago, the coefficients on Hispanic hosts are approximately the same as the combined analysis, while in Austin, New Orleans, and DC, the coefficients are slightly positive. The outlier coefficient is in Nashville, where Hispanic hosts are estimated to earn \$39 less per day than a comparable white host. However, there are only 21 Hispanic hosts in Nashville, so this result is not very generalizable. In LA and NYC, the coefficients of Asian hosts are consistent with the combined data in sign and magnitude. However, they have large coefficients of -\$18 to \$28 in Chicago and Austin, respectively, both of which are significant. The reasoning is similar to Hispanic hosts. 
@@ -29,8 +42,6 @@ An Airbnb guest, seeing little variation in the number of stars different hosts 
 \footnote{This is because a guest who leaves a text review have the opportunity to use qualifiers like ``but", or ``except", strengthening words like ``really" or ``a lot", etc.} 
 In my data, 50\% of listings had an average review of $>$ 96 out of 100, and 75\% had an average review score above 91 out of 100.%
 
-\footnote{This is the case for most online marketplaces. Fradkin, Grewal, and Holtz (2017) study the determinants of review informativeness on Airbnb and find that most reviews, both numeric and text, are positive. In general, however, reviews tend to reflect real experience of the user \cite{fradkin}.}
- 
 All minority female reviewers, including black females, rate black men worse than they would rate white men who own a similar type of listing. However, all minority male reviewers rate black men anywhere from .5-2 standard deviations higher than they do white men. This suggests that there is some gender-based favoritism between minority reviewers and black male hosts. However, it is important to keep in mind that some of these large, very significant coefficients are suspicious because of small sample sizes - in several thousand Chicago host and reviewer pairs, there are simply not enough black men who stayed with Asian women to be representative of the overall distribution.
 
 Some groups do tend to give other groups far better reviews, but there is no larger pattern of within-gender or within-race bias between hosts and guests that holds for more than one host-guest pair. 

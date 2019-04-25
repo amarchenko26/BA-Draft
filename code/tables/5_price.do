@@ -2,7 +2,7 @@
 *						PRICE 												   *
 ********************************************************************************
 
-// Defining set of universal location controls -- MELODY add this in to Tables 7-10 
+// Defining set of universal location controls 
 #delimit ; 
 global loc_controls i.group_neighbourhood_cleansed i.cleaned_city
 				popdensity med_value med_gross_rent med_income_city_norm race_white_city_norm // Census variables
@@ -17,7 +17,7 @@ global loc_controls i.group_neighbourhood_cleansed i.cleaned_city
 ;
 #delimit cr
 
-// Defining set of universal +property controls -- MELODY add this in to Tables 7-10 
+// Defining set of universal +property controls 
 #delimit ; 
 global prop_controls i.group_neighbourhood_cleansed i.cleaned_city // Location dummies
 			miss_age miss_race_sex_res  // Location missing dummies

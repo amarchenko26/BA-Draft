@@ -1,6 +1,9 @@
 \documentclass[11pt, oneside]{article}   	
 \usepackage[margin = 1 in]{geometry}                		
 \geometry{letterpaper}                   		
+\edef\restoreparindent{\parindent=\the\parindent\relax} % this and the next 2 lines parskip AND indent
+\usepackage{parskip}
+\restoreparindent
 %\usepackage[parfill]{parskip}    %Begin paragraphs with an empty line rather than an indent
 \usepackage{graphicx}				
 \usepackage{setspace}								
@@ -30,7 +33,7 @@
 	\maketitle
 	
 	\begin{abstract}
-		This paper leverages the recent rise of sharing economies and the standardization of their platforms to credibly measure discrimination against minority landlords on Airbnb. Using a dataset created by scraping the Airbnb website, I estimate that Black hosts earn \$5 - \$7 less per night and Asian hosts \$6 - \$9 less per night (depending on the sex of the host) than white hosts who post a similar type of listing. Crucially, I use two measures of quantity demanded of hosts' listings to estimate whether a demand or supply shift is responsible for the price disparity. I find that despite their lower prices, black hosts face lower demand. This is consistent with the presence of discrimination. 
+		This paper leverages the recent rise of sharing economies and the standardization of their platforms to credibly measure discrimination against minority landlords on Airbnb. Using a dataset created by scraping the Airbnb website and coding the host demographics, I estimate that Asian hosts earn 4-5\% less than White male hosts who own the same type of property. For Black male hosts the difference is 3\%. Crucially, I use two measures of quantity demanded of hosts' listings to estimate whether a demand or supply shift is responsible for the price disparity. I find that despite their lower prices, minority hosts face lower demand. These findings are consistent with, but not conclusive of, the presence of discrimination. 
 		\\\\
 		\textit{Keywords}: Airbnb; Discrimination; Race; Online marketplace
 		
@@ -38,14 +41,11 @@
 	
 	\newpage
 	
-	\doublespacing
+	\singlespacing
 	\section{Introduction}
 	\input{1_intro_lit}
 	\label{lit}
-	% results paragraph in intro updated according to new #s 
-	% same for the number of reviews/robustness section 
-	% End of intro, update contributions to reviewer-side analysis, and finish "testing alternative hypotheses" part. 
-	
+
 	\section{Data}
 	\input{2_data}
 	\label{data}
@@ -57,7 +57,6 @@
 	\section{Results}
 	\input{4_results}
 	\label{results}
-	%
 	
 	\subsection{Robustness Checks}
 	\input{5_robustness}
