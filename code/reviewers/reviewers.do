@@ -73,5 +73,6 @@ egen rev_race_sex_res = group(rev_race_res rev_sex_res), label
 
 merge m:1 listing_id using "$repository/data/done_Chi_full_listings_renamed.dta"
 keep if _merge == 3
+rename _merge host_merge
 
 do "$repository/code/reviewers/review_cleaner"
