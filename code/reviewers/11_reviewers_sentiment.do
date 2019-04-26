@@ -3,9 +3,9 @@
 *********************************************************
 #delimit ; 
 global full_controls_reviewer i.age i.group_ra_name
-			i.group_neighbourhood_cleansed miss_group_ra_name // Location dummies
-			miss_age miss_race_sex_res  // Location missing dummies
-			miss_group_nhood_clean miss_cleaned_city 
+			i.group_neighbourhood_cleansed // Location dummies
+			miss_rev_age  // Location missing dummies
+			miss_group_nhood_clean 
 				popdensity med_value med_gross_rent med_income_city_norm race_white_city_norm // Census variables
 				race_black_city_norm race_asian_city_norm race_sor_city_norm race_hnom_city_norm
 				unemployed_city_percent HHSSI_city_percent occupied_city_percent commute_city_percent_under
@@ -22,7 +22,7 @@ global full_controls_reviewer i.age i.group_ra_name
 					i.group_cancellation_policy instant_bookable 
 					require_guest_profile_picture
 					require_guest_phone_verification minimum_nights
-					availability_30
+					availability_30 availability_60
 					miss_group_property_type miss_group_room_type // Listing missing dummies
 					miss_accommodates miss_bathrooms miss_bedrooms miss_beds miss_group_bed_type 
 					miss_cleaning_fee miss_extra_people miss_num_amenities 
@@ -30,7 +30,7 @@ global full_controls_reviewer i.age i.group_ra_name
 					miss_group_cancellation_policy miss_instant_bookable 	
 					miss_req_guest_pro_pic
 					miss_req_guest_phone miss_minimum_nights 
-					miss_availability_30
+					miss_availability_30 miss_availability_60
 						reviews_polarity reviews_subjectivity summary_polarity summary_subjectivity // NLP controls
 						space_polarity space_subjectivity description_polarity description_subjectivity 
 						neighborhood_polarity neighborhood_subjectivity
@@ -61,18 +61,7 @@ gen sentiment_mean_stan =  (sentiment_mean-`r(mean)')/`r(sd)'
 // White Male reviewers
 #delimit ;
 quietly reg sentiment_mean_stan i.race_sex_res ///
-	i.group_neighbourhood_cleansed /// 
-	i.group_property_type i.group_room_type /// 
-	accommodates bathrooms bedrooms beds i.group_bed_type /// 
-	cleaning_fee extra_people num_amenities /// 
-	i.first_review_month i.first_review_year  /// 
-	i.group_cancellation_policy instant_bookable require_guest_profile_picture ///
-	require_guest_phone_verification minimum_nights /// 
-	availability_30 ///
-	len_desc short_words len_desc2 short_words2 len_desc3 short_words3 /// //Quality of listing/effort of host
-	len_desc4 short_words4 len_desc5 short_words5 len_desc6 short_words6 /// //Quality of listing
-	i.group_host_response_time host_response_rate /// //Host-specific charac.
-	host_identity_verified host_is_superhost if rev_race_sex_res == 1, ///
+	$full_controls_reviewer if rev_race_sex_res == 1, ///
 	vce(cluster group_neighbourhood_cleansed) 
 ;
 #delimit cr
@@ -81,18 +70,7 @@ eststo mod1
 // White female reviewers
 #delimit ;
 quietly reg sentiment_mean_stan i.race_sex_res ///
-	i.group_neighbourhood_cleansed /// 
-	i.group_property_type i.group_room_type /// 
-	accommodates bathrooms bedrooms beds i.group_bed_type /// 
-	cleaning_fee extra_people num_amenities /// 
-	i.first_review_month i.first_review_year  /// 
-	i.group_cancellation_policy instant_bookable require_guest_profile_picture ///
-	require_guest_phone_verification minimum_nights /// 
-	availability_30 ///
-	len_desc short_words len_desc2 short_words2 len_desc3 short_words3 /// //Quality of listing/effort of host
-	len_desc4 short_words4 len_desc5 short_words5 len_desc6 short_words6 /// //Quality of listing
-	i.group_host_response_time host_response_rate /// //Host-specific charac.
-	host_identity_verified host_is_superhost if rev_race_sex_res == 2, ///
+	$full_controls_reviewer  if rev_race_sex_res == 2, ///
 	vce(cluster group_neighbourhood_cleansed) 
 ;
 #delimit cr
@@ -101,18 +79,7 @@ quietly reg sentiment_mean_stan i.race_sex_res ///
 // Black Male reviewers
 #delimit ;
 quietly reg sentiment_mean_stan i.race_sex_res ///
-	i.group_neighbourhood_cleansed /// 
-	i.group_property_type i.group_room_type /// 
-	accommodates bathrooms bedrooms beds i.group_bed_type /// 
-	cleaning_fee extra_people num_amenities /// 
-	i.first_review_month i.first_review_year  /// 
-	i.group_cancellation_policy instant_bookable require_guest_profile_picture ///
-	require_guest_phone_verification minimum_nights /// 
-	availability_30 ///
-	len_desc short_words len_desc2 short_words2 len_desc3 short_words3 /// //Quality of listing/effort of host
-	len_desc4 short_words4 len_desc5 short_words5 len_desc6 short_words6 /// //Quality of listing
-	i.group_host_response_time host_response_rate /// //Host-specific charac.
-	host_identity_verified host_is_superhost if rev_race_sex_res == 3, ///
+	$full_controls_reviewer if rev_race_sex_res == 3, ///
 	vce(cluster group_neighbourhood_cleansed) 
 ;
 #delimit cr
@@ -121,18 +88,7 @@ quietly reg sentiment_mean_stan i.race_sex_res ///
 // Black Female reviewers
 #delimit ;
 quietly reg sentiment_mean_stan i.race_sex_res ///
-	i.group_neighbourhood_cleansed /// 
-	i.group_property_type i.group_room_type /// 
-	accommodates bathrooms bedrooms beds i.group_bed_type /// 
-	cleaning_fee extra_people num_amenities /// 
-	i.first_review_month i.first_review_year  /// 
-	i.group_cancellation_policy instant_bookable require_guest_profile_picture ///
-	require_guest_phone_verification minimum_nights /// 
-	availability_30 ///
-	len_desc short_words len_desc2 short_words2 len_desc3 short_words3 /// //Quality of listing/effort of host
-	len_desc4 short_words4 len_desc5 short_words5 len_desc6 short_words6 /// //Quality of listing
-	i.group_host_response_time host_response_rate /// //Host-specific charac.
-	host_identity_verified host_is_superhost if rev_race_sex_res == 4, ///
+	$full_controls_reviewer if rev_race_sex_res == 4, ///
 	vce(cluster group_neighbourhood_cleansed) 
 ;
 #delimit cr
@@ -141,18 +97,7 @@ quietly reg sentiment_mean_stan i.race_sex_res ///
 // Hispanic Male reviewers
 #delimit ;
 quietly reg sentiment_mean_stan i.race_sex_res ///
-	i.group_neighbourhood_cleansed /// 
-	i.group_property_type i.group_room_type /// 
-	accommodates bathrooms bedrooms beds i.group_bed_type /// 
-	cleaning_fee extra_people num_amenities /// 
-	i.first_review_month i.first_review_year  /// 
-	i.group_cancellation_policy instant_bookable require_guest_profile_picture ///
-	require_guest_phone_verification minimum_nights /// 
-	availability_30 ///
-	len_desc short_words len_desc2 short_words2 len_desc3 short_words3 /// //Quality of listing/effort of host
-	len_desc4 short_words4 len_desc5 short_words5 len_desc6 short_words6 /// //Quality of listing
-	i.group_host_response_time host_response_rate /// //Host-specific charac.
-	host_identity_verified host_is_superhost if rev_race_sex_res == 5, ///
+	$full_controls_reviewer if rev_race_sex_res == 5, ///
 	vce(cluster group_neighbourhood_cleansed) 
 ;
 #delimit cr
@@ -161,18 +106,7 @@ quietly reg sentiment_mean_stan i.race_sex_res ///
 // Hispanic Female reviewers
 #delimit ;
 quietly reg sentiment_mean_stan i.race_sex_res ///
-	i.group_neighbourhood_cleansed /// 
-	i.group_property_type i.group_room_type /// 
-	accommodates bathrooms bedrooms beds i.group_bed_type /// 
-	cleaning_fee extra_people num_amenities /// 
-	i.first_review_month i.first_review_year  /// 
-	i.group_cancellation_policy instant_bookable require_guest_profile_picture ///
-	require_guest_phone_verification minimum_nights /// 
-	availability_30 ///
-	len_desc short_words len_desc2 short_words2 len_desc3 short_words3 /// //Quality of listing/effort of host
-	len_desc4 short_words4 len_desc5 short_words5 len_desc6 short_words6 /// //Quality of listing
-	i.group_host_response_time host_response_rate /// //Host-specific charac.
-	host_identity_verified host_is_superhost if rev_race_sex_res == 6, ///
+	$full_controls_reviewer if rev_race_sex_res == 6, ///
 	vce(cluster group_neighbourhood_cleansed) 
 ;
 #delimit cr
@@ -181,18 +115,7 @@ eststo mod6
 // Asian Male reviewers	
 #delimit ;
 quietly reg sentiment_mean_stan i.race_sex_res ///
-	i.group_neighbourhood_cleansed /// 
-	i.group_property_type i.group_room_type /// 
-	accommodates bathrooms bedrooms beds i.group_bed_type /// 
-	cleaning_fee extra_people num_amenities /// 
-	i.first_review_month i.first_review_year  /// 
-	i.group_cancellation_policy instant_bookable require_guest_profile_picture ///
-	require_guest_phone_verification minimum_nights /// 
-	availability_30 ///
-	len_desc short_words len_desc2 short_words2 len_desc3 short_words3 /// //Quality of listing/effort of host
-	len_desc4 short_words4 len_desc5 short_words5 len_desc6 short_words6 /// //Quality of listing
-	i.group_host_response_time host_response_rate /// //Host-specific charac.
-	host_identity_verified host_is_superhost if rev_race_sex_res == 7, ///
+	$full_controls_reviewer if rev_race_sex_res == 7, ///
 	vce(cluster group_neighbourhood_cleansed) 	
 ;
 #delimit cr
@@ -201,18 +124,7 @@ eststo mod7
 // Asian Female reviewers	
 #delimit ;
 reg sentiment_mean_stan i.race_sex_res ///
-	i.group_neighbourhood_cleansed /// 
-	i.group_property_type i.group_room_type /// 
-	accommodates bathrooms bedrooms beds i.group_bed_type /// 
-	cleaning_fee extra_people num_amenities /// 
-	i.first_review_month i.first_review_year  /// 
-	i.group_cancellation_policy instant_bookable require_guest_profile_picture ///
-	require_guest_phone_verification minimum_nights /// 
-	availability_30 ///
-	len_desc short_words len_desc2 short_words2 len_desc3 short_words3 /// //Quality of listing/effort of host
-	len_desc4 short_words4 len_desc5 short_words5 len_desc6 short_words6 /// //Quality of listing
-	i.group_host_response_time host_response_rate /// //Host-specific charac.
-	host_identity_verified host_is_superhost if rev_race_sex_res == 8, ///
+	$full_controls_reviewer if rev_race_sex_res == 8, ///
 	vce(cluster group_neighbourhood_cleansed) 
 ;
 #delimit cr
