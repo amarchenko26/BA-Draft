@@ -154,7 +154,6 @@
 \end{landscape}
 
 
-
 % Table 12
 \begin{table}[htbp]\centering
 	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
@@ -171,3 +170,32 @@
 		\item {\it Note:} The dependent variable is a constructed measure of yearly host revenue, as measured by (price * number of reviews per month * 12) for each listing. The omitted category for race is White males, so all coefficients are relative to that group. The unit of observation is an Airbnb listing, so hosts who have multiple listings are treated separately each time. The sample is the sample of listings across 7 US cities. The specification is the same as Table \ref{table:price}.
 	\end{tablenotes}
 \end{table}
+
+
+\newpage
+
+\section{Appendix Tables}
+
+
+\begin{table}[htbp]\centering
+	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+	\caption{Main result: Estimates of effect of Chicago host’s race and gender on price, ML sentiment controls}
+	\begin{tabular}{l*{5}{c}}
+		\hline\hline
+		\input{code/tables/tex_output/individual_tables/chicago_price_sentiment}
+		\hline\hline
+		\multicolumn{5}{l}{\footnotesize Standard errors in parentheses}\\
+		\multicolumn{5}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
+	\end{tabular}	
+	\label{table:price}
+	\begin{tablenotes}
+		
+		\item {\it Note:} This table presents the impact of host race on the price of a listing. The dependent variable is the log price. The omitted category is White males. The unit of observation is a listing. The sample is the sample of listings in Chicago. Model 1 is the baseline effect of host demographics on price. Model 2 controls for listing location to the neighborhood level and demographic and economic health characteristics on the zipcode-level. Model 3 adds listing characteristics such as the property type and size. Model 4 adds host characteristics such as response and acceptance rates and measures of host effort.  
+	\end{tablenotes}
+\end{table}
+
+
+
+
+
+

@@ -2,11 +2,7 @@
 *					  Reviewers Regression 			    *
 *********************************************************
 preserve
-keep if sample == 1
-
-***What is sentiment_mean_stan? I tried standardizing, but I don't think that worked
-** Creating sentiment_mean_stan
-*drop sentiment_mean_min  sentiment_mean_temp  sentiment_mean_temp_max  sentiment_mean_stan
+keep if reviewer_sample == 1
 
 sum sentiment_mean
 gen sentiment_mean_stan =  (sentiment_mean-`r(mean)')/`r(sd)'

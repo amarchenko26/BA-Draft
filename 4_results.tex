@@ -2,15 +2,39 @@
 	\label{result1}
 	
 
-Table \ref{table:price} presents OLS estimates of the effect of host race and gender on the listing price. 
+Table \ref{table:price} presents OLS estimates of the effect of host race and gender on the listing price according to the models described in Section \ref{empirical}. 
 
 [INSERT DISCUSSION HERE AS TO HOW COEFS DECREASE WITH ADDITIONAL MODELs, for example: Model 3 discussion: Controlling for listing characteristics decreases all effects to x - y, depending on the race of the host. The effects for Hispanic males and White women largely disappear with the addition of property controls.]
 
-After controlling for my final specification, I estimate that, across the board, minority hosts, both male and female, earn lower prices from their Airbnb listing than White hosts. The biggest effect is for Asian hosts, whose prices are roughly 4 and 4.5\% for female and male hosts, respectively, less per day than White male hosts who own the same type of listing. The second biggest effect is for Black males, whose price is lower by 3.2\%.%
+The point estimates in Model 4 show that Asian hosts, both male and female, earn lower prices from their Airbnb listing than White hosts. These effects are 4 and 4.5\% for female and male hosts, respectively, less per day than White male hosts who own the same type of property. The second biggest effect is for Black males, whose price is lower by roughly 3.5\%.%
 	\footnote{This effect is statistically significant at the p $<$ .001 level for Asian female and male hosts, and the p $<$ .01 level for Black male hosts.} 
-For Hispanic, and Black female hosts, the effect is small, around 2\%, and is not statistically significant. My results are stable to the addition of host characteristic controls while still clustering standard errors at the neighborhood level. The inclusion of host characteristics does not improve the fit of the model substantially.  
+For Hispanic, and Black female hosts, the point estimate is negative but not statistically significant. My results are stable to the addition of host characteristic controls while still clustering standard errors at the neighborhood level. The inclusion of host characteristics does not improve the fit of the model substantially.  
 
-[Should i insert second part of intro here (per my email)]
+Model 1 is a naive regression and presented solely to show the baseline. I add the listing's location in Model 2 . Since a listing's price is strongly correlated with its location, it is unsurprising that a large amount of variation in Airbnb prices between racial groups can be explained by these location controls. [address R2 here]
+This is consistent with the idea that where individuals of different races live is not randomly distributed across neighborhoods for a variety of reasons, including persistent urban segregation and in-group preferences [MELODY CITE HERE]. For example, it is well-documented that Blacks in urban populations are nearly four times more likely than Whites to live in neighborhoods where the poverty rate is 40\% or higher \citep{firebaugh}. This is consistent with my results, as Black hosts had the largest drop in point estimate with the addition of location controls. Asian hosts were similarly affected, this is also unsurprising, as urban Asian populations [MELODY - is there a paper or stat about urban asian poverty? Like something that shows that asian americans live in worse neighborhoods that white people?can you cite  it, and insert a sentence here  like "despite the stereotype of asian americans as the model  minority, there are persistent gaps in the income/wealth/quality of neighborhoods ofasians and whites.]
+
+
+Property characteristics have the most explanatory power in accounting for price differences, as the $R^2$ increases from around .25 to .72 with the addition of listing controls in Model 3. 
+
+The effects of Asian host race on listing price is less than what was measured by \cite{wang} and \cite{kakar}. \cite{wang} measured a price disparity of  Both studies 
+
+
+
+
+
+There are several possible sources of unexplained variation that could remain. One is the quality of the text, such as the reviews and descriptions. Another potential source is the quality of pictures that the host takes, both as a profile picture and of hte listing. 
+
+I control for all possible property-specific variables that Airbnb shows on the listing page, as well as extension demographic, property values, and occupancy controls, so it is unlikely that there remain important property characteristics that drive the price differences. 
+
+The host controls explain very little variation in the price, increasing the $R^2$ by only .004, it is unlikely that adding more sophisticated measures of host quality or effort would significantly help explain price disparities. While this does not eliminate the possibility that there is a set of controls not related to property type or host type that would have increased the $R^2$ drastically, this is still good evidence to believe that the price difference I estimate is a real difference, rather than purely caused by endogeneity. 
+
+
+
+
+
+
+
+
 
 I also break up the effects of host race on listing price by city and controlled for my preferred specification. The results are in Table \ref{table:robustcity}. In general, no single city is driving all of the variation in my data. The effects on price are mostly negative for minority hosts, with a few positive coefficients in cities with fewer observations, none of which are significant. 
 
@@ -39,18 +63,3 @@ Overall, evidence shows that even though Black hosts offer their listings for mo
 
 
 
-\begin{comment}
-	coThis might be because Airbnb listings tend to be more concentrated in certain areas of each city (North Side in Chicago, lower and middle Manhattan in New York City, etc). If listings in a city cluster together instead of being uniformly dispersed, then controlling for location won't explain as much of the variation as controlling for property characteristics. LISTING OR PROPERTY PICK ONE - FIX
-	
-	It is well-documented that Blacks in urban populations are nearly four times more likely than Whites to live in neighborhoods where the poverty rate is 40\% or higher \cite{firebaugh}. 
-	
-	The coefficients for minority hosts decrease from a range of \$20-40 to a range of \$10-20 (these are all negative, and relative to White male hosts). I observe the largest decrease in the coefficients on Black hosts, which go down from \$40 to roughly \$15. Coefficients of Hispanic hosts decrease by around \$10; Asian hosts by about \$20. In fact, minorities at every income level live in poorer neighborhoods than do Whites with comparable incomes. For example, a Black household earning \$75,000 a year resides in a higher-poverty neighborhood than a White household with earnings of less than \$40,000 a year \cite{logan}. The coefficients of White females, on the other hand, persist at around \$4 with the addition of location controls. This is most likely because White females tend to live in the same areas as White males and therefore have little to no variation in price that can be explained by differences in neighborhood.  
-	
-	Asian female hosts have the largest decrease in coefficient after controlling for listing characteristics, which indicates that a substantial part of their effect is driven by owning properties with worse observable characteristics. The effects on middle-aged and senior hosts are almost eliminated by controlling for property characteristics, indicating that their higher listing prices are primarily driven by better observable characteristics. 
-	
-	If one believed the price difference was driven by unobserved characteristics, one might have expected that the price gap between White and minority hosts would disappear with the addition of more controls. However, my coefficient of interest is stable to the addition of controls - adding host-specific controls does not substantially change any of the effects. 
-	
-	There are a few possible sources of unexplained variation in the price of the listing - variation in the real, physical qualities of the listing that wasn't captured by the property controls and variation in the quality of the listing's profile that was not captured by the host controls. Since I was able to control for all of the property-quality variables that Airbnb offers on a listing page, it is unlikely that there are unobserved property characteristics driving the price differences. Since adding host controls explained very little variation in the price, increasing the $R^2$ by only .006, it is unlikely that adding more sophisticated measures of host quality or effort would significantly help explain price disparities. While this does not eliminate the possibility that there is a set of controls not related to property type or host type that would have increased the $R^2$ drastically, this is still good evidence to believe that the price difference I estimate is a real difference, rather than purely caused by endogeneity. 
-	
-	The results are significant for White females and Black hosts. While the coefficients were significant for Asian hosts under the less robust specifications, under the full specification the coefficient is not significant, but still slightly negative.
-\end{comment}

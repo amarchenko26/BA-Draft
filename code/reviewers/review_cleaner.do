@@ -284,10 +284,10 @@ egen race_sex_res = group(race_res sex_res), label
 ** Create sample variable to restrict data set
 destring host_listings_count, replace force
 replace age = 5 if age == 6
-gen sample = 1
-replace sample = 0 if host_listings_count > 20 | host_has_profile_pic == "f" | price > 800 | sex == 0 | age == 7 | age == 11 | age == 12 | age == 0
-replace sample = 0 if sex_res > 2 	
-replace sample = 0 if race_res > 4
+gen reviewer_sample = 1
+replace reviewer_sample = 0 if host_listings_count > 20 | host_has_profile_pic == "f" | price > 800 | sex == 0 | age == 7 | age == 11 | age == 12 | age == 0
+replace reviewer_sample = 0 if sex_res > 2 	
+replace reviewer_sample = 0 if race_res > 4
 
 
 ** Merging NLP analysis columns
@@ -330,3 +330,14 @@ foreach var in `ncat'{
 	replace `var' = `r(mean)' if `var'== .
 }
 
+** Log price, number of reviews
+local log_me price number_of_reviews
+
+foreach i in `log_me'{
+	gen log_`i' = ln(`i')
+	gen miss_log_`i' = 0
+	replace miss_log_`i' = 1 if mi(`i')
+}
+
+la var log_price "Log Price"
+la var log_number_of_reviews "Log Number of Reviews"

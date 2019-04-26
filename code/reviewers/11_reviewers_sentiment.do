@@ -31,11 +31,11 @@ global full_controls_reviewer i.age i.group_ra_name
 					miss_req_guest_pro_pic
 					miss_req_guest_phone miss_minimum_nights 
 					miss_availability_30 miss_availability_60
-						reviews_polarity reviews_subjectivity summary_polarity summary_subjectivity // NLP controls
+						summary_polarity summary_subjectivity // NLP controls
 						space_polarity space_subjectivity description_polarity description_subjectivity 
 						neighborhood_polarity neighborhood_subjectivity
-						miss_reviews_polarity miss_reviews_subjectivity miss_summary_polarity // NLP missing dummies
-						miss_summary_subjectivity miss_space_polarity miss_space_subjectivity miss_description_polarity 
+						miss_summary_polarity miss_summary_subjectivity // NLP missing dummies 
+						miss_space_polarity miss_space_subjectivity miss_description_polarity 
 						miss_description_subjectivity miss_neighborhood_polarity miss_neighborhood_subjectivity 
 						i.group_host_response_time host_response_rate // Host listing FEs
 						host_identity_verified host_is_superhost 
@@ -46,15 +46,10 @@ global full_controls_reviewer i.age i.group_ra_name
 
 
 preserve
-keep if sample == 1
-
-***What is sentiment_mean_stan? I tried standardizing, but I don't think that worked
-** Creating sentiment_mean_stan
-*drop sentiment_mean_min  sentiment_mean_temp  sentiment_mean_temp_max  sentiment_mean_stan
+keep if reviewer_sample == 1
 
 sum sentiment_mean
 gen sentiment_mean_stan =  (sentiment_mean-`r(mean)')/`r(sd)'
-
 
 ** Regressions
 
