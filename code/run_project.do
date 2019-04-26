@@ -41,7 +41,7 @@ foreach file in 1_summary_table 2_summary_host_demographics 3_summary_host_chara
 
 //Run code in reviewers analysis
 cd "$repository/code/reviewers/"
-foreach file in reviewers 11_reviewers_sentiment 4_summary_review_sentiment{
+foreach file in reviewers 11_reviewers_sentiment 13_chicago_price_sentiment 4_summary_review_sentiment{
 	do "`file'".do
 }
 
