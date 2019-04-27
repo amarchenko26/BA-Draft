@@ -295,7 +295,7 @@ rename id id2
 rename listing_id id // listing_id corresponds to id column in final_cleaned_all_sentiments
 
 #delimit ;
-merge m:m id using "$repository/data/full_listings_all_sentiments_updated6.dta", nogen 
+merge m:m id using "$repository/data/crisis_fix_sentiment_ONLY", nogen 
 keepusing(id reviews_polarity reviews_subjectivity summary_polarity summary_subjectivity 
 space_polarity space_subjectivity description_polarity description_subjectivity 
 experiences_offered_polarity experiences_offered_subjectivity neighborhood_overview_polarity 

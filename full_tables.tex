@@ -1,21 +1,21 @@
 
-% Table 1
+% Summary Stats by Host Race: Listing Characteristics
 \input{code/tables/tex_output/individual_tables/summary_table}
 \newpage
 
-% Table 2
+% Summary Stats by Host Race: Host Demographics
 \input{code/tables/tex_output/individual_tables/summary_table_host_demo}
 \newpage
 
-% Table 3
+% Summary Stats by Host Race: Host Characteristics
 \input{code/tables/tex_output/individual_tables/summary_table_host_chars}
 \newpage
 
-% Table 4
+% Summary Stats by Race: Reviewer Characteristics
 \input{code/tables/tex_output/individual_tables/summary_reviewer_char}
 \newpage
 
-% Table 5
+% Price
 \begin{table}[htbp]\centering
 	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
 	\caption{Main result: Estimates of effect of host’s race and gender on price}
@@ -33,26 +33,7 @@
 	\end{tablenotes}
 \end{table}
 
-% Table 6
-\begin{table}[htbp]\centering
-	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
-	
-	\caption{Robustness check with controls from Edelman \& Luca (2014)}
-	\begin{tabular}{l*{1}{c}}
-		\hline\hline
-		\input{code/tables/tex_output/individual_tables/edelman_price} 
-		\hline\hline
-		\multicolumn{2}{l}{\footnotesize Standard errors in parentheses}\\
-		\multicolumn{2}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
-	\end{tabular}
-\label{table:edelman_new}
-	\begin{tablenotes}
-		\item {\it Note:} This table presents the effect on log price of controlling for Edelman \& Luca's (2014) full specification using my NYC data. The omitted category for race is White hosts. The omitted category for room type is Entire Apartment. I could not control for host social media accounts as a proxy for host reliability like Edelman \& Luca did, because Airbnb no longer provides this information. Instead, I controlled for ``host verified", a dummy for whether Airbnb has the host's phone number and email. I was not able to control for ``picture quality" either, but picture quality did not significantly influence price in Edelman \& Luca's regression.
-	\end{tablenotes}
-\end{table}
-
-
-% Table 7
+%  Number of reviews
 \begin{table}[htbp]\centering
 	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
 	\caption{Estimates of effect of host’s race and gender on number of reviews}
@@ -71,7 +52,7 @@
 \end{table}
 
 
-% Table 8
+% Availability out of 30 days
 \begin{table}[htbp]\centering
 	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
 	\caption{Effect of host’s race on listing availability out of 30 days}
@@ -89,7 +70,26 @@
 \end{table}
 
 
-% Table 9
+% Edelman & Luca
+\begin{table}[htbp]\centering
+	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+	
+	\caption{Robustness check with controls from Edelman \& Luca (2014)}
+	\begin{tabular}{l*{1}{c}}
+		\hline\hline
+		\input{code/tables/tex_output/individual_tables/edelman_price} 
+		\hline\hline
+		\multicolumn{2}{l}{\footnotesize Standard errors in parentheses}\\
+		\multicolumn{2}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
+	\end{tabular}
+\label{table:edelman_new}
+	\begin{tablenotes}
+		\item {\it Note:} This table presents the effect on log price of controlling for Edelman \& Luca's (2014) full specification using my NYC data. The omitted category for race is White hosts. The omitted category for room type is Entire Apartment. I could not control for host social media accounts as a proxy for host reliability like Edelman \& Luca did, because Airbnb no longer provides this information. Instead, I controlled for ``host verified", a dummy for whether Airbnb has the host's phone number and email. I was not able to control for ``picture quality" either, but picture quality did not significantly influence price in Edelman \& Luca's regression.
+	\end{tablenotes}
+\end{table}
+
+
+% Robustness City
 \begin{table}[htbp]\centering
 	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
 	\caption{Robustness City}
@@ -108,7 +108,7 @@
 \end{table}
 
 
-% Table 10
+% Robustness Listing Characteristics
 \begin{landscape}
 	\begin{table}[htbp]\centering
 		\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
@@ -128,7 +128,7 @@
 	\end{table}
 \end{landscape}
 
-% Table 11
+% Host demographics on review sentiment, by reviewer demographics
 \begin{landscape}
 	\begin{table}[htbp]\centering
 		\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
@@ -153,8 +153,7 @@
 	\end{table}
 \end{landscape}
 
-
-% Table 12
+% Yearly revenue
 \begin{table}[htbp]\centering
 	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
 	\caption{Estimates of effect of host's race and gender on yearly revenue}
@@ -176,7 +175,7 @@
 
 \section{Appendix Tables}
 
-
+% Chicago price, ML sentiment controls
 \begin{table}[htbp]\centering
 	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
 	\caption{Main result: Estimates of effect of Chicago host’s race and gender on price, ML sentiment controls}
@@ -187,15 +186,83 @@
 		\multicolumn{5}{l}{\footnotesize Standard errors in parentheses}\\
 		\multicolumn{5}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
 	\end{tabular}	
-	\label{table:price}
+	\label{table:chiprice}
 	\begin{tablenotes}
 		
 		\item {\it Note:} This table presents the impact of host race on the price of a listing. The dependent variable is the log price. The omitted category is White males. The unit of observation is a listing. The sample is the sample of listings in Chicago. Model 1 is the baseline effect of host demographics on price. Model 2 controls for listing location to the neighborhood level and demographic and economic health characteristics on the zipcode-level. Model 3 adds listing characteristics such as the property type and size. Model 4 adds host characteristics such as response and acceptance rates and measures of host effort.  
 	\end{tablenotes}
 \end{table}
 
+% Robustness host listings count
+\begin{table}[htbp]\centering
+	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+	\caption{Estimates of effect of host listings count on price}
+	\begin{tabular}{l*{6}{c}}
+		\hline\hline
+		\input{code/tables/tex_output/individual_tables/robustness_listings_count}
+		\hline\hline
+		\multicolumn{5}{l}{\footnotesize Standard errors in parentheses}\\
+		\multicolumn{5}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
+	\end{tabular}
+	\label{table:robustness_listings_count}
+	\begin{tablenotes}
+
+		\item {\it Note:} Insert note here
+	\end{tablenotes}
+\end{table}
+
+% Price, no interaction
+\begin{table}[htbp]\centering
+	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+	\caption{Main result: Estimates of effect of host’s race and gender on price [Without interaction]}
+	\begin{tabular}{l*{5}{c}}
+		\hline\hline
+		\input{code/tables/tex_output/individual_tables/price_no_int}
+		\hline\hline
+		\multicolumn{5}{l}{\footnotesize Standard errors in parentheses}\\
+		\multicolumn{5}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
+	\end{tabular}
+	\label{table:price_no_int}
+	\begin{tablenotes}
+		
+		\item {\it Note:} The dependent variable is the log price of the listing. The omitted category for host race and gender is White hosts. The unit of observation is a listing. The sample is the sample of listings across 7 US cities. Model 1 is the baseline effect of host demographics on price. Model 2 controls for listing location to the neighborhood level and demographic and economic health characteristics on the zipcode-level. Model 3 adds listing characteristics such as the property type and size. Model 4 adds host characteristics such as response and acceptance rates and measures of host effort.  
+	\end{tablenotes}
+\end{table}
+
+% Robustness city, interaction
+\begin{table}[htbp]\centering
+	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+	\caption{Robustness City}
+	\begin{tabular}{l*{7}{c}}
+		\hline\hline
+		\input{code/tables/tex_output/individual_tables/robustness_city_int}
+		\hline\hline
+		\multicolumn{8}{l}{\footnotesize Standard errors in parentheses}\\
+		\multicolumn{8}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
+	\end{tabular}
+	\label{table:robustness_city_int}
+	\begin{tablenotes}
+	
+			\item {\it Note:} This table breaks down the effects for the combined data in Table \ref{table:price} across the 7 cities in the sample. Each set of coefficients represents the coefficient on host race, with log price as the outcome variable. I control for my preferred specification throughout. Low number of observations for Black, Hispanic, and Asian hosts contribute to imprecise estimates in smaller cities (New Orleans, Nashville have less than 100 Hispanic and Asian hosts; DC and Austin have less than 200 such hosts). 
+	\end{tablenotes}
+\end{table}
 
 
-
+% Robustness Listing Characteristics NEW
+	\begin{table}[htbp]\centering
+		\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+		\caption{NEW: Robustness Listing Characteristics}
+		\begin{tabular}{l*{3}{c}}
+			\hline\hline
+			\input{code/tables/tex_output/individual_tables/new_robustness_listing_char}
+			\hline\hline
+			\multicolumn{10}{l}{\footnotesize Standard errors in parentheses}\\
+			\multicolumn{10}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
+		\end{tabular}
+		\label{table:new_robustlisting}
+		\begin{tablenotes}
+			\item {\it Note:} This table breaks the effects for the combined data by high versus low price, time on market, and property type. The categories, from left to right, are: listings whose log price is below vs. above the mean predicted log price in each city, the price originally dropped, listings who have have been on the market for no more than 2 years vs. no more than 8 years, and listings of different property types, including apartments (includes apartments and lofts), condos (includes condos and townhouse), and houses. I control for my preferred specification throughout. The outcome variable is the log price of the listing.
+		\end{tablenotes}
+	\end{table}
 
 
