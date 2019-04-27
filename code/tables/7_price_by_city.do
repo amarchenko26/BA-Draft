@@ -1,9 +1,10 @@
 ********************************************************************************
 *					  City Robustness 				    					   *
 ********************************************************************************
+
 preserve
 keep if sample == 1
-** State robustness checks do-file
+
 set more off
 set emptycells drop 
 
@@ -141,7 +142,7 @@ estadd local controlgroup3 "Yes" : LA NYC Austin Chicago New_Orleans DC Nashvill
 
 #delimit ;
 esttab LA NYC Austin Chicago New_Orleans DC Nashville
-	using "$repository/code/tables/tex_output/individual_tables/robustness_city_int.tex",
+	using "$repository/code/tables/tex_output/individual_tables/price_by_city.tex",
 	keep(*.race_sex_res) drop(1.race_sex_res)
 	se ar2 replace label 
 	mtitles("LA" "NYC" "Austin" "Chicago" "New Orleans" "DC" "Nashville")

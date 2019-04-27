@@ -8,82 +8,8 @@
 insheet using "$repository/data/done_combined_full_listings.csv", clear
 sort id
 
-/* COMMENTING THIS OUT TO RUN FASTER
-** Creating quality of listing controls
-
-// Description
-gen len_desc = length(description) // length of description 
-la var len_desc "Length of Description"
-egen num_words = nss(description), find(" ") //count number of words by counting spaces
-gen short_words = num_words/len_desc //low short_words --> high quality of review, (since there's a lot of long words)
-la var short_words "Quality of review as measured by proportion of long words"
-
-// Summary
-gen len_desc2 = length(summary) // length of description 
-la var len_desc2 "Length of Summary"
-egen num_words2 = nss(summary), find(" ") //count number of words by counting spaces
-gen short_words2 = num_words2/len_desc2 //low short_words --> high quality of review, (since there's a lot of long words)
-
-// Space
-gen len_desc3 = length(space) // length of description 
-egen num_words3 = nss(space), find(" ") //count number of words by counting spaces
-gen short_words3 = num_words3/len_desc3 //low short_words --> high quality of review, (since there's a lot of long words)
-// Experiences offered is always "none"
-
-// Neighborhood Overview
-gen len_desc4 = length(neighborhood_overview)
-egen num_words4 = nss(space), find(" ") //count number of words by counting spaces
-gen short_words4 = num_words4/len_desc4 //low short_words --> high quality of review, (since there's a lot of long words)
-
-// Notes
-gen len_desc5 = length(notes)
-egen num_words5 = nss(space), find(" ") //count number of words by counting spaces
-gen short_words5 = num_words5/len_desc5 //low short_words --> high quality of review, (since there's a lot of long words)
-
-// Transit
-gen len_desc6 = length(transit)
-egen num_words6 = nss(space), find(" ") //count number of words by counting spaces
-gen short_words6 = num_words6/len_desc6 //low short_words --> high quality of review, (since there's a lot of long words)
-
-replace short_words = 0 if short_words == . 
-replace short_words2 = 0 if short_words2 == . 
-replace short_words3 = 0 if short_words3 == . 
-replace short_words4 = 0 if short_words4 == . 
-replace short_words5 = 0 if short_words5 == . 
-replace short_words6 = 0 if short_words6 == . 
-
-replace num_words = 0 if num_words == . 
-replace num_words2 = 0 if num_words2 == . 
-replace num_words3 = 0 if num_words3 == .
-replace num_words4 = 0 if num_words4 == .
-replace num_words5 = 0 if num_words5 == .
-replace num_words6 = 0 if num_words6 == .
-*/
-
 // Amenities
 egen num_amenities = nss(amenities), find(",")
-
-/* COMMENTING OUT FOREVER BC NOT NEEDED WITH NLP
-egen good_word1 = noccur(description), string("spacious")
-egen good_word2 = noccur(description), string("beautiful")
-egen good_word3 = noccur(description), string("clean")
-egen good_word4 = noccur(description), string("comfort")
-egen good_word5 = noccur(description), string("great")
-egen good_word6 = noccur(description), string("love")
-egen good_word7 = noccur(description), string("quiet")
-
-gen good_word_tot = good_word1 + good_word2 + good_word3 + good_word4 + good_word5 + good_word6 + good_word7
-
-egen sum_good_word1 = noccur(summary), string("spacious")
-egen sum_good_word2 = noccur(summary), string("beautiful")
-egen sum_good_word3 = noccur(summary), string("clean")
-egen sum_good_word4 = noccur(summary), string("comfort")
-egen sum_good_word5 = noccur(summary), string("great")
-egen sum_good_word6 = noccur(summary), string("love")
-egen sum_good_word7 = noccur(summary), string("quiet")
-
-gen sum_good_word_tot = sum_good_word1 + sum_good_word2 + sum_good_word3 + sum_good_word4 + sum_good_word5 + sum_good_word6 + sum_good_word7
-*/
 
 ** Host Characteristics
 egen group_host_response_time = group(host_response_time), label  //, lname("Host Response Time")
@@ -214,12 +140,10 @@ la var host_is_superhost "Host is a Superhost"
 la var host_response_rate "Response rate"
 la var host_response_time "Response time"
 la var host_acceptance_rate "Acceptance rate"
-*la var len_desc "Length of description" //commenting out while above len_desc is commented out
-*la var short_words "Short words"
 la var host_identity_verified "Host's Identity Verified?"
 la var require_guest_profile_picture "Guest Pic Required?"
 la var require_guest_phone_verification "Guest Phone Required?"
-*la var short_words2 "Short words in Summary"
+
 
 ** RA analysis
 replace ra_name = "Fong" if ra_name== "FONG"

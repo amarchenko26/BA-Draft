@@ -1,67 +1,4 @@
 
-** Creating quality of listing controls
-/* The below is commented out temporarily bc it takes forever to run, but doesn't affect the results
-// Description
-gen len_desc = length(description) // length of description 
-la var len_desc "Length of Description"
-egen num_words = nss(description), find(" ") //count number of words by counting spaces
-gen short_words = num_words/len_desc //low short_words --> high quality of review, (since there's a lot of long words)
-la var short_words "Quality of review as measured by proportion of long words"
-
-// Summary
-gen len_desc2 = length(summary) // length of description 
-egen num_words2 = nss(summary), find(" ") //count number of words by counting spaces
-gen short_words2 = num_words2/len_desc2 //low short_words --> high quality of review, (since there's a lot of long words)
-
-// Space
-gen len_desc3 = length(space) // length of descripiton 
-egen num_words3 = nss(space), find(" ") //count number of words by counting spaces
-gen short_words3 = num_words3/len_desc3 //low short_words --> high quality of review, (since there's a lot of long words)
-// Experiences offered is always "none"
-
-// Neighborhood Overview
-gen len_desc4 = length(neighborhood_overview)
-egen num_words4 = nss(space), find(" ") //count number of words by counting spaces
-gen short_words4 = num_words4/len_desc4 //low short_words --> high quality of review, (since there's a lot of long words)
-
-// Notes
-gen len_desc5 = length(notes)
-egen num_words5 = nss(space), find(" ") //count number of words by counting spaces
-gen short_words5 = num_words5/len_desc5 //low short_words --> high quality of review, (since there's a lot of long words)
-
-// Transit
-gen len_desc6 = length(transit)
-egen num_words6 = nss(space), find(" ") //count number of words by counting spaces
-gen short_words6 = num_words6/len_desc6 //low short_words --> high quality of review, (since there's a lot of long words)
-
-
-replace short_words = 0 if short_words == . 
-replace short_words2 = 0 if short_words2 == . 
-replace short_words3 = 0 if short_words3 == . 
-replace short_words4 = 0 if short_words4 == . 
-replace short_words5 = 0 if short_words5 == . 
-replace short_words6 = 0 if short_words6 == . 
-
-replace num_words = 0 if num_words == . 
-replace num_words2 = 0 if num_words2 == . 
-replace num_words3 = 0 if num_words3 == .
-replace num_words4 = 0 if num_words4 == .
-replace num_words5 = 0 if num_words5 == .
-replace num_words6 = 0 if num_words6 == .
-*/
-
-/* Commented out permanently, redundant bc NLP 
-egen good_word1 = noccur(description), string("spacious")
-egen good_word2 = noccur(description), string("beautiful")
-egen good_word3 = noccur(description), string("clean")
-egen good_word4 = noccur(description), string("comfort")
-egen good_word5 = noccur(description), string("great")
-egen good_word6 = noccur(description), string("love")
-egen good_word7 = noccur(description), string("quiet")
-
-gen good_word_tot = good_word1 + good_word2 + good_word3 + good_word4 + good_word5 + good_word6 + good_word7
-*/
-
 // Amenities
 egen num_amenities = nss(amenities), find(",")
 
@@ -291,17 +228,18 @@ replace reviewer_sample = 0 if race_res > 4
 
 
 ** Merging NLP analysis columns
-rename id id2
-rename listing_id id // listing_id corresponds to id column in final_cleaned_all_sentiments
 
 #delimit ;
-merge m:m id using "$repository/data/crisis_fix_sentiment_ONLY", nogen 
-keepusing(id reviews_polarity reviews_subjectivity summary_polarity summary_subjectivity 
+merge m:m listing_id using "$repository/data/full_listings_all_sentiments_updated6.dta", 
+keepusing(listing_id reviews_polarity reviews_subjectivity summary_polarity summary_subjectivity 
 space_polarity space_subjectivity description_polarity description_subjectivity 
 experiences_offered_polarity experiences_offered_subjectivity neighborhood_overview_polarity 
 neighborhood_overview_subject)
 ;
 #delimit cr
+
+drop if _merge == 2 // drop if not reviewer data
+rename _merge nlp_merge
 
 rename neighborhood_overview_polarity neighborhood_polarity
 rename neighborhood_overview_subject neighborhood_subjectivity
@@ -319,6 +257,7 @@ foreach var in `NLP'{
 ** Merging census analysis columns
 merge m:1 zipcode using "$repository/code/census/census.dta"
 rename _merge census_merge
+drop if census_merge == 2 // drop if obs only in census data
 
 *** Creating missing census indicators
 local ncat popdensity med_value med_gross_rent med_income_city_norm race_white_city_norm race_black_city_norm race_asian_city_norm race_sor_city_norm race_hnom_city_norm unemployed_city_percent HHSSI_city_percent occupied_city_percent commute_city_percent_under commute_city_percent_over

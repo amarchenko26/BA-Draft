@@ -12,14 +12,14 @@ The property data includes all of the characteristics available on the listing p
 
 The host data includes all available host information, as seen in Figure \ref{fig:host}. This includes the host's name and profile picture, their response rate and the response time, whether the host is a Superhost, whether their identity is verified by Airbnb, and if the host requires a guest's profile picture or phone to book. 
 
-I restrict the sample to hosts who have profile pictures and manage less than 20 listings, and listings priced at less than \$800 per night. 45,000 listings were left after restricting the data set. Only 20 hosts did not have profile pictures. 
+For obvious reasons, I restrict the sample to hosts who have profile pictures (there are only 2 hosts who do not). I drop extremely high-priced listings, or those priced over \$800 per night. Lastly, I restrict my sample to hosts who manage fewer than 20 listings to avoid introducing hostels, professional property managers, and other types of businesses into my sample. To see results without these sample restrictions, see Tables \ref{table:robustlisting} and \ref{table:robustness_listings_count}, respectively. 
 
-[CHECK IF THESE TRUE IN FINAL VERSION.]
 
 \textbf{Coding} 
 
-Airbnb does not provide the demographic information of their hosts, so undergraduate research assistants manually coded the hosts' demographic information. For each listing, assistants identified the race, gender, and age of the host, as well as whether or not there was more than one person in the picture. Table \ref{table:coding} presents the full set of categories according to which each picture was coded. Only listings with a single person in the profile picture who were identifiably White, Black, Asian, or Hispanic, were included in the main analysis. Listings with couples, groups, children, pictures without a human face, or people of ambiguous race were dropped from the main analysis. Listings that no longer existed at the time of coding were also excluded.%
+Airbnb does not provide the demographic information of their hosts, so undergraduate research assistants manually coded the hosts' demographic information. For each listing, assistants identified the race, gender, and age of the host, as well as whether or not there was more than one person in the picture. Only listings with a single person in the profile picture who were identifiably White, Black, Asian, or Hispanic, were included in the main analysis. Listings with couples, groups, children, pictures without a human face, or people of ambiguous race were dropped from the main analysis. Listings that no longer existed at the time of coding were also excluded. %
 	\footnote{If certain groups of hosts systematically exited the Airbnb market between the time of the scrape and the time of the coding, dropping those listings could bias the results. Unfortunately, there is no way to verify the demographics of the hosts who dropped out, since Airbnb takes down their profile picture.}
+Altogether I am left with 45,000 observations.
 
 Each RA was compensated based on the quantity of the listings they coded. Since this compensation scheme could disincentivize coding accurately, a simple double-checking process was put in place to check codings. RAs flagged listings whose picture was ambiguous on any of the dimensions of race, sex, or age. I subsequently coded each flagged listing to check RA work.%
 	\footnote{It is important to note that the coding need not reflect the actual demographics of the host. Rather, it is sufficient that they are coded with the race, sex, and age that the average guest on Airbnb would assume after looking at the profile picture. Since the average University of Chicago undergraduate might not be representative of the average guest on Airbnb, in future research it would be preferable for two people to code each picture, and a third person to resolve disagreements.}
@@ -45,9 +45,6 @@ For the 16,000 reviewers who left reviews in Chicago listings, I also use natura
 
 
 
-
-\newpage	
-\singlespacing
 %\include{tables/table_1_coding_keys}
 
 
@@ -55,7 +52,7 @@ For the 16,000 reviewers who left reviews in Chicago listings, I also use natura
 \subsection{Data Summary}
 \label{summary}
 
-Summary statistics of listing characteristics, host demographics, and host characteristics are displayed in Tables \ref{table:listing_summary}-\ref{table:host_summary}. Histograms of price, number of reviews, and review sentiment are included in Figures \ref{fig:prices} - \ref{fig:sentiment} [INCLUDE IN FINAL VERSION]. There is significant variation in both sex and race of the hosts on Airbnb. Roughly a third of the sample are single females (38\%), and a third are single males (31\%), and the rest are couples or groups (31\%). About two-thirds of the hosts are white (64\%), and less than a tenth are black (7\%), Hispanic (5\%), or Asian (9\%).%
+Summary statistics of listing characteristics, host demographics, and host characteristics are displayed in Tables \ref{table:listing_summary}-\ref{table:host_summary}. Histograms of price, number of reviews, and review sentiment are included in Figures \ref{fig:prices} - \ref{fig:sentiment}. There is significant variation in both sex and race of the hosts on Airbnb. Roughly a third of the sample are single females (38\%), and a third are single males (31\%), and the rest are couples or groups (31\%). About two-thirds of the hosts are white (64\%), and less than a tenth are black (7\%), Hispanic (5\%), or Asian (9\%).%
 	\footnote{The rest of the profile pictures were pictures of groups, pictures without a human face, or multiracial couples.} 
 
 The prices of listings owned by white hosts are higher than those of other hosts. The mean price per night of a listing is \$178 per night for White, \$125 for Black, \$160 for Hispanic, and \$131 for Asian hosts. Minority hosts also have lower median prices and lower standard deviations, indicating that not only do minority hosts own cheaper listings on average, but their listings are more concentrated around the lower mean.%

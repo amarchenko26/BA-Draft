@@ -4,14 +4,14 @@
 preserve
 keep if sample == 1
 #delimit ;
-quietly reg log_number_of_reviews i.race_sex_res i.age,  
+quietly reg log_number_of_reviews i.race_sex_res,  
 			vce(cluster group_neighbourhood_cleansed)
 ;
 #delimit cr
 eststo model1
 
 #delimit ; 
-quietly reg log_number_of_reviews i.race_sex_res i.age $loc_controls,
+quietly reg log_number_of_reviews i.race_sex_res $loc_controls,
 			vce(cluster group_neighbourhood_cleansed)
 ;
 #delimit cr
@@ -19,7 +19,7 @@ eststo model2
 
 // Add listing specification
 #delimit ;
-quietly reg log_number_of_reviews i.race_sex_res i.age 
+quietly reg log_number_of_reviews i.race_sex_res 
 			$prop_controls,
 			vce(cluster group_neighbourhood_cleansed)
 ;
@@ -28,7 +28,7 @@ eststo model3
 				
 // Add host specification
 #delimit ;
-quietly reg log_number_of_reviews i.race_sex_res i.age 
+quietly reg log_number_of_reviews i.race_sex_res 
 			$full_controls,
 			vce(cluster group_neighbourhood_cleansed)
 ;

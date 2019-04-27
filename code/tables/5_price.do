@@ -4,7 +4,8 @@
 
 // Defining set of universal location controls 
 #delimit ; 
-global loc_controls i.group_neighbourhood_cleansed i.cleaned_city
+global loc_controls i.age i.group_neighbourhood_cleansed i.cleaned_city
+				miss_age miss_race_sex_res
 				popdensity med_value med_gross_rent med_income_city_norm race_white_city_norm // Census variables
 				race_black_city_norm race_asian_city_norm race_sor_city_norm race_hnom_city_norm
 				unemployed_city_percent HHSSI_city_percent occupied_city_percent commute_city_percent_under
@@ -19,7 +20,7 @@ global loc_controls i.group_neighbourhood_cleansed i.cleaned_city
 
 // Defining set of universal +property controls 
 #delimit ; 
-global prop_controls i.group_neighbourhood_cleansed i.cleaned_city // Location dummies
+global prop_controls i.age i.group_neighbourhood_cleansed i.cleaned_city // Location dummies
 			miss_age miss_race_sex_res  // Location missing dummies
 			miss_group_nhood_clean miss_cleaned_city 
 				popdensity med_value med_gross_rent med_income_city_norm race_white_city_norm // Census variables
@@ -38,7 +39,7 @@ global prop_controls i.group_neighbourhood_cleansed i.cleaned_city // Location d
 					i.group_cancellation_policy instant_bookable 
 					require_guest_profile_picture
 					require_guest_phone_verification minimum_nights
-					availability_30 availability_60
+					availability_30
 					miss_group_property_type miss_group_room_type // Listing missing dummies
 					miss_accommodates miss_bathrooms miss_bedrooms miss_beds miss_group_bed_type 
 					miss_cleaning_fee miss_extra_people miss_num_amenities 
@@ -46,7 +47,7 @@ global prop_controls i.group_neighbourhood_cleansed i.cleaned_city // Location d
 					miss_group_cancellation_policy miss_instant_bookable 	
 					miss_req_guest_pro_pic
 					miss_req_guest_phone miss_minimum_nights 
-					miss_availability_30 miss_availability_60
+					miss_availability_30 
 ;
 #delimit cr
 
@@ -72,7 +73,7 @@ global full_controls i.age i.group_ra_name
 					i.group_cancellation_policy instant_bookable 
 					require_guest_profile_picture
 					require_guest_phone_verification minimum_nights
-					availability_30 availability_60
+					availability_30
 					miss_group_property_type miss_group_room_type // Listing missing dummies
 					miss_accommodates miss_bathrooms miss_bedrooms miss_beds miss_group_bed_type 
 					miss_cleaning_fee miss_extra_people miss_num_amenities 
@@ -80,22 +81,13 @@ global full_controls i.age i.group_ra_name
 					miss_group_cancellation_policy miss_instant_bookable 	
 					miss_req_guest_pro_pic
 					miss_req_guest_phone miss_minimum_nights 
-					miss_availability_30 miss_availability_60
-<<<<<<< HEAD
+					miss_availability_30
 						summary_polarity summary_subjectivity // NLP controls
 						space_polarity space_subjectivity description_polarity description_subjectivity 
 						neighborhood_polarity neighborhood_subjectivity
 						miss_summary_polarity miss_summary_subjectivity // NLP missing dummies
 						miss_space_polarity miss_space_subjectivity miss_description_polarity 
-						miss_description_subjectivity miss_neighborhood_polarity miss_neighborhood_subjectivity */
-=======
-						reviews_polarity reviews_subjectivity summary_polarity summary_subjectivity // NLP controls
-						space_polarity space_subjectivity description_polarity description_subjectivity 
-						neighborhood_polarity neighborhood_subjectivity
-						miss_reviews_polarity miss_reviews_subjectivity miss_summary_polarity // NLP missing dummies
-						miss_summary_subjectivity miss_space_polarity miss_space_subjectivity miss_description_polarity 
-						miss_description_subjectivity miss_neighborhood_polarity miss_neighborhood_subjectivity 
->>>>>>> 8e459eedc5edc43391204e7dde69221a7b77702c
+						miss_description_subjectivity miss_neighborhood_polarity miss_neighborhood_subjectivity
 						i.group_host_response_time host_response_rate // Host listing FEs
 						host_identity_verified host_is_superhost 
 						miss_group_host_response_time miss_host_response_rate // Host missing dummies
@@ -108,14 +100,14 @@ preserve
 keep if sample == 1
 
 // Base
-quietly reg log_price i.race_sex_res i.age, ///
+quietly reg log_price i.race_sex_res, ///
 			vce(cluster group_neighbourhood_cleansed) 
 eststo model1
 			
 			
 // Add location FEs		
 #delimit ; 
-quietly reg log_price i.race_sex_res i.age $loc_controls, 
+quietly reg log_price i.race_sex_res $loc_controls, 
 			vce(cluster group_neighbourhood_cleansed) 
 ;
 #delimit cr
@@ -124,13 +116,13 @@ eststo model2
 
 // Add listing FEs
 #delimit ;
-quietly reg log_price i.race_sex_res i.age $prop_controls,
+quietly reg log_price i.race_sex_res $prop_controls,
 			vce(cluster group_neighbourhood_cleansed) 
 ;
 #delimit cr
 eststo model3
 			
-			
+
 // Add host FEs
 #delimit ;
 quietly reg log_price i.race_sex_res $full_controls,

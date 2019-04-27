@@ -1,10 +1,11 @@
 ********************************************************************************
-*					NEW ROBUSTNESS LISTING CHARACTERISTICS	 				   *
+* 						30 Day Availability Supply Side Analysis			   *
 ********************************************************************************
+preserve
+keep if sample == 1
 
-// Defining set of universal +host controls
 #delimit ; 
-global full_controls i.age i.group_ra_name
+quietly reg availability_30 i.race_sex_res i.age i.group_ra_name
 			i.group_neighbourhood_cleansed i.cleaned_city miss_group_ra_name // Location dummies
 			miss_age miss_race_sex_res  // Location missing dummies
 			miss_group_nhood_clean miss_cleaned_city 
@@ -24,7 +25,6 @@ global full_controls i.age i.group_ra_name
 					i.group_cancellation_policy instant_bookable 
 					require_guest_profile_picture
 					require_guest_phone_verification minimum_nights
-					availability_30 availability_60
 					miss_group_property_type miss_group_room_type // Listing missing dummies
 					miss_accommodates miss_bathrooms miss_bedrooms miss_beds miss_group_bed_type 
 					miss_cleaning_fee miss_extra_people miss_num_amenities 
@@ -32,63 +32,51 @@ global full_controls i.age i.group_ra_name
 					miss_group_cancellation_policy miss_instant_bookable 	
 					miss_req_guest_pro_pic
 					miss_req_guest_phone miss_minimum_nights 
-					miss_availability_30 miss_availability_60
-						reviews_polarity reviews_subjectivity summary_polarity summary_subjectivity // NLP controls
+						summary_polarity summary_subjectivity // NLP controls
 						space_polarity space_subjectivity description_polarity description_subjectivity 
 						neighborhood_polarity neighborhood_subjectivity
-						miss_reviews_polarity miss_reviews_subjectivity miss_summary_polarity // NLP missing dummies
-						miss_summary_subjectivity miss_space_polarity miss_space_subjectivity miss_description_polarity 
-						miss_description_subjectivity miss_neighborhood_polarity miss_neighborhood_subjectivity 
+						miss_summary_polarity miss_summary_subjectivity // NLP missing dummies
+						miss_space_polarity miss_space_subjectivity miss_description_polarity 
+						miss_description_subjectivity miss_neighborhood_polarity miss_neighborhood_subjectivity
 						i.group_host_response_time host_response_rate // Host listing FEs
 						host_identity_verified host_is_superhost 
 						miss_group_host_response_time miss_host_response_rate // Host missing dummies
-						miss_host_identity_verified miss_host_is_superhost
-;
-#delimit cr
-
-gen sample3 = 0
-replace sample3 = 1 if sample == 1 | price > 800
-
-preserve
-keep if sample3 == 1
-
-// Price > 800
-#delimit ;
-quietly reg log_price i.race_sex_res $full_controls if price > 800,
-			vce(cluster group_neighbourhood_cleansed) 
+						miss_host_identity_verified miss_host_is_superhos
 ;
 #delimit cr
 eststo model1
 
-// All prices
+				
+// Log reviews
 #delimit ;
-quietly reg log_price i.race_sex_res $full_controls,
-			vce(cluster group_neighbourhood_cleansed) 
+quietly reg log_number_of_reviews i.race_sex_res 
+			$full_controls,
+			vce(cluster group_neighbourhood_cleansed)
 ;
 #delimit cr
 eststo model2
 
-// Number of reviews >= 5
-#delimit ;
-quietly reg log_price i.race_sex_res $full_controls if number_of_reviews >= 5,
-			vce(cluster group_neighbourhood_cleansed) 
-;
-#delimit cr
-eststo model3
 
+local controlgroup1 // Location
+local controlgroup2 // Property
+local controlgroup3 // Host
 
+// Add locals which will serve as indicators for which FEs are included in the models
+estadd local controlgroup1 "Yes" : model1  model2
+estadd local controlgroup2 "Yes" : model1  model2
+estadd local controlgroup3 "Yes" : model1  model2
 
 // Esttab the table
 #delimit ;
-esttab model1 model2 model3 
-	using "$repository/code/tables/tex_output/individual_tables/new_robustness_listing_char.tex", 
-		se ar2 replace label nonumbers
-		keep(_cons *.race_sex_res) drop(0.race_sex_res 1.race_sex_res 3.race_sex_res 6.race_sex_res 9.race_sex_res 12.race_sex_res 13.race_sex_res 14.race_sex_res 15.race_sex_res)
-		mtitles("$>$ \\$800/night" "All prices" "$\geq$ 5 reviews")
-		stats(cumpct linehere N r2,
-		labels("Percentage" "\hline \vspace{-1.25em}"
-			   "Observations" "Adjusted R2"))
-		fragment 
+esttab model1 model2 using "$repository/code/tables/tex_output/individual_tables/quantity_demanded.tex", 
+	se ar2 replace label 
+	keep(_cons *.race_sex_res) drop(1.race_sex_res)
+	mtitles("Number of vacant days out of 30" "Log number of reviews")
+	stats(controlgroup1 controlgroup2 controlgroup3 linehere N r2,
+	labels("Location Controls" "Property Controls" 
+		   "Host Controls" "\hline \vspace{-1.25em}"
+		   "Observations" "Adjusted R2"))
+	fragment 
 ;
 #delimit cr
 restore

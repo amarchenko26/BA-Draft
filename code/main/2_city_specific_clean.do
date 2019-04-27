@@ -22,6 +22,10 @@ replace age = 5 if age == 6
 gen sample = 1
 replace sample = 0 if host_listings_count > 20 | host_has_profile_pic == "f" | price > 800 | sex == 0 | age == 7 | age == 11 | age == 12 | age == 0
 
+* Creating sample for robustness table with all prices
+gen sample_all_price = 1
+replace sample_all_price = 0 if host_listings_count > 20 | host_has_profile_pic == "f" | sex == 0 | age == 7 | age == 11 | age == 12 | age == 0
+
 
 ** Fixing LA codes
 replace race = 1 if race == 2 & state == "CA"
@@ -61,6 +65,9 @@ la var sex_res "Sex"
 
 replace sample = 0 if sex_res > 2 	//Responsible for dropping ~20k vars
 replace sample = 0 if race_res > 4	//Responsible for dropping ~20k vars
+
+replace sample_all_price = 0 if sex_res > 2
+replace sample_all_price = 0 if race_res > 4
 
 ** Create interaction for race and sex
 egen race_sex_res = group(race_res sex_res), label
