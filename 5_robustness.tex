@@ -1,7 +1,9 @@
 
-In this section, I explore if the effects on price persist when I break up the data by property type. I also test to see if minorities have lower prices because they own listings of worse quality. 
+In this section, I address the sensitivity of my point estimates to various samples, including seeing if the effects on price persist when I use a different sample by price, number of reviews, and property type. I also test to see if minorities have lower prices because they own listings of worse quality. 
 
 \textbf{Effects persist between listing types}
+
+
 
 Table \ref{table:robustlisting} presents the effects of host race on price, broken down by various listing characteristics such as price, time on market, and property type. I break up the listings by price in the following way: separately for Los Angeles and New York City, I predict the price of a listing based on its property and host characteristics, without host race. I then use this predicted price to divide listings into higher- and lower-than the mean predicted price in each city. I control for my preferred specification.  
 
@@ -12,7 +14,7 @@ Columns 5 and 6 show that the price disparities are similar for both old and new
 \textbf{Prices are not lower because minority hosts have worse reviews} 
 
 Good reviews are essential to establishing the credibility of a host on Airbnb, as well as for transacting in the wider P2P market. Previous analyses, including \cite{edelman}, control for the numeric review score of the listing as a proxy for listing quality. However, since there is little variation in the numeric review score, these measures could be uninformative for potential guests in inferring listing quality.%
-	\footnote{This is the case for most online marketplaces. \cite{fradkin} study the determinants of review informativeness on Airbnb and find that most reviews, both numeric and text, are positive. In general, however, reviews tend to reflect real experience of the user.} 
+	\footnote{This is the case for most online marketplaces. \cite{fradkin} study the determinants of review informativeness on Airbnb and find that most reviews, both numeric and text, are positive. However, the written reviews tend to reflect real experience of the user.} 
 For this reason I use review text instead of the numeric score in my analysis.%
 	\footnote{A low share of guests who review may be a more accurate proxy for low quality, because many users prefer to leave no review rather than a negative review. Review share information, however, is not available.} 
 I conduct sentiment analysis on those reviews to give each review a polarity and subjectivity score, allowing me to include controls that better approximate the listing selection process for potential Airbnb guests.

@@ -81,11 +81,11 @@ global full_controls i.age i.group_ra_name
 					miss_req_guest_pro_pic
 					miss_req_guest_phone miss_minimum_nights 
 					miss_availability_30 miss_availability_60
-/*						reviews_polarity reviews_subjectivity summary_polarity summary_subjectivity // NLP controls
+						summary_polarity summary_subjectivity // NLP controls
 						space_polarity space_subjectivity description_polarity description_subjectivity 
 						neighborhood_polarity neighborhood_subjectivity
-						miss_reviews_polarity miss_reviews_subjectivity miss_summary_polarity // NLP missing dummies
-						miss_summary_subjectivity miss_space_polarity miss_space_subjectivity miss_description_polarity 
+						miss_summary_polarity miss_summary_subjectivity // NLP missing dummies
+						miss_space_polarity miss_space_subjectivity miss_description_polarity 
 						miss_description_subjectivity miss_neighborhood_polarity miss_neighborhood_subjectivity */
 						i.group_host_response_time host_response_rate // Host listing FEs
 						host_identity_verified host_is_superhost 
