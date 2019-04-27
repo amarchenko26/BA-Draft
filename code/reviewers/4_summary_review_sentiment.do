@@ -45,7 +45,7 @@ local cat1 rev_race_res
 		local full_prop = `r(N)' / `full_N'
 		
 		preserve 
-		keep if sample == 1 
+		keep if reviewer_sample == 1 
 		
 		sum `i' //all Data
 		local all_N = `r(N)' //
@@ -77,7 +77,7 @@ local cat2 race_res
 		local full_N_`i' = `r(N)' //saves 'i' N e.g townhouse, etc
 		
 		
-		sum `i' if sample == 1 //All Data
+		sum `i' if reviewer_sample == 1 //All Data
 		local all_N_`i' = `r(N)' //saves 'i' N e.g townhouse, etc
 		
 		levelsof `i'
@@ -86,18 +86,16 @@ local cat2 race_res
 				local `k'_full_N_`i' = `r(N)' //saves 'i' N e.g townhouse, etc
 				local `k'_full_mean_`i' = ``k'_full_N_`i''/`full_N_`i''
 				
-				sum `i' if `i' == `k' & sample == 1 //All Data
+				sum `i' if `i' == `k' & reviewer_sample == 1 //All Data
 				local `k'_all_N_`i' = `r(N)' //saves 'i' N e.g townhouse, etc
 				local `k'_all_mean_`i' = ``k'_all_N_`i''/`all_N_`i''				
-				
-				
-				//keep if sample == 1 //restricts regression sample
+
 
 				levelsof rev_race_res //
 					foreach r in `r(levels)' {
-						sum `i' if rev_race_res == `r' & sample == 1
+						sum `i' if rev_race_res == `r' & reviewer_sample == 1
 						local `r'_race_N_`i' = `r(N)'
-							sum `i' if `i' == `k' & rev_race_res == `r' & sample == 1
+							sum `i' if `i' == `k' & rev_race_res == `r' & reviewer_sample == 1
 							local `r'_`k'_race_N_`i' = `r(N)' //saves 'i' N e.g townhouse, etc
 							local `r'_`k'_race_mean_`i' = ``r'_`k'_race_N_`i''/``r'_race_N_`i''
 						
@@ -131,10 +129,7 @@ local ncat sentiment_mean sentiment_listing
 			local full_observations = `r(N)' //saves full data N
 			local full_mean_`i' = `r(mean)'
 			local full_sd_`i' = `r(sd)'
-			//preserve
-			//keep if sample == 1 //restricts regression sample
-			
-			sum `i'  if sample == 1 //All column
+			sum `i'  if reviewer_sample == 1 //All column
 			local all_observations = `r(N)' //saves all N 
 			local all_mean_`i' = `r(mean)'
 			local all_sd_`i' = `r(sd)'
@@ -143,7 +138,7 @@ local ncat sentiment_mean sentiment_listing
 			
 			levelsof rev_race_res
 			foreach f in `r(levels)'{
-				sum `i' if rev_race_res == `f' & sample == 1
+				sum `i' if rev_race_res == `f' & reviewer_sample == 1
 				local `f'_race_observations = `r(N)' //saves race N
 				local `f'_mean_`i' = `r(mean)'
 				local `f'_sd_`i' = `r(sd)'
