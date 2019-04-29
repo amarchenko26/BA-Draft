@@ -44,18 +44,26 @@ global full_controls_reviewer i.age i.group_ra_name
 ;
 #delimit cr
 
+sum sentiment_mean
+gen sentiment_mean_zscore =  (sentiment_mean -`r(mean)')/`r(sd)'
 
 preserve
 keep if reviewer_sample == 1
 
-sum sentiment_mean
-gen sentiment_mean_stan =  (sentiment_mean-`r(mean)')/`r(sd)'
-
 ** Regressions
+
+// ALL reviewers
+#delimit ;
+quietly reg sentiment_mean_zscore i.race_sex_res ///
+	$full_controls_reviewer, ///
+	vce(cluster group_neighbourhood_cleansed) 
+;
+#delimit cr
+eststo mod0
 
 // White Male reviewers
 #delimit ;
-quietly reg sentiment_mean_stan i.race_sex_res ///
+quietly reg sentiment_mean_zscore i.race_sex_res ///
 	$full_controls_reviewer if rev_race_sex_res == 1, ///
 	vce(cluster group_neighbourhood_cleansed) 
 ;
@@ -64,7 +72,7 @@ eststo mod1
 
 // White female reviewers
 #delimit ;
-quietly reg sentiment_mean_stan i.race_sex_res ///
+quietly reg sentiment_mean_zscore i.race_sex_res ///
 	$full_controls_reviewer  if rev_race_sex_res == 2, ///
 	vce(cluster group_neighbourhood_cleansed) 
 ;
@@ -73,7 +81,7 @@ quietly reg sentiment_mean_stan i.race_sex_res ///
 
 // Black Male reviewers
 #delimit ;
-quietly reg sentiment_mean_stan i.race_sex_res ///
+quietly reg sentiment_mean_zscore i.race_sex_res ///
 	$full_controls_reviewer if rev_race_sex_res == 3, ///
 	vce(cluster group_neighbourhood_cleansed) 
 ;
@@ -82,7 +90,7 @@ quietly reg sentiment_mean_stan i.race_sex_res ///
 	
 // Black Female reviewers
 #delimit ;
-quietly reg sentiment_mean_stan i.race_sex_res ///
+quietly reg sentiment_mean_zscore i.race_sex_res ///
 	$full_controls_reviewer if rev_race_sex_res == 4, ///
 	vce(cluster group_neighbourhood_cleansed) 
 ;
@@ -91,7 +99,7 @@ quietly reg sentiment_mean_stan i.race_sex_res ///
 	
 // Hispanic Male reviewers
 #delimit ;
-quietly reg sentiment_mean_stan i.race_sex_res ///
+quietly reg sentiment_mean_zscore i.race_sex_res ///
 	$full_controls_reviewer if rev_race_sex_res == 5, ///
 	vce(cluster group_neighbourhood_cleansed) 
 ;
@@ -100,7 +108,7 @@ quietly reg sentiment_mean_stan i.race_sex_res ///
 	
 // Hispanic Female reviewers
 #delimit ;
-quietly reg sentiment_mean_stan i.race_sex_res ///
+quietly reg sentiment_mean_zscore i.race_sex_res ///
 	$full_controls_reviewer if rev_race_sex_res == 6, ///
 	vce(cluster group_neighbourhood_cleansed) 
 ;
@@ -109,7 +117,7 @@ eststo mod6
 	
 // Asian Male reviewers	
 #delimit ;
-quietly reg sentiment_mean_stan i.race_sex_res ///
+quietly reg sentiment_mean_zscore i.race_sex_res ///
 	$full_controls_reviewer if rev_race_sex_res == 7, ///
 	vce(cluster group_neighbourhood_cleansed) 	
 ;
@@ -118,7 +126,7 @@ eststo mod7
 	
 // Asian Female reviewers	
 #delimit ;
-reg sentiment_mean_stan i.race_sex_res ///
+quietly reg sentiment_mean_zscore i.race_sex_res ///
 	$full_controls_reviewer if rev_race_sex_res == 8, ///
 	vce(cluster group_neighbourhood_cleansed) 
 ;
@@ -134,17 +142,17 @@ local controlgroup2 // Property
 local controlgroup3 // Host
 
 // Add locals which will serve as indicators for which FEs are included in the models
-estadd local controlgroup1 "Yes" : mod1  mod2  mod3  mod4  mod5  mod6  mod7  mod8
-estadd local controlgroup2 "Yes" : mod1  mod2  mod3  mod4  mod5  mod6  mod7  mod8
-estadd local controlgroup3 "Yes" : mod1  mod2  mod3  mod4  mod5  mod6  mod7  mod8
+estadd local controlgroup1 "Yes" : mod0 mod1  mod2  mod3  mod4  mod5  mod6  mod7  mod8
+estadd local controlgroup2 "Yes" : mod0 mod1  mod2  mod3  mod4  mod5  mod6  mod7  mod8
+estadd local controlgroup3 "Yes" : mod0 mod1  mod2  mod3  mod4  mod5  mod6  mod7  mod8
 
 
 #delimit ;
-esttab  mod1  mod2  mod3  mod4  mod5  mod6  mod7  mod8  using 
+esttab  mod0  mod1  mod2  mod3  mod4  mod5  mod6  mod7  mod8  using 
 	"$repository/code/tables/tex_output/individual_tables/reviewer_mean_reg.tex",
 	keep(*.race_sex_res) drop(1.race_sex_res)
 	se ar2 replace label nogap
-	mtitles("White M" "White F" "Black M"
+	mtitles("Full sample" "White M" "White F" "Black M"
 			"Black F" "Hispanic M" "Hispanic F"
 			"Asian M" "Asian F")
 	title("Estimates of effect of host demographics on review sentiment, by reviewer demographics" ) 
@@ -155,3 +163,5 @@ esttab  mod1  mod2  mod3  mod4  mod5  mod6  mod7  mod8  using
 	fragment
 		   ;
 #delimit cr
+
+restore

@@ -97,20 +97,20 @@
 	\begin{table}[htbp]\centering
 		\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
 		\caption{Estimates of effect of host demographics on review sentiment, by reviewer demographics}
-		\begin{tabular}{l *{8}{c}}
+		\begin{tabular}{l *{9}{c}}
 			\hline\hline
-			&\multicolumn{8}{c}{Reviewers} \\
-			\cmidrule(r){2-9}\\
+			&\multicolumn{9}{c}{Reviewers} \\
+			\cmidrule(r){3-10}\\
 			\input{code/tables/tex_output/individual_tables/reviewer_mean_reg}	
 			\hline\hline
-			\multicolumn{9}{l}{\footnotesize Standard errors in parentheses}\\
-			\multicolumn{9}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
+			\multicolumn{10}{l}{\footnotesize Standard errors in parentheses}\\
+			\multicolumn{10}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
 		\end{tabular}
 	\label{table:sentiment}
 	
 		\begin{tablenotes}
 			
-			\item {\it Note:} This table measures the quality of a review that reviewers leave for hosts in Chicago. The columns are the demographics of the reviewers (male is \say{M}, female is \say{F}), and the rows are the demographics of the host. The outcome variable is the sentiment of the review. Each coefficient is the standardized sentiment of a review. Review sentiment measures how positive or negative the review is. Reviews that are numerically positive are of positive sentiment and numerically negative are negative sentiment, relative to the mean sentiment score for each host type. The unit of observation is a single review. The data is a subsample of the Chicago hosts and their reviewers. I control for my preferred specification throughout. 
+			\item {\it Note:} This table presents the quality of reviews that reviewers leave for hosts in Chicago. The columns are the demographics of the reviewers (male is \say{M}, female is \say{F}), and the rows are the demographics of the host, consistent with previous tables. The outcome variable is the standardized sentiment of the review, as assigned by a machine learning algorithm. Reviews that are numerically positive are of positive sentiment and numerically negative are negative sentiment, relative to the mean sentiment score for each host type. The unit of observation is a single review. The data is a subsample of the Chicago hosts and their reviewers. I control for my preferred specification throughout. 
 			
 		\end{tablenotes}
 		

@@ -4,6 +4,7 @@
 preserve
 keep if sample == 1
 
+
 #delimit ; 
 quietly reg availability_30 i.race_sex_res i.age i.group_ra_name
 			i.group_neighbourhood_cleansed i.cleaned_city miss_group_ra_name // Location dummies
@@ -44,17 +45,17 @@ quietly reg availability_30 i.race_sex_res i.age i.group_ra_name
 						miss_host_identity_verified miss_host_is_superhos
 ;
 #delimit cr
-eststo model1
+eststo model2 //model2 so availability SECOND in the table
 
 				
-// Log reviews
+// Log reviews - GOES FIRST
 #delimit ;
 quietly reg log_number_of_reviews i.race_sex_res 
 			$full_controls,
 			vce(cluster group_neighbourhood_cleansed)
 ;
 #delimit cr
-eststo model2
+eststo model1
 
 
 local controlgroup1 // Location
@@ -71,7 +72,7 @@ estadd local controlgroup3 "Yes" : model1  model2
 esttab model1 model2 using "$repository/code/tables/tex_output/individual_tables/quantity_demanded.tex", 
 	se ar2 replace label 
 	keep(_cons *.race_sex_res) drop(1.race_sex_res)
-	mtitles("Number of vacant days out of 30" "Log number of reviews")
+	mtitles("\shortstack{Number of reviews \\ (log)}" "\shortstack{Number of vacant days\\ (out of 30)}") //shortstack puts model titles on two line
 	stats(controlgroup1 controlgroup2 controlgroup3 linehere N r2,
 	labels("Location Controls" "Property Controls" 
 		   "Host Controls" "\hline \vspace{-1.25em}"
