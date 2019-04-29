@@ -194,9 +194,9 @@ file write f "\hline\hline\noalign{\smallskip} \end{tabular} " _n ///
 	" of host-level data in the full sample. Summary statistics for selected covariates" ///
 	" are listed in the table. Categorical variables such as response time do not have" ///
 	" standard deviations. Statistics for only the most frequent response time (\say{within an hour})" ///
-	" are included. White refers only to non-Hispanic whites. Length of \say{Summary}" ///
-	" and proportion of short words in the \say{Summary} refer to my constructed" ///
-	" measures of host quality. These two measures were also calculated for the description," ///
+	" are included. White refers only to non-Hispanic whites. Polarity of \say{Summary}" ///
+	" and Subjectivity of \say{Summary} refer to the scores from a natural language processing algorithm that" ///
+	" measures the sentiment and objectivity of that field. These two measures were also calculated for the description," ///
 	" space, neighborhood overview, notes, and transit fields, but were not included in the" ///
 	" table for the sake of clarity and because they follow a similar pattern as the" ///
 	" \say{Summary} field." _n ///

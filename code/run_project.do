@@ -35,7 +35,7 @@ foreach file in 3_census_merge.do{
 
 //Run code in robustness analysis
 cd "$repository/code/tables/"
-foreach file in 1_summary_table 2_summary_host_demographics 3_summary_host_characteristics 5_price 6_quantity_demanded 7_price_by_city 8_price_by_listing_type 10_edelman 11_robustness_listings_count 12_price_no_interaction 13_revenue{
+foreach file in 1_summary_table 2_summary_host_demographics 3_summary_host_characteristics 5_price 6_quantity_demanded 7_price_by_city 8_price_by_listing_type 10_edelman 11_robustness_listings_count{
 	do "`file'".do
 }
 

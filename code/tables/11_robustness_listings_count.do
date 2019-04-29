@@ -106,6 +106,16 @@ quietly reg log_price i.race_sex_res $full_controls,
 eststo model6
 
 
+local controlgroup1 // Location
+local controlgroup2 // Property
+local controlgroup3 // Host
+
+// Add locals which will serve as indicators for which FEs are included in the models
+estadd local controlgroup1 "Yes" : model1  model2  model3  model4  model5 model6
+estadd local controlgroup2 "Yes" : model1  model2  model3  model4  model5 model6
+estadd local controlgroup3 "Yes" : model1  model2  model3  model4  model5 model6
+
+
 // Esttab the table
 #delimit ;
 esttab model1 model2 model3 model4 model5 model6
@@ -113,9 +123,10 @@ esttab model1 model2 model3 model4 model5 model6
 		se ar2 replace label nonumbers
 		keep(_cons *.race_sex_res) drop(0.race_sex_res 1.race_sex_res 3.race_sex_res 6.race_sex_res 9.race_sex_res 12.race_sex_res 13.race_sex_res 14.race_sex_res 15.race_sex_res)
 		mtitles("$\leq$ 1" "$\leq$ 2" "$\leq$ 5" "$\leq$ 10" "$\leq$ 20" "All")
-		stats(cumpct linehere N r2,
-		labels("Percentage" "\hline \vspace{-1.25em}"
-			   "Observations" "Adjusted R2"))
+	stats(controlgroup1 controlgroup2 controlgroup3 linehere N r2,
+	labels("Location Controls" "Property Controls" 
+		   "Host Controls" "\hline \vspace{-1.25em}"
+		   "Observations" "Adjusted R2"))
 		fragment 
 ;
 #delimit cr
