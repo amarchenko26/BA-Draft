@@ -14,7 +14,6 @@
 *.lof
 *.docx
 *.doc
-*.DS_Store #Mac folder file
 *.bbl #BibTeX aux file
 *.blg #BibTeX aux file
 *.dvi 
@@ -34,6 +33,6 @@ code/.DS_Store
 /code/tables/individual_tables
 /code/tables/tex_output/individual_tables/
 
-**/*.DS_Store
+.DS_Store
 *.synctex(busy)
 
